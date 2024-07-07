@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
@@ -8,6 +9,9 @@ const User = require('./models/User'); // We'll define this model later
 require('dotenv').config();
 
 const app = express();
+
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
 
 const cookieKey = JSON.parse(process.env.COOKIE_KEYS);
 
@@ -56,16 +60,16 @@ passport.deserializeUser((id, done) => {
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('Welcome to the Home Page!');
+    res.render('home');
 });
 
 app.get('/login', (req, res) => {
-    res.send('<a href="/auth/google">Login with Google</a>');
+    res.render('login');
 });
 
-app.get('/auth/google', passport.authenticate('google', {
-    scope: ['profile']
-}));
+app.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile', 'email'] })
+);
 
 app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/' }),
