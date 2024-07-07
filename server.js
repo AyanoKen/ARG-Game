@@ -1,19 +1,17 @@
 const express = require('express');
-const path = require('path');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const cookieSession = require('cookie-session');
-const User = require('./models/User'); // We'll define this model later
+const User = require('./models/User');
 
 require('dotenv').config();
 
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, 'public')));
-
-const cookieKey = JSON.parse(process.env.COOKIE_KEYS);
+app.use(express.static(__dirname + '/public'));
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/arggame', {
@@ -21,47 +19,73 @@ mongoose.connect('mongodb://localhost:27017/arggame', {
     useUnifiedTopology: true
 });
 
-// Cookie session configuration
-app.use(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
-    keys: cookieKey
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// Session management
+app.use(session({
+    secret: process.env.COOKIE_KEYS,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: 'mongodb://localhost:27017/arggame',
+        collectionName: 'sessions'
+    }),
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 // 1 day
+    }
 }));
 
 // Initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // Passport configuration
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: '/auth/google/callback'
-}, (accessToken, refreshToken, profile, done) => {
-    User.findOne({ googleId: profile.id }).then((existingUser) => {
-        if (existingUser) {
-            done(null, existingUser);
-        } else {
-            new User({ googleId: profile.id, displayName: profile.displayName })
-                .save()
-                .then(user => done(null, user));
-        }
+}, async (accessToken, refreshToken, profile, done) => {
+    const existingUser = await User.findOne({ googleId: profile.id });
+
+    if (existingUser) {
+        return done(null, existingUser);
+    }
+
+    const newUser = new User({
+        googleId: profile.id,
+        displayName: profile.displayName,
+        email: profile.emails[0].value,
+        currentLevel: 0 // default value for currentLevel
     });
+
+    await newUser.save();
+    done(null, newUser);
 }));
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });
 
-passport.deserializeUser((id, done) => {
-    User.findById(id).then(user => {
-        done(null, user);
-    });
+passport.deserializeUser(async (id, done) => {
+    const user = await User.findById(id);
+    done(null, user);
 });
 
-// Routes
-app.get('/', (req, res) => {
-    res.render('home');
-});
+
+// app.get('/', (req, res) => {
+//     if(req.isAuthenticated()){
+//         res.render("home");
+//       }else{
+//         res.redirect("/login");
+//       }
+// });
+
+app.get('/', (req, res) =>{
+    res.render("home", { user: req.user });
+})
 
 app.get('/login', (req, res) => {
     res.render('login');

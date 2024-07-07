@@ -104,12 +104,12 @@
         </div>
     </section>
 
-    <div class="sticky-bar bg-dark text-white py-2">
-        <div class="container d-flex justify-content-between align-items-center">
+    <% if (!user) { %>
+        <div class="sticky-bar">
             <span>Join the hunt and help solve the mystery of Professor Emma Thompson's disappearance!</span>
-            <a href="/login" class="btn btn-warning">Sign up</a>
+            <a href="/auth/google" class="btn btn-primary">Sign Up</a>
         </div>
-    </div>
+    <% } %>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
