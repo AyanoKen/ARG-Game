@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #111;
-    color: #fff;
+    color: #ffbf35;
     margin: 0;
     padding: 0;
 }
@@ -10,17 +10,57 @@ body {
     height: 40px;
 }
 
+.bg-dark{
+    background-color: #000 !important;
+}
+
 .hero {
-    background-color: #222;
-    padding: 3rem 0;
+    position: relative;
+    text-align: center;
+    height: 100vh; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
+.slide1 {
+    background: url('/images/HomePage - Header 1.png') no-repeat center center/cover;
+}
+
+.slide2 {
+    background: url('/images/HomePage - Header 2.png') no-repeat center center/cover;
+}
+
+.slide3 {
+    background: url('/images/HomePage - Header 3.png') no-repeat center center/cover;
+}
+
+.hero .content {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2%;
+    padding-left: 4%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px yellow;
+    min-height: 20%; /* Minimum height to maintain shape */
+    width: 70%; /* Set width to 50% of screen width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure space between elements */
+    text-align: left;
+}
 .hero h1 {
-    font-size: 2rem;
+    margin: 0;
+    display: inline-block;
+    font-size: 1.5rem;
 }
-
-.community, .research-section {
-    padding: 2rem 0;
+.hero .btn-warning {
+    background-color: #f0ad4e;
+    border: none;
+    align-self: flex-end; /* Align button to bottom right */
 }
 
 .card {
@@ -46,7 +86,6 @@ body {
     bottom: 0;
     width: 100%;
     background-color: #000;
-    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;

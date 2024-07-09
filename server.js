@@ -97,11 +97,24 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/' }),
-    (req, res) => {
-        // Successful authentication, redirect home.
-        res.redirect('/');
+    async (req, res) => {
+        try{
+            const user = await User.findById(req.user.id);
+            if (user.newUser) {
+                res.redirect('/playerinfo');
+            } else {
+                res.redirect('/');
+            }
+        } catch(err){
+            console.error(err);
+            res.redirect('/login');
+        }
     }
 );
+
+app.get('/playerinfo', (req, res) => {
+    res.render('playerinfo')
+})
 
 app.get('/logout', (req, res) => {
     req.logout();

@@ -4,6 +4,10 @@ const userSchema = new mongoose.Schema({
     googleId: String,
     displayName: String,
     email: String,
+    newUser: {
+        type: Boolean,
+        default: true
+    },
     currentLevel: {
         type: String,
         default: '0'
