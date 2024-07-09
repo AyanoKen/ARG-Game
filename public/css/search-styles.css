@@ -52,6 +52,16 @@ body {
 .clues h1 {
     color: #f0ad4e;
     text-align: center;
+    margin-bottom: 4%;
+}
+
+.clues h2 {
+    color: #f0ad4e;
+}
+
+.clues p {
+    color: #f0ad4e;
+    font-size: 1.5rem;
 }
 
 .clues .container-fluid {
@@ -59,4 +69,9 @@ body {
     box-shadow: 0 0 10px 2px rgb(230, 230, 205);
     padding: 2%;
     margin: 4% 0;
+}
+
+.clues img {
+    width: 100%;
+    box-shadow: 0 0 10px 2px rgb(230, 230, 205);
 }

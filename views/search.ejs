@@ -53,9 +53,47 @@
     <section class="clues">
         <div class="container-fluid">
             <h1>TRAIL OF CLUES</h1>
-            
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="mb-4">
+                        <p>In searching for Professor Emily Xander, we found intriguing clues in her abandoned lab, PEARL. These clues are key to understanding her disappearance. Visit Room 201 at the Stewart Center to explore the lab and piece together the puzzle. Join Mission Renaissance to help find our beloved professor.</p>
+                        <h2>Room 201, Stewart Center</h2>
+                        <img src="/images/Search Page - Lab 1.png" alt="" id="mainImage" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <img src="/images/Search Page - Lab 2.png" alt="" class="img-fluid h-100" onclick="changeImages(this)">
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <img src="/images/Search Page - Lab 3.png" alt="" class="img-fluid h-100" onclick="changeImages(this)">
+                        </div>
+                        <div class="col-md-12">
+                            <img src="/images/Search Page - Lab 4.png" alt="" class="img-fluid h-100" onclick="changeImages(this)">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    
+    
+    
+    
+    
+    <script>
+        function changeImages(clickedImage) {
+            var mainImage = document.getElementById('mainImage');
+            
+            // Store current main image src
+            var currentMainImageSrc = mainImage.src;
+            
+            // Swap src attributes
+            mainImage.src = clickedImage.src;
+            clickedImage.src = currentMainImageSrc;
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
