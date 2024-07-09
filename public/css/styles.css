@@ -60,25 +60,94 @@ body {
 .hero .btn-warning {
     background-color: #f0ad4e;
     border: none;
-    align-self: flex-end; /* Align button to bottom right */
+    align-self: flex-start; /* Align button to bottom right */
 }
 
-.card {
-    background-color: #444;
+.community .card{
+    margin-top: auto;
+}
+
+.community-left img {
+    width: 80%;
+    border-radius: 3%;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    box-shadow: 0 0 10px 2px rgb(207, 207, 207);
+}
+
+.community .row {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.community h2 {
+    margin-bottom: 3.5% !important;
+}
+
+.community .card {
+    background: rgb(5,5,5);
+    background: linear-gradient(0deg, rgba(5,5,5,1) 0%, rgba(57,57,57,1) 100%);
     border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* mask-image: linear-gradient(to top right, transparent 10%, black 10%);
+    -webkit-mask-image: linear-gradient(to top right, transparent 10%, black 10%); */
+    /* border-bottom-right-radius: 100px; */
+    box-shadow: 0 0 10px 2px rgb(207, 207, 207);
     margin-bottom: 2rem;
 }
 
-.card-body {
+
+.community .card-body {
     text-align: center;
+    padding: 10%;
+    padding-bottom: 0%;
+}
+
+.community .card-body h3 {
+    text-align: left;
+}
+
+.card-body p {
+    text-align: left;
+    padding-top: 8%;
+    font-size: 1rem;
+}
+
+.community .btn-warning {
+    background-color: #f0ad4e;
+    margin: 5%;
 }
 
 .btn-warning {
     background-color: #ffc107;
     border-color: #ffc107;
     color: #000;
+}
+
+.research .container-fluid {
+    background-color:rgba(136, 0, 255, 0.5) ;
+    padding: 5%;
+    text-align: center;
+}
+
+.research img {
+    width: 80%;
+    border-radius: 3%;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    box-shadow: 0 0 10px 2px rgb(207, 207, 207);
+}
+
+.research .card {
+    background: rgb(136,0,255);
+    background: linear-gradient(0deg, rgba(136, 0, 255, 0.2) 0%, rgba(102, 0, 255, 0.2) 100%);
+    box-shadow: 0 0 10px 2px rgb(207, 207, 207);
+}
+
+.research a {
+    margin-top: 3%;
+    padding: 1% 8%;
 }
 
 .sticky-bar {

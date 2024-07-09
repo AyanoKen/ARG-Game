@@ -23,10 +23,10 @@
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#community">Community</a>
+                            <a class="nav-link" href="/community">Community</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#search">The Search</a>
+                            <a class="nav-link" href="/search">The Search</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/login">Sign Up</a>
@@ -44,7 +44,7 @@
                 <section class="hero slide1">
                     <div class="content">
                         <h1>The Purdue community has been rattled by the sudden disappearance of Professor Xander, director of the PEARL Lab.</h1>
-                        <a href="#" class="btn btn-warning">JOIN THE HUNT</a>
+                        <a href="/login" class="btn btn-warning">JOIN THE HUNT</a>
                     </div>
                 </section>
             </div>
@@ -52,7 +52,7 @@
                 <section class="hero slide2">
                     <div class="content">
                         <h1>Follow the clues and piece together the mystery of Professor Xander's disappearance and the future of AI at Purdue.</h1>
-                        <a href="#" class="btn btn-warning">EXPLORE LAB</a>
+                        <a href="/lab" class="btn btn-warning">EXPLORE LAB</a>
                     </div>
                 </section>
             </div>
@@ -60,7 +60,7 @@
                 <section class="hero slide3">
                     <div class="content">
                         <h1>Envision the future of Purdue with AI integrated across campus transforming education and Purdue itself.</h1>
-                        <a href="#" class="btn btn-warning">VIEW COMMUNITY</a>
+                        <a href="/community" class="btn btn-warning">VIEW COMMUNITY</a>
                     </div>
                 </section>
             </div>
@@ -77,33 +77,37 @@
 
 
     <section id="community" class="community py-5 bg-dark">
-        <div class="container">
+        <div class="container-fluid">
             <h2 class="text-center mb-4">Community</h2>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card bg-secondary mb-4">
-                        <div class="card-body text-center">
-                            <h3>Re-Imagining Purdue</h3>
+                <div class="col-md-6 community-left">
+                    <div class="card bg-secondary mb-4 h-100">
+                        <div class="card-body">
+                            <h3>RE-IMAGINING PURDUE</h3>
+                            <img src="/images/HomePage - Reimagine Purdue.png" alt="">
                             <p>Check out Tomorrow's Purdue: With AI, a creative showcase, where you will find a stunning array of AI-generated images that re-imagine our Purdue campus in imaginative and innovative ways.</p>
-                            <a href="#" class="btn btn-warning">View more</a>
+                            
                         </div>
+                        <a href="/community" class="btn btn-warning">CHECK IT OUT</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card bg-secondary mb-4">
-                        <div class="card-body text-center">
-                            <h3>AI-Enabled Solutions</h3>
-                            <p>Check out the realm of visionary solutions for the future of education and campus life! Explore identified problems and innovative solutions and join in shaping Purdue’s future.</p>
-                            <a href="#" class="btn btn-warning">View more</a>
+                <div class="col-md-6 d-flex flex-column">
+                    <div class="row flex-grow-1">
+                        <div class="col-md-12 mb-4">
+                            <div class="card bg-secondary h-100">
+                                <div class="card-body">
+                                    <h3>AI-Enabled Solutions</h3>
+                                    <p>Check out the realm of visionary solutions for the future of education and campus life! Explore identified problems and innovative solutions and join in shaping Purdue’s future.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-secondary mb-4">
-                        <div class="card-body text-center">
-                            <h3>Perceptions About AI</h3>
-                            <p>Navigate through this interactive space where the diverse perspectives of players converge to shape the understanding of AI.</p>
-                            <a href="#" class="btn btn-warning">View more</a>
+                        <div class="col-md-12">
+                            <div class="card bg-secondary h-100">
+                                <div class="card-body">
+                                    <h3>Perceptions About AI</h3>
+                                    <p>Navigate through this interactive space where the diverse perspectives of players converge to shape the understanding of AI.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,15 +115,15 @@
         </div>
     </section>
 
-    <section id="research" class="research-section py-5 bg-dark">
-        <div class="container">
+    <section id="research" class="research py-5 bg-dark">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
                     <div class="card bg-secondary mb-4">
                         <div class="card-body text-center">
                             <h3>Research Lab</h3>
-                            <p>Purdue University's AI Lab stands at the forefront of innovation, spearheading advancements in artificial intelligence (AI) to address complex challenges.</p>
-                            <a href="#" class="btn btn-warning">View more</a>
+                            <p>Explore the Professor's lab to discover clues that would help uncover her mysterious disappearance.</p>
+                            <img src="/images/HomePage - Reimagine Purdue.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -127,12 +131,13 @@
                     <div class="card bg-secondary mb-4">
                         <div class="card-body text-center">
                             <h3>Dr. Emily Xander</h3>
-                            <p>Dr. Emily Xander's early career was marked by significant contributions to AI research, including advanced learning algorithms and natural language processing. Over the years, her interests...</p>
-                            <a href="#" class="btn btn-warning">View more</a>
+                            <p>Dr. Xander, director of PEARL was working on the ground-breaking project ECHO, when tragedy struck.</p>
+                            <img src="/images/HomePage - Reimagine Purdue.png" alt="">
                         </div>
                     </div>
                 </div>
             </div>
+            <a href="/search" class="btn btn-warning">FIND OUT WHAT HAPPENED</a>
         </div>
     </section>
 

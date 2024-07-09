@@ -87,6 +87,10 @@ app.get('/', (req, res) =>{
     res.render("home", { user: req.user });
 })
 
+app.get('/search', (req, res) => {
+    res.render("search");
+})
+
 app.get('/login', (req, res) => {
     res.render('login');
 });

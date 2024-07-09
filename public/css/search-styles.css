@@ -1,0 +1,62 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #111;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    height: 40px;
+}
+
+.bg-dark{
+    background-color: #000 !important;
+}
+
+.infosection {
+    position: relative;
+    text-align: center;
+    height: 100vh; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: url('/images/Search Page - Header.png') no-repeat center center/cover;
+}
+
+.infosection .content {
+    position: absolute;
+    left: 5%;
+    background-color: rgba(247, 247, 247, 0.6);
+    padding: 2%;
+    padding-left: 4%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px yellow;
+    width: 50%; /* Set width to 50% of screen width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure space between elements */
+    text-align: left;
+}
+.infosection h1 {
+    margin: 0;
+    display: inline-block;
+    font-size: 1.5rem;
+}
+.infosection .btn-warning {
+    background-color: #f0ad4e;
+    border: none;
+    align-self: flex-start; /* Align button to bottom right */
+}
+
+.clues h1 {
+    color: #f0ad4e;
+    text-align: center;
+}
+
+.clues .container-fluid {
+    background-color: rgba(136, 111, 250, 0.432);
+    box-shadow: 0 0 10px 2px rgb(230, 230, 205);
+    padding: 2%;
+    margin: 4% 0;
+}
