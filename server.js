@@ -91,6 +91,10 @@ app.get('/search', (req, res) => {
     res.render("search", { user: req.user });
 })
 
+app.get('/lab', (req, res) => {
+    res.render('lab');
+});
+
 app.get('/login', (req, res) => {
     res.render('login');
 });
