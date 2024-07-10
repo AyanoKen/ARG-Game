@@ -88,7 +88,7 @@ app.get('/', (req, res) =>{
 })
 
 app.get('/search', (req, res) => {
-    res.render("search");
+    res.render("search", { user: req.user });
 })
 
 app.get('/login', (req, res) => {

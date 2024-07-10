@@ -12,13 +12,10 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/images/placeholder.png" alt="Logo" class="logo">
+                    <img src="/images/placeholder-logo.jpg" alt="Logo" class="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mx-auto nav-center">
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>
                         </li>
@@ -28,9 +25,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/search">The Search</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <% if (user) { %>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Sign Up</a>
+                            <a class="nav-link" href="/playerinfo">
+                                <img src="/images/placeholder-icon.jpg" alt="Icon" class="icon">
+                            </a>
                         </li>
+                        <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Sign in</a>
+                        </li>
+                        <% } %>
                     </ul>
                 </div>
             </div>
@@ -75,6 +82,63 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="exponent">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="exponent-carousel" class="carousel slide" data-ride="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <section class="news slide1">
+                                    <div class="content">
+                                        <img src="/images/Search Page - Lab 1.png" alt="" class="img-fluid">
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="carousel-item">
+                                <section class="news slide2">
+                                    <div class="content">
+                                        <img src="/images/Search Page - Lab 2.png" alt="" class="img-fluid">
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="carousel-item">
+                                <section class="news slide3">
+                                    <div class="content">
+                                        <img src="/images/Search Page - Lab 3.png" alt="" class="img-fluid">
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#exponent-carousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#exponent-carousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="exponent-right">
+                        <h1>PEARL LAB</h1>
+                        <img src="/images/Search Page - PEARL.png" alt="">
+                        <p>The Purdue University AI in Education Research Lab, directed by the visionary Dr. Emily Xander, was at the forefront of integrating artificial intelligence into educational frameworks. Dedicated to advancing the integration of AI in educational settings, the lab focuses on enhancing learning outcomes, personalizing student experiences, and optimizing educational processes. </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="container-fluid">
+            <h1>Join Mission Renaissance to solve Professor Xander's mystery!</h1>
         </div>
     </section>
     

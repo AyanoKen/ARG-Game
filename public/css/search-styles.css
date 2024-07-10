@@ -13,6 +13,29 @@ body {
     background-color: #000 !important;
 }
 
+.navbar-nav a {
+    font-size: 1.5rem;
+}
+
+.navbar-brand img {
+    width: 40px;
+    height: auto;
+}
+.navbar-nav .nav-item .nav-link {
+    color: #f0ad4e;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: white;
+}
+.navbar-nav .nav-item .active .nav-link {
+    color: white;
+}
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .infosection {
     position: relative;
     text-align: center;
@@ -74,4 +97,62 @@ body {
 .clues img {
     width: 100%;
     box-shadow: 0 0 10px 2px rgb(230, 230, 205);
+}
+
+.exponent .container-fluid {
+    box-shadow: 0 0 10px 2px rgb(230, 230, 205);
+    margin: 4% 0;
+}
+
+.slide1 {
+    background: url('/images/HomePage - Header 1.png') no-repeat center center/cover;
+}
+
+.slide2 {
+    background: url('/images/HomePage - Header 2.png') no-repeat center center/cover;
+}
+
+.slide3 {
+    background: url('/images/HomePage - Header 3.png') no-repeat center center/cover;
+}
+
+.exponent .col-md-8 {
+    padding: 0%;
+} 
+
+.exponent .col-md-4 {
+    padding: 0%;
+} 
+
+.exponent-right{
+    background-color: rgba(136, 111, 250, 0.432);
+    padding: 4%;
+}
+
+.exponent-right img {
+    width: 100%;
+    box-shadow: 0 0 10px 2px rgb(230, 230, 205);
+    margin-bottom: 4%;
+}
+
+.exponent h1 {
+    color: #f0ad4e;
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+.exponent p {
+    color: #f0ad4e;
+    font-size: 1.5rem;
+}
+
+.footer .container-fluid {
+    background-color: white;
+    margin-top: 4%;
+    padding: 4%;
+}
+
+.footer h1 {
+    color: black;
+    text-align: center;
 }

@@ -12,13 +12,10 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/images/placeholder.png" alt="Logo" class="logo">
+                    <img src="/images/placeholder-logo.jpg" alt="Logo" class="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mx-auto nav-center">
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>
                         </li>
@@ -28,9 +25,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/search">The Search</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <% if (user) { %>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Sign Up</a>
+                            <a class="nav-link" href="/playerinfo">
+                                <img src="/images/placeholder-icon.jpg" alt="Icon" class="icon">
+                            </a>
                         </li>
+                        <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Sign in</a>
+                        </li>
+                        <% } %>
                     </ul>
                 </div>
             </div>
