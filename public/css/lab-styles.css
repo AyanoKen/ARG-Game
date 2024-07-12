@@ -59,7 +59,7 @@ h1 {
 .card {
     position: relative;
     width: 18rem;
-    margin: 10px;
+    margin: 2%;
     transition: transform 0.3s ease;
     overflow: hidden;
     box-shadow: 0 0 5px 2px black;
@@ -73,7 +73,7 @@ h1 {
 }
 
 .card:hover {
-    transform: scale(2);
+    /* transform: scale(2); */
     box-shadow: 0 0 20px black;
     z-index: 10;
 }
@@ -112,4 +112,32 @@ h1 {
 
 .focusarea img {
     width: 100%;
+}
+
+.xander .container {
+    background-color: rgb(165, 165, 252);
+    padding: 5%;
+}
+
+.xander img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.xander h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.xander h4 {
+    color: #555;
+    margin-top: 20px;
+}
+
+.xander p {
+    color: #666;
+}
+
+.xander li {
+    margin-top: 10px;
 }

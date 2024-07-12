@@ -14,7 +14,12 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/arggame', {
+// mongoose.connect('mongodb://localhost:27017/arggame', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+
+mongoose.connect('mongodb+srv://' + process.env.MONGODBUSER + ':' + process.env.MONGODBPASSWORD + '@cluster0.jt3qbmd.mongodb.net/ARG-Website?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
