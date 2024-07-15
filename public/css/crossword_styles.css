@@ -1,0 +1,38 @@
+body {
+    background-color: #2d2d2d;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.crossword {
+    display: grid;
+    grid-template-columns: repeat(22, 1fr); /* Adjust grid size as needed */
+    gap: 5px;
+    margin: 20px;
+}
+
+.crossword input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+.crossword input.correct {
+    background-color: green;
+}
+
+.clues {
+    max-height: 80vh;
+    overflow-y: scroll;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+h4 {
+    color: #ffcc00;
+}
