@@ -1,0 +1,104 @@
+body {
+    background: rgb(11,1,33);
+    background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.navbar-nav a {
+    font-size: 1.5rem;
+}
+
+.navbar-brand img {
+    width: 40px;
+    height: auto;
+}
+.navbar-nav .nav-item .nav-link {
+    color: #f0ad4e;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: white;
+}
+.navbar-nav .nav-item .active .nav-link {
+    color: white;
+}
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.col-md-2 {
+    height: 92vh;
+}
+
+.icons {
+    background-color: #452e68;
+    color: #ffcc00;
+    box-shadow: 0 0 10px 4px #c79be9;
+    text-align: center;
+    padding: 4%;
+    margin: 5%;
+}
+
+.icons h1 {
+    font-size: 1.5em;
+}
+
+.icons a {
+    font-size: 1.5em;
+    color: #ffcc00;
+}
+
+.icons img{
+    width: 50%;
+    margin: 5% 0;
+}
+
+.info-section{
+    text-align: center;
+    padding: 4%;
+    color: #f0ad4e;
+}
+
+.info-section h1 {
+    font-size: 1.5rem;
+}
+
+.info-section img {
+    width: 15%;
+    margin: 2% 0;
+    border-radius: 10%;
+}
+
+.info-left {
+    text-align: right !important;
+}
+
+.info-right {
+    text-align: left !important;
+}
+
+.info-bottom {
+    background-color: transparent;
+    border: 2px solid #9172E7;
+    color: #9172E7;
+    font-weight: bold;
+    padding: 2% 4%;
+    border-radius: 5px;
+    margin: 4% 8%;
+}
+
+.info-bottom p {
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.info-bottom a {
+    font-weight: bold;
+    background-color: #CEAE66;
+}
