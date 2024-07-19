@@ -8,7 +8,31 @@
     <link rel="stylesheet" href="/css/crossword_styles.css">
 </head>
 <body>
-    <div class="container-fluid">
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/placeholder-logo.jpg" alt="Logo" class="logo">
+                </a>
+                <div class="title">
+                    <h1>05</h1>
+                    <h1>AI IN EDUCATION</h1>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/playerinfo">
+                                <img src="/images/placeholder-icon.jpg" alt="Icon" class="icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid crossword-container">
         <div class="row">
             <div class="col-md-8">
                 <div class="crossword" id="crossword">
@@ -36,7 +60,10 @@
                         <li>9. A systematic unfairness in AI algorithms, resulting in preferential treatment of certain groups over others.</li>
                         <li>11. The abbreviated term for the AI field focused on understanding and generating human language.</li>
                     </ul>
+                    
                 </div>
+                <button id="revealButton" class="btn btn-primary mt-3">REVEAL A WORD</button>
+                <p id="revealText" class="mt-2"></p>
             </div>
         </div>
     </div>

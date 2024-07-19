@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     ];
 
     const crosswordElement = document.getElementById('crossword');
+    const revealButton = document.getElementById('revealButton');
+    const revealText = document.getElementById('revealText');
+
+    const words = [
+        'SCHOLAR', 'AUTOMATEDGRADING', 'PERSONALIZATION', 'GEMINI', 'NEURALNETWORK', 'ALPACAS', 'BIGDATA',
+        'SAMALTMAN', 'TURINGTEST', 'SOPHIA', 'HAL9000', 'BIAS', 'NLP'
+    ];
 
     crosswordLayout.forEach((row, rowIndex) => {
         row.forEach((cell, cellIndex) => {
@@ -62,4 +69,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
             input.style.backgroundColor = 'red';
         }
     }
+
+    revealButton.addEventListener('click', () => {
+        const randomIndex = Math.floor(Math.random() * words.length);
+        const word = words[randomIndex];
+        revealText.textContent = `One of the words is ${word}`;
+        setTimeout(() => {
+            revealText.textContent = '';
+        }, 3000);
+    });
 });

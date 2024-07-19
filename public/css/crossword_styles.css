@@ -1,7 +1,46 @@
 body {
-    background-color: #2d2d2d;
+    background: rgb(33,0,61);
+    background: linear-gradient(0deg, rgba(33,0,61,0.9808298319327731) 13%, rgba(57,0,131,1) 67%, rgba(70,0,175,0.9864320728291317) 100%);
     color: white;
     font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.title h1{
+    font-size: 1.5em;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+}
+
+.navbar-nav a {
+    font-size: 1.5rem;
+}
+
+.navbar-brand img {
+    width: 40px;
+    height: auto;
+}
+.navbar-nav .nav-item .nav-link {
+    color: #f0ad4e;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: white;
+}
+.navbar-nav .nav-item .active .nav-link {
+    color: white;
+}
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.crossword-container {
+    padding-top: 2%;
 }
 
 .crossword {
@@ -16,9 +55,9 @@ body {
     height: 40px;
     text-align: center;
     font-size: 18px;
-    background-color: #333;
-    color: white;
-    border: 1px solid #555;
+    background-color: #c79be9;
+    color: rgb(0, 0, 0);
+    border: 1px solid #ffcc00;
 }
 
 .crossword input.correct {
@@ -29,10 +68,50 @@ body {
     max-height: 80vh;
     overflow-y: scroll;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: transparent;
     border-radius: 10px;
+    box-shadow: 0 0 10px 4px #c79be9;
+}
+
+::-webkit-scrollbar {
+    width: 10px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a2e; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #aa6fdf; 
+    border-radius: 10px; 
+    border: 2px solid #1a1a2e; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #944fcb; 
 }
 
 h4 {
+    color: #ffcc00;
+}
+
+#revealButton {
+    background-color: transparent;
+    border: 2px solid #9172E7;
+    color: #ffcc00;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#revealButton:hover {
+    background-color: #9172E7;
+    color: #fff;
+}
+
+#revealText {
     color: #ffcc00;
 }
