@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="/css/levels-styles.css">
 </head>
 <body>
@@ -43,62 +44,42 @@
             <div class="row">
                 <div class="col-md-4 left-section">
                     <div class="icons">
-                        <a href="/playerinfo" class="btn btn-warning">Back</a>
+                        <button class="unstyled-button" onclick="window.location.href='/playerinfo'""><i class="fas fa-backward fa-4x"></i></button>
                     </div>
-                    <div class="icons">
-                        <h1>01 AGENT PROFILE</h1>
-                        <p>LOCKED</p>
-                    </div>
-                    <div class="icons">
-                        <h1>02 DATA VISUALIZATION</h1>
-                        <p>LOCKED</p>
-                    </div>
-                    <div class="icons">
-                        <h1>03 PROMPT ENGINEERING</h1>
-                        <p>LOCKED</p>
-                    </div>
-                    <div class="icons">
-                        <h1>04 AI IN EDUCATION - 1</h1>
-                        <p>LOCKED</p>
-                    </div>
-                    <div class="icons">
-                        <h1>05 DATA ANALYTICS</h1>
-                        <p>LOCKED</p>
-                    </div>
-                    <div class="icons">
-                        <h1>06 AI IN EDUCATION - 2</h1>
-                        <p>LOCKED</p>
-                    </div>
+                    <% const chapters = [
+                        { id: 0, title: 'AGENT PROFILE' },
+                        { id: 1, title: 'DATA VISUALIZATION' },
+                        { id: 2, title: 'PROMPT ENGINEERING' },
+                        { id: 3, title: 'AI IN EDUCATION - 1' },
+                        { id: 4, title: 'DATA ANALYTICS' },
+                        { id: 5, title: 'AI IN EDUCATION - 2' }
+                    ]; %>
+                    <% chapters.forEach(chapter => { %>
+                        <div class="icons">
+                            <h1 class="<%= chapter.id <= currentLevel ? (chapter.id < currentLevel ? 'completed chapter-title' : 'chapter-title') : 'locked' %>" 
+                                data-title="0<%= chapter.id + 1 %> <%= chapter.title %>">
+                                0<%= chapter.id + 1 %> <%= chapter.title %>
+                            </h1>
+                            <p><%= chapter.id <= currentLevel ? 'UNLOCKED' : 'LOCKED' %></p>
+                        </div>
+                    <% }) %>
                 </div>
-                <div class="col-md-8 info-section">
-                    <img src="/images/Pearl Logo.png" alt="">
-                    <div class="row">
-                        <div class="col-md-6 info-left">
-                            <h1>AGENT NAME  : </h1>
-                            <h1>I.D  : </h1>
-                            <h1>TROOP :</h1>
-                            <h1>LEVEL :</h1>
-                            <h1>BADGES :</h1>
-                        </div>
-                        <div class="col-md-6 info-right">
-                            <h1>Ayano</h1>
-                            <h1>xxx-xxx-xxx</h1>
-                            <h1>?</h1>
-                            <h1>00</h1>
-                            <h1>-</h1>
-                        </div>
-                    </div>
-                    <div class="info-bottom">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <p>Complete Level 1 to determine your troop assignment and embark on Mission Renaissance.</p>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="/level1" class="btn btn-warning">GO TO LEVEL 1</a>
-                            </div>
-                        </div>
-                        
-                    </div>
+                <div class="col-md-8 info-section <%= currentLevel > 0 ? 'locked' : '' %>">
+                    <h1 id="main-title">TRAINING MODULE 01: AGENT PROFILE</h1>
+                    <br>
+                    <h2>Mission Brief:</h2>
+                    <p id="mission-brief">Not a dialogue but what the mission was about and why it is important in AI and/or AI with Education.</p>
+                    <br>
+                    <h2>Mission Steps: </h2>
+                    <p id="mission-steps">
+                        1. Steps pertaining to the particular level. <br>
+                        2. Engage with the AI assistant: Dive into conversation with your AI companion, discussing your field of study and desired innovations. <br>
+                        3. Ideation phase: Brainstorm improvements collaboratively with your AI assistant, refining your ideas through constructive dialogue. <br>
+                        4. Visualize your solution: Utilize Midjourney to craft a visual representation of your innovative solution, either with AI assistance or by your own expertise. <br>
+                        5. Submission: Submit your finalized concept and visualization through the web platform for evaluation.
+                    </p>
+                    <a href="/level1" class="btn btn-warning">Begin Module 0<%= currentLevel + 1 %></a>
+                    <h3 class="completed-message">COMPLETED</h3>
                 </div>
             </div>
         </div>
@@ -107,5 +88,19 @@
     
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.chapter-title').on('click', function() {
+                var title = $(this).data('title');
+                $('#main-title').text('TRAINING MODULE: ' + title);
+
+                var chapterId = $(this).index('.chapter-title');
+                $('.info-section').removeClass('locked');
+                if (chapterId < <%= currentLevel %>) {
+                    $('.info-section').addClass('locked');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

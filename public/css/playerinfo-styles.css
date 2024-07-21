@@ -7,10 +7,13 @@ body {
 
 .navbar {
     background-color: transparent;
+    box-shadow: 0 0 10px 0.5px #c79be9;
+    margin-top: 1%;
 }
 
 .navbar-nav a {
     font-size: 1.5rem;
+    margin: 8% 0;
 }
 
 .navbar-brand img {

@@ -140,7 +140,7 @@ app.get('/playerinfo', (req, res) => {
 
 app.get('/levels', (req, res) => {
     if(req.isAuthenticated()){
-        res.render('levels');
+        res.render('levels', {user: req.user, currentLevel: req.user.currentLevel});
     }else{
         res.redirect('/login');
     }

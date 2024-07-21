@@ -9,8 +9,8 @@ const userSchema = new mongoose.Schema({
         default: true
     },
     currentLevel: {
-        type: String,
-        default: '0'
+        type: Number,
+        default: 0
     }
 });
 
