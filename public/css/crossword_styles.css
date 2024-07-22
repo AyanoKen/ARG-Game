@@ -65,7 +65,7 @@ body {
 }
 
 .clues {
-    max-height: 80vh;
+    max-height: 70vh;
     overflow-y: scroll;
     padding: 20px;
     background-color: transparent;
@@ -96,6 +96,14 @@ h4 {
     color: #ffcc00;
 }
 
+li {
+    list-style-type: none;
+}
+
+.hint {
+    margin-top: 6% !important;
+}
+
 #revealButton {
     background-color: transparent;
     border: 2px solid #9172E7;
@@ -114,4 +122,5 @@ h4 {
 
 #revealText {
     color: #ffcc00;
+    /* TODO: Center the text element */
 }
