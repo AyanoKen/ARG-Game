@@ -72,7 +72,16 @@ passport.use(new GoogleStrategy({
     });
 
     await newUser.save();
+
+    // Create a new entry in PlayerChoice for the new user
+    const newPlayerChoice = new PlayerChoice({
+        userId: profile.id,
+        choices: []
+    });
+
+    await newPlayerChoice.save();
     done(null, newUser);
+    
 }));
 
 passport.serializeUser((user, done) => {

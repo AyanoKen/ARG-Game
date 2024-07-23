@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
         type: Map,
         of: String,  // This will store the completion date as a string
         default: {1:"2024-07-21", 2: "2024-07-21"}
+    },
+    playerAvatar: {
+        type: String,
+        default: 'blankprofile.png'
     }
 });
 
