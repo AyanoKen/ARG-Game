@@ -199,6 +199,14 @@ app.post('/check', (req, res) => {
     res.json({ correct: result, correctAnswer: correctAnswer });
 });
 
+app.get('/orientation', (req, res) => {
+    if(req.isAuthenticated()){
+        res.render('orientation');
+    }else{
+        res.redirect('/login');
+    }
+})
+
 app.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
