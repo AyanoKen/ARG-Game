@@ -207,15 +207,21 @@ app.get('/orientation', (req, res) => {
     }
 });
 
+const troopCounts = [];
+
 app.post('/orientation/submit-answer', async (req, res) => {
-    const { userId, answer } = req.body;
+    const { userId, answerText, troopValue } = req.body;
     try {
         // Update player choices
         await PlayerChoice.findOneAndUpdate(
             { userId },
-            { $push: { choices: answer } },
+            { $push: { choices: answerText } },
             { new: true, upsert: true }
         );
+
+        troopCounts.push(troopValue)
+
+        console.log("ADDED");
 
         res.status(200).send({ message: 'Answer recorded' });
     } catch (error) {

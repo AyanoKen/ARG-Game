@@ -44,11 +44,29 @@
         </div>
     </section>
     
+
     <section class="questions-section">
         <div class="container">
-            <div id="questions-section" class="questions">
-                <div id="question-container"></div>
-                <button id="submit-answer">Submit Answer</button>
+            <div id="question1" class="question hidden">
+                <h1>Which of the following activities interest you the most?</h1>
+                <p class="answer" data-troop="T">A. Solving puzzles and analytical problems</p>
+                <p class="answer" data-troop="M">B. Learning new topics and expanding knowledge</p>
+                <p class="answer" data-troop="N">C. Creating or inventing new things</p>
+                <p class="answer" data-troop="E">D. Helping others and making a positive impact</p>
+            </div>
+            <div id="question2" class="question hidden">
+                <h1>Which of the following activities interest you the most?</h1>
+                <p class="answer" data-troop="T">A. Solving puzzles and analytical problems</p>
+                <p class="answer" data-troop="M">B. Learning new topics and expanding knowledge</p>
+                <p class="answer" data-troop="N">C. Creating or inventing new things</p>
+                <p class="answer" data-troop="E">D. Helping others and making a positive impact</p>
+            </div>
+            <div id="question3" class="question hidden">
+                <h1>Which of the following activities interest you the most?</h1>
+                <p class="answer" data-troop="T">A. Solving puzzles and analytical problems</p>
+                <p class="answer" data-troop="M">B. Learning new topics and expanding knowledge</p>
+                <p class="answer" data-troop="N">C. Creating or inventing new things</p>
+                <p class="answer" data-troop="E">D. Helping others and making a positive impact</p>
             </div>
         </div>
     </section>
@@ -68,62 +86,75 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script>
-        let currentQuestionIndex = 0;
-        const questions = [
-            { question: 'Which of the following activities interest you the most?', choices: ['A. Solving puzzles and analytical problems (T)', 'B. Learning new topics and expanding knowledge (M)', 'C. Creating or inventing new things (N)', 'D. Helping others and making a positive impact (E)'] },
-            { question: 'Which of the following activities interest you the most?', choices: ['A. Solving puzzles and analytical problems (T)', 'B. Learning new topics and expanding knowledge (M)', 'C. Creating or inventing new things (N)', 'D. Helping others and making a positive impact (E)'] },
-            { question: 'Which of the following activities interest you the most?', choices: ['A. Solving puzzles and analytical problems (T)', 'B. Learning new topics and expanding knowledge (M)', 'C. Creating or inventing new things (N)', 'D. Helping others and making a positive impact (E)'] }
-            // Add more questions here
-        ];
-        const userId = <%= userId %>; // Retrieve this from the session or a hidden input
 
-        document.getElementById('begin-button').addEventListener('click', () => {
-            document.getElementById('questions-section').style.display = 'block';
-            displayQuestion();
-        });
+        const userId = <%= userId %>;
 
-        document.getElementById('submit-answer').addEventListener('click', () => {
-            const selectedChoice = document.querySelector('input[name="choice"]:checked').value;
-            submitAnswer(selectedChoice);
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const beginButton = document.getElementById('begin-button');
+            const firstQuestion = document.getElementById('question1');
+
+            beginButton.addEventListener('click', () => {
+                // Remove the 'hidden' class from the first question
+                firstQuestion.classList.remove('hidden');
+            });
+
+            const questions = document.querySelectorAll('.question');
+            let currentQuestionIndex = 0;
+
+            function handleAnswerClick(event) {
+                const answerElement = event.target;
+                if (answerElement.classList.contains('answer')) {
+                    const answerText = answerElement.textContent.trim();
+                    const troopValue = answerElement.getAttribute('data-troop');
+
+                    answerElement.classList.add('selected');
+
+                    // Perform the POST request
+                    fetch('/orientation/submit-answer', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({userId, answerText, troopValue }),
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            const playerChoiceElement = document.createElement('p');
+                            playerChoiceElement.className = 'player-choice';
+                            playerChoiceElement.textContent = `You chose: ${answerText}`;
+
+                            questions[currentQuestionIndex].insertAdjacentElement('afterend', playerChoiceElement);
+
+                            questions[currentQuestionIndex].style.pointerEvents = 'none';
+
+                            currentQuestionIndex += 1;
+
+                            if (currentQuestionIndex < questions.length) {
+                                questions[currentQuestionIndex].classList.remove('hidden');
+                            }
+                        } else {
+                            // Handle the error
+                            console.error('Failed to submit answer');
+                        }
+                    })
+                    .catch(error => {
+                        // Handle network or other errors
+                        console.error('Error:', error);
+                    });
+                }
+            }
+
+            // Add event listeners to answer options
+            questions.forEach(question => {
+                question.addEventListener('click', handleAnswerClick);
+            });
         });
 
         document.getElementById('confirm-avatar').addEventListener('click', () => {
             const selectedAvatar = document.querySelector('input[name="avatar"]:checked').value;
             updateAvatar(selectedAvatar);
         });
-
-        const displayQuestion = () => {
-            const questionContainer = document.getElementById('question-container');
-            const currentQuestion = questions[currentQuestionIndex];
-            questionContainer.innerHTML = `<p>${currentQuestion.question}</p>`;
-            currentQuestion.choices.forEach((choice, index) => {
-                questionContainer.innerHTML += `<input type="radio" name="choice" value="${choice.charAt(0)}">${choice}<br>`;
-            });
-        };
-
-        const submitAnswer = (answer) => {
-            alert("Submitting Answer: ");
-            alert(questions.length);
-            fetch('/orientation/submit-answer', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId, answer })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert("Checkpoint 1 reached");
-                if (data.message === 'Answer recorded') {
-                    currentQuestionIndex++;
-                    if (currentQuestionIndex < questions.length) {
-                        alert("Checkpoint 2 reached");
-                        displayQuestion();
-                    } else {
-                        completeQuiz();
-                    }
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        };
 
         const completeQuiz = () => {
             fetch('/orientation/complete', {
