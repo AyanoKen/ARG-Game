@@ -1,0 +1,85 @@
+<!-- Add the necessary HTML, CSS, and JavaScript for the /level1 page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientation</title>
+    <link rel="stylesheet" href="/css/orientation-styles.css">
+</head>
+<body>
+    <div id="intro-section">
+        <p>Thank you for joining Mission Renaissance. Before we start your training, we need to assign you to a troop...</p>
+        <button id="begin-button">Begin</button>
+    </div>
+
+    <div id="questions-section" style="display: none;">
+        <div id="question-container"></div>
+        <button id="submit-answer">Submit Answer</button>
+    </div>
+
+    <script>
+        let currentQuestionIndex = 0;
+        const questions = [
+            { question: 'Which of the following activities interest you the most?', choices: ['A. Solving puzzles and analytical problems (T)', 'B. Learning new topics and expanding knowledge (M)', 'C. Creating or inventing new things (N)', 'D. Helping others and making a positive impact (E)'] }
+            // Add more questions here
+        ];
+        const userId = 'USER_ID_FROM_SESSION'; // Retrieve this from the session or a hidden input
+
+        document.getElementById('begin-button').addEventListener('click', () => {
+            document.getElementById('questions-section').style.display = 'block';
+            displayQuestion();
+        });
+
+        document.getElementById('submit-answer').addEventListener('click', () => {
+            const selectedChoice = document.querySelector('input[name="choice"]:checked').value;
+            submitAnswer(selectedChoice);
+        });
+
+        const displayQuestion = () => {
+            const questionContainer = document.getElementById('question-container');
+            const currentQuestion = questions[currentQuestionIndex];
+            questionContainer.innerHTML = `<p>${currentQuestion.question}</p>`;
+            currentQuestion.choices.forEach((choice, index) => {
+                questionContainer.innerHTML += `<input type="radio" name="choice" value="${choice.charAt(0)}">${choice}<br>`;
+            });
+        };
+
+        const submitAnswer = (answer) => {
+            fetch('/level1/submit-answer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId, answer })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Answer recorded') {
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        displayQuestion();
+                    } else {
+                        completeQuiz();
+                    }
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
+
+        const completeQuiz = () => {
+            fetch('/level1/complete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'House assigned') {
+                    alert(`You have been assigned to ${data.house} and your avatar is ${data.avatar}`);
+                    // You can also redirect the user or update the UI accordingly
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+</html>

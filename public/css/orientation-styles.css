@@ -1,0 +1,10 @@
+.question-section {
+    display: none;
+}
+.choice-response {
+    display: none;
+}
+.house-badge {
+    font-weight: bold;
+    color: #FFD700;
+}
