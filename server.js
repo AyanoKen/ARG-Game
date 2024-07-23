@@ -243,6 +243,27 @@ app.post('/orientation/complete', async (req, res) => {
     }
 });
 
+app.post('/orientation/updateTroop', async (req, res) => {
+    const { userId, troopName, avatar } = req.body;
+    try {
+        // Update the user's troop and avatar in the database
+        const result = await User.findOneAndUpdate(
+            { googleId: String(userId) },
+            { playerTroop: troopName, playerAvatar: avatar },
+            { new: true }
+        );
+        
+        if (!result) {
+            console.log('User not found or update failed.');
+        } else{
+            console.log('User is updated');
+        }
+        res.status(200).send({ message: 'Troop and avatar updated' });
+    } catch (error) {
+        res.status(500).send({ message: 'Error updating troop and avatar' });
+    }
+});
+
 function calculateTroop() {
     // Object to store the counts of each troop value
     const troopCountMap = {};

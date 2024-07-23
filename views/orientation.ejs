@@ -71,30 +71,50 @@
         </div>
     </section>
 
-    
-
-    <section class="avatar-section">
+    <section class="troop-section hidden">
         <div class="container">
-            <div id="avatar-selection-section" class="avatar-selection">
-                <p>You have been assigned to <span id="assigned-house"></span>. Please select your avatar:</p>
-                <div id="avatar-container"></div>
-                <button id="confirm-avatar">Confirm Avatar</button>
-            </div>
+            <h1>Great job! We've recorded all your answers and are now analyzing your unique traits. Hold tight as we assign you to the troop that best matches your skills and personality. This won't take long – your adventure is about to begin!</h1>
         </div>
     </section>
 
+    <section class="troop-section hidden">
+        <div class="container">
+            <h1 id="troop-title"></h1>
+            <img id="troop-image" src="" alt="">
+            <p id="troop-description"></p>
+        </div>
+    </section>
     
+    <section class="avatar-section hidden">
+        <div class="container">
+            <h1>Now that your troop has been chosen, it's time to pick your avatar. Select one from the below that best represents you</h1>
+            <div class="row" id="avatar-container">
+                <!-- Avatar images will be added here dynamically -->
+            </div>
+            <button id="submit-avatar-button" class="btn btn-warning hidden">Submit Avatar</button>
+        </div>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script>
 
-        const userId = <%= userId %>;
+        const troopData = {
+            'Tempus': {troop: 'Tempus', title: 'Welcome to Troop Tempus, where logic reigns supreme and precision is the key to mastery! This troop holds quick thinkers and efficient problem-solvers. ', image: '/images/tempus.png', description: 'Here, we thrive in the moment, making swift and decisive actions to tackle challenges head-on.  With your keen adaptability and exceptional time management skills, you are now part of a group that excels under pressure and adapts to changing circumstances with ease. Our members are known for their methodical approach and eagle-eyed attention to detail, transforming chaos into order with every calculation. Together, we will harness the power of the present to achieve great things. ' },
+            'Empathia': {troop: 'Empathia', title: 'Welcome to Troop Empathia, where  ethics and human-centered design take center stage! This is where innovators combine their empathy for humanity to drive solutions.', image: '/images/empathia.png', description: 'Here, we understand and predict human behavior, fostering strong connections and collaboration. Your high emotional intelligence, empathy, and excellent communication skills make you an invaluable member of our troop. Our members are champions of responsible AI, always considering the societal impacts and striving to ensure that tech innovations serve the greater good. Together, we will bridge hearts and minds, creating a harmonious and understanding environment where everyone can thrive. ' },
+            'Neurona': {troop: 'Neurona', title: 'Welcome to Troop Neurona, the realm of limitless creativity and boundless innovation! This is where the dreamers and trailblazers unite, and unleash their inner creativity.', image: '/images/neurona.png', description: 'Here, we combine the flair of an artist and the curiosity of an explorer. Neurona is your canvas to paint groundbreaking technologies and inventive ideas, making the impossible possible. Our members are the visionaries who see connections where others see chaos, turning sparks of inspiration into dazzling realities. If you thrive on thinking outside the box and love to experiment with new ideas, Neurona is your stage. Let your imagination soar, because in Neurona, every thought can become a masterpiece!' },
+            'Memoria': {troop: 'Memoria', title: 'Welcome to Troop Memoria, the sanctuary of wisdom, knowledge, and the pursuit of lifelong learning!  This troop gathers deep thinkers and strategic planners.', image: '/images/memoria.png', description: 'Here, we learn from the past to inform our actions in the present and shape a better future. Your analytical thinking, research prowess, and ability to draw insights from historical data make you a perfect fit for this house. Memoria a treasure trove of insights and discoveries, where every question leads to a new revelation. Together, we will delve into the depths of knowledge, uncovering patterns and crafting strategies that stand the test of time.' },
+            // Add other troops if needed
+        };
+
+        const userId = '<%= userId %>';
 
         document.addEventListener('DOMContentLoaded', () => {
+            alert(userId);
 
             const beginButton = document.getElementById('begin-button');
             const firstQuestion = document.getElementById('question1');
+            var troopInfo = [];
 
             beginButton.addEventListener('click', () => {
                 // Remove the 'hidden' class from the first question
@@ -135,7 +155,6 @@
                             if (currentQuestionIndex < questions.length) {
                                 questions[currentQuestionIndex].classList.remove('hidden');
                             } else {
-                                alert("HANDLING QUIZ END");
                                 fetch('/orientation/complete', {
                                     method: 'POST',
                                     headers: { 'Content-Type': 'application/json' },
@@ -143,11 +162,43 @@
                                 })
                                 .then(response => response.json())
                                 .then(data => {
-                                    alert(data.troopName);
-                                    alert(data.avatars);
-                                    if (data.message === 'Troop assigned') {
-                                        displayAvatars(data.troopName, data.avatars);
-                                    }
+                                    const troopSection = document.querySelector('.troop-section');
+                                    const troopTitle = document.getElementById('troop-title');
+                                    const troopImage = document.getElementById('troop-image');
+                                    const troopDescription = document.getElementById('troop-description');  
+
+                                    troopInfo = troopData[data.troopName];
+                                    troopTitle.textContent = troopInfo.title;
+                                    troopImage.src = troopInfo.image;
+                                    troopDescription.textContent = troopInfo.description;
+
+                                    const avatarContainer = document.getElementById('avatar-container');
+                                    avatarContainer.innerHTML = ''; // Clear existing avatars
+
+                                    data.avatars.forEach((avatar, index) => {
+                                        const colDiv = document.createElement('div');
+                                        colDiv.className = 'col-md-4';
+                                        const img = document.createElement('img');
+                                        img.src = avatar;
+                                        img.alt = `Avatar ${index + 1}`;
+                                        img.className = 'avatar';
+                                        img.style.cursor = 'pointer';
+                                        img.addEventListener('click', () => {
+                                            document.querySelectorAll('.avatar').forEach(avatar => {
+                                                avatar.classList.remove('selected');
+                                            });
+                                            img.classList.add('selected');
+                                            selectedAvatar = avatar;
+                                            document.getElementById('submit-avatar-button').classList.remove('hidden');
+                                        });
+                                        colDiv.appendChild(img);
+                                        avatarContainer.appendChild(colDiv);
+                                    });
+
+                                    // Make sections visible
+                                    troopSection.classList.remove('hidden');
+                                    document.querySelector('.avatar-section').classList.remove('hidden');
+
                                 })
                                 .catch(error => console.error('Error:', error));
                             }
@@ -168,37 +219,26 @@
                 question.addEventListener('click', handleAnswerClick);
             });
 
-            const displayAvatars = (troop, avatars) => {
-                alert("DISPLAY AVATARS FUNCTION TRIGGERED");
-                document.getElementById('assigned-house').textContent = troop;
-                const avatarContainer = document.getElementById('avatar-container');
-                avatars.forEach(avatar => {
-                    avatarContainer.innerHTML += `<input type="radio" name="avatar" value="${avatar}"><img src="/images/blankprofile.png" alt="${avatar}"><br>`;
-                });
-                document.getElementById('avatar-selection-section').style.display = 'block';
-            };
-
-            document.getElementById('confirm-avatar').addEventListener('click', () => {
-                const selectedAvatar = document.querySelector('input[name="avatar"]:checked').value;
-                updateAvatar(selectedAvatar);
+            document.getElementById('submit-avatar-button').addEventListener('click', () => {
+                if (selectedAvatar) {
+                    alert(JSON.stringify({ userId, troopName: troopInfo.troop, avatar: selectedAvatar }));
+                    fetch('/orientation/updateTroop', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ userId, troopName: troopInfo.troop, avatar: selectedAvatar })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message === 'Troop and avatar updated') {
+                            alert('Your troop and avatar have been successfully updated!');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                } else {
+                    alert('Please select an avatar before submitting.');
+                }
             });
         });
-
-        const updateAvatar = (selectedAvatar) => {
-            fetch('/orientation/update-avatar', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId, selectedAvatar })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message === 'Avatar updated successfully') {
-                    alert('Your avatar has been updated!');
-                    // Redirect or update the UI as needed
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        };
     </script>
 </body>
 </html>

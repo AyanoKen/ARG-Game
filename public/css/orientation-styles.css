@@ -110,7 +110,7 @@ body {
 }
 
 .selected {
-    box-shadow: 0 0 10px 0.5px #ffd977;
+    box-shadow: 0 0 10px 0.5px #ffd977 !important;
 }
 
 .player-choice {
@@ -121,6 +121,62 @@ body {
     text-align: right;
     width: 50%;
     align-self: flex-end; /* Aligns the playerChoice to the right */
+}
+
+.troop-section {
+    margin: 4% 0;
+}
+
+.troop-section .container {
+    box-shadow: 0 0 10px 0.5px #c79be9;
+    color: #ffd977;
+    padding: 2%;
+    background-color: #452e68;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.troop-section h1{
+    font-size: 1.2rem;
+    text-align: left !important;
+}
+
+.troop-section img{
+    width: 20%;
+    margin: 4%;
+    border-radius: 20px;
+}
+
+.troop-section p{
+    font-size: 1.2rem;
+    text-align: left !important;
+}
+
+.avatar-section{
+    margin: 4% 0;
+}
+
+.avatar-section .container{
+    box-shadow: 0 0 10px 0.5px #c79be9;
+    color: #ffd977;
+    padding: 2%;
+    background-color: #452e68;
+    border-radius: 10px;
+    
+}
+
+.avatar-section h1 {
+    font-size: 1.2rem;
+}
+
+.avatar-section img {
+    box-shadow: 0 0 10px 0.5px #c79be9;
+    width: 100%;
+    margin: 4% 0;
+}
+
+.avatar-section img:hover {
+    box-shadow: 0 0 10px 0.5px white;
 }
 
 .answer-button {
