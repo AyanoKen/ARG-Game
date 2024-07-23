@@ -1,30 +1,81 @@
-<!-- Add the necessary HTML, CSS, and JavaScript for the /level1 page -->
+<!-- Add the necessary HTML, CSS, and JavaScript for the /orientation page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orientation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/orientation-styles.css">
 </head>
 <body>
-    <div id="intro-section">
-        <p>Thank you for joining Mission Renaissance. Before we start your training, we need to assign you to a troop...</p>
-        <button id="begin-button">Begin</button>
-    </div>
 
-    <div id="questions-section" style="display: none;">
-        <div id="question-container"></div>
-        <button id="submit-answer">Submit Answer</button>
-    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/logo.png" alt="Logo" class="logo">
+                </a>
+                <div class="title">
+                    <h1>01</h1>
+                    <h1>TROOP ASSIGNMENT</h1>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/playerinfo">
+                                <img src="/images/blankprofile.png" alt="Icon" class="icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="intro-section">
+        <div class="container">
+            <div id="intro-section">
+                <img src="/images/orientationlogo.gif" alt="">
+                <p>Thank you for joining Mission Renaissance.</p>
+                <p> Before we start your training, we need to assign you to a troop that aligns with your strengths and will help you grow. To determine the most suitable match, you will need to answer a series of questions. Please select the option that best aligns with your characteristics and preferences. Prepare yourself, and let's begin.</p>
+                <button id="begin-button" class="btn btn-warning">BEGIN</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="questions-section">
+        <div class="container">
+            <div id="questions-section" class="questions">
+                <div id="question-container"></div>
+                <button id="submit-answer">Submit Answer</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="avatar-section">
+        <div class="container">
+            <div id="avatar-selection-section" class="avatar-selection">
+                <p>You have been assigned to <span id="assigned-house"></span>. Please select your avatar:</p>
+                <div id="avatar-container"></div>
+                <button id="confirm-avatar">Confirm Avatar</button>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script>
         let currentQuestionIndex = 0;
         const questions = [
+            { question: 'Which of the following activities interest you the most?', choices: ['A. Solving puzzles and analytical problems (T)', 'B. Learning new topics and expanding knowledge (M)', 'C. Creating or inventing new things (N)', 'D. Helping others and making a positive impact (E)'] },
+            { question: 'Which of the following activities interest you the most?', choices: ['A. Solving puzzles and analytical problems (T)', 'B. Learning new topics and expanding knowledge (M)', 'C. Creating or inventing new things (N)', 'D. Helping others and making a positive impact (E)'] },
             { question: 'Which of the following activities interest you the most?', choices: ['A. Solving puzzles and analytical problems (T)', 'B. Learning new topics and expanding knowledge (M)', 'C. Creating or inventing new things (N)', 'D. Helping others and making a positive impact (E)'] }
             // Add more questions here
         ];
-        const userId = 'USER_ID_FROM_SESSION'; // Retrieve this from the session or a hidden input
+        const userId = <%= userId %>; // Retrieve this from the session or a hidden input
 
         document.getElementById('begin-button').addEventListener('click', () => {
             document.getElementById('questions-section').style.display = 'block';
@@ -34,6 +85,11 @@
         document.getElementById('submit-answer').addEventListener('click', () => {
             const selectedChoice = document.querySelector('input[name="choice"]:checked').value;
             submitAnswer(selectedChoice);
+        });
+
+        document.getElementById('confirm-avatar').addEventListener('click', () => {
+            const selectedAvatar = document.querySelector('input[name="avatar"]:checked').value;
+            updateAvatar(selectedAvatar);
         });
 
         const displayQuestion = () => {
@@ -46,16 +102,20 @@
         };
 
         const submitAnswer = (answer) => {
-            fetch('/level1/submit-answer', {
+            alert("Submitting Answer: ");
+            alert(questions.length);
+            fetch('/orientation/submit-answer', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userId, answer })
             })
             .then(response => response.json())
             .then(data => {
+                alert("Checkpoint 1 reached");
                 if (data.message === 'Answer recorded') {
                     currentQuestionIndex++;
                     if (currentQuestionIndex < questions.length) {
+                        alert("Checkpoint 2 reached");
                         displayQuestion();
                     } else {
                         completeQuiz();
@@ -66,7 +126,7 @@
         };
 
         const completeQuiz = () => {
-            fetch('/level1/complete', {
+            fetch('/orientation/complete', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userId })
@@ -74,8 +134,33 @@
             .then(response => response.json())
             .then(data => {
                 if (data.message === 'House assigned') {
-                    alert(`You have been assigned to ${data.house} and your avatar is ${data.avatar}`);
-                    // You can also redirect the user or update the UI accordingly
+                    displayAvatars(data.house, data.avatars);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
+
+        const displayAvatars = (house, avatars) => {
+            document.getElementById('questions-section').style.display = 'none';
+            document.getElementById('assigned-house').textContent = house;
+            const avatarContainer = document.getElementById('avatar-container');
+            avatars.forEach(avatar => {
+                avatarContainer.innerHTML += `<input type="radio" name="avatar" value="${avatar}"><img src="path/to/avatars/${avatar}" alt="${avatar}"><br>`;
+            });
+            document.getElementById('avatar-selection-section').style.display = 'block';
+        };
+
+        const updateAvatar = (selectedAvatar) => {
+            fetch('/orientation/update-avatar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId, selectedAvatar })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Avatar updated successfully') {
+                    alert('Your avatar has been updated!');
+                    // Redirect or update the UI as needed
                 }
             })
             .catch(error => console.error('Error:', error));
