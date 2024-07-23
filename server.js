@@ -6,6 +6,7 @@ const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('./models/User');
+const PlayerChoice = require('./models/PlayerChoice');
 const cors = require('cors');
 
 require('dotenv').config();
