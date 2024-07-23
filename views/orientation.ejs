@@ -71,6 +71,8 @@
         </div>
     </section>
 
+    
+
     <section class="avatar-section">
         <div class="container">
             <div id="avatar-selection-section" class="avatar-selection">
@@ -132,6 +134,22 @@
 
                             if (currentQuestionIndex < questions.length) {
                                 questions[currentQuestionIndex].classList.remove('hidden');
+                            } else {
+                                alert("HANDLING QUIZ END");
+                                fetch('/orientation/complete', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ userId })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    alert(data.troopName);
+                                    alert(data.avatars);
+                                    if (data.message === 'Troop assigned') {
+                                        displayAvatars(data.troopName, data.avatars);
+                                    }
+                                })
+                                .catch(error => console.error('Error:', error));
                             }
                         } else {
                             // Handle the error
@@ -149,37 +167,22 @@
             questions.forEach(question => {
                 question.addEventListener('click', handleAnswerClick);
             });
-        });
 
-        document.getElementById('confirm-avatar').addEventListener('click', () => {
-            const selectedAvatar = document.querySelector('input[name="avatar"]:checked').value;
-            updateAvatar(selectedAvatar);
-        });
+            const displayAvatars = (troop, avatars) => {
+                alert("DISPLAY AVATARS FUNCTION TRIGGERED");
+                document.getElementById('assigned-house').textContent = troop;
+                const avatarContainer = document.getElementById('avatar-container');
+                avatars.forEach(avatar => {
+                    avatarContainer.innerHTML += `<input type="radio" name="avatar" value="${avatar}"><img src="/images/blankprofile.png" alt="${avatar}"><br>`;
+                });
+                document.getElementById('avatar-selection-section').style.display = 'block';
+            };
 
-        const completeQuiz = () => {
-            fetch('/orientation/complete', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message === 'House assigned') {
-                    displayAvatars(data.house, data.avatars);
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        };
-
-        const displayAvatars = (house, avatars) => {
-            document.getElementById('questions-section').style.display = 'none';
-            document.getElementById('assigned-house').textContent = house;
-            const avatarContainer = document.getElementById('avatar-container');
-            avatars.forEach(avatar => {
-                avatarContainer.innerHTML += `<input type="radio" name="avatar" value="${avatar}"><img src="path/to/avatars/${avatar}" alt="${avatar}"><br>`;
+            document.getElementById('confirm-avatar').addEventListener('click', () => {
+                const selectedAvatar = document.querySelector('input[name="avatar"]:checked').value;
+                updateAvatar(selectedAvatar);
             });
-            document.getElementById('avatar-selection-section').style.display = 'block';
-        };
+        });
 
         const updateAvatar = (selectedAvatar) => {
             fetch('/orientation/update-avatar', {

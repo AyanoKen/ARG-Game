@@ -209,6 +209,8 @@ app.get('/orientation', (req, res) => {
 
 const troopCounts = [];
 
+const troopNames = {"T": "Tempus", "N": "Neurona", "E": "Empathia", "M": "Memoria"};
+
 app.post('/orientation/submit-answer', async (req, res) => {
     const { userId, answerText, troopValue } = req.body;
     try {
@@ -221,8 +223,6 @@ app.post('/orientation/submit-answer', async (req, res) => {
 
         troopCounts.push(troopValue)
 
-        console.log("ADDED");
-
         res.status(200).send({ message: 'Answer recorded' });
     } catch (error) {
         res.status(500).send({ message: 'Error recording answer' });
@@ -232,37 +232,51 @@ app.post('/orientation/submit-answer', async (req, res) => {
 app.post('/orientation/complete', async (req, res) => {
     const { userId } = req.body;
     try {
-        const playerChoice = await PlayerChoice.findOne({ userId });
 
-        if (!playerChoice) {
-            return res.status(404).send({ message: 'Player choices not found' });
-        }
+        const troop = calculateTroop();
+        const avatars = getAvatarsForTroop(troop);
+        const troopName = troopNames[troop];
 
-        const house = calculateHouse(playerChoice.choices);
-        const avatars = getAvatarsForHouse(house);
-
-        res.status(200).send({ message: 'House assigned', house, avatars });
+        res.status(200).send({ message: 'Troop assigned', troopName, avatars });
     } catch (error) {
         res.status(500).send({ message: 'Error completing level' });
     }
 });
 
-const calculateHouse = (choices) => {
-    const houseCounts = { Gryffindor: 0, Hufflepuff: 0, Ravenclaw: 0, Slytherin: 0 };
-    choices.forEach(choice => {
-        // Map choice to house and increment the corresponding house count
-        // Example logic
-        if (choice === 'A') houseCounts.Gryffindor++;
-        if (choice === 'B') houseCounts.Hufflepuff++;
-        if (choice === 'C') houseCounts.Ravenclaw++;
-        if (choice === 'D') houseCounts.Slytherin++;
-    });
-    return Object.keys(houseCounts).reduce((a, b) => houseCounts[a] > houseCounts[b] ? a : b);
-};
+function calculateTroop() {
+    // Object to store the counts of each troop value
+    const troopCountMap = {};
 
-const getAvatarsForHouse = (house) => {
-    return Array.from({ length: 6 }, (_, i) => `${house.toLowerCase()}_${i + 1}.png`);
-};
+    // Count occurrences of each troop value
+    troopCounts.forEach(troop => {
+        if (troopCountMap[troop]) {
+            troopCountMap[troop]++;
+        } else {
+            troopCountMap[troop] = 1;
+        }
+    });
+
+    // Find the troop value with the maximum count
+    let maxTroop = null;
+    let maxCount = 0;
+
+    for (const troop in troopCountMap) {
+        if (troopCountMap[troop] > maxCount) {
+            maxCount = troopCountMap[troop];
+            maxTroop = troop;
+        }
+    }
+
+    return maxTroop;
+}
+
+function getAvatarsForTroop(troop) {
+    const avatars = [];
+    for (let i = 1; i <= 6; i++) {
+        avatars.push(`/images/${troop}_avatar${i}.png`);
+    }
+    return avatars;
+}
 
 app.get('/logout', (req, res) => {
     req.logout();
