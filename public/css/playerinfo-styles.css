@@ -48,6 +48,10 @@ body {
     margin: 5%;
 }
 
+.icon-active {
+    box-shadow: 0 0 0px 8px #ffd977;
+}
+
 .icons h1 {
     font-size: 1.5em;
 }

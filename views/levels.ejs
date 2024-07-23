@@ -42,29 +42,40 @@
     <div class="profile">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4 left-section">
+                <div class="col-md-3 left-section">
                     <div class="icons">
                         <button class="unstyled-button" onclick="window.location.href='/playerinfo'""><i class="fas fa-backward fa-4x"></i></button>
                     </div>
+                    <% const completedLevels = user.completedLevels || []; %>
+                    <% const unlockedLevels = user.unlockedLevels || []; %>
                     <% const chapters = [
-                        { id: 0, title: 'AGENT PROFILE' },
-                        { id: 1, title: 'DATA VISUALIZATION' },
-                        { id: 2, title: 'PROMPT ENGINEERING' },
-                        { id: 3, title: 'AI IN EDUCATION - 1' },
-                        { id: 4, title: 'DATA ANALYTICS' },
-                        { id: 5, title: 'AI IN EDUCATION - 2' }
+                        { id: 1, title: 'AGENT PROFILE' },
+                        { id: 2, title: 'DATA VISUALIZATION' },
+                        { id: 3, title: 'PROMPT ENGINEERING' },
+                        { id: 4, title: 'AI IN EDUCATION - 1' },
+                        { id: 5, title: 'DATA ANALYTICS' },
+                        { id: 6, title: 'AI IN EDUCATION - 2' }
                     ]; %>
                     <% chapters.forEach(chapter => { %>
                         <div class="icons">
-                            <h1 class="<%= chapter.id <= currentLevel ? (chapter.id < currentLevel ? 'completed chapter-title' : 'chapter-title') : 'locked' %>" 
-                                data-title="0<%= chapter.id + 1 %> <%= chapter.title %>">
-                                0<%= chapter.id + 1 %> <%= chapter.title %>
+                            <h1 class="<%= user.completedLevels.includes(chapter.id) ? 'completed chapter-title' : (user.unlockedLevels.includes(chapter.id) ? 'chapter-title' : 'locked') %>" 
+                                data-title="0<%= chapter.id%> <%= chapter.title %>"
+                                data-id="<%= chapter.id %>">
+                                0<%= chapter.id %> <%= chapter.title %>
                             </h1>
-                            <p><%= chapter.id <= currentLevel ? 'UNLOCKED' : 'LOCKED' %></p>
+                            <p>
+                                <% if (user.completedLevels.includes(chapter.id)) { %>
+                                    Completed on: <%= user.levelCompletionDates.get(chapter.id.toString()) %>
+                                <% } else if (user.unlockedLevels.includes(chapter.id)) { %>
+                                    UNLOCKED
+                                <% } else { %>
+                                    LOCKED
+                                <% } %>
+                            </p>
                         </div>
                     <% }) %>
                 </div>
-                <div class="col-md-8 info-section <%= currentLevel > 0 ? 'locked' : '' %>">
+                <div class="col-md-8 info-section <%= completedLevels.includes(1) ? 'locked' : '' %>">
                     <h1 id="main-title">TRAINING MODULE 01: AGENT PROFILE</h1>
                     <br>
                     <h2>Mission Brief:</h2>
@@ -78,8 +89,8 @@
                         4. Visualize your solution: Utilize Midjourney to craft a visual representation of your innovative solution, either with AI assistance or by your own expertise. <br>
                         5. Submission: Submit your finalized concept and visualization through the web platform for evaluation.
                     </p>
-                    <a href="/level1" class="btn btn-warning">Begin Module 0<%= currentLevel + 1 %></a>
-                    <h3 class="completed-message">COMPLETED</h3>
+                    <a href="/level1" class="btn btn-primary <%= completedLevels.includes(1) ? 'd-none' : '' %>">Begin Module</a>
+                    <h3 class="completed-message <%= completedLevels.includes(1) ? '' : 'd-none' %>">COMPLETED</h3>
                 </div>
             </div>
         </div>
@@ -90,14 +101,26 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         $(document).ready(function() {
+            const completedLevels = <%= JSON.stringify(user.completedLevels) %>;
+            const unlockedLevels = <%= JSON.stringify(user.unlockedLevels) %>;
+
             $('.chapter-title').on('click', function() {
                 var title = $(this).data('title');
+                var chapterId = $(this).data('id');
+
                 $('#main-title').text('TRAINING MODULE: ' + title);
 
-                var chapterId = $(this).index('.chapter-title');
                 $('.info-section').removeClass('locked');
-                if (chapterId < <%= currentLevel %>) {
+                if (completedLevels.includes(chapterId)) {
                     $('.info-section').addClass('locked');
+                }
+
+                if (unlockedLevels.includes(chapterId) && !completedLevels.includes(chapterId)) {
+                    $('.btn-primary').removeClass('d-none');
+                    $('.completed-message').addClass('d-none');
+                } else {
+                    $('.btn-primary').addClass('d-none');
+                    $('.completed-message').removeClass('d-none');
                 }
             });
         });

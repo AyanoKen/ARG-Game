@@ -140,7 +140,12 @@ app.get('/playerinfo', (req, res) => {
 
 app.get('/levels', (req, res) => {
     if(req.isAuthenticated()){
-        res.render('levels', {user: req.user, currentLevel: req.user.currentLevel});
+        res.render('levels', {
+            user: req.user,
+            unlockedLevels: req.user.unlockedLevels,
+            completedLevels: req.user.completedLevels,
+            levelCompletionDates: req.user.levelCompletionDates 
+        });
     }else{
         res.redirect('/login');
     }
