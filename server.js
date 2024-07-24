@@ -207,8 +207,6 @@ app.get('/orientation', (req, res) => {
     }
 });
 
-const troopCounts = [];
-
 const troopNames = {"T": "Tempus", "N": "Neurona", "E": "Empathia", "M": "Memoria"};
 
 app.post('/orientation/submit-answer', async (req, res) => {
@@ -221,7 +219,13 @@ app.post('/orientation/submit-answer', async (req, res) => {
             { new: true, upsert: true }
         );
 
-        troopCounts.push(troopValue)
+        // Initialize troopCounts array in session if not already initialized
+        if (!req.session.troopCounts) {
+            req.session.troopCounts = [];
+        }
+
+        // Add troopValue to session-specific troopCounts array
+        req.session.troopCounts.push(troopValue);
 
         res.status(200).send({ message: 'Answer recorded' });
     } catch (error) {
@@ -232,10 +236,12 @@ app.post('/orientation/submit-answer', async (req, res) => {
 app.post('/orientation/complete', async (req, res) => {
     const { userId } = req.body;
     try {
-
-        const troop = calculateTroop();
+        const troopCounts = req.session.troopCounts || [];
+        const troop = calculateTroop(troopCounts);
         const avatars = getAvatarsForTroop(troop);
         const troopName = troopNames[troop];
+
+        req.session.troopCounts = [];
 
         res.status(200).send({ message: 'Troop assigned', troopName, avatars });
     } catch (error) {
@@ -264,7 +270,7 @@ app.post('/orientation/updateTroop', async (req, res) => {
     }
 });
 
-function calculateTroop() {
+function calculateTroop(troopCounts) {
     // Object to store the counts of each troop value
     const troopCountMap = {};
 
@@ -287,7 +293,6 @@ function calculateTroop() {
             maxTroop = troop;
         }
     }
-
     return maxTroop;
 }
 
