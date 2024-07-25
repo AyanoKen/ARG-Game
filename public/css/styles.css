@@ -18,8 +18,8 @@ body {
     font-size: 1.5rem;
 }
 
-.navbar-brand img {
-    width: 40px;
+.navbar img {
+    width: 60px;
     height: auto;
 }
 .navbar-nav .nav-item .nav-link {

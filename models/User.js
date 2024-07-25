@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
     },
     playerAvatar: {
         type: String,
-        default: 'blankprofile.png'
+        default: '/images/blankprofile.png'
     }
 });
 

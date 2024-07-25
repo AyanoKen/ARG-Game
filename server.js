@@ -7,6 +7,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('./models/User');
 const PlayerChoice = require('./models/PlayerChoice');
+const TroopInfo = require('./models/TroopInfo');
 const cors = require('cors');
 
 require('dotenv').config();
@@ -94,15 +95,6 @@ passport.deserializeUser(async (id, done) => {
     done(null, user);
 });
 
-
-// app.get('/', (req, res) => {
-//     if(req.isAuthenticated()){
-//         res.render("home");
-//       }else{
-//         res.redirect("/login");
-//       }
-// });
-
 app.get('/', (req, res) =>{
     res.render("home", { user: req.user });
 });
@@ -140,10 +132,17 @@ app.get('/auth/google/callback',
     }
 );
 
-app.get('/playerinfo', (req, res) => {
-    if(req.isAuthenticated()){
-        res.render('playerinfo', {user: req.user});
-    }else{
+app.get('/playerinfo', async (req, res) => {
+    if (req.isAuthenticated()) {
+        const user = req.user;
+        let troopInfo = null;
+
+        if (user.playerTroop) {
+            troopInfo = await TroopInfo.findOne({ name: user.playerTroop });
+        }
+
+        res.render('playerinfo', { user, troopInfo });
+    } else {
         res.redirect("/login");
     }
 });

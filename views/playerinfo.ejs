@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/playerinfo-styles.css">
 </head>
@@ -29,7 +29,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/playerinfo">
-                                <img src="/images/placeholder-icon.jpg" alt="Icon" class="icon">
+                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
                             </a>
                         </li>
                     </ul>
@@ -59,36 +59,95 @@
                         <a href="/add">ADD</a>
                     </div>
                 </div>
-                <div class="col-md-10 info-section">
-                    <img src="/images/blankprofile.png" alt="">
-                    <div class="row">
-                        <div class="col-md-6 info-left">
-                            <h1>AGENT NAME  : </h1>
-                            <h1>I.D  : </h1>
-                            <h1>TROOP :</h1>
-                            <h1>LEVEL :</h1>
-                            <h1>BADGES :</h1>
-                        </div>
-                        <div class="col-md-6 info-right">
-                            <h1>Ayano</h1>
-                            <h1>xxx-xxx-xxx</h1>
-                            <h1>?</h1>
-                            <h1>00</h1>
-                            <h1>-</h1>
-                        </div>
-                    </div>
-                    <div class="info-bottom">
+                <% if(!troopInfo){ %>
+                    <div class="col-md-10 info-section newplayer">
+                        <img src="<%= user.playerAvatar %>" alt="">
                         <div class="row">
-                            <div class="col-md-8">
-                                <p>Complete Level 1 to determine your troop assignment and embark on Mission Renaissance.</p>
+                            <div class="col-md-6 info-left">
+                                <h1>AGENT NAME</h1>
+                                <h1>I.D</h1>
+                                <h1>TROOP</h1>
+                                <h1>LEVEL</h1>
+                                <h1>BADGES</h1>
                             </div>
-                            <div class="col-md-4">
-                                <a href="/orientation" class="btn btn-warning">GO TO LEVEL 1</a>
+                            <div class="col-md-6 info-right">
+                                <h1>: <%= user.displayName %></h1>
+                                <h1>: <%= user.googleId.slice(-9) %></h1>
+                                <h1>: ?</h1>
+                                <h1>: <%= user.currentLevel %></h1>
+                                <h1>: -</h1>
+                        </div>
+                        <div class="info-bottom">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Complete Level 1 to determine your troop assignment and embark on Mission Renaissance.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="/orientation" class="btn btn-warning">GO TO LEVEL 1</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="col-md-5 info-section">
+                        <div class="container-fluid">
+                            <img src="<%= user.playerAvatar %>" alt="">
+                        <div class="row">
+                            <div class="col-md-6 info-left">
+                                <h1>AGENT NAME</h1>
+                                <h1>I.D</h1>
+                                <h1>TROOP</h1>
+                                <h1>LEVEL</h1>
+                                <h1>BADGES</h1>
+                            </div>
+                            <div class="col-md-6 info-right">
+                                <h1>: <%= user.displayName %></h1>
+                                <h1>: <%= user.googleId.slice(-9) %></h1>
+                                <h1>: ?</h1>
+                                <h1>: <%= user.currentLevel %></h1>
+                                <h1>: -</h1>
                             </div>
                         </div>
-                        
+                        </div>
                     </div>
-                </div>
+                    <div class="col-md-5 troop-section">
+                        <h1>Troop <%=troopInfo.name%></h1>
+                        <p>Welcome!</p>
+                        <p><%=troopInfo.welcomeText%></p>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="<%=troopInfo.emblem%>" alt="">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p>Symbol: </p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= troopInfo.symbol %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p>Motto: </p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><%= troopInfo.motto %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2>ABOUT</h2>
+                        </div>
+
+                        <div class="container-fluid">
+                            <p><%= troopInfo.traits %></p>
+                            <h2>CHARACTERISTICS</h2>
+                        </div>
+                    </div>
+                <% } %>
             </div>
         </div>
     </div>

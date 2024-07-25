@@ -5,23 +5,27 @@ body {
     font-family: Arial, sans-serif;
 }
 
+body img{
+    width: 100%;
+}
+
 .navbar {
     background-color: transparent;
-    box-shadow: 0 0 10px 0.5px #c79be9;
+    box-shadow: 0 0 0px 2px #c79be9;
     margin-top: 1%;
+    padding: 0;
 }
 
 .navbar-nav a {
     font-size: 1.5rem;
-    margin: 8% 0;
 }
 
-.navbar-brand img {
-    width: 40px;
+.navbar img {
+    width: 80px;
     height: auto;
 }
 .navbar-nav .nav-item .nav-link {
-    color: #f0ad4e;
+    color: #ffd977;
 }
 .navbar-nav .nav-item .nav-link:hover {
     color: white;
@@ -41,8 +45,8 @@ body {
 
 .icons {
     background-color: #452e68;
-    color: #ffcc00;
-    box-shadow: 0 0 10px 4px #c79be9;
+    color: #ffd977;
+    box-shadow: 0 0 0px 1px #c79be9;
     text-align: center;
     padding: 4%;
     margin: 5%;
@@ -58,7 +62,7 @@ body {
 
 .icons a {
     font-size: 1.5em;
-    color: #ffcc00;
+    color: #ffd977;
 }
 
 .icons img{
@@ -66,10 +70,27 @@ body {
     margin: 5% 0;
 }
 
+.newplayer img{
+    width: 20% !important;
+}
+
+.newplayer{
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+
 .info-section{
     text-align: center;
     padding: 4%;
-    color: #f0ad4e;
+    color: #ffd977;
+}
+
+.info-section .container-fluid {
+    background-color: #452e68;
+    box-shadow: 0 0 10px 4px #c79be9;
+    padding-top: 4%;
+    padding-bottom: 16%;
+    margin-top: 8%;
 }
 
 .info-section h1 {
@@ -77,13 +98,14 @@ body {
 }
 
 .info-section img {
-    width: 15%;
-    margin: 2% 0;
+    width: 50%;
+    margin: 4% 0;
     border-radius: 10%;
 }
 
 .info-left {
-    text-align: right !important;
+    text-align: left !important;
+    padding-left: 10%;
 }
 
 .info-right {
@@ -108,4 +130,42 @@ body {
 .info-bottom a {
     font-weight: bold;
     background-color: #CEAE66;
+}
+
+.troop-section {
+    text-align: center;
+    padding: 4% 0;
+    padding-right: 2%;
+    color: #ffd977;
+}
+
+.troop-section h1{
+    margin-bottom: 4%;
+    color: transparent;
+    -webkit-text-stroke: 1px #ffd977; 
+    font-weight: bold;
+}
+
+.troop-section p {
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.troop-section img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+.troop-section .container-fluid {
+    background-image: url('/images/Vector 202.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 4%;
+    padding-bottom: 1%;
+    margin-top: 4%;
+}
+
+.troop-section h2 {
+    text-align: left;
+    margin-top: 2%;
 }
