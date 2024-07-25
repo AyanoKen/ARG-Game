@@ -201,14 +201,18 @@ body {
     font-size: 1.2rem;
 }
 
-.avatar-section img {
+#avatar-container img {
     box-shadow: 0 0 10px 0.5px #c79be9;
     width: 100%;
     margin: 4% 0;
 }
 
-.avatar-section img:hover {
+#avatar-container img:hover {
     box-shadow: 0 0 10px 0.5px white;
+}
+
+.profile-img {
+    box-shadow: 0;
 }
 
 .answer-button {
