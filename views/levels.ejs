@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/images/placeholder-logo.jpg" alt="Logo" class="logo">
+                    <img src="/images/modulelogo.png" alt="Logo" class="logo">
                 </a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mx-auto nav-center">
@@ -30,7 +30,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/playerinfo">
-                                <img src="/images/placeholder-icon.jpg" alt="Icon" class="icon">
+                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
                             </a>
                         </li>
                     </ul>
@@ -49,12 +49,13 @@
                     <% const completedLevels = user.completedLevels || []; %>
                     <% const unlockedLevels = user.unlockedLevels || []; %>
                     <% const chapters = [
-                        { id: 1, title: 'AGENT PROFILE' },
-                        { id: 2, title: 'DATA VISUALIZATION' },
-                        { id: 3, title: 'PROMPT ENGINEERING' },
-                        { id: 4, title: 'AI IN EDUCATION - 1' },
-                        { id: 5, title: 'DATA ANALYTICS' },
-                        { id: 6, title: 'AI IN EDUCATION - 2' }
+                        { id: 1, title: 'THE ORIGIN' },
+                        { id: 2, title: 'AGENT PROFILE' },
+                        { id: 3, title: 'PATTERN RECOGNITION' },
+                        { id: 4, title: 'DECODE AI' },
+                        { id: 5, title: 'INNOVATE WITH AI' },
+                        { id: 6, title: 'REIMAGINE PURDUE' },
+                        { id: 7, title: 'FINAL DESTINATION' }
                     ]; %>
                     <% chapters.forEach(chapter => { %>
                         <div class="icons">

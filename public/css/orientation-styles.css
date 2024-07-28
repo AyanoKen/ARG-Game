@@ -21,7 +21,7 @@ body {
 }
 
 .navbar img {
-    width: 60px;
+    width: 80px;
     height: auto;
 }
 .navbar-nav .nav-item .nav-link {
@@ -57,6 +57,72 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #944fcb; 
 }
+
+.preintro-section .container-fluid {
+    text-align: center;
+}
+
+.preintro-section img {
+    width: 100%;
+}
+
+.logo-container {
+    background-image: url('/images/modulelogo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 8%;
+    padding-bottom: 4%;
+}
+
+.logo-container h1 {
+    font-size:4rem;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(62, 47, 88),
+               0 0 10px rgba(62, 47, 88),
+               0 0 15px rgba(62, 47, 88),
+               0 0 20px rgba(62, 47, 88),
+               0 0 25px rgba(62, 47, 88),
+               0 0 30px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88);
+}
+
+.logo-container h2 {
+    font-size:3rem;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(62, 47, 88),
+               0 0 10px rgba(62, 47, 88),
+               0 0 15px rgba(62, 47, 88),
+               0 0 20px rgba(62, 47, 88),
+               0 0 25px rgba(62, 47, 88),
+               0 0 30px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .intro-section {
     text-align: center;
@@ -211,6 +277,46 @@ body {
     box-shadow: 0 0 10px 0.5px white;
 }
 
+#level-end-message {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.player-choice-img {
+    box-shadow: 0 0 10px 2px #c79be9;
+    padding: 2%;
+    background-color: #452e68;
+    margin: 2% 0;
+    text-align: right;
+    width: 50%;
+    align-self: flex-end; /* Aligns the playerChoice to the right */
+}
+
+.player-choice-img img{
+    width: 20%;
+}
+
+#footer-section-text .container {
+    box-shadow: 0 0 10px 0.5px #c79be9;
+    color: #ffd977;
+    padding: 2%;
+    background-color: #452e68;
+    border-radius: 10px;
+    margin-bottom: 4%;
+}
+
+/* .footer-section .container {
+    color: #ffd977;
+    background: url('/images/Vector 203.svg') no-repeat center center;
+    background-size: cover;
+    padding: 2%;
+    margin-bottom: 4%;
+} */
+
+.footer-section h1 {
+    font-size: 1.2rem;
+}
+
 .profile-img {
     box-shadow: 0;
 }
@@ -231,3 +337,4 @@ body {
     font-weight: bold;
     color: #FFD700;
 }
+

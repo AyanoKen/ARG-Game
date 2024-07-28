@@ -148,7 +148,7 @@ body {
 }
 
 .research .container-fluid {
-    background-color:rgba(136, 0, 255, 0.5) ;
+    background-color:#29242F ;
     padding: 5%;
     text-align: center;
 }
@@ -163,7 +163,7 @@ body {
 }
 
 .research .card {
-    background: rgb(136,0,255);
+    background: #29242F;
     background: linear-gradient(0deg, rgba(136, 0, 255, 0.2) 0%, rgba(102, 0, 255, 0.2) 100%);
     box-shadow: 0 0 10px 2px rgb(207, 207, 207);
 }

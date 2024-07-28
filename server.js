@@ -163,7 +163,7 @@ app.get('/levels', (req, res) => {
 //Crossword Puzzle
 app.get('/crossword', (req, res) =>{
     if(req.isAuthenticated()){
-        res.render("crossword");
+        res.render("crossword", {user: req.user});
     } else{
         res.redirect("/login");
     }
@@ -200,7 +200,7 @@ app.post('/check', (req, res) => {
 
 app.get('/orientation', (req, res) => {
     if(req.isAuthenticated()){
-        res.render('orientation', {userId: req.user.googleId});
+        res.render('orientation', {user: req.user, userId: req.user.googleId});
     }else{
         res.redirect('/login');
     }

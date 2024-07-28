@@ -10,14 +10,17 @@ html, body {
 
 .navbar {
     background-color: transparent;
-    box-shadow: 0 0 10px 0.5px #c79be9;
+    box-shadow: 0 0 0px 2px #c79be9;
     margin-top: 1%;
+    margin-bottom: 2px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 
 
-.navbar-brand img {
-    width: 40px;
+.navbar img {
+    width: 80px;
     height: auto;
 }
 .navbar-nav .nav-item .nav-link {
@@ -38,6 +41,11 @@ html, body {
 .navbar-nav a {
     font-size: 1.5rem;
     margin: 8% 0;
+}
+
+.profile .container-fluid {
+    background: rgb(11,1,33);
+    background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
 }
 
 .left-section{

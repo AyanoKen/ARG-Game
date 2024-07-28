@@ -24,7 +24,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/playerinfo">
-                                <img src="/images/blankprofile.png" alt="Icon" class="icon">
+                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
                             </a>
                         </li>
                     </ul>
@@ -33,9 +33,32 @@
         </nav>
     </header>
 
+    <section id="preintro-section" class="preintro-section">
+        <div class="container-fluid">
+            <div class="logo-container">
+                <h2>Training Module 01</h2>
+                <h1>TROOP ASSIGNMENT</h1>
+            </div>
+
+            <div class="text-section">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="/images/orientationlogo.gif" alt="">
+                    </div>
+                    <div class="col-md-10">
+                        <p>Hello Agents! Brace yourselves as you are now set to be astounded by the immense power of AI to twist realities and visualize an alternate universe. You will experience AI deceive your eyes by recreating images in the most surprising of ways. Imagine that we are in the year 2050. Everything at Purdue looks different than it is. Would you want an innovative campus with spaceships and robots, or a place struck by an apocalypse? We leave it up to you - to Reimagine Purdue! </p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="preintro-button" class="btn btn-warning">BEGIN</button>
+        </div>
+
+    </section>
+
     <section class="intro-section">
         <div class="container">
-            <div id="intro-section">
+            <div id="intro-section" class="hidden">
                 <img src="/images/orientationlogo.gif" alt="">
                 <p>Thank you for joining Mission Renaissance.</p>
                 <p> Before we start your training, we need to assign you to a troop that aligns with your strengths and will help you grow. To determine the most suitable match, you will need to answer a series of questions. Please select the option that best aligns with your characteristics and preferences. Prepare yourself, and let's begin.</p>
@@ -194,6 +217,30 @@
         </div>
     </section>
 
+    <section class="footer-section hidden">
+        <div class="container">
+            <div id="level-end-message"></div>
+            
+        </div>
+        <div id="footer-section-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img class="profile-img" src="/images/orientationlogo.gif" alt="">
+                    </div>
+                    <div class="col-md-10">
+                        <h1>Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <a href="/playerinfo" class="btn btn-warning">Next</a>
+        </div>
+        
+    </section>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -215,6 +262,7 @@
 
             const beginButton = document.getElementById('begin-button');
             const firstQuestion = document.getElementById('question1');
+            const introSection = document.getElementById('intro-section');
             var troopInfo = [];
 
             beginButton.addEventListener('click', () => {
@@ -349,13 +397,25 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.message === 'Troop and avatar updated') {
-                            alert('Your troop and avatar have been successfully updated!');
+                            const playerChoiceElement = document.createElement('img');
+                            playerChoiceElement.className = 'player-choice-img';
+                            playerChoiceElement.src = `${selectedAvatar}`;
+
+                            document.getElementById('level-end-message').appendChild(playerChoiceElement);
+
+                            document.querySelector('.footer-section').classList.remove('hidden');
+                            autoScroll();
                         }
                     })
                     .catch(error => console.error('Error:', error));
                 } else {
                     alert('Please select an avatar before submitting.');
                 }
+            });
+
+            document.getElementById('preintro-button').addEventListener('click', () =>{
+                document.getElementById('intro-section').classList.remove('hidden');
+                document.getElementById('preintro-section').classList.add('hidden');
             });
 
             
