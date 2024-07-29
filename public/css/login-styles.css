@@ -1,0 +1,95 @@
+body {
+    background: rgb(11,1,33);
+    background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.logo-container {
+    background-image: url('/images/modulelogo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 12%;
+    padding-bottom: 6%;
+    margin-top: 6%;
+}
+
+.logo-container h1 {
+    font-size:4rem;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(62, 47, 88),
+               0 0 10px rgba(62, 47, 88),
+               0 0 15px rgba(62, 47, 88),
+               0 0 20px rgba(62, 47, 88),
+               0 0 25px rgba(62, 47, 88),
+               0 0 30px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88);
+}
+
+.logo-container h2 {
+    font-size:3rem;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(62, 47, 88),
+               0 0 10px rgba(62, 47, 88),
+               0 0 15px rgba(62, 47, 88),
+               0 0 20px rgba(62, 47, 88),
+               0 0 25px rgba(62, 47, 88),
+               0 0 30px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88),
+               0 0 35px rgba(62, 47, 88);
+}
+
+.container {
+    margin-bottom: 16%;
+}
+
+h1{
+    font-size: 1.8rem;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+}
+
+h2{
+    font-size: 1.2rem;
+    color: #BB9BFF;
+}
+
+.google-btn {
+    background-color: #6a1b9a;
+    color: #ffd700;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    width: auto;
+}
+
+.google-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-btn img {
+    margin-right: 10px;
+}
+
+.google-btn:hover {
+    background-color: #5e1784;
+    color: #e0c200;
+}
