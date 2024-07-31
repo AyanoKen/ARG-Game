@@ -8,6 +8,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('./models/User');
 const PlayerChoice = require('./models/PlayerChoice');
 const TroopInfo = require('./models/TroopInfo');
+const LevelInfo = require('./models/LevelInfo');
 const cors = require('cors');
 
 require('dotenv').config();
@@ -147,13 +148,17 @@ app.get('/playerinfo', async (req, res) => {
     }
 });
 
-app.get('/levels', (req, res) => {
+app.get('/levels', async (req, res) => {
     if(req.isAuthenticated()){
+
+        const levelDetails = await LevelInfo.find().lean();
+
         res.render('levels', {
             user: req.user,
             unlockedLevels: req.user.unlockedLevels,
             completedLevels: req.user.completedLevels,
-            levelCompletionDates: req.user.levelCompletionDates 
+            levelCompletionDates: req.user.levelCompletionDates,
+            levelDetails: levelDetails
         });
     }else{
         res.redirect('/login');

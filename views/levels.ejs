@@ -49,13 +49,13 @@
                     <% const completedLevels = user.completedLevels || []; %>
                     <% const unlockedLevels = user.unlockedLevels || []; %>
                     <% const chapters = [
-                        { id: 1, title: 'THE ORIGIN' },
-                        { id: 2, title: 'AGENT PROFILE' },
-                        { id: 3, title: 'PATTERN RECOGNITION' },
-                        { id: 4, title: 'DECODE AI' },
-                        { id: 5, title: 'INNOVATE WITH AI' },
-                        { id: 6, title: 'REIMAGINE PURDUE' },
-                        { id: 7, title: 'FINAL DESTINATION' }
+                        { id: 0, title: 'THE ORIGINS' },
+                        { id: 1, title: 'AGENT PROFILE' },
+                        { id: 2, title: 'PATTERN RECOGNITION' },
+                        { id: 3, title: 'DECODE AI' },
+                        { id: 4, title: 'INNOVATE WITH AI' },
+                        { id: 5, title: 'REIMAGINE PURDUE' },
+                        { id: 6, title: 'FINAL DESTINATION' }
                     ]; %>
                     <% chapters.forEach(chapter => { %>
                         <div class="icons">
@@ -77,7 +77,7 @@
                     <% }) %>
                 </div>
                 <div class="col-md-8 info-section <%= completedLevels.includes(1) ? 'locked' : '' %>">
-                    <h1 id="main-title">TRAINING MODULE 01: AGENT PROFILE</h1>
+                    <h1 id="main-title">TRAINING MODULE: 00 THE ORIGINS</h1>
                     <br>
                     <h2>Mission Brief:</h2>
                     <p id="mission-brief">Not a dialogue but what the mission was about and why it is important in AI and/or AI with Education.</p>
@@ -90,7 +90,7 @@
                         4. Visualize your solution: Utilize Midjourney to craft a visual representation of your innovative solution, either with AI assistance or by your own expertise. <br>
                         5. Submission: Submit your finalized concept and visualization through the web platform for evaluation.
                     </p>
-                    <a href="/level1" class="btn btn-primary <%= completedLevels.includes(1) ? 'd-none' : '' %>">Begin Module</a>
+                    <a id="module-btn" href="/level1" class="btn btn-primary <%= completedLevels.includes(1) ? 'd-none' : '' %>">Begin Module</a>
                     <h3 class="completed-message <%= completedLevels.includes(1) ? '' : 'd-none' %>">COMPLETED</h3>
                 </div>
             </div>
@@ -104,12 +104,26 @@
         $(document).ready(function() {
             const completedLevels = <%= JSON.stringify(user.completedLevels) %>;
             const unlockedLevels = <%= JSON.stringify(user.unlockedLevels) %>;
+            const levelDetails = <%- JSON.stringify(levelDetails) %>;
 
             $('.chapter-title').on('click', function() {
                 var title = $(this).data('title');
                 var chapterId = $(this).data('id');
+                
 
                 $('#main-title').text('TRAINING MODULE: ' + title);
+
+                var levelData = levelDetails.find(level => level.id === chapterId);
+
+
+                if (levelData) {
+                    $('#mission-brief').text(levelData.brief);
+                    $('#mission-steps').html(levelData.steps.replace(/ayano/g, '<br>'));
+                    $('#module-btn').attr('href', levelData.href);
+                } else {
+                    $('#mission-brief').text("Mission Brief not found.");
+                    $('#mission-steps').text("Mission Steps not found.");
+                }
 
                 $('.info-section').removeClass('locked');
                 if (completedLevels.includes(chapterId)) {
