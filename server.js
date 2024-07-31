@@ -308,6 +308,14 @@ function getAvatarsForTroop(troop) {
     return avatars;
 }
 
+app.get('/innovate', (req, res) => {
+    if(req.isAuthenticated()){
+        res.render('innovate', {user: req.user});
+    }else{
+        res.redirect('/login');
+    }
+});
+
 app.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
