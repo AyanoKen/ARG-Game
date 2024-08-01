@@ -32,6 +32,210 @@
         </nav>
     </header>
 
+    <section class="tabs">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="button button-active" data-id="1">Step 1: Identify a Problem</button>
+                </div>
+
+                <div class="col-md-2">
+                    <button class="button" data-id="2">Step 2: Devise a Solution</button>
+                </div>
+
+                <div class="col-md-2">
+                    <button class="button" data-id="3">Step 3: Explore Alpaca</button>
+                </div>
+
+                <div class="col-md-2">
+                    <button class="button" data-id="4">Step 4: Prompt Engineering</button>
+                </div>
+
+                <div class="col-md-2">
+                    <button class="button" data-id="5">Step 5: Transform an Image</button>
+                </div>
+
+                <div class="col-md-2">
+                    <button class="button" data-id="6">Step 6: Submit your Idea</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+
+        <div id="content-1" class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 left-section">
+                    <div class="box-wrapper">
+                        <div class="box-design">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="/images/orientationlogo.gif" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <p>Imagine an educational system designed to perfection. A system that understands and caters to student needs, and delivers information in the most engaging and effective manner. What would such a system look like? <br> <br>
+
+                                        On the right, we have listed several themes that relate to classrooms in general. Pick a theme of your choice and identify a problem area to work on. <br><br>
+                                        
+                                        Note: Some areas within each theme have already been identified. You are free to use one of them, or come up with your own.</p>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+
+                    <div class="playerinput">
+                        <input type="text" id="step-1-input" class="form-control" placeholder="Provide a tentative description of the problem that you identified.">
+                    </div>
+                </div>
+                
+                <div class="col-md-6 right-section">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span>▼</span> Personalized Learning
+                                    </button>
+                                </h2>
+                            </div>
+        
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>• How can educational content be tailored to fit the unique needs and preferences of each student?</p>
+                                    <p>• What kind of personalized recommendations or guidance could enhance a student's learning journey?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <span>▶</span> Accessibility and Inclusion
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>• How can educational resources be made more accessible to students with disabilities?</p>
+                                    <p>• What can we bridge language barriers in multicultural classrooms?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span>▶</span> Engagement and Motivation
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>• How can we gamify the learning process to increase student engagement and motivation?</p>
+                                    <p>• How can we provide real-time feedback and encouragement to keep students motivated?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <span>▶</span> Assessment and Feedback
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>• How can we provide more personalized and constructive feedback on student work?</p>
+                                    <p>• How can we offer alternative forms of assessment beyond traditional exams?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="submit-button">
+                        <button id="step-1-submit" class="btn btn-warning">PROCEED</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-2" class="container-fluid hidden">
+            <h1>Content ID 2</h1>
+        </div>
+
+        <div id="content-3" class="container-fluid hidden">
+            <h1>Content ID 3</h1>
+        </div>
+
+        <div id="content-4" class="container-fluid hidden">
+            <h1>Content ID 4</h1>
+        </div>
+
+        <div id="content-5" class="container-fluid hidden">
+            <h1>Content ID 5</h1>
+        </div>
+
+        <div id="content-6" class="container-fluid hidden">
+            <h1>Content ID 6</h1>
+        </div>
+
+    </section>
+
+    <script>
+        let activeButtonId = 1;
+
+        function setActive(button) {
+            var buttons = document.querySelectorAll('.button');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('button-active');
+            });
+
+            button.classList.add('button-active');
+
+            activeButtonId = button.getAttribute('data-id');
+
+            var contents = document.querySelectorAll('.content .container-fluid');
+            contents.forEach(function(content) {
+                content.classList.add('hidden');
+            });
+
+            var activeContent = document.getElementById('content-' + activeButtonId);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+            }
+        }
+
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', function() {
+                setActive(this);
+            });
+        });
+
+        document.getElementById('step-1-submit').addEventListener('click', function() {
+            const playerInput = document.getElementById('step-1-input').value;
+
+            fetch('/innovate/step1', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ playerInput: playerInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
 </body>
 </html>
