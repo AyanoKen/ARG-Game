@@ -8,6 +8,14 @@ const playerChoiceSchema = new mongoose.Schema({
     choices: {
         type: [String],
         default: []
+    },
+    innovateStep1: {
+        type: [String], 
+        default: []
+    },
+    innovateStep2: {
+        type: [String],
+        default: []
     }
 });
 

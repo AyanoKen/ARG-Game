@@ -162,7 +162,41 @@
         </div>
 
         <div id="content-2" class="container-fluid hidden">
-            <h1>Content ID 2</h1>
+            <div class="row">
+                <div class="col-md-6 left-section">
+                    <div class="box-wrapper">
+                        <div class="box-design">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="/images/orientationlogo.gif" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <p>The origin of any grand invention is always an idea. <br><br>
+
+                                        Ideas are shaped into solutions when we make observations, talk to people, search the internet, or even use AI tools such as Chat GPT. <br><br>
+                                        
+                                        For the problem that you previously identified, brainstorm ideas that help solve it. They can be ones that already exist, or those that you came up with. <br><br>
+                                        
+                                        Finally, shortlist the best idea and create a hand-drawn sketch that visualizes it. </p>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="col-md-6 right-section">
+                    <div class="playerinput">
+                        <h2>Brainstorming Ideas</h2>
+                        <textarea id="step-2-input" class="form-control" placeholder="List all of your ideas here"></textarea>
+                    </div>
+
+                    <div class="submit-button">
+                        <button id="step-2-submit" class="btn btn-warning">PROCEED</button>
+                    </div>
+                </div>
+                
+            </div>
         </div>
 
         <div id="content-3" class="container-fluid hidden">
@@ -226,6 +260,27 @@
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
+                document.querySelector('button[data-id="2"]').click();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+
+        document.getElementById('step-2-submit').addEventListener('click', function() {
+            const playerInput = document.getElementById('step-2-input').value;
+
+            fetch('/innovate/step2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ playerInput: playerInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                document.querySelector('button[data-id="3"]').click();
             })
             .catch((error) => {
                 console.error('Error:', error);

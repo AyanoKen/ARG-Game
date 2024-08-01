@@ -316,6 +316,48 @@ app.get('/innovate', (req, res) => {
     }
 });
 
+app.post('/innovate/step1', async (req, res) => {
+    const {playerInput} = req.body;
+    try {
+        // Update the user's troop and avatar in the database
+        const result = await PlayerChoice.findOneAndUpdate(
+            { userId: String(req.user.googleId) },
+            {  $push: { innovateStep1: playerInput } },
+            { new: true, upsert: true }
+        );
+        
+        if (!result) {
+            console.log('User not found or update failed.');
+        } else{
+            console.log('User is updated');
+        }
+        res.status(200).send({ message: 'Troop and avatar updated' });
+    } catch (error) {
+        res.status(500).send({ message: 'Error updating troop and avatar' });
+    }
+});
+
+app.post('/innovate/step2', async (req, res) => {
+    const {playerInput} = req.body;
+    try {
+        // Update the user's troop and avatar in the database
+        const result = await PlayerChoice.findOneAndUpdate(
+            { userId: String(req.user.googleId) },
+            {  $push: { innovateStep2: playerInput } },
+            { new: true, upsert: true }
+        );
+        
+        if (!result) {
+            console.log('User not found or update failed.');
+        } else{
+            console.log('User is updated');
+        }
+        res.status(200).send({ message: 'Troop and avatar updated' });
+    } catch (error) {
+        res.status(500).send({ message: 'Error updating troop and avatar' });
+    }
+});
+
 app.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
