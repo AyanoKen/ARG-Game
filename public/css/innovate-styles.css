@@ -211,6 +211,11 @@ p{
     padding: 10px 20px;
     cursor: pointer;
     align-self: flex-end; 
+    
+}
+
+.submit-button{
+    margin-top: 4%;
 }
 
 #content-2 .right-section {
@@ -244,3 +249,24 @@ p{
     align-items: flex-end;
 }
 
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#content-3 .btn-primary{
+    background-color: transparent;
+    padding: 2% 4%;
+    color: #FFD977;
+    border-color: #8451ca;
+}
+
+#content-3 .right-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 2%;
+}
