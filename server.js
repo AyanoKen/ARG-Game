@@ -10,6 +10,10 @@ const PlayerChoice = require('./models/PlayerChoice');
 const TroopInfo = require('./models/TroopInfo');
 const LevelInfo = require('./models/LevelInfo');
 const cors = require('cors');
+const multer = require('multer');
+const { google } = require('googleapis');
+const path = require('path');
+const fs = require('fs');
 
 require('dotenv').config();
 
@@ -19,6 +23,30 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 app.use(cors());
+
+// Multer setup for image upload
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, './uploads/');
+    },
+    filename: function(req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage: storage });
+
+const oauth2Client = new google.auth.OAuth2(
+    process.env.GOOGLE_CLIENT_ID,
+    process.env.GOOGLE_CLIENT_SECRET,
+    '/auth/google/callback'
+);
+
+oauth2Client.setCredentials({
+    refresh_token: process.env.GOOGLE_REFRESH_TOKEN
+});
+
+const drive = google.drive({ version: 'v3', auth: oauth2Client })
 
 // Connect to MongoDB
 // mongoose.connect('mongodb://localhost:27017/arggame', {
@@ -340,7 +368,6 @@ app.post('/innovate/step1', async (req, res) => {
 app.post('/innovate/step2', async (req, res) => {
     const {playerInput} = req.body;
     try {
-        // Update the user's troop and avatar in the database
         const result = await PlayerChoice.findOneAndUpdate(
             { userId: String(req.user.googleId) },
             {  $push: { innovateStep2: playerInput } },
@@ -356,6 +383,32 @@ app.post('/innovate/step2', async (req, res) => {
     } catch (error) {
         res.status(500).send({ message: 'Error updating troop and avatar' });
     }
+});
+
+app.post('/innovate/step6', async (req, res) => {
+    const {problemDefinition, context, proposedSolution, alpacaPrompt} = req.body;
+
+    try {
+        const result = await PlayerChoice.findOneAndUpdate(
+            { userId: String(req.user.googleId) },
+            {  $push: { innovateStep6: [problemDefinition, context, proposedSolution, alpacaPrompt] } },
+            { new: true, upsert: true }
+        );
+        
+        if (!result) {
+            console.log('User not found or update failed.');
+        } else{
+            console.log('User is updated');
+        }
+        res.status(200).send({ message: 'Troop and avatar updated' });
+    } catch (error) {
+        res.status(500).send({ message: 'Error updating troop and avatar' });
+    }
+
+});
+
+app.get('/test', (req, res) => {
+    res.render('test');
 });
 
 app.get('/logout', (req, res) => {

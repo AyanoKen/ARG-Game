@@ -16,6 +16,10 @@ const playerChoiceSchema = new mongoose.Schema({
     innovateStep2: {
         type: [String],
         default: []
+    },
+    innovateStep6: {
+        type: [[String]],
+        default: []
     }
 });
 

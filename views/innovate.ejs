@@ -389,13 +389,71 @@
         </div>
 
         <div id="content-6" class="container-fluid hidden">
-            <h1>Content ID 6</h1>
+            <div class="row">
+                <div class="col-8">
+                    <h2 class="text-left">Submit your Idea</h2>
+                </div>
+                <div class="col-4 text-right">
+                    <button id="viewSampleButton" class="btn btn-outline-warning">VIEW SAMPLE</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 left-section">
+                    <div class="form-group">
+                        <label for="problemDefinition">Problem Definition</label>
+                        <textarea class="form-control" id="problemDefinition" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="context">Context <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Describe the problem you're trying to solve."></i></label>
+                        <textarea class="form-control" id="context" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="proposedSolution">Proposed Solution</label>
+                        <textarea class="form-control" id="proposedSolution" rows="3"></textarea>
+                    </div>
+                </div>
+        
+                <div class="col-md-6 right-section">
+                    <div class="form-group">
+                        <label for="alpacaPrompt">Alpaca Prompt <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Describe the problem you're trying to solve."></i></label>
+                        <textarea class="form-control" id="alpacaPrompt" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="sideBySideImage">Side-by-Side AI Image <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Describe the problem you're trying to solve."></i></label>
+                        <textarea class="form-control" id="sideBySideImage" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <button id="backButton" class="btn btn-outline-warning float-left">BACK</button>
+                </div>
+                <div class="col-6">
+                    <button id="step-6-submit" class="btn btn-warning float-right">SUBMIT</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center mt-2">
+                    <small class="footer">Top 10 ideas chosen by a panel of judges will receive swags from Purdue Online!</small>
+                </div>
+            </div>
         </div>
 
     </section>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
         let activeButtonId = 1;
+
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
 
         function setActive(button) {
             var buttons = document.querySelectorAll('.button');
@@ -476,12 +534,38 @@
             document.querySelector('button[data-id="6"]').click();
         });
 
+        document.getElementById('step-6-submit').addEventListener('click', function() {
+            const problemDefinition = document.getElementById('problemDefinition').value;
+            const context = document.getElementById('context').value;
+            const proposedSolution = document.getElementById('proposedSolution').value;
+            const alpacaPrompt = document.getElementById('alpacaPrompt').value;
+
+
+            fetch('/innovate/step6', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    problemDefinition: problemDefinition,
+                    context: context,
+                    proposedSolution: proposedSolution,
+                    alpacaPrompt: alpacaPrompt
+                 })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                window.location.href = '/levels';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
 
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     
 </body>
 </html>

@@ -287,3 +287,83 @@ p{
     padding-left: 4%;
     margin-top: 2%;
 }
+
+#content-6 {
+    padding-top: 2%;
+    color: #FFF;
+}
+
+#content-6 .left-section {
+    margin: 2% 0;
+}
+
+#content-6 .right-section {
+    margin: 2% 0;
+    margin-top: 2.2%;
+}
+
+#content-6 .form-group {
+    margin-bottom: 2%;
+}
+
+#content-6 .form-control {
+    background-color: transparent;
+    border: 1px solid #b89f74;
+    border-radius: 5px;
+    color: white;
+}
+
+#content-6 .form-control::placeholder {
+    color: white;
+}
+
+#content-6 label {
+    font-weight: bold;
+    color: white;
+}
+
+#content-6 .btn-warning {
+    background-color: #e5c07b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#content-6 .btn-outline-warning {
+    color: #e5c07b;
+    border: 1px solid #e5c07b;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#content-6 .btn-outline-warning:hover {
+    background-color: #e5c07b;
+    color: #1a1a1a;
+}
+
+#content-6 .footer {
+    color: #FFD977;
+}
+
+#content-6 i {
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+#viewSampleButton {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+.tooltip-inner {
+    background-color: transparent;
+    color: white;
+    font-size: 0.875rem;
+    border: 1px solid #e5c07b;
+}
+.tooltip-arrow {
+    border-top-color: #e5c07b;
+}
