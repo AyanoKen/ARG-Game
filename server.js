@@ -46,7 +46,36 @@ oauth2Client.setCredentials({
     refresh_token: process.env.GOOGLE_REFRESH_TOKEN
 });
 
-const drive = google.drive({ version: 'v3', auth: oauth2Client })
+const drive = google.drive({ version: 'v3', auth: oauth2Client });
+
+async function uploadFileToDrive(filePath, fileName) {
+    console.log("Checkpoint 1");
+    console.log(filePath);
+    console.log(fileName);
+
+    const fileMetadata = {
+        'name': fileName,
+        'parents': ['1YQONuONhnVJvb_X3gmvy6ywHEYNp881V'] // Ensure this ID is correct and you have access
+    };
+    const media = {
+        mimeType: 'image/png', // Adjust this if the file type varies
+        body: fs.createReadStream(filePath)
+    };
+
+    try {
+        const response = await drive.files.create({
+            resource: fileMetadata,
+            media: media,
+            fields: 'id'
+        });
+
+        console.log("Checkpoint 2");
+        console.log(response.data);
+        return response.data.id;
+    } catch (error) {
+        console.error("Error during file upload:", error);
+    }
+}
 
 // Connect to MongoDB
 // mongoose.connect('mongodb://localhost:27017/arggame', {
@@ -385,26 +414,33 @@ app.post('/innovate/step2', async (req, res) => {
     }
 });
 
-app.post('/innovate/step6', async (req, res) => {
-    const {problemDefinition, context, proposedSolution, alpacaPrompt} = req.body;
+app.post('/innovate/step6', upload.single('playerImage'), async (req, res) => {
+    const { problemDefinition, context, proposedSolution, alpacaPrompt } = req.body;
 
     try {
+        const imageFilePath = req.file.path;
+        const fileId = await uploadFileToDrive(imageFilePath, req.file.filename);
+
+        // Store the image file ID along with the other data
         const result = await PlayerChoice.findOneAndUpdate(
             { userId: String(req.user.googleId) },
-            {  $push: { innovateStep6: [problemDefinition, context, proposedSolution, alpacaPrompt] } },
+            { $push: { innovateStep6: [problemDefinition, context, proposedSolution, alpacaPrompt, fileId] } },
             { new: true, upsert: true }
         );
-        
+
         if (!result) {
             console.log('User not found or update failed.');
-        } else{
+        } else {
             console.log('User is updated');
         }
-        res.status(200).send({ message: 'Troop and avatar updated' });
-    } catch (error) {
-        res.status(500).send({ message: 'Error updating troop and avatar' });
-    }
 
+        // Clean up by deleting the image file from the server
+        fs.unlinkSync(imageFilePath);
+
+        res.status(200).send({ message: 'Data and image uploaded' });
+    } catch (error) {
+        res.status(500).send({ message: 'Error updating data and uploading image' });
+    }
 });
 
 app.get('/test', (req, res) => {
