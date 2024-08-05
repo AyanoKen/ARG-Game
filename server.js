@@ -451,6 +451,14 @@ app.get('/reimagine', (req, res) => {
     }
 });
 
+app.get('/reimagine2', (req, res) => {
+    if(req.isAuthenticated()){
+        res.render('reimagine2', {user: req.user});
+    }else{
+        res.redirect('/login');
+    }
+});
+
 app.get('/test', (req, res) => {
     res.render('test');
 });

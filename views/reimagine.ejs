@@ -112,7 +112,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const beginButton = document.getElementById('begin-button');
@@ -146,13 +145,16 @@
                 question.addEventListener('click', handleAnswerClick);
             });
 
-        });
-
-        function autoScroll() {
+            function autoScroll() {
                 window.scrollBy({
+                    top: 1000,
                     behavior: 'smooth'
                 });
             }
+
+        });
+
+        
     </script>
 </body>
 </html>
