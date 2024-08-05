@@ -443,6 +443,14 @@ app.post('/innovate/step6', upload.single('playerImage'), async (req, res) => {
     }
 });
 
+app.get('/reimagine', (req, res) => {
+    if(req.isAuthenticated()){
+        res.render('reimagine', {user: req.user});
+    }else{
+        res.redirect('/login');
+    }
+});
+
 app.get('/test', (req, res) => {
     res.render('test');
 });

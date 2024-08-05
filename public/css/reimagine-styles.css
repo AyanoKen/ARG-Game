@@ -1,0 +1,238 @@
+body {
+    background: rgb(11,1,33);
+    background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+img{
+    width: 100%;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.title h1{
+    font-size: 1.5em;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+}
+
+.navbar-nav a {
+    font-size: 1.5rem;
+}
+
+.navbar img {
+    width: 80px;
+    height: auto;
+}
+.navbar-nav .nav-item .nav-link {
+    color: #f0ad4e;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: white;
+}
+.navbar-nav .nav-item .active .nav-link {
+    color: white;
+}
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+::-webkit-scrollbar {
+    width: 10px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a2e; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #aa6fdf; 
+    border-radius: 10px; 
+    border: 2px solid #1a1a2e; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #944fcb; 
+}
+
+
+.intro-section {
+    text-align: center;
+}
+
+.intro-section .container {
+    padding: 8% 0;
+}
+
+.intro-section img {
+    width: 50%;
+}
+
+.intro-section p {
+    color: #ffd977;
+    font-size: 1.2rem;
+}
+
+.intro-section .btn {
+    padding: 1% 6%;
+    margin: 2% 0;
+    background-color: #ffd977;
+}
+
+.questions-section .container{
+    display: flex;
+    flex-direction: column;
+}
+
+.question-wrapper {
+    padding: 4%;
+    clip-path: polygon(
+        0% 0%,                 /* Top left corner */
+        100% 0%,               /* Top right corner */
+        100% 100%,             /* Right side, slightly above bottom right */
+        calc(100% - 42px) 100%,/* Bottom right corner, inset */
+        25% 100%,              /* Bottom edge, before left angle */
+        20% calc(100% - 42px), /* Bottom left angled corner */
+        0% calc(100% - 42px)   /* Left edge, up to the angled part */
+    );
+    filter: drop-shadow(0 0 10px #ffd977);
+}
+
+.question {
+    box-shadow: 0 0 10px 2px #ffd977;
+    padding: 6%;
+    background-color: #452e68;
+    padding-bottom: 8%;
+    margin: 4% 0;
+    clip-path: polygon(
+        0% 0%,                 /* Top left corner */
+        100% 0%,               /* Top right corner */
+        100% 100%,             /* Right side, slightly above bottom right */
+        calc(100% - 42px) 100%,/* Bottom right corner, inset */
+        25% 100%,              /* Bottom edge, before left angle */
+        20% calc(100% - 42px), /* Bottom left angled corner */
+        0% calc(100% - 42px)   /* Left edge, up to the angled part */
+    );
+    border-radius: 10px;
+}
+
+.box-design {
+    box-shadow: 0 0 10px 2px #ffd977;
+    padding: 6%;
+    padding-bottom: 8%;
+    background-color: #452e68;
+    margin: 4% 0;
+    clip-path: polygon(
+        0% 0%,                 /* Top left corner */
+        100% 0%,               /* Top right corner */
+        100% 100%,             /* Right side, slightly above bottom right */
+        calc(100% - 42px) 100%,/* Bottom right corner, inset */
+        25% 100%,              /* Bottom edge, before left angle */
+        20% calc(100% - 42px), /* Bottom left angled corner */
+        0% calc(100% - 42px)   /* Left edge, up to the angled part */
+    );
+    border-radius: 10px;
+}
+
+.question img{
+    width: 100%;
+}
+
+.prompt {
+    margin-top: 4%;
+    text-align: center !important;
+    font-size: 1.2rem;
+    color: #f5d08b;
+}
+
+.col-md-2 img{
+    width: 100%;
+}
+
+.question h1 {
+    font-size: 1.2rem;
+    color: #f5d08b;
+}
+
+.question .col-md-2{
+    padding: 0;
+}
+
+.col-md-10{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.answer {
+    color: #f5d08b;
+    padding: 2%;
+    background-color: #694f93;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.answer:hover {
+    box-shadow: 0 0 10px 0.5px #c79be9;
+}
+
+.selected {
+    box-shadow: 0 0 10px 0.5px #ffd977 !important;
+}
+
+.player-choice {
+    box-shadow: 0 0 10px 2px #c79be9;
+    padding: 2%;
+    padding-left: 0;
+    background-color: #452e68;
+    margin: 4% 0;
+    text-align: right;
+    width: 50%;
+    align-self: flex-end; /* Aligns the playerChoice to the right */
+}
+
+#footer-section-text .container {
+    color: #ffd977;
+    padding-bottom: 0;
+}
+
+.footer-section h1 {
+    font-size: 1.2rem;
+}
+
+.pmu {
+    margin-top: 4%;
+}
+
+.profile-img {
+    box-shadow: 0;
+}
+
+.answer-button {
+    display: none;
+}
+
+.choice-response {
+    display: none;
+}
+
+.avatar-selection {
+    display: none;
+}
+
+.house-badge {
+    font-weight: bold;
+    color: #FFD700;
+}
+

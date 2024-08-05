@@ -1,0 +1,158 @@
+<!-- Add the necessary HTML, CSS, and JavaScript for the /orientation page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/reimagine-styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/logo.png" alt="Logo" class="logo">
+                </a>
+                <div class="title">
+                    <h1>05</h1>
+                    <h1>REIMAGINE PURDUE</h1>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/playerinfo">
+                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="intro-section">
+        <div class="container">
+            <div id="intro-section">
+                <img src="/images/orientationlogo.gif" alt="">
+                <p>Attention agents! AI's ability to generate and transform images has sparked incredible creativity. We've reimagined five Purdue buildings in various artistic styles using AI. Below, you'll see these transformed buildings along with the prompts we used. Can you identify which buildings they are? Prepare to be amazed and test your knowledge!</p>
+                <button id="begin-button" class="btn btn-warning">BEGIN</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="questions-section hidden">
+        <div class="container">
+            <div class="question-wrapper">
+                <div id="question1" class="question">
+                    <img src="/images/pmu-ai.png" alt="">
+                    <p class="prompt"><b>Prompt: </b>An Oil painting of __________  at Purdue University, in style of Van Gogh, futuristic from 2050, exterior view, with a big moon and meteors in the sky and lake with ships in the bottom, intricate details</p>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="/images/orientationlogo.gif" alt="">
+                        </div>
+                        <div class="col-md-10">
+                            <h1>1. This is one of the most famous buildings at Purdue, with a food court in it as well. Can you guess which building is this?</h1>
+                        </div>
+                    </div>
+                    <p class="answer">A. France A. Córdova Recreational Sports Center (CoRec)</p>
+                    <p class="answer">B. Knoy Hall of Technology (Knoy)</p>
+                    <p class="answer">C. Purdue Memorial Union (PMU)</p>
+                    <p class="answer">D. Stewart Center (STEW)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-section hidden">
+        <div id="footer-section-text">
+            <div class="container">
+                <div class="question-wrapper">
+                    <div class="box-design">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img class="profile-img" src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                            </div>
+                        </div>
+                        <img class="pmu" src="/images/pmu.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="question-wrapper">
+                    <div class="box-design">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img class="profile-img" src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1>Amazing! Now it is time for you to learn how to create such magic on your own using a base image and some AI prompts. We will be holding a contest where whoever will recreate the most exciting picture of Purdue will be be deemed the winner! So what are you waiting for, begin the training and reimagine Purdue in the most exciting of ways!</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <a href="/reimagine2" class="btn btn-warning">Next</a>
+        </div>
+        
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const beginButton = document.getElementById('begin-button');
+            const questions = document.querySelectorAll('.question');
+
+            beginButton.addEventListener('click', () => {
+                document.querySelector('.questions-section').classList.remove('hidden');
+                autoScroll();
+            });
+
+            function handleAnswerClick(event) {
+                const answerElement = event.target;
+                if (answerElement.classList.contains('answer')) {
+                    const answerText = answerElement.textContent.trim();
+
+                    answerElement.classList.add('selected');
+                    questions[0].style.pointerEvents = 'none';
+
+                    if (answerElement.textContent == "C. Purdue Memorial Union (PMU)"){
+                        document.getElementById('response-text').textContent = "That is correct! This is the Purdue Memorial Union (PMU) building. Here is what the original image looked like before it was transformed by AI.";
+                    }else{
+                        document.getElementById('response-text').textContent = "That is wrong! This is the Purdue Memorial Union (PMU) building. Here is what the original image looked like before it was transformed by AI.";
+                    }
+
+                    document.querySelector('.footer-section').classList.remove('hidden');
+                    autoScroll();
+                }
+            }
+
+            questions.forEach(question => {
+                question.addEventListener('click', handleAnswerClick);
+            });
+
+        });
+
+        function autoScroll() {
+                window.scrollBy({
+                    behavior: 'smooth'
+                });
+            }
+    </script>
+</body>
+</html>
