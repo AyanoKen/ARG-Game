@@ -225,3 +225,53 @@ input{
     margin: 2% 0;
     width: 50%;
 }
+
+.content-3-img img {
+    width: 25%;
+    margin: 2% 0;
+}
+
+.mobile {
+    position: relative;
+    width: 30%; /* Adjust width as per your requirement */
+    height: 600px; /* Adjust height to mimic a laptop screen */
+    border: 16px solid #000000; /* Gray border */
+    border-radius: 20px; /* Rounded corners, less pronounced than the smartphone */
+    box-shadow: 0 0 20px #333; /* Darker shadow for a more pronounced effect */
+    overflow: hidden; /* Important to hide scrollbars */
+    background: #000; /* Black background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 35%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.mobile-content {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll; /* Enables vertical scrolling */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #666 #333; /* Firefox */
+}
+
+/* Scrollbar styles for Webkit (Chrome, Edge, Safari) */
+.mobile-content::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.mobile-content::-webkit-scrollbar-track {
+    background: #333; /* Scrollbar track color */
+}
+
+.mobile-content::-webkit-scrollbar-thumb {
+    background-color: #666; /* Scrollbar handle color */
+    border-radius: 10px;
+    border: 2px solid #333; /* Scrollbar handle border color */
+}
+
+.mobile img {
+    width: 100%; /* Ensure the image fills the width */
+    height: auto; /* Maintain aspect ratio */
+}
