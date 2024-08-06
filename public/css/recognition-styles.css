@@ -275,3 +275,16 @@ input{
     width: 100%; /* Ensure the image fills the width */
     height: auto; /* Maintain aspect ratio */
 }
+
+#carousel {
+    margin: 4% 0;
+}
+
+#carousel img {
+    width: 60%;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    background-color: transparent !important;
+    border: none !important;
+}
