@@ -10,6 +10,10 @@ html, body {
     height: 100%;
 }
 
+.hidden {
+    display: none !important;
+}
+
 ::-webkit-scrollbar {
     width: 10px; 
 }
@@ -65,4 +69,154 @@ html, body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.content {
+    margin-top: 2%;
+}
+
+.button {
+    background-color: transparent;
+    padding: 16%;
+    border-radius: 6px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 0 10px 0px #FFD977;
+    margin: 1px 0;
+}
+
+.button-active {
+    background-color: #ffd877b9 !important;
+}
+
+.button-long {
+    padding-top: 80%;
+    padding-bottom: 80%;
+}
+
+.clue-section {
+    background-color: black;
+    box-shadow: 0 0 10px 2px #FFD977;
+    border-radius: 16px;
+    text-align: center;
+    padding: 2%;
+}
+
+#clue-theme {
+    margin: 4% 0;
+    width: 100%;
+    height: 8%;
+    box-shadow: 0 0 0px 1px #FFD977;
+    margin: 4% 0;
+    border-radius: 24px;
+}
+
+#clue-img {
+    margin: 4% 0;
+    width: 80%;
+}
+
+#clue-title {
+    width: 100%;
+    box-shadow: 0 0 0px 1px #FFD977;
+    height: 8%;
+    margin: 4% 0;
+    border-radius: 24px;
+}
+
+#clue-location {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0px 1px #FFD977;
+    margin: 4% 0;
+    border-radius: 24px;
+}
+
+#clue-city {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0px 1px #FFD977;
+    margin: 4% 0;
+    border-radius: 24px;
+}
+
+#clue-date {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0px 1px #FFD977;
+    margin: 4% 0;
+    border-radius: 24px;
+}
+
+.clue-active {
+    box-shadow: 0 0 0px 4px #FFD977 !important;
+}
+
+.content-section {
+    padding: 0 4%;
+}
+
+#content-1 h1 {
+    font-size: 1.5rem;
+    color: #FFD977;
+}
+
+.laptop {
+    position: relative;
+    width: 80%; /* Adjust width as per your requirement */
+    height: 500px; /* Adjust height to mimic a laptop screen */
+    border: 16px solid #000000; /* Gray border */
+    border-radius: 20px; /* Rounded corners, less pronounced than the smartphone */
+    box-shadow: 0 0 20px #333; /* Darker shadow for a more pronounced effect */
+    overflow: hidden; /* Important to hide scrollbars */
+    background: #000; /* Black background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+    margin-top: 4%;
+}
+
+.laptop-content {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll; /* Enables vertical scrolling */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #666 #333; /* Firefox */
+}
+
+/* Scrollbar styles for Webkit (Chrome, Edge, Safari) */
+.laptop-content::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.laptop-content::-webkit-scrollbar-track {
+    background: #333; /* Scrollbar track color */
+}
+
+.laptop-content::-webkit-scrollbar-thumb {
+    background-color: #666; /* Scrollbar handle color */
+    border-radius: 10px;
+    border: 2px solid #333; /* Scrollbar handle border color */
+}
+
+.laptop img {
+    width: 100%; /* Ensure the image fills the width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#laptop-base {
+    width: 100%;
+    margin-bottom: 4%;
+}
+
+input{
+    box-shadow: 0 0 0px 2px #8451ca;
+    padding: 2% !important;
+    background-color: transparent !important;
+    color: #FFD977 !important;
+    border-radius: 24px !important;
+    text-align: center;
+    font-size: 1.2rem !important;
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/crossword_styles.css">
+    <link rel="stylesheet" href="/css/recognition-styles.css">
 </head>
 <body>
 
@@ -16,8 +16,8 @@
                     <img src="/images/modulelogo.png" alt="Logo" class="logo">
                 </a>
                 <div class="title">
-                    <h1>05</h1>
-                    <h1>REIMAGINE PURDUE</h1>
+                    <h1>02</h1>
+                    <h1>PATTERN RECOGNITION</h1>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
@@ -32,7 +32,113 @@
         </nav>
     </header>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <div class="row content">
+        <div class="col-md-1 buttons-section">
+            <button class="button button-active" data-id="1">01</button> <br>
+            <button class="button button-long" data-id="2">02</button> <br>
+            <button class="button" data-id="3">03</button> <br>
+            <button class="button" data-id="4">04</button> <br>
+            <button class="button" data-id="5">05</button> <br>
+            <button class="button" data-id="6">06</button> <br>
+        </div>
+
+        <div class="col-md-3 clue-section">
+            <p id="clue-theme" class="clue-active">_ _ _ _ _ _ _ _ _ _</p>
+            <img id="clue-img" src="/images/recognition-empty.png" alt="">
+            <p id="clue-title"></p>
+            <div style="height: 8%;">
+                <p id="clue-location"></p>
+            </div>
+            <div style="height: 8%;">
+                <p id="clue-city">Placeholder</p>
+            </div>
+            <div style="height: 8%;">
+                <p id="clue-date"></p>
+            </div>
+        </div>
+
+        <div class="col-md-8 content-section">
+            <div id="content-1">
+
+                <h1>The Professor’s laptop was found unlocked on her table. Can you scroll through her browser history and identify what theme was she searching for?</h1>
+
+                <div class="laptop">
+                    <div class="laptop-content">
+                        <img src="/images/Browser History.png" alt="Long Scrollable Content">
+                    </div>
+                </div>
+                <img id="laptop-base" src="/images/laptop-base.png" alt="">
+
+                <div class="playerinput">
+                    <input type="text" id="clue-1-input" class="form-control" placeholder="Enter Your Guess">
+                </div>
+                
+            </div>
+
+            <div id="content-2" class="hidden">
+
+            </div>
+
+            <div id="content-3" class="hidden">
+
+            </div>
+
+            <div id="content-4" class="hidden">
+
+            </div>
+
+            <div id="content-5" class="hidden">
+
+            </div>
+
+            <div id="content-6" class="hidden">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+
+        const clueDict = {1: "clue-theme", 2: "clue-img", 3: "clue-title", 4: "clue-location", 5: "clue-city", 6: "clue-date"};
+
+        let activeButtonId = 1;
+
+        function setActive(button) {
+            var buttons = document.querySelectorAll('.button');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('button-active');
+            });
+
+            button.classList.add('button-active');
+
+            document.getElementById(clueDict[activeButtonId]).classList.remove('clue-active');
+
+            activeButtonId = button.getAttribute('data-id');
+
+            document.getElementById(clueDict[activeButtonId]).classList.add('clue-active');
+
+            var contents = document.querySelectorAll('div[id^="content-"]');
+            contents.forEach(function(content) {
+                content.classList.add('hidden');
+            });
+
+            var activeContent = document.getElementById('content-' + activeButtonId);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+            }
+        }
+
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', function() {
+                setActive(this);
+            });
+        });
+
+    </script>
     
 </body>
 </html>
