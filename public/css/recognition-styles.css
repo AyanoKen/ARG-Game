@@ -157,7 +157,7 @@ html, body {
     padding: 0 4%;
 }
 
-#content-1 h1 {
+.content-section h1 {
     font-size: 1.5rem;
     color: #FFD977;
 }
@@ -219,4 +219,9 @@ input{
     border-radius: 24px !important;
     text-align: center;
     font-size: 1.2rem !important;
+}
+
+.content-2-img img {
+    margin: 2% 0;
+    width: 50%;
 }
