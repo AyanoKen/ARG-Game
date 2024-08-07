@@ -299,3 +299,27 @@ input{
     margin: 2% 0;
     box-shadow: 0 0 10px 2px #8451ca;
 }
+
+.col-md-1 img{
+    height: 100%;
+}
+
+.carousel-control-next-icon {
+    background-image: url('/images/recognition/Icon - Arrow R.png');
+    width: 60px;
+    height: 60px !important;
+}
+
+.carousel-control-next {
+    padding-left: 4% !important;
+}
+
+.carousel-control-prev-icon {
+    background-image: url('/images/recognition/Icon - Arrow L.png');
+    width: 60px;
+    height: 60px !important;
+}
+
+.carousel-control-prev {
+    padding-right: 4% !important;
+}
