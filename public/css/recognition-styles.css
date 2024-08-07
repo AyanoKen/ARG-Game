@@ -101,6 +101,9 @@ html, body {
     border-radius: 16px;
     text-align: center;
     padding: 2%;
+    padding-bottom: 0;
+    font-size: 1.4rem;
+    color: #FFD977;
 }
 
 #clue-theme {
@@ -110,6 +113,7 @@ html, body {
     box-shadow: 0 0 0px 1px #FFD977;
     margin: 4% 0;
     border-radius: 24px;
+    font-weight: bold;
 }
 
 #clue-img {
@@ -123,6 +127,7 @@ html, body {
     height: 8%;
     margin: 4% 0;
     border-radius: 24px;
+    font-weight: bold;
 }
 
 #clue-location {
@@ -211,11 +216,24 @@ html, body {
 input{
     box-shadow: 0 0 0px 2px #8451ca;
     padding: 2% !important;
-    background-color: transparent !important;
+    background-color: transparent;
     color: #FFD977 !important;
     border-radius: 24px !important;
     text-align: center;
     font-size: 1.2rem !important;
+    height: 100% !important;
+}
+
+.form-control {
+    background-color: transparent;
+}
+
+.form-control:active {
+    background-color: transparent;
+}
+
+.form-control:focus{
+    background-color: transparent;
 }
 
 .content-2-img img {
@@ -322,4 +340,8 @@ input{
 
 .carousel-control-prev {
     padding-right: 4% !important;
+}
+
+.playerinput {
+    height: 100%;
 }

@@ -1,3 +1,23 @@
 Player Response text in /reimagine
 
 Container height in /innovate
+
+/recognition backend logic
+
+/all pages -> Icon top left redirect url
+
+/levels back icon replace with img instead of fontawesome icons
+
+/playerinfo -> chapters tab
+
+/levels -> Level order change and flavor text for all levels
+
+/levels -> Landing page
+
+Module introduction page for all levels
+
+backend logic for level completion for all levels
+
+Image storage for /innovate
+
+/ -> Carousel icons, box design in carousel and community sections

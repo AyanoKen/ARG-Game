@@ -48,25 +48,25 @@
             <p id="clue-title"></p>
             <div class="row" style="height: 8%; margin: 4% 0;">
                 <div class="col-md-2">
-                    <img style="height: 100%;" src="/images/recognition/Icon - Pin.png" alt="">
+                    <img style="height: 50%;" src="/images/recognition/Icon - Pin2.png" alt="">
                 </div>
-                <div class="col-md-10" style="padding-right: 24%;">
+                <div class="col-md-10" style="padding-right: 24%; height: 100%;">
                     <p id="clue-location"></p>
                 </div>
             </div>
             <div class="row" style="height: 8%; margin: 4% 0;">
                 <div class="col-md-2">
-                    <img style="height: 100%;" src="/images/recognition/Icon - City.png" alt="">
+                    <img style="height: 50%;" src="/images/recognition/Icon - City2.png" alt="">
                 </div>
-                <div class="col-md-10" style="padding-right: 40%;">
+                <div class="col-md-10" style="padding-right: 40%; height: 100%;">
                     <p id="clue-city"></p>
                 </div>
             </div>
             <div class="row" style="height: 8%; margin: 4% 0;">
                 <div class="col-md-2">
-                    <img style="height: 100%;" src="/images/recognition/Icon - Date.png" alt="">
+                    <img style="height: 50%;" src="/images/recognition/Icon - Date2.png" alt="">
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="height: 100%;">
                     <p id="clue-date"></p>
                 </div>
             </div>
@@ -92,7 +92,7 @@
 
                 <div class="row">
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Bulb.png" alt="">
+                        <img src="/images/recognition/Icon-Bulb.png" alt="">
                     </div>
                     <div class="col-md-10">
                         <div class="playerinput">
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Submit.png" alt="">
+                        <img src="/images/recognition/Icon-Submit.png" alt="">
                     </div>
                 </div>    
                 
@@ -123,7 +123,7 @@
 
                 <div class="row">
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Bulb.png" alt="">
+                        <img src="/images/recognition/Icon-Bulb.png" alt="">
                     </div>
                     <div class="col-md-10">
                         <div class="playerinput">
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Submit.png" alt="">
+                        <img src="/images/recognition/Icon-Submit.png" alt="">
                     </div>
                 </div>  
             </div>
@@ -155,7 +155,7 @@
 
                 <div class="row">
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Bulb.png" alt="">
+                        <img src="/images/recognition/Icon-Bulb.png" alt="">
                     </div>
                     <div class="col-md-10">
                         <div class="playerinput">
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Submit.png" alt="">
+                        <img src="/images/recognition/Icon-Submit.png" alt="">
                     </div>
                 </div>  
             </div>
@@ -212,7 +212,7 @@
 
                 <div class="row">
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Bulb.png" alt="">
+                        <img src="/images/recognition/Icon-Bulb.png" alt="">
                     </div>
                     <div class="col-md-10">
                         <div class="playerinput">
@@ -220,7 +220,7 @@
                         </div>
                     </div>
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Submit.png" alt="">
+                        <img src="/images/recognition/Icon-Submit.png" alt="">
                     </div>
                 </div>  
             </div>
@@ -266,7 +266,7 @@
 
                 <div class="row">
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Bulb.png" alt="">
+                        <img src="/images/recognition/Icon-Bulb.png" alt="">
                     </div>
                     <div class="col-md-10">
                         <div class="playerinput">
@@ -274,7 +274,7 @@
                         </div>
                     </div>
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Submit.png" alt="">
+                        <img src="/images/recognition/Icon-Submit.png" alt="">
                     </div>
                 </div>  
             </div>
@@ -320,15 +320,15 @@
 
                 <div class="row">
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Bulb.png" alt="">
+                        <img src="/images/recognition/Icon-Bulb.png" alt="">
                     </div>
                     <div class="col-md-10">
                         <div class="playerinput">
-                            <input type="text" id="clue-5-input" class="form-control" placeholder="Enter Your Guess">
+                            <input type="text" id="clue-6-input" class="form-control" placeholder="Enter Your Guess">
                         </div>
                     </div>
                     <div class="col-md-1">
-                        <img src="/images/recognition/Icon - Submit.png" alt="">
+                        <img src="/images/recognition/Icon-Submit.png" alt="">
                     </div>
                 </div>  
             </div>
@@ -374,6 +374,66 @@
             button.addEventListener('click', function() {
                 setActive(this);
             });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const hints = {
+                1: "Was the Professor planning something?",
+                2: "A Group of Numbers... They must have a meaning",
+                3: "A common name repeated frequently", 
+                4: "Something is common across these polaroids", 
+                5: "Ahh, a trail of footsteps... Does the Professor point to some location?", 
+                6: "Is there something consistent across these emails?"
+            };
+
+            const submitButtons = document.querySelectorAll("img[src='/images/recognition/Icon-Submit.png']");
+            const hintIcons = document.querySelectorAll("img[src='/images/recognition/Icon-Bulb.png']");
+
+            submitButtons.forEach(function(button, index){
+
+                button.addEventListener("click", function(){
+
+                    const inputField = document.getElementById(`clue-${index + 1}-input`);
+                    const userInput = inputField.value.trim().toLowerCase();
+
+                    fetch('/recognition/answers', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            clueNumber: index + 1, 
+                            answer: userInput
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data.correct) {
+                            inputField.style.boxShadow = "0 0 0px 2px lightgreen";
+                            console.log(`Correct answer for content-${index + 1}`);
+
+                            document.getElementById(clueDict[index + 1]).textContent = data.text;
+                            document.getElementById(clueDict[index + 1]).classList.remove("clue-active");
+                            document.getElementById(clueDict[index + 1]).style.boxShadow = "none";
+
+                        } else {
+                            inputField.style.boxShadow = "0 0 0px 2px lightcoral";
+                            console.log(`Wrong answer for content-${index + 1}`);
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+            });
+
+            hintIcons.forEach(function(icon, index) {
+                icon.addEventListener("click", function() {
+                    const inputField = document.getElementById(`clue-${index + 1}-input`);
+                    const hint = hints[index + 1];
+                    inputField.placeholder = hint;
+                });
+            });
+
         });
 
     </script>

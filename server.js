@@ -467,6 +467,33 @@ app.get('/recognition', (req, res) => {
     }
 });
 
+const answers = {
+    1: ["ai conference", "ai conferences", "conference", "conferences"],
+    2: ["the ai imperative: uniting education business and government"], 
+    3: ["purdue x google summit", "purduexgooglesummit", "#purduexgooglesummit"],
+    4: ["hyatt", "hyatt regency"],
+    5: ["indianapolis"],
+    6: ["14 nov, 2024", "14 nov 2024", "14 november 2024", "14 november, 2024", "14th nov, 2024", "14th november, 2024", "14th november 2024"]
+};
+
+const hints = {
+    1: "AI Conference",
+    3: "Purdue X Google Summit",
+    4: "Hyatt Regency",
+    5: "Indianapolis",
+    6: "14 November 2024"
+};
+
+app.post('/recognition/answers', (req, res) => {
+    const { clueNumber, answer } = req.body;
+
+    if (answers[clueNumber] && answers[clueNumber].includes(answer)) {
+        return res.json({ correct: true, text: hints[clueNumber] });
+    } else {
+        return res.json({ correct: false });
+    }
+});
+
 app.get('/test', (req, res) => {
     res.render('test');
 });
