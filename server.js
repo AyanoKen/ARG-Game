@@ -494,6 +494,14 @@ app.post('/recognition/answers', (req, res) => {
     }
 });
 
+app.get('/decisions', (req, res) => {
+    if(req.isAuthenticated()){
+        res.render('decisions', {user: req.user});
+    }else{
+        res.redirect('/login');
+    }
+});
+
 app.get('/test', (req, res) => {
     res.render('test');
 });

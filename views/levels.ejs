@@ -51,11 +51,12 @@
                     <% const chapters = [
                         { id: 0, title: 'THE ORIGINS' },
                         { id: 1, title: 'AGENT PROFILE' },
-                        { id: 2, title: 'PATTERN RECOGNITION' },
-                        { id: 3, title: 'DECODE AI' },
+                        { id: 2, title: 'DATA TO DECISIONS' },
+                        { id: 3, title: 'AI PUZZLE' },
                         { id: 4, title: 'INNOVATE WITH AI' },
                         { id: 5, title: 'REIMAGINE PURDUE' },
-                        { id: 6, title: 'FINAL DESTINATION' }
+                        { id: 6, title: 'ETHICAL ECHOS' },
+                        { id: 7, title: 'FINAL REVELATION'}
                     ]; %>
                     <% chapters.forEach(chapter => { %>
                         <div class="icons">
@@ -101,6 +102,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
+
         $(document).ready(function() {
             const completedLevels = <%= JSON.stringify(user.completedLevels) %>;
             const unlockedLevels = <%= JSON.stringify(user.unlockedLevels) %>;
@@ -138,6 +140,8 @@
                     $('.completed-message').removeClass('d-none');
                 }
             });
+
+            document.querySelector('.chapter-title[data-title="00 THE ORIGINS"][data-id="0"]').click();
         });
     </script>
 </body>

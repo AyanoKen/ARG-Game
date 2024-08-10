@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data to Decisions</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/decisions-styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/modulelogo.png" alt="Logo" class="logo">
+                </a>
+                <div class="title">
+                    <h1>02</h1>
+                    <h1>DATA TO DECISIONS</h1>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/playerinfo">
+                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div id="content-1">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="/images/orientationlogo.gif" alt="">
+                    </div>
+                    <div class="col-md-10 d-flex align-items-center justify-content-end">
+                        <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
+                    </div>
+                </div>
+    
+                <div class="images">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="/images/decisions/Data Collection.png" alt="Data Collection">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/images/decisions/Data Preparation.png" alt="Data Preparation">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/images/decisions/Choose Model.png" alt="Choose Model">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/images/decisions/Data Collection (1).png" alt="Testing">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/images/decisions/Test Model.png" alt="Test Model">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/images/decisions/Improve.png" alt="Improve">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message-section">
+                    <div class="heading">1. Data Collection</div>
+                    <div class="message">Data collection is the initial step where we gather essential information required for our analysis. In the context of predicting student grades, this involves collecting detailed data such as attendance records, test scores, and study habits. This comprehensive dataset forms the foundation for developing our AI model.</div>
+                </div>
+
+                <div class="submit-button btn-container">
+                    <button id="step-1-submit" class="btn btn-warning">PROCEED</button>
+                </div>
+            </div>
+    
+    
+        </div>
+    
+        <div id="content-2" class="hidden">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="/images/orientationlogo.gif" alt="">
+                    </div>
+                    <div class="col-md-10 d-flex align-items-center justify-content-end">
+                        <h1 class="text-left">Preparing data for an AI model involves selecting key input attributes that influence student grades. Below is a list of attributes with descriptions. Select those that you believe will have the most significant influence on determining a student's grade.</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="content-3" class="hidden">
+    
+        </div>
+    
+        <div id="content-4" class="hidden">
+    
+        </div>
+    
+        <div id="content-5" class="hidden">
+    
+        </div>
+    
+        <div id="content-6" class="hidden">
+    
+        </div>
+    
+        <div id="content-7" class="hidden">
+    
+        </div>
+    
+        <div id="content-8  " class="hidden">
+    
+        </div>
+    </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const messages = {
+            "Data Collection": {
+                heading: "1. Data Collection",
+                message: "Data collection is the initial step where we gather essential information required for our analysis. In the context of predicting student grades, this involves collecting detailed data such as attendance records, test scores, and study habits. This comprehensive dataset forms the foundation for developing our AI model."
+            },
+            "Data Preparation": {
+                heading: "2. Data Preparation",
+                message: "Data processing involves organizing and refining the data collected. For predicting student grades, this means ensuring all data is in a uniform format, removing any inaccuracies or irrelevant details, and preparing it for effective analysis. Proper data processing ensures that the AI model will work efficiently and accurately."
+            },
+            "Choose Model": {
+                heading: "3. Choose Model",
+                message: "Choosing the right AI model is crucial for effectively analyzing the data. Depending on the complexity and nature of the student data, we select a model that can best interpret this information and provide meaningful insights. The chosen model should be capable of handling the specific characteristics of the data involved in predicting student grades."
+            },
+            "Testing": {
+                heading: "4. Train Model",
+                message: "Training the model involves using historical student performance data to teach the AI how to make predictions. During this phase, the model learns to identify patterns and correlations between various factors and student grades. The accuracy of the model improves with ongoing training and adjustments based on feedback from its performance."
+            },
+            "Test Model": {
+                heading: "5. Test Model",
+                message: "Testing the model is a critical step where we evaluate the model’s accuracy in making predictions using a separate set of data that wasn’t used during training. This helps to ensure that the model can effectively generalize to new, unseen data rather than just memorizing the training set. In the context of student grades, this step verifies that the model reliably predicts grades for the most recent semesters as well."
+            },
+            "Improve": {
+                heading: "6. Monitor & Improve",
+                message: "Once the AI model is operational, continuous monitoring is essential to maintain its accuracy over time. This includes regularly checking its performance in predicting student grades and making necessary adjustments. This could involve incorporating new data, recalibrating the model, or refining its parameters to adapt to any changes in educational practices or student behavior."
+            }
+        };
+
+        const images = document.querySelectorAll('.images img');
+        const headingElement = document.querySelector('.message-section .heading');
+        const messageElement = document.querySelector('.message-section .message');
+
+        images.forEach(image => {
+            image.addEventListener('click', function() {
+                const altText = image.getAttribute('alt').split(".")[0];
+                const newText = messages[altText];
+
+                if (newText) {
+                    headingElement.textContent = newText.heading;
+                    messageElement.textContent = newText.message;
+                }
+            });
+        });
+
+        document.getElementById('step-1-submit').addEventListener('click', function() {
+            document.getElementById('content-1').classList.add('hidden');
+            document.getElementById('content-2').classList.remove('hidden');
+        });
+
+    });
+    </script>
+</body>
+</html>
