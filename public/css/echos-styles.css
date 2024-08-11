@@ -1,0 +1,80 @@
+html, body {
+    background: rgb(11,1,33);
+    background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
+    background-repeat: no-repeat;
+    background-color: #0B0121;
+    color: #FFD977;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0.5%;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 10px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e; 
+  border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #aa6fdf; 
+  border-radius: 10px; 
+  border: 2px solid #1a1a2e; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #944fcb; 
+}
+
+.hidden {
+    display: none !important;
+}
+
+img{
+    width: 100%;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.title h1{
+    font-size: 1.5em;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+}
+
+.navbar-nav a {
+    font-size: 1.5rem;
+}
+
+.navbar img {
+    width: 60px;
+    height: auto;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #f0ad4e;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: white;
+}
+
+.navbar-nav .nav-item .active .nav-link {
+    color: white;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
