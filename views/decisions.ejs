@@ -368,11 +368,176 @@
         </div>
     
         <div id="content-3" class="hidden">
-    
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="/images/orientationlogo.gif" alt="">
+                    </div>
+                    <div class="col-md-10 d-flex align-items-center justify-content-end">
+                        <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
+                    </div>
+                </div>
+
+                <div class="questions-section">
+                    <div class="question">
+                        <h1>Size of Data</h1>
+                        <p>The total number of student records used as input, revealing student progress in various courses and the grades they received.</p>
+                        <div class="answers">
+                            <input type="radio">
+                            <label>1000</label>
+
+                            <input type="radio">
+                            <label>5000</label>
+
+                            <input type="radio">
+                            <label>10000</label>
+
+                            <input type="radio">
+                            <label>15000</label>
+                        </div>
+
+                        <small>Note: Bigger data tends to be more generalizable than smaller datasets.</small>
+                    </div>
+
+                    <div class="question">
+                        <h1>Timeliness of Data</h1>
+                        <p>The currency and relevancy of data, and how recent it is. Options suggest collecting all data from the duration suggested till recent times.</p>
+                        <div class="answers">
+                            <input type="radio">
+                            <label>Past 1 month</label>
+
+                            <input type="radio">
+                            <label>Past 12 months</label>
+
+                            <input type="radio">
+                            <label>Past 3 years</label>
+
+                            <input type="radio">
+                            <label>Past 10 years</label>
+                        </div>
+
+                        <small>Note: Data should span a few recent years, but should not be too old that it becomes irrelevant. </small>
+                    </div>
+
+                    <div class="question">
+                        <h1>Vastness of Data</h1>
+                        <p>The inclusion of student records from a variety of schools and colleges at Purdue.</p>
+                        <div class="answers">
+                            <input type="radio">
+                            <label>Choosing from a single school</label>
+
+                            <input type="radio">
+                            <label>Choosing from science related schools</label>
+
+                            <input type="radio">
+                            <label>Choosing at random from various schools</label>
+                        </div>
+
+                        <small>Note: Data should be as diverse as possible so that it accurately captures traits of a wide audience.</small>
+                    </div>
+
+                    <div class="question">
+                        <h1>Diversity of Data</h1>
+                        <p>The inclusion of student records from a variety of students representations at Purdue.</p>
+                        <div class="answers">
+                            <input type="radio">
+                            <label>Domestic Students</label>
+
+                            <input type="radio">
+                            <label>International Students</label>
+
+                            <input type="radio">
+                            <label>Graduate Staff</label>
+
+                            <input type="radio">
+                            <label>Choosing students at random</label>
+                        </div>
+
+                        <small>Note: Data should be as diverse as possible so that it accurately captures traits of a wide audience.</small>
+                    </div>
+
+                    <div class="question">
+                        <h1>Quality of Data</h1>
+                        <p>The accuracy and reliability of the data collected, ensuring that it is free from errors.</p>
+                        <div class="answers">
+                            <input type="radio">
+                            <label>Unverified</label>
+
+                            <input type="radio">
+                            <label>Self-reported by students</label>
+
+                            <input type="radio">
+                            <label>Verified by academic staff</label>
+
+                            <input type="radio">
+                            <label>Randomly audited</label>
+                        </div>
+
+                        <small>Note: Data should be as accurate as possible to remove flaws and inconsistencies.</small>
+                    </div>
+
+                    <div class="question">
+                        <h1>Update Frequency</h1>
+                        <p>How often the data is updated to keep the AI model current with new trends and changes in student performance.</p>
+                        <div class="answers">
+                            <input type="radio">
+                            <label>Real-time updates</label>
+
+                            <input type="radio">
+                            <label>Updated each semester</label>
+
+                            <input type="radio">
+                            <label>Annually updated</label>
+
+                            <input type="radio">
+                            <label>Updated at random</label>
+                        </div>
+
+                        <small>Note: AI models should be updated with new data whenever large sets of it become completely available.</small>
+                    </div>
+                    
+                </div>
+
+                <div class="submit-button btn-container">
+                    <button id="step-3-submit" class="btn btn-warning">PROCEED</button>
+                </div>
+            </div>
         </div>
     
         <div id="content-4" class="hidden">
-    
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="/images/orientationlogo.gif" alt="">
+                    </div>
+                    <div class="col-md-10 d-flex align-items-center justify-content-end">
+                        <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
+                    </div>
+                </div>
+
+                <div class="message-section">
+                    <div class="row">
+                        <div class="col-md-2 heading">
+                            1. Data Collection
+                        </div>
+                        <div class="col-md-2 heading">
+                            1. Data Collection
+                        </div>
+                        <div class="col-md-2 heading">
+                            1. Data Collection
+                        </div>
+                        <div class="col-md-2 heading">
+                            1. Data Collection
+                        </div>
+                    </div>
+                    
+                    <div class="message">Data collection is the initial step where we gather essential information required for our analysis. In the context of predicting student grades, this involves collecting detailed data such as attendance records, test scores, and study habits. This comprehensive dataset forms the foundation for developing our AI model.</div>
+                </div>
+
+                <div class="submit-button btn-container">
+                    <button id="step-4-submit" class="btn btn-warning">PROCEED</button>
+                </div>
+            </div>
         </div>
     
         <div id="content-5" class="hidden">
@@ -449,6 +614,11 @@
         document.getElementById('step-2-submit').addEventListener('click', function() {
             document.getElementById('content-2').classList.add('hidden');
             document.getElementById('content-3').classList.remove('hidden');
+        });
+
+        document.getElementById('step-3-submit').addEventListener('click', function() {
+            document.getElementById('content-3').classList.add('hidden');
+            document.getElementById('content-4').classList.remove('hidden');
         });
 
     });

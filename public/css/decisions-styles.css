@@ -193,3 +193,30 @@ h1 {
   #content-2 .toggle {
     padding-top: 2%;
   }
+
+  #content-3 .questions-section {
+    background-color: #412C63;
+    margin: 2% 8%;
+    padding: 2%;
+    border-radius: 16px;
+  }
+
+  #content-3 h1, #content-3 label {
+    color: white;
+  }
+
+  #content-3 small{
+    color: grey;
+  }
+
+  #content-3 label{
+    margin-right: 6%;
+  }
+
+  #content-3 .question {
+    margin-bottom: 4%;
+  }
+
+  #content-3 input:checked{
+    color: #FFD977;
+  }
