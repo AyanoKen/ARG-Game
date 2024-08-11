@@ -504,7 +504,7 @@ app.get('/decisions', (req, res) => {
 
 app.get('/echos', (req, res) => {
     if(req.isAuthenticated()){
-        res.render('decisions', {user: req.user});
+        res.render('echos', {user: req.user});
     }else{
         res.redirect('/login');
     }
