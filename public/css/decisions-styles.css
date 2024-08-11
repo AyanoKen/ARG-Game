@@ -220,3 +220,45 @@ h1 {
   #content-3 input:checked{
     color: #FFD977;
   }
+
+  #content-4 .message-section{
+    padding: 2% 12%;
+    padding-bottom: 1%;
+}
+
+#content-4 .row{
+  margin-left: 0.1%;
+}
+
+#content-4 .heading {
+    background-color: #57359B;
+    width: 16%;
+    text-align: center;
+    padding: 1%;
+    font-size: 1.2rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+}
+
+#content-4 .message{
+    background-color: #DEC5FF;
+    color: black;
+    padding: 4% 2% 4% 2%;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+}
+
+#content-4 .message h1{
+  font-size: 1.2rem;
+}
+
+#content-4 li{
+  font-size: 1rem;
+}
+
+#content-4 .active{
+  box-shadow: 0 0 2px 2px #DEC5FF;
+  z-index: 2;
+}

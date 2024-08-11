@@ -517,22 +517,47 @@
 
                 <div class="message-section">
                     <div class="row">
-                        <div class="col-md-2 heading">
-                            1. Data Collection
+                        <div class="col-md-2 heading model active">
+                            1. Logistic Regression
                         </div>
-                        <div class="col-md-2 heading">
-                            1. Data Collection
+                        <div class="col-md-2 heading model">
+                            2. Decision Trees
                         </div>
-                        <div class="col-md-2 heading">
-                            1. Data Collection
+                        <div class="col-md-2 heading model">
+                            3. Random Forest
                         </div>
-                        <div class="col-md-2 heading">
-                            1. Data Collection
+                        <div class="col-md-2 heading model">
+                            4. Neural Networks
                         </div>
                     </div>
                     
-                    <div class="message">Data collection is the initial step where we gather essential information required for our analysis. In the context of predicting student grades, this involves collecting detailed data such as attendance records, test scores, and study habits. This comprehensive dataset forms the foundation for developing our AI model.</div>
+                    <div class="message">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img id="model-img" src="/images/decisions/Logistic.png" alt="">
+                            </div>
+
+                            <div class="col-md-8">
+                                <p id="model-info">Logistic regression is a statistical method used in AI for classification tasks, which helps decide which category something belongs to. For example, it can predict whether a student will pass or fail based on their study habits and test scores. It works by analyzing existing data and using it to calculate the odds of something falling into a particular category. This makes it useful for making yes/no decisions, like determining if an email is spam or not spam.</p>
+
+                                <div class="row">
+                                    <div class="col-md-6" style="padding-left: 0;">
+                                        <h1>Strengths</h1>
+                                        <li id="model-str1">Ideal for predicting binary outcomes, like pass/fail</li>
+                                        <li id="model-str-2">Easy to implement and interpret</li>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h1>Weakness</h1>
+                                        <li id="model-wk1">Primarily designed for binary data</li>
+                                        <li id="model-wk2">May oversimplify real-world scenarios by not capturing more complex patterns</li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <h1 id="chosen" class="text-center" style="color: red;">Chosen: Logistic Regression</h1>
 
                 <div class="submit-button btn-container">
                     <button id="step-4-submit" class="btn btn-warning">PROCEED</button>
@@ -606,6 +631,59 @@
             });
         });
 
+        const modelDetails = {
+            '1. Logistic Regression': {
+                image: '/images/decisions/Logistic.png',
+                info: 'Logistic regression is a statistical method used in AI for classification tasks, which helps decide which category something belongs to. For example, it can predict whether a student will pass or fail based on their study habits and test scores. It works by analyzing existing data and using it to calculate the odds of something falling into a particular category. This makes it useful for making yes/no decisions, like determining if an email is spam or not spam.',
+                strengths: ['Ideal for predicting binary outcomes like pass/fail', 'Easy to implement and interpret'],
+                weaknesses: ['Primarily designed for binary data', 'May oversimplify real-world scenarios by not capturing more complex patterns']
+            },
+            '2. Decision Trees': {
+                image: '/images/decisions/DTrees.png',
+                info: 'Decision trees are a straightforward method used in AI to make decisions by following a tree-shaped model of choices and outcomes. Imagine a flowchart that starts with a question about a student’s study habits and, based on the answer, branches out to more questions until it reaches a conclusion about the student’s likely grade. Each branch represents a decision based on the data, guiding you to a final prediction through a series of yes/no questions.',
+                strengths: ['Provides a clear visual representation of the decision-making process', 'Can process both numerical and categorical data effectively'],
+                weaknesses: ['Tends to fit too closely to the training data, which can limit its ability to generate new data', 'May oversimplify complex problems by not capturing all underlying patterns']
+            },
+            '3. Random Forest': {
+                image: '/images/decisions/RForest.png',
+                info: 'Random Forests is a powerful AI method that combines many decision trees to make more accurate predictions and decisions. Think of it like consulting a group of experts instead of just one to decide on a student’s grade. Each tree in the forest makes its own prediction, and the most common outcome among all trees is chosen as the final decision. This method is good for handling complex data and can improve accuracy by learning from a variety of perspectives.',
+                strengths: ['Effectively processes large datasets with many variables.', 'Automatically ranks the importance of different factors affecting student grades.'],
+                weaknesses: ['More complex to understand and interpret.', 'Harder to visualize and explain specific decision paths.']
+            },
+            '4. Neural Networks': {
+                image: '/images/decisions/NNetworks.png',
+                info: 'Neural networks are a set of algorithms, modeled loosely after the human brain, that are designed to recognize patterns. The networks consist of layers of interconnected nodes (similar to neurons) where each node is a place where computation happens. By processing data through these interconnected nodes, neural networks can make complex decisions and predictions, like predicting a student grade based on various input factors.',
+                strengths: ['Can improve accuracy over time by learning from new data.', 'Efficiently processes complex and large numbers of input variables.'],
+                weaknesses: ['Needs large amounts of data to train effectively, which may not be available.', 'Difficult to understand how decisions are made.']
+            }
+        };
+
+        const headings = document.querySelectorAll('.heading.model');
+
+        headings.forEach(heading => {
+            heading.addEventListener('click', () => {
+                headings.forEach(h => h.classList.remove('active'));
+
+                heading.classList.add('active');
+
+                const modelName = heading.textContent.replace(/^\d+\.\s*/, '').trim();
+
+                if(modelName == '4. Neural Networks'){
+                    document.getElementById('chosen').style.color = "green";
+                }
+
+                document.getElementById('chosen').textContent = "Chosen: " + modelName.substring(3);
+
+                const selectedModel = modelDetails[modelName];
+                document.getElementById('model-img').src = selectedModel.image;
+                document.getElementById('model-info').textContent = selectedModel.info;
+                document.getElementById('model-str1').textContent = selectedModel.strengths[0];
+                document.getElementById('model-str-2').textContent = selectedModel.strengths[1];
+                document.getElementById('model-wk1').textContent = selectedModel.weaknesses[0];
+                document.getElementById('model-wk2').textContent = selectedModel.weaknesses[1];
+            });
+        });
+
         document.getElementById('step-1-submit').addEventListener('click', function() {
             document.getElementById('content-1').classList.add('hidden');
             document.getElementById('content-2').classList.remove('hidden');
@@ -619,6 +697,11 @@
         document.getElementById('step-3-submit').addEventListener('click', function() {
             document.getElementById('content-3').classList.add('hidden');
             document.getElementById('content-4').classList.remove('hidden');
+        });
+
+        document.getElementById('step-4-submit').addEventListener('click', function() {
+            document.getElementById('content-4').classList.add('hidden');
+            document.getElementById('content-5').classList.remove('hidden');
         });
 
     });
