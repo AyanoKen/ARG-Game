@@ -22,7 +22,10 @@ Image storage for /innovate
 
 Player info collection screen once player signs in for the first time
 
-Font- Archivo
+Font- Archivo (Text in home page)
+All buttons font (Lexend Giga)
+
+/lab back button and card changes in key projects
 
 / -> Carousel icons, box design in carousel and community sections, carousel intervals
 
