@@ -22,7 +22,7 @@ body {
     height: auto;
 }
 .navbar-nav .nav-item .nav-link {
-    color: #f0ad4e;
+    color: #FFD977;
 }
 .navbar-nav .nav-item .nav-link:hover {
     color: white;
@@ -54,7 +54,7 @@ body {
     padding: 2%;
     padding-left: 4%;
     border-radius: 10px;
-    box-shadow: 0 0 10px 2px yellow;
+    box-shadow: 0 0 30px 0.5px #FFD977;
     width: 50%; /* Set width to 50% of screen width */
     display: flex;
     flex-direction: column;
@@ -67,40 +67,50 @@ body {
     font-size: 1.5rem;
 }
 .infosection .btn-warning {
-    background-color: #f0ad4e;
+    background-color: #FFD977;
     border: none;
     align-self: flex-start; /* Align button to bottom right */
 }
 
 .clues h1 {
-    color: #f0ad4e;
+    color: #FFD977;
     text-align: center;
     margin-bottom: 4%;
 }
 
 .clues h2 {
-    color: #f0ad4e;
+    margin-bottom: 14%;
+    color: #FFD977;
 }
 
 .clues p {
-    color: #f0ad4e;
+    margin-bottom: 4%;
+    color: #FFD977;
     font-size: 1.5rem;
 }
 
 .clues .container-fluid {
-    background-color: rgba(136, 111, 250, 0.432);
-    box-shadow: 0 0 10px 2px rgb(230, 230, 205);
+    background-color: #31262B;
+    box-shadow: 0 0 30px 1px #FFD977;
     padding: 2%;
+    padding-top: 4%;
     margin: 4% 0;
 }
 
 .clues img {
     width: 100%;
-    box-shadow: 0 0 10px 2px rgb(230, 230, 205);
+}
+
+.clues img:hover {
+    box-shadow: 0 0 10px 2px #FFD977;
+}
+
+.clues .main-img {
+    box-shadow: 0 0 10px 2px #FFD977;
 }
 
 .exponent .container-fluid {
-    box-shadow: 0 0 10px 2px rgb(230, 230, 205);
+    box-shadow: 0 0 10px 2px #FFD977;
     margin: 4% 0;
 }
 
@@ -125,7 +135,7 @@ body {
 } 
 
 .exponent-right{
-    background-color: rgba(136, 111, 250, 0.432);
+    background-color: #31262B;
     padding: 4%;
 }
 
@@ -136,13 +146,13 @@ body {
 }
 
 .exponent h1 {
-    color: #f0ad4e;
+    color: #FFD977;
     text-align: center;
     margin-bottom: 4%;
 }
 
 .exponent p {
-    color: #f0ad4e;
+    color: #FFD977;
     font-size: 1.5rem;
 }
 
@@ -155,4 +165,26 @@ body {
 .footer h1 {
     color: black;
     text-align: center;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.submit-button button {
+    background-color: #ffd977;
+    color: #452e68;
+    font-weight: bold;
+    padding: 10px 40px;
+    cursor: pointer;
+    align-self: flex-end; 
+    clip-path: polygon(100% 0, 100% 56%, 87% 100%, 0 100%, 0 0);
+    border-radius: 0;
+}
+
+.submit-button{
+    margin: 2%;
 }

@@ -47,7 +47,7 @@
 
     <section class="infosection">
         <div class="content">
-            <h1><br> <br>Dear Boilermaker Community, <br> <br>
+            <h1><br>Dear Boilermaker Community, <br> <br>
 
                 This website has been created to aid in the search for our esteemed Professor Emily Xander, who has been missing for the past few weeks. It contains all the necessary information that may help in locating her whereabouts.<br> <br>
                 
@@ -65,7 +65,7 @@
                     <div class="mb-4">
                         <p>In searching for Professor Emily Xander, we found intriguing clues in her abandoned lab, PEARL. These clues are key to understanding her disappearance. Visit Room 201 at the Stewart Center to explore the lab and piece together the puzzle. Join Mission Renaissance to help find our beloved professor.</p>
                         <h2>Room 201, Stewart Center</h2>
-                        <img src="/images/Search Page - Lab 1.png" alt="" id="mainImage" class="img-fluid">
+                        <img src="/images/Search Page - Lab 1.png" alt="" id="mainImage" class="img-fluid main-img">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -130,6 +130,9 @@
                         <img src="/images/Search Page - PEARL.png" alt="">
                         <p>The Purdue University AI in Education Research Lab, directed by the visionary Dr. Emily Xander, was at the forefront of integrating artificial intelligence into educational frameworks. Dedicated to advancing the integration of AI in educational settings, the lab focuses on enhancing learning outcomes, personalizing student experiences, and optimizing educational processes. </p>
                         
+                        <div class="submit-button btn-container hidden">
+                            <button class="btn btn-warning">READ MORE</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -157,6 +160,14 @@
             mainImage.src = clickedImage.src;
             clickedImage.src = currentMainImageSrc;
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.submit-button').addEventListener('click', function() {
+
+                window.location.href = "/lab";
+
+            });
+        });
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
