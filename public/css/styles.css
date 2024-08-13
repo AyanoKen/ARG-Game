@@ -1,9 +1,10 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #111;
-    color: #ffbf35;
+    color: #FFD977;
     margin: 0;
     padding: 0;
+    margin-top: 1%;
 }
 
 .logo {
@@ -14,16 +15,31 @@ body {
     background-color: #000 !important;
 }
 
+.navbar {
+    box-shadow: 0 0 0px 4px #DEC5FF;
+    z-index: 5;
+}
+
+.navbar-brand{
+    padding: 0;
+}
+
+.navbar-brand img {
+    height: 60px !important;
+    width: auto !important;
+}
+
 .navbar-nav a {
     font-size: 1.5rem;
 }
 
 .navbar img {
+    border-radius: 8px;
     width: 60px;
     height: auto;
 }
 .navbar-nav .nav-item .nav-link {
-    color: #f0ad4e;
+    color: #FFD977;
 }
 .navbar-nav .nav-item .nav-link:hover {
     color: white;
@@ -31,6 +47,7 @@ body {
 .navbar-nav .nav-item .active .nav-link {
     color: white;
 }
+
 .nav-center {
     position: absolute;
     left: 50%;
@@ -61,13 +78,12 @@ body {
 
 .hero .content {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 200px;
+    right: 2px;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 2%;
     padding-left: 4%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 2px yellow;
+    box-shadow: 0 0 20px 2px #FFD977;
     min-height: 20%; /* Minimum height to maintain shape */
     width: 70%; /* Set width to 50% of screen width */
     display: flex;
@@ -81,22 +97,28 @@ body {
     font-size: 1.5rem;
 }
 .hero .btn-warning {
-    background-color: #f0ad4e;
+    background-color: #FFD977;
+    clip-path: polygon(100% 2%, 100% 59%, 86% 100%, 0 100%, 0 0);
+    border-radius: 0;
     border: none;
-    align-self: flex-start; /* Align button to bottom right */
+    align-self: flex-end; /* Align button to bottom right */
 }
 
 .community .card{
     margin-top: auto;
 }
 
+.community-left {
+    padding-right: 0.5%;
+}
+
 .community-left img {
-    width: 80%;
+    width: 100%;
     border-radius: 3%;
     text-align: center;
     margin-top: 3%;
     margin-bottom: 3%;
-    box-shadow: 0 0 10px 2px rgb(207, 207, 207);
+    box-shadow: 0 0 10px 2px #FFD977;
 }
 
 .community .row {
@@ -115,7 +137,7 @@ body {
     /* mask-image: linear-gradient(to top right, transparent 10%, black 10%);
     -webkit-mask-image: linear-gradient(to top right, transparent 10%, black 10%); */
     /* border-bottom-right-radius: 100px; */
-    box-shadow: 0 0 10px 2px rgb(207, 207, 207);
+    box-shadow: 0 0 20px 1px #FFD977;
     margin-bottom: 2rem;
 }
 
@@ -128,38 +150,61 @@ body {
 
 .community .card-body h3 {
     text-align: left;
+    margin-bottom: 4%;
 }
 
 .card-body p {
     text-align: left;
-    padding-top: 8%;
+    padding-top: 2%;
+    margin-bottom: 4%;
     font-size: 1rem;
 }
 
 .community .btn-warning {
-    background-color: #f0ad4e;
+    background-color: #FFD977;
     margin: 5%;
+    margin-top: 0;
+    width: 25%;
+    align-self: flex-end; 
+    clip-path: polygon(100% 2%, 100% 59%, 91% 100%, 0 100%, 0 0);
+    border-radius: 0;
 }
 
+.community .flex-grow-1 {
+    margin-left: 0;
+    margin-right: 0;
+}
 .btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #FFD977;
+    border-color: #FFD977;
     color: #000;
+    clip-path: polygon(100% 2%, 100% 59%, 91% 100%, 0 100%, 0 0);
+    border-radius: 0;
 }
 
 .research .container-fluid {
     background-color:#29242F ;
-    padding: 5%;
+    padding: 5% 11%;
     text-align: center;
+    box-shadow: 0 0 30px 1px #FFD977;
 }
 
 .research img {
-    width: 80%;
+    width: 100%;
+    height: 600px;
     border-radius: 3%;
     text-align: center;
     margin-top: 3%;
     margin-bottom: 3%;
-    box-shadow: 0 0 10px 2px rgb(207, 207, 207);
+    box-shadow: 0 0 10px 2px #FFD977;
+}
+
+.research h3{
+    margin-bottom: 4%;
+}
+
+.research p{
+    text-align: left !important;
 }
 
 .research .card {
@@ -170,7 +215,7 @@ body {
 
 .research a {
     margin-top: 3%;
-    padding: 1% 8%;
+    padding: 1% 4%;
 }
 
 .sticky-bar {
@@ -188,4 +233,11 @@ body {
 .sticky-bar span {
     flex: 1;
     text-align: left;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
