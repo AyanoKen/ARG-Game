@@ -108,14 +108,18 @@ body img{
     padding-left: 10%;
 }
 
+.info-left-pre {
+    text-align: right !important;
+}
+
 .info-right {
     text-align: left !important;
 }
 
 .info-bottom {
     background-color: transparent;
-    border: 2px solid #9172E7;
-    color: #9172E7;
+    border: 2px solid #DEC5ff;
+    color: #DEC5FF;
     font-weight: bold;
     padding: 2% 4%;
     border-radius: 5px;

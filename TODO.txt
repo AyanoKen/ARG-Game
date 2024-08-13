@@ -27,7 +27,11 @@ All buttons font (Lexend Giga)
 
 /lab back button and card changes in key projects
 
-/ -> Carousel icons, box design in carousel and community sections, carousel intervals
+/ -> Carousel icons, box design in carousel and community sections, carousel intervals. Change carousel buttons to be below the carousel
+
+/playerinfo card styling and button
+
+/orientation - padding between the cards
 
 
 docker load -i purdue-arg.tar

@@ -151,6 +151,7 @@ body {
     box-shadow: 0 0 10px 2px #ffd977;
     padding: 2%;
     background-color: #452e68;
+    border-radius: 16px;
     padding-bottom: 8%;
     margin: 4% 0;
     clip-path: polygon(
@@ -226,14 +227,17 @@ body {
 }
 
 .player-choice {
-    box-shadow: 0 0 10px 2px #c79be9;
+    box-shadow: 0 0 0px 2px #DEC5FF;
     padding: 2%;
-    padding-left: 0;
+    padding-left: 2%;
     background-color: #452e68;
-    margin: 4% 0;
-    text-align: right;
-    width: 50%;
-    align-self: flex-end; /* Aligns the playerChoice to the right */
+    color: #FFD977;
+    margin: 2% 0;
+    text-align: left;
+    width: 73%;
+    align-self: flex-end;
+    margin-right: 2%;
+    border-radius: 16px;
 }
 
 .troop-section {
@@ -288,6 +292,7 @@ body {
 
 #avatar-container img {
     box-shadow: 0 0 10px 0.5px #c79be9;
+    border-radius: 24px;
     width: 100%;
     margin: 4% 0;
 }
@@ -306,12 +311,14 @@ body {
 }
 
 .player-choice-img {
-    box-shadow: 0 0 10px 2px #c79be9;
+    box-shadow: 0 0 0px 2px #c79be9;
     padding: 2%;
     background-color: #452e68;
     margin: 2% 0;
+    margin-right: 2%;
     text-align: right;
-    width: 50%;
+    width: 30%;
+    border-radius: 16px;
     align-self: flex-end; /* Aligns the playerChoice to the right */
 }
 
