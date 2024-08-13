@@ -21,3 +21,8 @@ backend logic for level completion for all levels
 Image storage for /innovate
 
 / -> Carousel icons, box design in carousel and community sections
+
+
+docker load -i purdue-arg.tar
+docker run -p 3000:3000 purdue-arg
+docker run -d -p 3000:3000 --env-file .env purdue-arg
