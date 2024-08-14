@@ -6,11 +6,7 @@ Container height in /innovate
 
 /all pages -> Icon top left redirect url
 
-/levels back icon replace with img instead of fontawesome icons
-
 /playerinfo -> chapters tab
-
-/levels -> Level order change and flavor text for all levels
 
 /levels -> Landing page
 
