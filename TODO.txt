@@ -31,8 +31,6 @@ All buttons font (Lexend Giga)
 
 /playerinfo card styling and button
 
-/orientation - padding between the cards
-
 
 docker load -i purdue-arg.tar
 docker run -p 3000:3000 purdue-arg

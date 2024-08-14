@@ -39,16 +39,16 @@ body img{
     transform: translateX(-50%);
 }
 
-.col-md-2 {
+/* .col-md-2 {
     height: 92vh;
-}
+} */
 
 .icons {
     background-color: #452e68;
     color: #ffd977;
     box-shadow: 0 0 0px 1px #c79be9;
     text-align: center;
-    padding: 4%;
+    padding: 8%;
     margin: 5%;
 }
 
@@ -161,17 +161,21 @@ body img{
 }
 
 .troop-section .container-fluid {
-    /* background-image: url('/images/Vector 202.png');
-    background-repeat: no-repeat;
-    background-size: contain; */
     box-shadow: 0 0 10px 4px #c79be9;
     background-color: #452e68;
     padding: 4%;
-    padding-bottom: 1%;
-    margin-top: 4%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%, 28% 90%, 0 90%);
+    padding-bottom: 4%;
+    margin: 0;
+}
+
+.design-container {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%, 28% 90%, 0 90%);
+    filter: drop-shadow(0 0 4px #c79be9);
+    padding: 1% 2px;
 }
 
 .troop-section h2 {
     text-align: left;
-    margin-top: 2%;
+    margin-bottom: 4%;
 }
