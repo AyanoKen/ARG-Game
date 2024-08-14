@@ -172,7 +172,7 @@ body img{
 .design-container {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%, 28% 90%, 0 90%);
     filter: drop-shadow(0 0 4px #c79be9);
-    padding: 1% 2px;
+    padding: 1% 4px;
 }
 
 .troop-section h2 {
