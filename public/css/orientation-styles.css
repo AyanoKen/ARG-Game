@@ -134,7 +134,7 @@ body {
 }
 
 .question-wrapper {
-    padding: 2%;
+    padding: 8px;
     clip-path: polygon(
         0% 0%,                 /* Top left corner */
         100% 0%,               /* Top right corner */
@@ -356,3 +356,19 @@ body {
     color: #FFD700;
 }
 
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.btn-container .btn-warning {
+    background-color: #FFD977;
+    clip-path: polygon(100% 2%, 100% 59%, 86% 100%, 0 100%, 0 0);
+    border-radius: 0;
+    border: none;
+    align-self: flex-end; 
+    padding: 1% 4%;
+    margin-top: 2%;
+}
