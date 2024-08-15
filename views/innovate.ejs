@@ -563,6 +563,20 @@
             });
         });
 
+        document.getElementById('viewSampleButton').addEventListener('click', function() {
+            document.getElementById('problemDefinition').placeholder = "Students need to mark their attendance at the start of the class but they often forget to. How can we automate the entire process.";
+            document.getElementById('context').placeholder = "Classes that require an attendance";
+            document.getElementById('proposedSolution').placeholder = "Students scan their unique QR codes using an attendance app on their smartphones or a classroom device upon entering the class. The app records attendance automatically and updates the digital attendance sheet in real-time. ";
+            document.getElementById('alpacaPrompt').placeholder ="Students need to mark their attendance at the start of the class but they often forget to. How can we automate the entire process.";
+
+            setTimeout(() => {
+                document.getElementById('problemDefinition').placeholder = "";
+            document.getElementById('context').placeholder = "";
+            document.getElementById('proposedSolution').placeholder = "";
+            document.getElementById('alpacaPrompt').placeholder =""; 
+            }, 10000);
+        });
+
     </script>
 
     
