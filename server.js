@@ -11,7 +11,7 @@ const TroopInfo = require('./models/TroopInfo');
 const LevelInfo = require('./models/LevelInfo');
 const cors = require('cors');
 const multer = require('multer');
-const { google } = require('googleapis');
+// const { google } = require('googleapis');
 const path = require('path');
 const fs = require('fs');
 
@@ -24,58 +24,60 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(cors());
 
-// Multer setup for image upload
+
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, './uploads/');
+    destination: function (req, file, cb) {
+        cb(null, './uploads');
     },
-    filename: function(req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname));
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        const ext = path.extname(file.originalname);
+        cb(null, file.fieldname + '-' + uniqueSuffix + ext);
     }
 });
 
 const upload = multer({ storage: storage });
 
-const oauth2Client = new google.auth.OAuth2(
-    process.env.GOOGLE_CLIENT_ID,
-    process.env.GOOGLE_CLIENT_SECRET,
-    '/auth/google/callback'
-);
+// const oauth2Client = new google.auth.OAuth2(
+//     process.env.GOOGLE_CLIENT_ID,
+//     process.env.GOOGLE_CLIENT_SECRET,
+//     '/auth/google/callback'
+// );
 
-oauth2Client.setCredentials({
-    refresh_token: process.env.GOOGLE_REFRESH_TOKEN
-});
+// oauth2Client.setCredentials({
+//     refresh_token: process.env.GOOGLE_REFRESH_TOKEN
+// });
 
-const drive = google.drive({ version: 'v3', auth: oauth2Client });
+// const drive = google.drive({ version: 'v3', auth: oauth2Client });
 
-async function uploadFileToDrive(filePath, fileName) {
-    console.log("Checkpoint 1");
-    console.log(filePath);
-    console.log(fileName);
+// async function uploadFileToDrive(filePath, fileName) {
+//     console.log("Checkpoint 1");
+//     console.log(filePath);
+//     console.log(fileName);
 
-    const fileMetadata = {
-        'name': fileName,
-        'parents': ['1YQONuONhnVJvb_X3gmvy6ywHEYNp881V'] // Ensure this ID is correct and you have access
-    };
-    const media = {
-        mimeType: 'image/png', // Adjust this if the file type varies
-        body: fs.createReadStream(filePath)
-    };
+//     const fileMetadata = {
+//         'name': fileName,
+//         'parents': ['1YQONuONhnVJvb_X3gmvy6ywHEYNp881V'] // Ensure this ID is correct and you have access
+//     };
+//     const media = {
+//         mimeType: 'image/png', // Adjust this if the file type varies
+//         body: fs.createReadStream(filePath)
+//     };
 
-    try {
-        const response = await drive.files.create({
-            resource: fileMetadata,
-            media: media,
-            fields: 'id'
-        });
+//     try {
+//         const response = await drive.files.create({
+//             resource: fileMetadata,
+//             media: media,
+//             fields: 'id'
+//         });
 
-        console.log("Checkpoint 2");
-        console.log(response.data);
-        return response.data.id;
-    } catch (error) {
-        console.error("Error during file upload:", error);
-    }
-}
+//         console.log("Checkpoint 2");
+//         console.log(response.data);
+//         return response.data.id;
+//     } catch (error) {
+//         console.error("Error during file upload:", error);
+//     }
+// }
 
 // // Connect to MongoDB
 // mongoose.connect('mongodb://localhost:27017/arggame', {
@@ -84,10 +86,7 @@ async function uploadFileToDrive(filePath, fileName) {
 // });
 
 
-mongoose.connect('mongodb+srv://' + process.env.MONGODBUSER + ':' + process.env.MONGODBPASSWORD + '@cluster0.jt3qbmd.mongodb.net/ARG-Website?retryWrites=true&w=majority&appName=Cluster0', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+mongoose.connect('mongodb+srv://' + process.env.MONGODBUSER + ':' + process.env.MONGODBPASSWORD + '@cluster0.jt3qbmd.mongodb.net/ARG-Website?retryWrites=true&w=majority&appName=Cluster0');
 
 // Middleware
 app.use(express.json());
@@ -420,12 +419,11 @@ app.post('/innovate/step6', upload.single('playerImage'), async (req, res) => {
 
     try {
         const imageFilePath = req.file.path;
-        const fileId = await uploadFileToDrive(imageFilePath, req.file.filename);
+        // const fileId = await uploadFileToDrive(imageFilePath, req.file.filename);
 
-        // Store the image file ID along with the other data
         const result = await PlayerChoice.findOneAndUpdate(
             { userId: String(req.user.googleId) },
-            { $push: { innovateStep6: [problemDefinition, context, proposedSolution, alpacaPrompt, fileId] } },
+            { $push: { innovateStep6: [problemDefinition, context, proposedSolution, alpacaPrompt, imageFilePath] } },
             { new: true, upsert: true }
         );
 
@@ -434,9 +432,6 @@ app.post('/innovate/step6', upload.single('playerImage'), async (req, res) => {
         } else {
             console.log('User is updated');
         }
-
-        // Clean up by deleting the image file from the server
-        fs.unlinkSync(imageFilePath);
 
         res.status(200).send({ message: 'Data and image uploaded' });
     } catch (error) {
