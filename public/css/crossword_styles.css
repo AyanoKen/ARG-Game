@@ -122,5 +122,23 @@ li {
 
 #revealText {
     color: #ffcc00;
+    padding-top: 5%;
+    text-align: left;
     /* TODO: Center the text element */
+}
+
+#EndButton {
+    background-color: #FFD977;
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    visibility: hidden;
+}
+
+#EndButton:hover {
+    background-color: #9172E7;
+    color: #fff;
 }

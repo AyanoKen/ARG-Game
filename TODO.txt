@@ -8,13 +8,11 @@ Container height in /innovate
 
 /playerinfo -> chapters tab
 
-/levels -> Landing page
+
 
 Module introduction page for all levels
 
 backend logic for level completion for all levels
-
-Image storage for /innovate
 
 Player info collection screen once player signs in for the first time
 
@@ -25,6 +23,7 @@ All buttons font (Lexend Giga)
 
 / -> Carousel icons, box design in carousel and community sections, carousel intervals. Change carousel buttons to be below the carousel
 
+/crossword -> hint text alignment
 
 docker load -i purdue-arg.tar
 docker run -p 3000:3000 purdue-arg

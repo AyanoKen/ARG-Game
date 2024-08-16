@@ -225,6 +225,7 @@ app.get('/levels', async (req, res) => {
 //Crossword Puzzle
 app.get('/crossword', (req, res) =>{
     if(req.isAuthenticated()){
+        req.session.crosswordCount = 0;
         res.render("crossword", {user: req.user});
     } else{
         res.redirect("/login");
@@ -255,9 +256,14 @@ const answersLayout = [
 app.post('/check', (req, res) => {
     const { row, cell, answer } = req.body;
     const correctAnswer = answersLayout[row][cell].toUpperCase();
+    
 
     const result = correctAnswer === answer.toUpperCase();
-    res.json({ correct: result, correctAnswer: correctAnswer });
+
+    if(result){
+        req.session.crosswordCount++;
+    }
+    res.json({ correct: result, correctAnswer: correctAnswer, count: req.session.crosswordCount });
 });
 
 app.get('/orientation', (req, res) => {
