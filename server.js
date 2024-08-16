@@ -531,6 +531,14 @@ app.get('/echos', (req, res) => {
     }
 });
 
+app.get('/community', (req, res) => {
+    if(req.isAuthenticated()){
+        res.render('community', {user: req.user});
+    }else{
+        res.redirect('/login');
+    }
+});
+
 app.get('/test', (req, res) => {
     res.render('test');
 });

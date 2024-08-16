@@ -38,7 +38,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="/images/orientationlogo.gif" alt="">
+                        <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
                     </div>
                     <div class="col-md-10 d-flex align-items-center justify-content-end">
                         <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
@@ -48,22 +48,22 @@
                 <div class="images">
                     <div class="row">
                         <div class="col-md-2">
-                            <img src="/images/decisions/Data Collection.png" alt="Data Collection">
+                            <img class="ml-steps ml-active" src="/images/decisions/Data Collection.png" alt="Data Collection">
                         </div>
                         <div class="col-md-2">
-                            <img src="/images/decisions/Data Preparation.png" alt="Data Preparation">
+                            <img class="ml-steps" src="/images/decisions/Data Preparation.png" alt="Data Preparation">
                         </div>
                         <div class="col-md-2">
-                            <img src="/images/decisions/Choose Model.png" alt="Choose Model">
+                            <img class="ml-steps" src="/images/decisions/Choose Model.png" alt="Choose Model">
                         </div>
                         <div class="col-md-2">
-                            <img src="/images/decisions/Data Collection (1).png" alt="Testing">
+                            <img class="ml-steps" src="/images/decisions/Data Collection (1).png" alt="Testing">
                         </div>
                         <div class="col-md-2">
-                            <img src="/images/decisions/Test Model.png" alt="Test Model">
+                            <img class="ml-steps" src="/images/decisions/Test Model.png" alt="Test Model">
                         </div>
                         <div class="col-md-2">
-                            <img src="/images/decisions/Improve.png" alt="Improve">
+                            <img class="ml-steps" src="/images/decisions/Improve.png" alt="Improve">
                         </div>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
                     <div class="message">Data collection is the initial step where we gather essential information required for our analysis. In the context of predicting student grades, this involves collecting detailed data such as attendance records, test scores, and study habits. This comprehensive dataset forms the foundation for developing our AI model.</div>
                 </div>
 
-                <div class="submit-button btn-container">
-                    <button id="step-1-submit" class="btn btn-warning">PROCEED</button>
+                <div class="submit-button btn-container" ">
+                    <button id="step-1-submit" class="btn btn-warning" style="margin-right: 10%;">PROCEED</button>
                 </div>
             </div>
     
@@ -85,7 +85,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="/images/orientationlogo.gif" alt="">
+                        <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
                     </div>
                     <div class="col-md-10 d-flex align-items-center justify-content-end">
                         <h1 class="text-left">Preparing data for an AI model involves selecting key input attributes that influence student grades. Below is a list of attributes with descriptions. Select those that you believe will have the most significant influence on determining a student's grade.</h1>
@@ -362,7 +362,7 @@
                 </div>
 
                 <div class="submit-button btn-container">
-                    <button id="step-2-submit" class="btn btn-warning">PROCEED</button>
+                    <button id="step-2-submit" class="btn btn-warning" style="margin-right: 6%;">PROCEED</button>
                 </div>
             </div>
         </div>
@@ -371,10 +371,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="/images/orientationlogo.gif" alt="">
+                        <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
                     </div>
                     <div class="col-md-10 d-flex align-items-center justify-content-end">
-                        <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
+                        <h1 class="text-left" style="color: #FFD977;">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
                     </div>
                 </div>
 
@@ -499,7 +499,7 @@
                 </div>
 
                 <div class="submit-button btn-container">
-                    <button id="step-3-submit" class="btn btn-warning">PROCEED</button>
+                    <button id="step-3-submit" class="btn btn-warning" style="margin-right: 6%;">PROCEED</button>
                 </div>
             </div>
         </div>
@@ -508,7 +508,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="/images/orientationlogo.gif" alt="">
+                        <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
                     </div>
                     <div class="col-md-10 d-flex align-items-center justify-content-end">
                         <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
@@ -560,13 +560,15 @@
                 <h1 id="chosen" class="text-center" style="color: red;">Chosen: Logistic Regression</h1>
 
                 <div class="submit-button btn-container">
-                    <button id="step-4-submit" class="btn btn-warning">PROCEED</button>
+                    <button id="step-4-submit" class="btn btn-warning" style="margin-right: 10%;">PROCEED</button>
                 </div>
             </div>
         </div>
     
         <div id="content-5" class="hidden">
-            
+            <video id="vid-1" width="320" height="240" autoplay="autoplay" controls="false">
+                <source src="/images/SampleVid.mp4" type="video/mp4">
+              </video>
         </div>
     
         <div id="content-6" class="hidden">
@@ -619,6 +621,9 @@
             image.addEventListener('click', function() {
                 const altText = image.getAttribute('alt').split(".")[0];
                 const newText = messages[altText];
+
+                document.querySelector('.ml-active').classList.remove('ml-active');
+                image.classList.add('ml-active');
 
                 if (newText) {
                     headingElement.textContent = newText.heading;
@@ -700,7 +705,15 @@
         document.getElementById('step-4-submit').addEventListener('click', function() {
             document.getElementById('content-4').classList.add('hidden');
             document.getElementById('content-5').classList.remove('hidden');
+
+            document.getElementById('vid-1').play();
+            document.getElementById('vid-1').style.pointerEvents ='none';
         });
+
+        document.getElementById('vid-1').addEventListener('ended',myHandler,false);
+        function myHandler(e) {
+            alert("ok");
+        }
 
     });
     </script>
