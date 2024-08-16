@@ -327,14 +327,17 @@
                     </div>
                     <div class="form-group">
                         <label for="prompt">Alpaca Prompt <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Describe the problem you're trying to solve."></i></label>
-                        <textarea class="form-control" id="context" rows="3"></textarea>
+                        <textarea class="form-control" id="alpacaPrompt" rows="3"></textarea>
                     </div>
                 </div>
         
                 <div class="col-md-6 right-section">
                     <div class="form-group">
                         <label for="submission">Submit your Image<i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Describe the problem you're trying to solve."></i></label>
-                        <textarea class="form-control" id="submission" rows="3"></textarea>
+                        <div class="container img-container">
+                            <img class="sampleImg hidden" src="/images/reimagineSample.png" alt="">
+                            <input type="file" id="playerImage" name="playerImage" accept="image/*">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -363,6 +366,7 @@
 
     <script>
         let activeButtonId = 1;
+        let sampleActive = false;
 
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
@@ -412,7 +416,52 @@
         });
 
         document.getElementById('step-5-submit').addEventListener('click', function() {
-            document.querySelector('button[data-id="6"]').click();
+            const landmark = document.getElementById('landmark').value;
+            const alpacaPrompt = document.getElementById('alpacaPrompt').value;
+            const playerImage = document.getElementById('playerImage').files[0];
+
+            const formData = new FormData();
+            formData.append('landmark', landmark);
+            formData.append('alpacaPrompt', alpacaPrompt);
+            formData.append('playerImage', playerImage);
+
+
+            fetch('/reimagine/step6', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                window.location.href = '/levels';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+
+        document.getElementById('viewSampleButton').addEventListener('click', function() {
+
+            if (sampleActive) {
+                document.getElementById('landmark').placeholder = "";
+                document.getElementById('alpacaPrompt').placeholder =""; 
+                document.getElementById('playerImage').classList.remove('hidden');
+                document.querySelector('.sampleImg').classList.add('hidden');
+                document.querySelector('.img-container').style.padding = "12% 0";
+                document.getElementById('viewSampleButton').textContent = "View Sample";
+
+                sampleActive = false
+            } else {
+                document.getElementById('landmark').placeholder = "Purdue Memorial Union (PMU)";
+                document.getElementById('alpacaPrompt').placeholder =" Purdue University within a mountainous area, recreated as a castle in ancient times, snowfall, snow vibes, a river flowing at the bottom with ships floating, like in Game of Thrones, futuristic, HD";
+
+                document.getElementById('playerImage').classList.add('hidden');
+                document.querySelector('.sampleImg').classList.remove('hidden');
+                document.querySelector('.img-container').style.padding = "2%";
+                document.getElementById('viewSampleButton').textContent = "Hide Sample";
+
+                sampleActive = true
+            }
         });
 
     </script>

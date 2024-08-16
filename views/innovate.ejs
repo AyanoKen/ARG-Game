@@ -405,7 +405,11 @@
                         <textarea class="form-control" id="problemDefinition" rows="3"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="context">Context <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Describe the problem you're trying to solve."></i></label>
+                        <label for="context">Context 
+                            <i class="fas fa-info-circle tooltip" data-toggle="tooltip" data-placement="top">
+                                <span class="tooltiptext">Describe the problemo</span>
+                            </i>
+                        </label>
                         <textarea class="form-control" id="context" rows="3"></textarea>
                     </div>
                     <div class="form-group">
@@ -420,8 +424,12 @@
                         <textarea class="form-control" id="alpacaPrompt" rows="3"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="sideBySideImage">Side-by-Side AI Image <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Describe the problem you're trying to solve."></i></label>
-                        <input type="file" id="playerImage" name="playerImage" accept="image/*">
+                        <label for="sideBySideImage" style="margin-top: 1.5%;">Side-by-Side AI Image <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Describe the problem you're trying to solve."></i></label>
+                        <div class="container img-container">
+                            <img class="sampleImg hidden" src="/images/alpacaImg.png" alt="">
+                            <input type="file" id="playerImage" name="playerImage" accept="image/*">
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -450,10 +458,7 @@
 
     <script>
         let activeButtonId = 1;
-
-        $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+        let sampleActive = false;
 
         function setActive(button) {
             var buttons = document.querySelectorAll('.button');
@@ -564,17 +569,31 @@
         });
 
         document.getElementById('viewSampleButton').addEventListener('click', function() {
-            document.getElementById('problemDefinition').placeholder = "Students need to mark their attendance at the start of the class but they often forget to. How can we automate the entire process.";
-            document.getElementById('context').placeholder = "Classes that require an attendance";
-            document.getElementById('proposedSolution').placeholder = "Students scan their unique QR codes using an attendance app on their smartphones or a classroom device upon entering the class. The app records attendance automatically and updates the digital attendance sheet in real-time. ";
-            document.getElementById('alpacaPrompt').placeholder ="Students need to mark their attendance at the start of the class but they often forget to. How can we automate the entire process.";
 
-            setTimeout(() => {
+            if (sampleActive) {
                 document.getElementById('problemDefinition').placeholder = "";
-            document.getElementById('context').placeholder = "";
-            document.getElementById('proposedSolution').placeholder = "";
-            document.getElementById('alpacaPrompt').placeholder =""; 
-            }, 10000);
+                document.getElementById('context').placeholder = "";
+                document.getElementById('proposedSolution').placeholder = "";
+                document.getElementById('alpacaPrompt').placeholder =""; 
+                document.getElementById('playerImage').classList.remove('hidden');
+                document.querySelector('.sampleImg').classList.add('hidden');
+                document.querySelector('.img-container').style.padding = "10.5% 0";
+                document.getElementById('viewSampleButton').textContent = "View Sample";
+
+                sampleActive = false
+            } else {
+                document.getElementById('problemDefinition').placeholder = "Students need to mark their attendance at the start of the class but they often forget to. How can we automate the entire process.";
+                document.getElementById('context').placeholder = "Classes that require an attendance";
+                document.getElementById('proposedSolution').placeholder = "Students scan their unique QR codes using an attendance app on their smartphones or a classroom device upon entering the class. The app records attendance automatically and updates the digital attendance sheet in real-time. ";
+                document.getElementById('alpacaPrompt').placeholder ="Students need to mark their attendance at the start of the class but they often forget to. How can we automate the entire process.";
+
+                document.getElementById('playerImage').classList.add('hidden');
+                document.querySelector('.sampleImg').classList.remove('hidden');
+                document.querySelector('.img-container').style.padding = "2%";
+                document.getElementById('viewSampleButton').textContent = "Hide Sample";
+
+                sampleActive = true
+            }
         });
 
     </script>

@@ -384,3 +384,10 @@ p{
 .tooltip-arrow {
     border-top-color: #e5c07b;
 }
+
+.img-container {
+    border: 0.2px solid #FFD977;
+    border-radius: 6px;
+    text-align: center;
+    padding: 12% 0;
+  }

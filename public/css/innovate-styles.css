@@ -358,12 +358,36 @@ p{
     border-radius: 5px;
 }
 
-.tooltip-inner {
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; 
+    opacity: 1;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
     background-color: transparent;
-    color: white;
-    font-size: 0.875rem;
-    border: 1px solid #e5c07b;
-}
-.tooltip-arrow {
-    border-top-color: #e5c07b;
-}
+    color: #fff;
+    text-align: left;
+    padding: 5px 0;
+    border: 2px solid #FFD977;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .img-container {
+    border: 0.5px solid #FFD977;
+    text-align: center;
+    padding: 10.5% 0;
+  }

@@ -433,7 +433,7 @@ app.post('/innovate/step6', upload.single('playerImage'), async (req, res) => {
             console.log('User is updated');
         }
 
-        res.status(200).send({ message: 'Data and image uploaded' });
+        res.status(200).send({ message: 'Data and image uploaded'});
     } catch (error) {
         res.status(500).send({ message: 'Error updating data and uploading image' });
     }
@@ -452,6 +452,31 @@ app.get('/reimagine2', (req, res) => {
         res.render('reimagine2', {user: req.user});
     }else{
         res.redirect('/login');
+    }
+});
+
+app.post('/reimagine/step6', upload.single('playerImage'), async (req, res) => {
+    const { landmark, alpacaPrompt } = req.body;
+
+    try {
+        const imageFilePath = req.file.path;
+        // const fileId = await uploadFileToDrive(imageFilePath, req.file.filename);
+
+        const result = await PlayerChoice.findOneAndUpdate(
+            { userId: String(req.user.googleId) },
+            { $push: { reimagineStep6: [landmark, alpacaPrompt, imageFilePath] } },
+            { new: true, upsert: true }
+        );
+
+        if (!result) {
+            console.log('User not found or update failed.');
+        } else {
+            console.log('User is updated');
+        }
+
+        res.status(200).send({ message: 'Data and image uploaded'});
+    } catch (error) {
+        res.status(500).send({ message: 'Error updating data and uploading image' });
     }
 });
 
