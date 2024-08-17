@@ -579,14 +579,13 @@ app.get('/admin', async (req, res) => {
     }
 });
 
-// Route to handle Innovate post approval
 app.post('/approveInnovate', async (req, res) => {
     try {
         const { userId, arrayData } = req.body;
         const user = await User.findOne({ googleId: userId }).exec();
         if (user) {
             const userName = user.displayName;
-            arrayData[0] = userName; // Replace userId with user name
+            arrayData[0] = userName;
 
             await CommunityPosts.updateOne({}, { $push: { innovatePosts: arrayData } }, { upsert: true });
             res.status(200).send('Approved');
@@ -599,14 +598,13 @@ app.post('/approveInnovate', async (req, res) => {
     }
 });
 
-// Route to handle Reimagine post approval
 app.post('/approveReimagine', async (req, res) => {
     try {
         const { userId, arrayData } = req.body;
         const user = await User.findOne({ googleId: userId }).exec();
         if (user) {
             const userName = user.displayName;
-            arrayData[0] = userName; // Replace userId with user name
+            arrayData[0] = userName;
 
             await CommunityPosts.updateOne({}, { $push: { reimaginePosts: arrayData } }, { upsert: true });
             res.status(200).send('Approved');
