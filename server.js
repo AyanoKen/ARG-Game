@@ -496,7 +496,7 @@ app.get('/recognition', (req, res) => {
 
 const answers = {
     1: ["ai conference", "ai conferences", "conference", "conferences"],
-    2: ["the ai imperative: uniting education business and government"], 
+    2: ["the ai imperative: uniting education, business and government", "the ai imperative: uniting education business and government", "the ai imperative uniting education, business and government", "the ai imperative uniting education business and government"], 
     3: ["purdue x google summit", "purduexgooglesummit", "#purduexgooglesummit"],
     4: ["hyatt", "hyatt regency"],
     5: ["indianapolis"],

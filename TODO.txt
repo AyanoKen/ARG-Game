@@ -1,20 +1,30 @@
-Player Response text in /reimagine
-
-Container height in /innovate
-
-/recognition backend logic
-
-/all pages -> Icon top left redirect url
-
+Priority: 
 /playerinfo -> chapters tab
-
-
 
 Module introduction page for all levels
 
 backend logic for level completion for all levels
 
 Player info collection screen once player signs in for the first time
+
+/recognition levelend logic
+
+/echos Badge logic
+/ heading changes
+
+
+
+Priority 2:
+
+Player Response text in /reimagine
+
+Container height in /innovate
+
+
+
+/all pages -> Icon top left redirect url
+
+
 
 Font- Archivo (Text in home page)
 All buttons font (Lexend Giga)
@@ -24,6 +34,9 @@ All buttons font (Lexend Giga)
 / -> Carousel icons, box design in carousel and community sections, carousel intervals. Change carousel buttons to be below the carousel
 
 /crossword -> hint text alignment
+
+/innovate -> step1 more options on the right, make it scrollable
+/innovate -> change buttons from top of the content to top of each side
 
 docker load -i purdue-arg.tar
 docker run -p 3000:3000 purdue-arg

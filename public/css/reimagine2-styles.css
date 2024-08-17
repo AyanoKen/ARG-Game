@@ -391,3 +391,7 @@ p{
     text-align: center;
     padding: 12% 0;
   }
+
+  #content-5 .left-section {
+    padding-left: 1%;
+  }
