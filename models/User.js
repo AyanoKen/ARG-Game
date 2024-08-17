@@ -8,6 +8,10 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    admin: {
+        type: Boolean,
+        default: false
+    },
     currentLevel: {
         type: Number,
         default: 0

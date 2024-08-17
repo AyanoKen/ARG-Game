@@ -6,6 +6,7 @@ const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('./models/User');
+const CommunityPosts = require('./models/communityPosts');
 const PlayerChoice = require('./models/PlayerChoice');
 const TroopInfo = require('./models/TroopInfo');
 const LevelInfo = require('./models/LevelInfo');
@@ -21,6 +22,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(cors());
 
@@ -537,11 +539,83 @@ app.get('/echos', (req, res) => {
     }
 });
 
-app.get('/community', (req, res) => {
+app.get('/community', async (req, res) => {
     if(req.isAuthenticated()){
-        res.render('community', {user: req.user});
+
+        
+
+        res.render('community', {user: req.user, innovateImages, reimagineImages});
     }else{
         res.redirect('/login');
+    }
+});
+
+app.get('/admin', async (req, res) => {
+    if (req.isAuthenticated() && req.user.admin) {
+
+        const playerChoices = await PlayerChoice.find({}).exec();
+
+
+        let innovateImages = [];
+        let reimagineImages = [];
+
+        playerChoices.forEach(playerChoice => {
+            if (playerChoice.innovateStep6.length > 0){
+                const lastInnovateArray = playerChoice.innovateStep6[playerChoice.innovateStep6.length - 1];
+                lastInnovateArray[lastInnovateArray.length - 1] = lastInnovateArray[lastInnovateArray.length - 1].replace(/\\/g, '/');
+                innovateImages.push([playerChoice.userId, lastInnovateArray]);
+            }
+
+            if (playerChoice.reimagineStep6.length > 0) {
+                const lastReimagineArray = playerChoice.reimagineStep6[playerChoice.reimagineStep6.length -1];
+                lastReimagineArray[lastReimagineArray.length - 1] = lastReimagineArray[lastReimagineArray.length - 1].replace(/\\/g, '/');
+                reimagineImages.push([playerChoice.userId, lastReimagineArray]);
+            }
+        });
+
+        res.render('admin', {innovateImages, reimagineImages});
+    } else {
+        res.redirect('/');
+    }
+});
+
+// Route to handle Innovate post approval
+app.post('/approveInnovate', async (req, res) => {
+    try {
+        const { userId, arrayData } = req.body;
+        const user = await User.findOne({ googleId: userId }).exec();
+        if (user) {
+            const userName = user.displayName;
+            arrayData[0] = userName; // Replace userId with user name
+
+            await CommunityPosts.updateOne({}, { $push: { innovatePosts: arrayData } }, { upsert: true });
+            res.status(200).send('Approved');
+        } else {
+            res.status(404).send('User not found');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Approval failed');
+    }
+});
+
+// Route to handle Reimagine post approval
+app.post('/approveReimagine', async (req, res) => {
+    try {
+        const { userId, arrayData } = req.body;
+        const user = await User.findOne({ googleId: userId }).exec();
+        if (user) {
+            const userName = user.displayName;
+            arrayData[0] = userName; // Replace userId with user name
+
+            await CommunityPosts.updateOne({}, { $push: { reimaginePosts: arrayData } }, { upsert: true });
+            res.status(200).send('Approved');
+        } else {
+            res.status(404).send('User not found');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Approval failed');
     }
 });
 
