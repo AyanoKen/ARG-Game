@@ -1,0 +1,111 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+    color: #FFD977;
+    margin: 0;
+    padding: 0;
+    margin-top: 1%;
+}
+
+.logo {
+    height: 40px;
+}
+
+.bg-dark{
+    background-color: #000 !important;
+}
+
+.navbar {
+    box-shadow: 0 0 0px 4px #DEC5FF;
+    z-index: 5;
+}
+
+.navbar-brand{
+    padding: 0;
+}
+
+.navbar-brand img {
+    height: 60px !important;
+    width: auto !important;
+}
+
+.navbar-nav a {
+    font-size: 1.5rem;
+}
+
+.navbar img {
+    border-radius: 8px;
+    width: 60px;
+    height: auto;
+}
+.navbar-nav .nav-item .nav-link {
+    color: #FFD977;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: white;
+}
+.navbar-nav .nav-item .active .nav-link {
+    color: white;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#tempus-stats {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)), url("/images/community/tempusFront.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#memoria-stats {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)), url("/images/community/memoriaFront.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#empathia-stats{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)), url("/images/community/empathiaFront.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#neurona-stats{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)), url("/images/community/neuronaFront.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.stat-card {
+    border-radius: 24px;
+    height: 70vh;
+    border: 1px solid #FFF;
+    text-align: center;
+}
+
+.stat-card img{
+    width: 80%;
+    margin-top: 10%;
+    border-radius: 24px;
+    box-shadow: 0 0 20px 1px #FFFFFF;
+    margin-bottom: 4%;
+}
+
+.stat-card h1{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.stat-card h2 {
+    font-size: 4rem;
+}
+
+.stat-card h3{
+    font-size: 1.6rem;
+}

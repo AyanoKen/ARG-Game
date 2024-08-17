@@ -540,14 +540,31 @@ app.get('/echos', (req, res) => {
 });
 
 app.get('/community', async (req, res) => {
-    if(req.isAuthenticated()){
+    const communityPosts = await CommunityPosts.findOne().exec();
 
-        
-
-        res.render('community', {user: req.user, innovateImages, reimagineImages});
-    }else{
-        res.redirect('/login');
+    if (!communityPosts) {
+        res.redirect('/');
     }
+
+    const innovatePosts = communityPosts ? communityPosts.innovatePosts : [];
+    const reimaginePosts = communityPosts ? communityPosts.reimaginePosts : [];
+
+    const troopCounts = {
+        Tempus: 0,
+        Empathia: 0,
+        Neurona: 0,
+        Memoria: 0
+    };
+
+    const users = await User.find({}).exec();
+    users.forEach(user => {
+        const troop = user.playerTroop;
+        if (troopCounts.hasOwnProperty(troop)) {
+            troopCounts[troop]++;
+        }
+    });
+
+    res.render('community', {user: req.user, innovatePosts, reimaginePosts, troopCounts});
 });
 
 app.get('/admin', async (req, res) => {

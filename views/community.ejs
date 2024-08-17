@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/community-styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/modulelogo.png" alt="Logo" class="logo">
+                </a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mx-auto nav-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/community"><u>Community</u></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/search">The Search</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <% if (user) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/playerinfo">
+                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
+                            </a>
+                        </li>
+                        <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Sign in</a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="troopstat-section">
+        <div class="container-fluid">
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-3">
+                    <div id="tempus-stats" class="stat-card">
+                        <img src="/images/tempus.png" alt="">
+                        <h1>TROOP TEMPUS</h1>
+                        <h2><%= troopCounts.Tempus %></h2>
+                        <h3>AGENTS RECRUITED</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div id="memoria-stats" class="stat-card">
+                        <img src="/images/memoria.png" alt="">
+                        <h1>TROOP MEMORIA</h1>
+                        <h2><%= troopCounts.Memoria %></h2>
+                        <h3>AGENTS RECRUITED</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div id="empathia-stats" class="stat-card">
+                        <img src="/images/empathia.png" alt="">
+                        <h1>TROOP EMPATHIA</h1>
+                        <h2><%= troopCounts.Empathia %></h2>
+                        <h3>AGENTS RECRUITED</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div id="neurona-stats" class="stat-card">
+                        <img src="/images/neurona.png" alt="">
+                        <h1>TROOP NEURONA</h1>
+                        <h2><%= troopCounts.Neurona %></h2>
+                        <h3>AGENTS RECRUITED</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-section">
+
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+</body>
+</html>
