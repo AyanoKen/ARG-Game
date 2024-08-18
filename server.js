@@ -567,6 +567,37 @@ app.get('/community', async (req, res) => {
     res.render('community', {user: req.user, innovatePosts, reimaginePosts, troopCounts});
 });
 
+app.get('/community/:imageName', async (req, res) => {
+    try {
+        const imageName = `uploads/${req.params.imageName}`;
+        const communityPost = await CommunityPosts.findOne();
+
+        if (communityPost) {
+            // Check if the post is in innovatePosts
+            const innovatePost = communityPost.innovatePosts.find(p => p.includes(imageName));
+            if (innovatePost) {
+                // Render the communityPostInnovate view if the image is found in innovatePosts
+                return res.render('communityPostInnovate', { post: innovatePost });
+            }
+    
+            // Check if the post is in reimaginePosts
+            const reimaginePost = communityPost.reimaginePosts.find(p => p.includes(imageName));
+            if (reimaginePost) {
+                // Render the communityPostReimagine view if the image is found in reimaginePosts
+                return res.render('communityPostReimagine', { post: reimaginePost });
+            }
+    
+            // If the image was not found in either array
+            res.status(404).send('Post not found');
+        } else {
+            res.status(404).send('Post not found');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
+});
+
 app.get('/admin', async (req, res) => {
     if (req.isAuthenticated() && req.user.admin) {
 
@@ -602,7 +633,7 @@ app.post('/approveInnovate', async (req, res) => {
         const user = await User.findOne({ googleId: userId }).exec();
         if (user) {
             const userName = user.displayName;
-            arrayData[0] = userName;
+            arrayData.unshift(userName);
 
             await CommunityPosts.updateOne({}, { $push: { innovatePosts: arrayData } }, { upsert: true });
             res.status(200).send('Approved');
@@ -621,7 +652,7 @@ app.post('/approveReimagine', async (req, res) => {
         const user = await User.findOne({ googleId: userId }).exec();
         if (user) {
             const userName = user.displayName;
-            arrayData[0] = userName;
+            arrayData.unshift(userName);
 
             await CommunityPosts.updateOne({}, { $push: { reimaginePosts: arrayData } }, { upsert: true });
             res.status(200).send('Approved');

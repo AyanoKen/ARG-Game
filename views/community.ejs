@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Community</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/community-styles.css">
 </head>
@@ -85,31 +85,31 @@
     </section>
 
     <section class="community-section">
-        <h1 style="text-align: center; margin: 2% 0;">Community Section</h1>
+        <h1 style="text-align: center; margin: 2% 0;">COMMUNITY</h1>
 
-        <div class="container mt-5">
+        <div class="container-fluid">
             <ul id="myTab" class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="innovate-tab" data-toggle="tab" href="#innovate" role="tab" aria-controls="innovate" aria-selected="true">Innovate</a>
+                    <a class="nav-link active" id="innovate-tab" data-toggle="tab" href="#innovate" role="tab" aria-controls="innovate" aria-selected="true">AI ENABLED SOLUTIONS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="reimagine-tab" data-toggle="tab" href="#reimagine" role="tab" aria-controls="reimagine" aria-selected="false">Reimagine</a>
+                    <a class="nav-link" id="reimagine-tab" data-toggle="tab" href="#reimagine" role="tab" aria-controls="reimagine" aria-selected="false">RE-IMAGINE PURDUE</a>
                 </li>
             </ul>
 
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="innovate" role="tabpanel" aria-labelledby="innovate-tab">
+                    <h3>Discover solutions to pressing educational challenges created using AI by our Purdue community. <br> The top 10 submissions will receive recognition from Purdue Online</h3>
+                    
                     <div id="innovatePosts" class="row">
                         <% innovatePosts.forEach((post, index) => { %>
                             <div class="col-md-4 mb-4">
-                                <div class="card innovate-card" data-index="<%= index %>">
-                                    <img src="/uploads/<%= post[post.length - 1].split('/').pop() %>" class="card-img-top" alt="Innovate Image">
+                                <div style='background-image: url("/uploads/<%= post[post.length - 1].split('/').pop() %>");' class="card innovate-card" data-index="<%= index %>" data-image="<%= post[post.length - 1].split('/').pop() %>">
+                                    
                                     <div class="card-body">
-                                        <h5 class="card-title"><%= post[0] %></h5>
+                                        <h5 class="card-title"><%= post[2] %></h5>
                                         <p class="card-text">
-                                            <% for (let i = 1; i < post.length - 1; i++) { %>
-                                                <%= post[i] %><br>
-                                            <% } %>
+                                            <%= post[0] %>
                                         </p>
                                     </div>
                                 </div>
@@ -124,18 +124,14 @@
                 </div>
 
                 <div class="tab-pane fade" id="reimagine" role="tabpanel" aria-labelledby="reimagine-tab">
+                    <h3>Discover how our players envision a transformed Purdue University using AI-generated art. <br> The top 5 most-liked creations will receive prizes from Purdue Online. Like and Share!</h3>
                     <div id="reimaginePosts" class="row">
                         <% reimaginePosts.forEach((post, index) => { %>
                             <div class="col-md-4 mb-4">
-                                <div class="card reimagine-card" data-index="<%= index %>">
-                                    <img src="/uploads/<%= post[post.length - 1].split('/').pop() %>" class="card-img-top" alt="Reimagine Image">
+                                <div style='background-image: url("/uploads/<%= post[post.length - 1].split('/').pop() %>");' class="card reimagine-card" data-index="<%= index %>" data-image="<%= post[post.length - 1].split('/').pop() %>">
+                                    
                                     <div class="card-body">
-                                        <h5 class="card-title"><%= post[0] %></h5>
-                                        <p class="card-text">
-                                            <% for (let i = 1; i < post.length - 1; i++) { %>
-                                                <%= post[i] %><br>
-                                            <% } %>
-                                        </p>
+                                        <h5 class="card-title"><%= post[1] %></h5>
                                     </div>
                                 </div>
                             </div>
@@ -202,9 +198,16 @@
                 updatePagination();
             }
 
+            document.querySelectorAll('.innovate-card, .reimagine-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const imageName = this.getAttribute('data-image');
+                    window.location.href = `/community/${encodeURIComponent(imageName)}`;
+                });
+            });
+
             // Set up pagination for Innovate and Reimagine tabs
-            setupPagination('#innovate', '.innovate-card', '#innovatePagination', <%= JSON.stringify(innovatePosts) %>);
-            setupPagination('#reimagine', '.reimagine-card', '#reimaginePagination', <%= JSON.stringify(reimaginePosts) %>);
+            setupPagination('#innovate', '.innovate-card', '#innovatePagination', <%- JSON.stringify(innovatePosts) %>);
+            setupPagination('#reimagine', '.reimagine-card', '#reimaginePagination', <%- JSON.stringify(reimaginePosts) %>);
         });
     </script>
 

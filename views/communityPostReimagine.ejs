@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/community-post-styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <p class="navbar-brand" style="padding-left: 8%;"><u>REIMAGINE PURDUE</u></p>
+                <a class="navbar-brand ml-auto" href="/community"><b>X</b></a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div class="container-fluid" style="padding: 1% 8%;">
+            <h1><b><%= post[1] %></b> : <%= post[0] %> </h1>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <img style="width: 80%;" src="/uploads/<%= post[post.length - 1].split('/').pop() %>" class="innovate-img" alt="Post Image">
+
+                    
+                </div>
+                <div class="col-md-5">
+                    <h2><u>Alpaca Prompt</u></h2>
+
+                    <p><%= post[2] %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
