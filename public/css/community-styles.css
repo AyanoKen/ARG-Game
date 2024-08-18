@@ -109,3 +109,27 @@ body {
 .stat-card h3{
     font-size: 1.6rem;
 }
+
+.innovate-card,
+.reimagine-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.innovate-card.zoomed,
+.reimagine-card.zoomed {
+    transform: scale(1.2);
+    z-index: 1000;
+}
+
+.modal-body img {
+    width: 100%;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.pagination .page-item {
+    cursor: pointer;
+}
