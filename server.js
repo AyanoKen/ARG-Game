@@ -10,6 +10,7 @@ const CommunityPosts = require('./models/communityPosts');
 const PlayerChoice = require('./models/PlayerChoice');
 const TroopInfo = require('./models/TroopInfo');
 const LevelInfo = require('./models/LevelInfo');
+const PostLikes = require('./models/PostLikes');
 const cors = require('cors');
 const multer = require('multer');
 // const { google } = require('googleapis');
@@ -653,6 +654,8 @@ app.post('/approveReimagine', async (req, res) => {
         if (user) {
             const userName = user.displayName;
             arrayData.unshift(userName);
+
+            arrayData.push(0) //Likes counter
 
             await CommunityPosts.updateOne({}, { $push: { reimaginePosts: arrayData } }, { upsert: true });
             res.status(200).send('Approved');
