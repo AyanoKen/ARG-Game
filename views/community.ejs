@@ -136,7 +136,19 @@
                                                 <h5 class="card-title"><%= post[1] %></h5>
                                             </div>
                                             <div class="col-md-6">
-                                                <h5 class="card-title text-right">Likes: <%= post[post.length -1] %></h5>
+                                                <h5 class="card-title text-right">
+                                                    <button>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <img src="/images/heart.png" alt="">
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <p><%= post[post.length -1] %></p>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </button>
+                                                </h5>
                                             </div>
                                         </div>
                                         
