@@ -599,6 +599,53 @@ app.get('/community/:imageName', async (req, res) => {
     }
 });
 
+app.post('/likePost', async (req, res) => {
+    const postUrl = req.body.postUrl; // Assuming postUrl is sent in the body of the request
+    const userId = req.user.googleId;
+
+    try {
+        // Find the PostLikes document for the postUrl
+        let postLikes = await PostLikes.findOne({ postUrl });
+
+        if (!postLikes) {
+            // If no document exists for the postUrl, create a new one
+            postLikes = new PostLikes({ postUrl });
+        }
+
+        if (!postLikes.likedUsers.includes(userId)) {
+            // Add the user to the likedUsers array
+            postLikes.likedUsers.push(userId);
+
+            // Increment the like counter in the CommunityPosts table
+            const communityPost = await CommunityPosts.findOne();
+
+            if (communityPost) {
+                const reimaginePost = communityPost.reimaginePosts.find(p => p[3] === postUrl);
+                console.log(communityPost.reimaginePosts[2][2]);
+                console.log(postUrl);
+                console.log(reimaginePost);
+                
+                if (reimaginePost) {
+                    console.log(reimaginePost[4]);
+                    reimaginePost[4] = parseInt(reimaginePost[4]) + 1; // Increment the like counter
+                    console.log(reimaginePost[4]);
+                    await communityPost.save(); // Save the updated communityPost document
+                }
+            }
+
+            // Save the updated PostLikes document
+            await postLikes.save();
+
+            res.status(200).send({ success: true, message: 'Post liked!' });
+        } else {
+            res.status(200).send({ success: false, message: 'Post already liked.' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
+});
+
 app.get('/admin', async (req, res) => {
     if (req.isAuthenticated() && req.user.admin) {
 

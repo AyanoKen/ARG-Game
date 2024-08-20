@@ -5,7 +5,7 @@ const postLikesSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
-    reimaginePosts: {
+    likedUsers: {
         type: [String],
         default: []
     }

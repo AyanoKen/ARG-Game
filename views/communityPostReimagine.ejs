@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Post</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="/css/community-post-styles.css">
 </head>
 <body>
@@ -31,10 +32,52 @@
                     <h2><u>Alpaca Prompt</u></h2>
 
                     <p><%= post[2] %></p>
+
+                    <div class="button-section">
+                        <button class="like-button btn btn-outline-danger btn-sm mr-2" data-post-url="uploads/<%= post[post.length - 2].split('/').pop() %>">
+                            <i class="fas fa-heart"></i> <%= post[post.length -1] %>
+                        </button>
+                        <button class="share-button btn btn-outline-primary btn-sm">
+                            <i class="fas fa-share"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.like-button').forEach(button => {
+                button.addEventListener('click', async function() {
+                    const postUrl = this.getAttribute('data-post-url'); // Assuming the post URL is stored in a data attribute
+
+                    try {
+                        const response = await fetch('/likePost', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ postUrl })
+                        });
+
+                        const result = await response.json();
+                        if (result.success) {
+                            // Increment the like counter visually
+                            const likeCounter = this.querySelector('.like-counter');
+                            likeCounter.textContent = parseInt(likeCounter.textContent) + 1;
+                        } else {
+                            alert(result.message);
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+    });
+
+    </script>
 
 </body>
 </html>
