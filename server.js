@@ -621,14 +621,9 @@ app.post('/likePost', async (req, res) => {
 
             if (communityPost) {
                 const reimaginePost = communityPost.reimaginePosts.find(p => p[3] === postUrl);
-                console.log(communityPost.reimaginePosts[2][2]);
-                console.log(postUrl);
-                console.log(reimaginePost);
                 
                 if (reimaginePost) {
-                    console.log(reimaginePost[4]);
                     reimaginePost[4] = parseInt(reimaginePost[4]) + 1; // Increment the like counter
-                    console.log(reimaginePost[4]);
                     await communityPost.save(); // Save the updated communityPost document
                 }
             }
