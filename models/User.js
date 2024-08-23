@@ -18,11 +18,11 @@ const userSchema = new mongoose.Schema({
     },
     unlockedLevels: {
         type: [Number],
-        default: [1,2,3,4]
+        default: [0, 1]
     },
     completedLevels: {
         type: [Number],
-        default: [1,2]
+        default: []
     },
     levelCompletionDates: {
         type: Map,

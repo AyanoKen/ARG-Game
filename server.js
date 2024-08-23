@@ -275,6 +275,27 @@ app.get('/crossword', (req, res) =>{
     }
 });
 
+app.post('/crossword/complete', async (req, res) => {
+    if(req.isAuthenticated()){
+        try {
+            const result = await req.user.findOneAndUpdate(
+                { googleId: req.user.googleId },
+                {currentLevel: 4, $push: {completedLevels: 3, unlockedLevels: 4} },
+                { new: true }
+            );
+            
+            if (!result) {
+                console.log('User not found or update failed.');
+            } else{
+                console.log('User is updated');
+            }
+            res.status(200).send({ message: 'Troop and avatar updated' });
+        } catch (error) {
+            res.status(500).send({ message: 'Error updating troop and avatar' });
+        }
+    }
+});
+
 const answersLayout = [
     ['$', 'S', 'C', 'H', 'O', 'L', 'A', 'R', '$', '$', '$', '$', '$', '$', '$', '$', '$', 'T', '$', '$', '$', '$'],
     ['$', '$', '$', '$', '$', '$', 'U', '$', '$', '$', '$', '$', '$', '$', '$', '$', '$', 'U', '$', '$', '$', '$'],
@@ -365,7 +386,7 @@ app.post('/orientation/updateTroop', async (req, res) => {
         // Update the user's troop and avatar in the database
         const result = await User.findOneAndUpdate(
             { googleId: String(userId) },
-            { playerTroop: troopName, playerAvatar: avatar },
+            { playerTroop: troopName, playerAvatar: avatar, currentLevel: 2, $push: {completedLevels: 1, unlockedLevels: 2} },
             { new: true }
         );
         

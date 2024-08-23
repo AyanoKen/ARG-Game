@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const crosswordLayout = [
         ['$', '1', '', '', '', '', '2', '', '$', '$', '$', '$', '$', '$', '$', '$', '$', '3', '$', '$', '$', '$'],
@@ -95,6 +97,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     document.getElementById('EndButton').addEventListener('click',() => {
-        window.location.href = '/levels';
+        fetch('/crossword/complete', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/levels';
+            }
+        })
+        
     });
 });
