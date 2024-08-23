@@ -36,6 +36,18 @@ const userSchema = new mongoose.Schema({
     playerAvatar: {
         type: String,
         default: '/images/blankprofile.png'
+    },
+    name: {
+        type: String,
+        default: ''
+    },
+    campus: {
+        type: String,
+        default: ''
+    },
+    school: {
+        type: String,
+        default: ''
     }
 });
 

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/playersetup-styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/modulelogo.png" alt="Logo" class="logo">
+                </a>
+                <div class="title">
+                    <h1>CREATE AN ACCOUNT</h1>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/playerinfo">
+                                <img src="/images/blankprofile.png" alt="Icon" class="icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="content">
+        <div class="container-fluid">
+            <h1 style="text-align: center;">PLAYER DETAILS</h1>
+            <p style="text-align: center;">Please provide the following details to create your account</p>
+
+            <form>
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                  <label for="campus">Campus</label>
+                  <select class="custom-select" id="campus">
+                    <option value="West Lafayette">West Lafayette</option>
+                    <option value="Indianapolis">Indianapolis</option>
+                    <option value="Other than Purdue">Other than Purdue</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="school">College/School</label>
+                    <select class="custom-select" id="school">
+                      <option value="Agriculture">College of Agriculture</option>
+                      <option value="Business">Daniels School of Business</option>
+                      <option value="Education">College of Education</option>
+                      <option value="Engineering">College of Engineering</option>
+                      <option value="Exploratory">Exploratory Studies</option>
+                      <option value="Health and Human Sciences">College of Health and Human Sciences</option>
+                      <option value="Liberal Arts">College of Liberal Arts</option>
+                      <option value="Pharmacy">College of Pharmacy</option>
+                      <option value="Polytechnic">Purdue Polytechnic Institute</option>
+                      <option value="Science">College of Science</option>
+                      <option value="Veterinary">College of Veterinary Medicine</option>
+                      <option value="Honors">John Martinson Honors College</option>
+                      <option value="Graduate">The Graduate School</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-warning">Submit</button>
+              </form>
+        </div>
+    </section>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const name = document.getElementById('name').value;
+            const campus = document.getElementById('campus').value;
+            const school = document.getElementById('school').value;
+
+            
+            const data = {
+                name: name,
+                campus: campus,
+                school: school
+            };
+
+            
+            fetch('/playersetup/setup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    window.location.href = '/playerinfo';
+                } else {
+                    alert("Something went wrong, retrying");
+                    window.location.href = '/login';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+        });
+
+    </script>
+</body>
+</html>

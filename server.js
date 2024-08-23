@@ -182,9 +182,9 @@ app.get('/auth/google/callback',
         try{
             const user = await User.findById(req.user.id);
             if (user.newUser) {
-                res.redirect('/playerinfo');
+                res.redirect('/playersetup');
             } else {
-                res.redirect('/');
+                res.redirect('/playerinfo');
             }
         } catch(err){
             console.error(err);
@@ -192,6 +192,46 @@ app.get('/auth/google/callback',
         }
     }
 );
+
+app.get('/playersetup', (req, res) => {
+    if (req.isAuthenticated()){
+        res.render('playersetup')
+    } else {
+        res.redirect("/login");
+    }
+});
+
+app.post('/playersetup/setup', async (req, res) => {
+    if (req.isAuthenticated()){
+        try {
+            const userId = req.user.googleId; 
+            const { name, campus, school } = req.body;
+    
+            
+            const updatedUser = await User.findOneAndUpdate(
+                { googleId: userId },
+                { 
+                    name: name, 
+                    campus: campus, 
+                    school: school, 
+                    newUser: false 
+                }, 
+                { new: true } 
+            );
+    
+            if (!updatedUser) {
+                return res.status(404).json({ success: false, message: 'User not found.' });
+            }
+    
+            res.json({ success: true, message: 'User updated successfully.', user: updatedUser });
+    
+        } catch (err) {
+            console.error('Error updating user:', err);
+            res.status(500).json({ success: false, message: 'Error updating user.' });
+        }
+    }
+    
+});
 
 app.get('/playerinfo', async (req, res) => {
     if (req.isAuthenticated()) {
@@ -578,14 +618,14 @@ app.get('/community/:imageName', async (req, res) => {
             const innovatePost = communityPost.innovatePosts.find(p => p.includes(imageName));
             if (innovatePost) {
                 // Render the communityPostInnovate view if the image is found in innovatePosts
-                return res.render('communityPostInnovate', { post: innovatePost });
+                return res.render('communityPostInnovate', {user: req.user, post: innovatePost });
             }
     
             // Check if the post is in reimaginePosts
             const reimaginePost = communityPost.reimaginePosts.find(p => p.includes(imageName));
             if (reimaginePost) {
                 // Render the communityPostReimagine view if the image is found in reimaginePosts
-                return res.render('communityPostReimagine', { post: reimaginePost });
+                return res.render('communityPostReimagine', {user: req.user, post: reimaginePost });
             }
     
             // If the image was not found in either array

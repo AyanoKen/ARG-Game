@@ -223,22 +223,28 @@
                     const postUrl = this.getAttribute('data-post-url'); // Assuming the post URL is stored in a data attribute
 
                     try {
-                        const response = await fetch('/likePost', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ postUrl })
-                        });
 
-                        const result = await response.json();
-                        if (result.success) {
-                            // Increment the like counter visually
-                            const likeCounter = this.querySelector('.like-counter');
-                            likeCounter.textContent = parseInt(likeCounter.textContent) + 1;
+                        if(<%=user%>){
+                            const response = await fetch('/likePost', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ postUrl })
+                            });
+
+                            const result = await response.json();
+                            if (result.success) {
+                                // Increment the like counter visually
+                                const likeCounter = this.querySelector('.like-counter');
+                                likeCounter.textContent = parseInt(likeCounter.textContent) + 1;
+                            } else {
+                                alert(result.message);
+                            }
                         } else {
-                            alert(result.message);
+                            alert("Please Login");
                         }
+                        
                     } catch (error) {
                         console.error('Error:', error);
                     }

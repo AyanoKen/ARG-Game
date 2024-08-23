@@ -1,0 +1,84 @@
+body {
+    background: rgb(11,1,33);
+    background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
+    color: white;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.title h1{
+    font-size: 2rem;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+}
+
+.navbar-nav a {
+    font-size: 1.5rem;
+}
+
+.navbar img {
+    width: 60px;
+    height: auto;
+}
+.navbar-nav .nav-item .nav-link {
+    color: #f0ad4e;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: white;
+}
+.navbar-nav .nav-item .active .nav-link {
+    color: white;
+}
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.content{
+    padding: 2% 32%;
+}
+
+.content form{
+    padding: 8% 16%;
+}
+
+.content h1{
+    font-size: 1.5rem;
+    color: transparent; /* Text color transparent for the hollow effect */
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;  
+}
+
+.content p{
+    color: #A788E7;
+    font-size: 1.2rem;
+}
+
+.content label {
+    color: #A788E7;
+    font-size: 1.2rem;
+}
+
+.content input{
+    background-color: transparent;
+    border: 2px solid #FFD477;
+}
+
+.content select{
+    background-color: transparent;
+    border: 2px solid #FFD477;
+    color: #A788E7;
+    font-size: 1.2rem;
+}
+
+.content option {
+    background-color: transparent !important;
+    color: #A788E7;
+    font-size: 1.2rem;
+}
