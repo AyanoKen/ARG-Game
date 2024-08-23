@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 document.addEventListener('DOMContentLoaded', (event) => {
     const crosswordLayout = [
         ['$', '1', '', '', '', '', '2', '', '$', '$', '$', '$', '$', '$', '$', '$', '$', '3', '$', '$', '$', '$'],

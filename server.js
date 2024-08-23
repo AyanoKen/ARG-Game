@@ -277,10 +277,16 @@ app.get('/crossword', (req, res) =>{
 
 app.post('/crossword/complete', async (req, res) => {
     if(req.isAuthenticated()){
+        const userId = req.user.googleId; 
+        const currentDate = new Date();
         try {
-            const result = await req.user.findOneAndUpdate(
-                { googleId: req.user.googleId },
-                {currentLevel: 4, $push: {completedLevels: 3, unlockedLevels: 4} },
+            const updates = {
+                'levelCompletionDates.3': currentDate
+            }
+
+            const result = await User.findOneAndUpdate(
+                { googleId: userId },
+                {currentLevel: 4, $push: {completedLevels: 3, unlockedLevels: 4}, $set: updates },
                 { new: true }
             );
             
@@ -291,6 +297,7 @@ app.post('/crossword/complete', async (req, res) => {
             }
             res.status(200).send({ message: 'Troop and avatar updated' });
         } catch (error) {
+            console.log(error);
             res.status(500).send({ message: 'Error updating troop and avatar' });
         }
     }
