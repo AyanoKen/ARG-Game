@@ -790,10 +790,10 @@ app.get('/test', (req, res) => {
     res.render('test');
 });
 
-app.get('/logout', (req, res) => {
+app.get("/logout", function(req, res){
     req.logout();
-    res.redirect('/');
-});
+    res.redirect("/");
+  });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

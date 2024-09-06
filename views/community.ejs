@@ -224,7 +224,7 @@
 
                     try {
 
-                        if(<%=user%>){
+                        if(<%-user.googleId%>){
                             const response = await fetch('/likePost', {
                                 method: 'POST',
                                 headers: {
