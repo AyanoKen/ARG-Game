@@ -95,7 +95,7 @@ p{
     padding: 2%;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%, 15% 75%, 0 75%);
     border-radius: 10px;
-    filter: drop-shadow(0 0 10px #9078B2);
+    filter: drop-shadow(0 0 10px #9078B2); 
 }
 
 .box-design {
