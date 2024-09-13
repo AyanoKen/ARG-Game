@@ -1,0 +1,115 @@
+body {
+    background: rgb(11,1,33);
+    background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
+    color: white;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-color: #0B0121;
+}
+
+body img{
+    width: 100%;
+}
+
+.navbar {
+    background-color: transparent;
+    box-shadow: 0 0 0px 2px #c79be9;
+    margin-top: 1%;
+    padding: 0;
+}
+
+.navbar-nav a {
+    font-size: 1.5rem;
+}
+
+.navbar img {
+    width: 80px;
+    height: auto;
+}
+.navbar-nav .nav-item .nav-link {
+    color: #ffd977;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: white;
+}
+.navbar-nav .nav-item .active .nav-link {
+    color: white;
+}
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* .col-md-2 {
+    height: 92vh;
+} */
+
+.icons {
+    background-color: #452e68;
+    color: #ffd977;
+    box-shadow: 0 0 0px 1px #c79be9;
+    text-align: center;
+    padding: 8%;
+    margin: 5%;
+}
+
+.icon-active {
+    box-shadow: 0 0 0px 8px #ffd977;
+}
+
+.icons h1 {
+    font-size: 1.5em;
+}
+
+.icons a {
+    font-size: 1.5em;
+    color: #ffd977;
+}
+
+.icons img{
+    width: 50%;
+    margin: 5% 0;
+}
+
+.info-section{
+    padding: 4%;
+    text-align: center;
+}
+
+.info-section h1{
+    font-size: 3rem;
+    color: transparent; 
+    -webkit-text-stroke: 1px #ffcc00; 
+    font-weight: bold;
+    padding: 4% 0;
+}
+
+.carousel-control-next-icon {
+    background-image: url('/images/recognition/Icon - Arrow R.png');
+    width: 60px;
+    height: 60px !important;
+}
+
+.carousel-control-next {
+    padding-left: 4% !important;
+    background-color: transparent !important;
+    border: 0;
+}
+
+.carousel-control-prev-icon {
+    background-image: url('/images/recognition/Icon - Arrow L.png');
+    width: 60px;
+    height: 60px !important;
+}
+
+.carousel-control-prev {
+    padding-right: 4% !important;
+    background-color: transparent !important;
+    border: 0;
+}
+
+.carousel img{
+    width: 75%;
+}

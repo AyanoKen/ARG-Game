@@ -76,6 +76,8 @@ body {
     background: url('/images/HomePage - Header 3.png') no-repeat center center/cover;
 }
 
+
+
 .hero .content {
     position: absolute;
     bottom: 200px;
@@ -90,6 +92,7 @@ body {
     flex-direction: column;
     justify-content: space-between; /* Ensure space between elements */
     text-align: left;
+    clip-path: polygon(100% 0, 100% 100%, 8% 100%, 0 70%, 0 0);
 }
 .hero h1 {
     margin: 0;

@@ -54,7 +54,7 @@
                     const postUrl = this.getAttribute('data-post-url'); // Assuming the post URL is stored in a data attribute
 
                     try {
-                        if(<%-user.googleId%>){
+                        if(<%-user%>){
                             const response = await fetch('/likePost', {
                                 method: 'POST',
                                 headers: {

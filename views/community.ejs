@@ -129,7 +129,7 @@
                     <div id="reimaginePosts" class="row">
                         <% reimaginePosts.forEach((post, index) => { %>
                             <div class="col-md-4 mb-4">
-                                <div style='background-image: url("uploads/<%= post[post.length - 2].split('/').pop() %>");' class="card reimagine-card" data-index="<%= index %>" data-image="<%= post[post.length - 2].split('/').pop() %>">
+                                <div style='background-image: url("/uploads/<%= post[post.length - 2].split('/').pop() %>");' class="card reimagine-card" data-index="<%= index %>" data-image="<%= post[post.length - 2].split('/').pop() %>">
                                     
                                     <div class="card-body d-flex justify-content-between">
                                         <div class="text-section">
@@ -165,6 +165,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 
     <script>
+        
+        var user = <%-user%>;
+
+        
+        
         document.addEventListener('DOMContentLoaded', function() {
             const cardsPerPage = 6;
 
@@ -217,14 +222,14 @@
                     window.location.href = `/community/${encodeURIComponent(imageName)}`;
                 });
             });
-
+            
             document.querySelectorAll('.like-button').forEach(button => {
                 button.addEventListener('click', async function() {
                     const postUrl = this.getAttribute('data-post-url'); // Assuming the post URL is stored in a data attribute
 
                     try {
 
-                        if(<%-user.googleId%>){
+                        if(user){
                             const response = await fetch('/likePost', {
                                 method: 'POST',
                                 headers: {

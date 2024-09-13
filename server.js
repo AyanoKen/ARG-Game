@@ -6,7 +6,7 @@ const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('./models/User');
-const CommunityPosts = require('./models/communityPosts');
+const CommunityPosts = require('./models/CommunityPosts');
 const PlayerChoice = require('./models/PlayerChoice');
 const TroopInfo = require('./models/TroopInfo');
 const LevelInfo = require('./models/LevelInfo');
@@ -17,7 +17,10 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
+
 require('dotenv').config();
+
+const uri = process.env.MONGODB_URI;
 
 const app = express();
 
@@ -88,8 +91,9 @@ const upload = multer({ storage: storage });
 //     useUnifiedTopology: true
 // });
 
-
-mongoose.connect('mongodb+srv://' + process.env.MONGODBUSER + ':' + process.env.MONGODBPASSWORD + '@cluster0.jt3qbmd.mongodb.net/ARG-Website?retryWrites=true&w=majority&appName=Cluster0');
+mongoose.connect(uri)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
 
 // Middleware
 app.use(express.json());
@@ -102,7 +106,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost:27017/arggame',
+        mongoUrl: uri,
         collectionName: 'sessions'
     }),
     cookie: {
@@ -616,6 +620,14 @@ app.get('/echos', (req, res) => {
     }
 });
 
+app.get('/chapters', (req, res) => {
+    if(req.isAuthenticated()){
+        res.render('chapters', {user: req.user});
+    }else{
+        res.redirect('/login');
+    }
+});
+
 app.get('/community', async (req, res) => {
     const communityPosts = await CommunityPosts.findOne().exec();
 
@@ -641,7 +653,13 @@ app.get('/community', async (req, res) => {
         }
     });
 
-    res.render('community', {user: req.user, innovatePosts, reimaginePosts, troopCounts});
+    if (req.user){
+        res.render('community', {user: req.user, innovatePosts, reimaginePosts, troopCounts});
+    } else{
+        res.render('community', {user: false, innovatePosts, reimaginePosts, troopCounts});
+    }
+
+    
 });
 
 app.get('/community/:imageName', async (req, res) => {
@@ -661,7 +679,13 @@ app.get('/community/:imageName', async (req, res) => {
             const reimaginePost = communityPost.reimaginePosts.find(p => p.includes(imageName));
             if (reimaginePost) {
                 // Render the communityPostReimagine view if the image is found in reimaginePosts
-                return res.render('communityPostReimagine', {user: req.user, post: reimaginePost });
+
+                if (req.user){
+                    return res.render('communityPostReimagine', {user: req.user, post: reimaginePost });
+                } else {
+                    return res.render('communityPostReimagine', {user: false, post: reimaginePost });
+                }
+                
             }
     
             // If the image was not found in either array
