@@ -120,6 +120,37 @@ app.use(passport.session());
 
 
 // Passport configuration
+// passport.use(new GoogleStrategy({
+//     clientID: process.env.GOOGLE_CLIENT_ID,
+//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//     callbackURL: 'https://' + process.env.HOST + '/auth/google/callback'
+// }, async (accessToken, refreshToken, profile, done) => {
+//     const existingUser = await User.findOne({ googleId: profile.id });
+
+//     if (existingUser) {
+//         return done(null, existingUser);
+//     }
+
+//     const newUser = new User({
+//         googleId: profile.id,
+//         displayName: profile.displayName,
+//         email: profile.emails[0].value,
+//         currentLevel: 0 // default value for currentLevel
+//     });
+
+//     await newUser.save();
+
+//     // Create a new entry in PlayerChoice for the new user
+//     const newPlayerChoice = new PlayerChoice({
+//         userId: profile.id,
+//         choices: []
+//     });
+
+//     await newPlayerChoice.save();
+//     done(null, newUser);
+    
+// }));
+
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,

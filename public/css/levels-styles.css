@@ -126,6 +126,13 @@ html, body {
     font-weight: bold;
 }
 
+.level-number {
+    font-size: 8rem;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
+    font-weight: bold;
+}
+
 .unstyled-button {
     background: none;
     border: none;
@@ -139,4 +146,12 @@ html, body {
 .unstyled-button:focus {
     outline: none;
     box-shadow: none;
+}
+
+#module-btn {
+    background-color: #ffd977;
+    color: black;
+    font-size: 1.5rem;
+    border-radius: 0;
+    clip-path: polygon(100% 0, 100% 50%, 93% 100%, 0 100%, 0 0);
 }

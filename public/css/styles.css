@@ -82,17 +82,18 @@ body {
     position: absolute;
     bottom: 200px;
     right: 2px;
-    background-color: rgba(0, 0, 0, 0.7);
+    /* background-color: rgba(0, 0, 0, 0.7); */
     padding: 2%;
     padding-left: 4%;
-    box-shadow: 0 0 20px 2px #FFD977;
+    /* box-shadow: 0 0 20px 2px #FFD977; */
     min-height: 20%; /* Minimum height to maintain shape */
     width: 70%; /* Set width to 50% of screen width */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Ensure space between elements */
     text-align: left;
-    clip-path: polygon(100% 0, 100% 100%, 8% 100%, 0 70%, 0 0);
+    background-image: url('/images/ClippedCard.png');
+    background-size: contain;
 }
 .hero h1 {
     margin: 0;

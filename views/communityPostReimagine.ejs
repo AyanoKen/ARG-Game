@@ -34,7 +34,7 @@
                     <p><%= post[2] %></p>
 
                     <div class="button-section">
-                        <button class="like-button btn btn-outline-danger btn-sm mr-2" data-post-url="uploads/<%= post[post.length - 2].split('/').pop() %>">
+                        <button class="like-button like-counter btn btn-outline-danger btn-sm mr-2" data-post-url="uploads/<%= post[post.length - 2].split('/').pop() %>">
                             <i class="fas fa-heart"></i> <%= post[post.length -1] %>
                         </button>
                         <button class="share-button btn btn-outline-primary btn-sm">
@@ -54,7 +54,7 @@
                     const postUrl = this.getAttribute('data-post-url'); // Assuming the post URL is stored in a data attribute
 
                     try {
-                        if(<%-user%>){
+                        if(<%-user.googleId%>){
                             const response = await fetch('/likePost', {
                                 method: 'POST',
                                 headers: {
@@ -66,7 +66,7 @@
                             const result = await response.json();
                             if (result.success) {
                                 // Increment the like counter visually
-                                const likeCounter = this.querySelector('.like-counter');
+                                const likeCounter = document.querySelector('.like-counter'); // Bugged line. TODO
                                 likeCounter.textContent = parseInt(likeCounter.textContent) + 1;
                             } else {
                                 alert(result.message);
