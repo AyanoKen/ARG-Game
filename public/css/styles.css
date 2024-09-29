@@ -92,8 +92,10 @@ body {
     flex-direction: column;
     justify-content: space-between; /* Ensure space between elements */
     text-align: left;
-    background-image: url('/images/ClippedCard.png');
-    background-size: contain;
+    background-image: url('/images/Banner UI.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .hero h1 {
     margin: 0;
