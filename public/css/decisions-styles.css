@@ -4,7 +4,7 @@ html, body {
     background-repeat: no-repeat;
     background-color: #0B0121;
     color: #FFD977;
-    font-family: Arial, sans-serif;
+    font-family: Lexend-Deca;
     margin: 0;
     padding: 0.5%;
     height: 100%;
@@ -47,9 +47,8 @@ h1 {
 
 .title h1{
     font-size: 1.5em;
-    color: transparent; /* Text color transparent for the hollow effect */
-    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
-    font-weight: bold;
+    font-family: Library;
+    color: #ffd977;
 }
 
 .navbar-nav a {
@@ -62,7 +61,7 @@ h1 {
 }
 
 .navbar-nav .nav-item .nav-link {
-    color: #f0ad4e;
+    color: #ffd977;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
@@ -132,6 +131,7 @@ h1 {
     align-self: flex-end; 
     clip-path: polygon(100% 0, 100% 56%, 87% 100%, 0 100%, 0 0);
     border-radius: 0;
+    font-family: Lexend;
 }
 
 .submit-button{

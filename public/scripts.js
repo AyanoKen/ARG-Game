@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 input.value = result.correctAnswer;
                 input.blur();
 
-                if(result.count >= 5){
+                if(result.count >= 97){
                     document.getElementById("revealButton").remove();
                     document.getElementById("EndButton").style.visibility = "visible";
                 }

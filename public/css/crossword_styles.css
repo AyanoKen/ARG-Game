@@ -2,7 +2,7 @@ body {
     background: rgb(11,1,33);
     background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: Lexend-Deca;
 }
 
 .navbar {
@@ -11,9 +11,8 @@ body {
 
 .title h1{
     font-size: 1.5em;
-    color: transparent; /* Text color transparent for the hollow effect */
-    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
-    font-weight: bold;
+    font-family: Library;
+    color: #FFD977;
 }
 
 .navbar-nav a {
@@ -48,6 +47,7 @@ body {
     grid-template-columns: repeat(22, 1fr); /* Adjust grid size as needed */
     gap: 5px;
     margin: 20px;
+    font-family: Michroma;
 }
 
 .crossword input {
@@ -57,7 +57,7 @@ body {
     font-size: 18px;
     background-color: #c79be9;
     color: rgb(0, 0, 0);
-    border: 1px solid #ffcc00;
+    border: 1px solid #ffd977;
 }
 
 .crossword input.correct {
@@ -93,7 +93,7 @@ body {
 }
 
 h4 {
-    color: #ffcc00;
+    color: #ffd977;
 }
 
 li {
@@ -107,12 +107,13 @@ li {
 #revealButton {
     background-color: transparent;
     border: 2px solid #9172E7;
-    color: #ffcc00;
+    color: #ffd977;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
+    font-family: Lexend;
 }
 
 #revealButton:hover {
@@ -121,7 +122,7 @@ li {
 }
 
 #revealText {
-    color: #ffcc00;
+    color: #ffd977;
     padding-top: 5%;
     text-align: left;
     /* TODO: Center the text element */
@@ -136,6 +137,7 @@ li {
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
     visibility: hidden;
+    font-family: Lexend;
 }
 
 #EndButton:hover {
