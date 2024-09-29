@@ -2,7 +2,7 @@ body {
     background: rgb(11,1,33);
     background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: Outfit;
 }
 
 .navbar {
@@ -11,9 +11,8 @@ body {
 
 .title h1{
     font-size: 1.5em;
-    color: transparent; /* Text color transparent for the hollow effect */
-    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
-    font-weight: bold;
+    font-family: Library;
+    color: #ffd977;
 }
 
 .navbar-nav a {
@@ -216,6 +215,7 @@ body {
     background-color: #694f93;
     border-radius: 10px;
     font-size: 1.2rem;
+    font-weight: 300;
 }
 
 .answer:hover {

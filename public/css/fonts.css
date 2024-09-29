@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Library;
+    src: url("../fonts/library_3_am/Library3am.otf");
+}
+
+@font-face {
+    font-family: Lexend;
+    src: url("../fonts/Lexend_Giga/LexendGiga-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Lexend-Deca;
+    src: url("../fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Outfit;
+    src: url("../fonts/Outfit/Outfit-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: SpaceMono;
+    src: url("../fonts/Space_Mono/SpaceMono-Regular.ttf");
+}

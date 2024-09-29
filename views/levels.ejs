@@ -6,6 +6,7 @@
     <title>Levels</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/levels-styles.css">
 </head>
 <body>
@@ -71,7 +72,7 @@
                                 <% } else if (user.unlockedLevels.includes(chapter.id)) { %>
                                     UNLOCKED
                                 <% } else { %>
-                                    LOCKED
+                                    <p class="locked">LOCKED</p>
                                 <% } %>
                             </p>
                         </div>
@@ -141,8 +142,10 @@
                 }
 
                 $('.info-section').removeClass('locked');
+                $('.level-number').removeClass('locked');
                 if (completedLevels.includes(chapterId)) {
                     $('.info-section').addClass('locked');
+                    $('.level-number').addClass('locked');
                 }
 
                 if (unlockedLevels.includes(chapterId) && !completedLevels.includes(chapterId)) {
