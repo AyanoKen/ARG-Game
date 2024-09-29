@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Pattern Recognition</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/recognition-styles.css">
 </head>
 <body>
@@ -34,7 +35,7 @@
 
     <div class="row content">
         <div class="col-md-1 buttons-section">
-            <button class="button button-active" data-id="1">01</button> <br>
+            <button class="button button-active" data-id="1" style="padding: 23%;">01</button> <br>
             <button class="button button-long" data-id="2">02</button> <br>
             <button class="button" data-id="3">03</button> <br>
             <button class="button" data-id="4">04</button> <br>
@@ -333,6 +334,21 @@
                 </div>  
             </div>
         </div>
+
+        <div class="end-screen hidden">
+            <div class="end-img">
+                <img src="/images/dudley.jpeg" alt="">
+            </div>
+
+            <div class="row end-text">
+                <div class="col-md-1">
+                    <img src="/images/JarvisImg.png" alt="">
+                </div>
+                <div class="col-md-11">
+                    <p>Congratulations, Agents! You have successfully deciphered the secret trail of clues left by the Professor. We are thrilled to invite you to the groundbreaking Purdue X Google Summit, to be held in Indianapolis.  You will have the opportunity to connect with leading experts, gain valuable knowledge, and contribute to shaping the role of AI in education, business, and government. See you at the summit, and together, let's pioneer the future of AI!</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -344,6 +360,8 @@
         const clueDict = {1: "clue-theme", 2: "clue-img", 3: "clue-title", 4: "clue-location", 5: "clue-city", 6: "clue-date"};
 
         let activeButtonId = 1;
+
+        let score = 0;
 
         function setActive(button) {
             var buttons = document.querySelectorAll('.button');
@@ -417,6 +435,20 @@
                             document.getElementById(clueDict[index + 1]).classList.remove("clue-active");
                             document.getElementById(clueDict[index + 1]).style.boxShadow = "none";
 
+                            score += 1;
+
+                            if (score >= 6){
+                                
+                                setTimeout(() => {
+                                    document.querySelector('.buttons-section').classList.add('hidden');
+                                    document.querySelector('.clue-section').classList.add('hidden');
+                                    document.querySelector('.content-section').classList.add('hidden');
+
+                                    document.querySelector('.end-screen').classList.remove('hidden');
+                                }, 2500);
+                                
+                            }
+
                         } else {
                             inputField.style.boxShadow = "0 0 0px 2px lightcoral";
                             console.log(`Wrong answer for content-${index + 1}`);
@@ -433,7 +465,6 @@
                     inputField.placeholder = hint;
                 });
             });
-
         });
 
     </script>

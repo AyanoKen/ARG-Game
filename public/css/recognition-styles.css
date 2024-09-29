@@ -4,7 +4,7 @@ html, body {
     background-repeat: no-repeat;
     background-color: #0B0121;
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: Outfit;
     margin: 0;
     padding: 0.5%;
     height: 100%;
@@ -39,9 +39,8 @@ html, body {
 
 .title h1{
     font-size: 1.8rem;
-    color: transparent; /* Text color transparent for the hollow effect */
-    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
-    font-weight: bold;
+    font-family: Library;
+    color: #FFD977;
 }
 
 .navbar-nav a {
@@ -54,7 +53,7 @@ html, body {
 }
 
 .navbar-nav .nav-item .nav-link {
-    color: #f0ad4e;
+    color: #ffd977;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
@@ -75,6 +74,10 @@ html, body {
     margin-top: 2%;
 }
 
+.buttons-section {
+    font-family: Outfit;
+}
+
 .button {
     background-color: transparent;
     padding: 20%;
@@ -87,7 +90,7 @@ html, body {
 }
 
 .button-active {
-    background-color: #ffd877b9 !important;
+    background-color: #ffd977 !important;
 }
 
 .button-long {
@@ -104,6 +107,7 @@ html, body {
     padding-bottom: 0;
     font-size: 1.4rem;
     color: #FFD977;
+    font-family: Outfit;
 }
 
 #clue-theme {
@@ -162,6 +166,7 @@ html, body {
 .content-section h1 {
     font-size: 1.5rem;
     color: #FFD977;
+    font-family: Lexend-Deca;
 }
 
 .laptop {
@@ -344,4 +349,22 @@ input{
 
 .playerinput {
     height: 100%;
+}
+
+.end-screen {
+    text-align: center;
+}
+
+.end-img img {
+    width: 40%;
+}
+
+.end-text {
+    padding: 4% 8%;
+    font-size: 1.2rem;
+    align-items: center;
+}
+
+.end-text img {
+    width: 80%;
 }
