@@ -348,6 +348,10 @@
                     <p>Congratulations, Agents! You have successfully deciphered the secret trail of clues left by the Professor. We are thrilled to invite you to the groundbreaking Purdue X Google Summit, to be held in Indianapolis.  You will have the opportunity to connect with leading experts, gain valuable knowledge, and contribute to shaping the role of AI in education, business, and government. See you at the summit, and together, let's pioneer the future of AI!</p>
                 </div>
             </div>
+
+            <div class="submit-button btn-container" ">
+                <button id="step-1-submit" class="btn btn-warning" style="margin-right: 10%;">PROCEED</button>
+            </div>
         </div>
     </div>
 
@@ -445,7 +449,7 @@
                                     document.querySelector('.content-section').classList.add('hidden');
 
                                     document.querySelector('.end-screen').classList.remove('hidden');
-                                }, 2500);
+                                }, 500);
                                 
                             }
 
@@ -465,6 +469,21 @@
                     inputField.placeholder = hint;
                 });
             });
+
+            document.getElementById('step-1-submit').addEventListener('click', () => {
+                fetch('/recognition/complete', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message === 'Troop and avatar updated') {
+                            console.log("Updated user");
+                            window.location.href = '/levels';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }); 
         });
 
     </script>

@@ -361,10 +361,34 @@ input{
 
 .end-text {
     padding: 4% 8%;
+    padding-bottom: 1%;
     font-size: 1.2rem;
     align-items: center;
 }
 
 .end-text img {
     width: 80%;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.submit-button button {
+    background-color: #ffd977;
+    color: #452e68;
+    font-weight: bold;
+    padding: 10px 40px;
+    cursor: pointer;
+    align-self: flex-end; 
+    clip-path: polygon(100% 0, 100% 56%, 87% 100%, 0 100%, 0 0);
+    border-radius: 0;
+    font-family: Lexend;
+}
+
+.submit-button{
+    margin: 2%;
 }
