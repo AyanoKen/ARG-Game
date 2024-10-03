@@ -736,6 +736,26 @@ app.get('/echos', (req, res) => {
     }
 });
 
+const badgeNames = {"G": "Guardian", "A": "Assistant", "V": "Advisor", "P": "Autopilot"};
+
+app.post('/echos/submit', async (req, res) => {
+    const userId = req.user.googleId;
+    try {
+        const badgeCounts = req.session.playerAnswers || [];
+        console.log("Badge counts are: " + badgeCounts);
+        const badge = calculateTroop(badgeCounts);
+        console.log("Assigned badge is: " + badge);
+        const badgeName = badgeNames[badge];
+
+        req.session.playerAnswers = [];
+
+        res.status(200).send({ message: 'Badge assigned', badgeName});
+    } catch (error) {
+        res.status(500).send({ message: 'Error completing level' });
+    }
+});
+
+
 app.get('/chapters', (req, res) => {
     if(req.isAuthenticated()){
         res.render('chapters', {user: req.user});
