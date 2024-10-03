@@ -609,6 +609,16 @@ app.get('/reimagine2', (req, res) => {
 
 app.post('/reimagine/step6', upload.single('playerImage'), async (req, res) => {
     const { landmark, alpacaPrompt } = req.body;
+    const userId = req.user.googleId; 
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const formattedToday = dd + '-' + mm + '-' + yyyy;
 
     try {
         const imageFilePath = req.file.path;
@@ -618,6 +628,16 @@ app.post('/reimagine/step6', upload.single('playerImage'), async (req, res) => {
             { userId: String(req.user.googleId) },
             { $push: { reimagineStep6: [landmark, alpacaPrompt, imageFilePath] } },
             { new: true, upsert: true }
+        );
+
+        const updates = {
+            'levelCompletionDates.5': formattedToday
+        }
+
+        const result2 = await User.findOneAndUpdate(
+            { googleId: userId },
+            {currentLevel: 6, $push: {completedLevels: 5, unlockedLevels: 6}, $set: updates },
+            { new: true }
         );
 
         if (!result) {
