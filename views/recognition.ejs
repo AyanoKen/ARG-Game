@@ -17,7 +17,7 @@
                     <img src="/images/modulelogo.png" alt="Logo" class="logo">
                 </a>
                 <div class="title">
-                    <h1>02</h1>
+                    <h1>07</h1>
                     <h1>PATTERN RECOGNITION</h1>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -119,7 +119,7 @@
                 
 
                 <div class="content-2-img text-center">
-                    <img src="/images/message.png" alt="">
+                    <img src="/images/Message.png" alt="">
                 </div>
 
                 <div class="row">
@@ -239,7 +239,7 @@
 
                 <div id="content5-carousel" class="carousel slide carousel-fade text-center" data-ride= "carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
+                        <!-- <div class="carousel-item active">
                             <img src="/images/Trail_1.png" alt="">
                         </div>
                         <div class="carousel-item">
@@ -253,6 +253,21 @@
                         </div>
                         <div class="carousel-item">
                             <img src="/images/Trail_5.png" alt="">
+                        </div> -->
+                        <div class="carousel-item active">
+                            <img src="/images/Trail_6.png" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/Trail_7.png" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/Trail_8.png" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/Trail_9.png" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/Trail_10.png" alt="">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-target="#content5-carousel" data-slide="prev">
@@ -345,7 +360,7 @@
                     <img src="/images/JarvisImg.png" alt="">
                 </div>
                 <div class="col-md-11">
-                    <p>Congratulations, Agents! You have successfully deciphered the secret trail of clues left by the Professor. We are thrilled to invite you to the groundbreaking Purdue X Google Summit, to be held in Indianapolis.  You will have the opportunity to connect with leading experts, gain valuable knowledge, and contribute to shaping the role of AI in education, business, and government. See you at the summit, and together, let's pioneer the future of AI!</p>
+                    <p style="color: #FFD977;">Congratulations, Agents! You have successfully deciphered the secret trail of clues left by the Professor. We are thrilled to invite you to the groundbreaking Purdue X Google Summit, to be held in Indianapolis.  You will have the opportunity to connect with leading experts, gain valuable knowledge, and contribute to shaping the role of AI in education, business, and government. See you at the summit, and together, let's pioneer the future of AI!</p>
                 </div>
             </div>
 
@@ -435,7 +450,13 @@
                             inputField.style.boxShadow = "0 0 0px 2px lightgreen";
                             console.log(`Correct answer for content-${index + 1}`);
 
-                            document.getElementById(clueDict[index + 1]).textContent = data.text;
+                            if (index + 1 == 2){
+                                document.getElementById(clueDict[index + 1]).src = "/images/T_avatar1.png"
+                            } else{
+                                document.getElementById(clueDict[index + 1]).textContent = data.text;
+                            }
+
+                            
                             document.getElementById(clueDict[index + 1]).classList.remove("clue-active");
                             document.getElementById(clueDict[index + 1]).style.boxShadow = "none";
 
@@ -449,7 +470,7 @@
                                     document.querySelector('.content-section').classList.add('hidden');
 
                                     document.querySelector('.end-screen').classList.remove('hidden');
-                                }, 500);
+                                }, 1000);
                                 
                             }
 
