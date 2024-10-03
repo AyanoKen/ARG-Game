@@ -738,18 +738,43 @@ app.get('/echos', (req, res) => {
 
 const badgeNames = {"G": "Guardian", "A": "Assistant", "V": "Advisor", "P": "Autopilot"};
 
+const badgeDetails = {
+    "Guardian": "Congratulations, Agent! You have earned the Guardian Badge for your commitment to prioritizing human oversight in AI interactions. Your dedication to upholding ethical standards and ensuring human values guide every decision reflects the essence of responsible AI use. Your role is crucial in maintaining continuous monitoring and intervention, safeguarding our shared future.",
+    "Assistant": "Well done! You've been awarded the Assistant Badge, recognizing your ability to harmoniously blend AI support with human decision-making. You enhance human capabilities without overstepping, ensuring that AI serves as a supportive tool, not a replacement. Your balanced approach helps maintain a human-centric perspective in all technological advancements.",
+    "Advisor": "Bravo! You've achieved the Advisor Badge for adeptly managing the delicate balance between AI autonomy and human interaction. You allow AI to offer well-reasoned recommendations while ensuring transparency and providing room for human oversight in crucial matters. Your wise counsel and prudent adjustments are invaluable in navigating the complex interplay of technology and ethics.",
+    "Autopilot": "Impressive! You have secured the Autopilot Badge for mastering the art of delegating routine tasks to AI, allowing it to operate within set boundaries while ensuring fail-safes for human intervention. Your expertise in utilizing AI’s full potential responsibly ensures that efficiency and autonomy are harmoniously integrated, setting a benchmark in AI-driven operations."
+};
+
 app.post('/echos/submit', async (req, res) => {
     const userId = req.user.googleId;
+    const { playerAnswers } = req.body;
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const formattedToday = dd + '-' + mm + '-' + yyyy;
     try {
-        const badgeCounts = req.session.playerAnswers || [];
-        console.log("Badge counts are: " + badgeCounts);
-        const badge = calculateTroop(badgeCounts);
-        console.log("Assigned badge is: " + badge);
+
+        const updates = {
+            'levelCompletionDates.6': formattedToday
+        }
+
+        const badge = calculateTroop(playerAnswers);
         const badgeName = badgeNames[badge];
+        const badgeDetail = badgeDetails[badgeName];
 
-        req.session.playerAnswers = [];
+        const result = await User.findOneAndUpdate(
+            { googleId: String(userId) },
+            { playerBadge: badgeName, currentLevel: 7, $push: {completedLevels: 6, unlockedLevels: 7}, $set: updates },
+            { new: true }
+        );
 
-        res.status(200).send({ message: 'Badge assigned', badgeName});
+        res.status(200).send({ message: 'Badge assigned', badgeName, badgeDetail});
     } catch (error) {
         res.status(500).send({ message: 'Error completing level' });
     }

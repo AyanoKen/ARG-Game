@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: '/images/blankprofile.png'
     },
+    playerBadge:{
+        type: String,
+        default: ''
+    },
     name: {
         type: String,
         default: ''

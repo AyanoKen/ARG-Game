@@ -255,7 +255,7 @@ h1 {
 }
 
 .end-img img {
-    width: 40%;
+    width: 20%;
 }
 
 .end-text {
@@ -276,7 +276,7 @@ h1 {
     align-items: flex-end;
 }
 
-.submit-button button {
+.submit-button a {
     background-color: #ffd977;
     color: #452e68;
     font-weight: bold;

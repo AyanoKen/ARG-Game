@@ -332,7 +332,7 @@
 
         <div class="end-screen hidden">
             <div class="end-img">
-                <img src="/images/dudley.jpeg" alt="">
+                <img id="badgeImg" src="/images/dudley.jpeg" alt="">
             </div>
 
             <div class="row end-text">
@@ -340,12 +340,12 @@
                     <img src="/images/JarvisImg.png" alt="">
                 </div>
                 <div class="col-md-11">
-                    <p>Congratulations, Agents! You have successfully deciphered the secret trail of clues left by the Professor. We are thrilled to invite you to the groundbreaking Purdue X Google Summit, to be held in Indianapolis.  You will have the opportunity to connect with leading experts, gain valuable knowledge, and contribute to shaping the role of AI in education, business, and government. See you at the summit, and together, let's pioneer the future of AI!</p>
+                    <p id="badgeDetail">Congratulations, Agents! You have successfully deciphered the secret trail of clues left by the Professor. We are thrilled to invite you to the groundbreaking Purdue X Google Summit, to be held in Indianapolis.  You will have the opportunity to connect with leading experts, gain valuable knowledge, and contribute to shaping the role of AI in education, business, and government. See you at the summit, and together, let's pioneer the future of AI!</p>
                 </div>
             </div>
 
             <div class="submit-button btn-container">
-                <button id="step-1-submit" class="btn btn-warning" style="margin-right: 10%;">PROCEED</button>
+                <a href="/levels" class="btn btn-warning" style="margin-right: 10%;">PROCEED</a>
             </div>
         </div>
     </div>
@@ -454,8 +454,10 @@
                         },
                         body: JSON.stringify({playerAnswers}),
                 })
-                .then(response => {
-                    //TODO
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector("#badgeImg").src = '/images/' + data.badgeName + '_avatar.png';
+                    document.querySelector("#badgeDetail").textContent = data.badgeDetail;
                 })
 
                 document.getElementById('content-5').classList.add('hidden');
