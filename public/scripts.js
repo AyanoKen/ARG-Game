@@ -26,8 +26,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const revealText = document.getElementById('revealText');
 
     const words = [
-        'SCHOLAR', 'AUTOMATEDGRADING', 'PERSONALIZATION', 'GEMINI', 'NEURALNETWORK', 'ALPACA', 'BIGDATA',
-        'SAMALTMAN', 'TURINGTEST', 'SOPHIA', 'HAL9000', 'BIAS', 'NLP'
+        'One of the words is a famous experiment originally called the Imitation Game', 'One of the words is a key figure behind a major AI organization',
+         'One of the words is named after a zodiac sign and a Google project', 'One of the words is a robot granted citizenship by a country',
+          "One of the words involves layers of 'neurons' in computing", 'One of the words represents enormous volumes of information',
+           'One of the words involves computers understanding human language', "One of the words is a classic film's AI with red camera eye",
+            'One of the words focuses on tailored educational experiences', 'One of the words automates the scoring of student work',
+             'One of the words is an early educational software for geography', 'One of the words is both an animal and an artistic AI tool',
+              "One of the words describes AI's potential for prejudiced output."
     ];
 
     crosswordLayout.forEach((row, rowIndex) => {
@@ -57,7 +62,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         if(input.style.pointerEvents == 'none'){
         } else{
-            const response = await fetch('http://localhost:5000/check', {
+            const response = await fetch('/check', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
