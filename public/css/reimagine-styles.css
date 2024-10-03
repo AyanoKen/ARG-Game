@@ -142,7 +142,12 @@ img{
 }
 
 .question img{
-    width: 100%;
+    width: 70%;
+}
+
+.img-wrapper{
+    text-align: center;
+    padding-bottom: 4%;
 }
 
 .prompt {
@@ -236,3 +241,25 @@ img{
     color: #FFD700;
 }
 
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.submit-button a {
+    background-color: #ffd977;
+    color: #452e68;
+    font-weight: bold;
+    padding: 10px 40px;
+    cursor: pointer;
+    align-self: flex-end; 
+    clip-path: polygon(100% 0, 100% 56%, 87% 100%, 0 100%, 0 0);
+    border-radius: 0;
+    font-family: Lexend;
+}
+
+.submit-button{
+    margin: 2%;
+}
