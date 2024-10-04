@@ -239,7 +239,7 @@
 
                 <div id="content5-carousel" class="carousel slide carousel-fade text-center" data-ride= "carousel">
                     <div class="carousel-inner">
-                        <!-- <div class="carousel-item active">
+                        <div class="carousel-item active">
                             <img src="/images/Trail_1.png" alt="">
                         </div>
                         <div class="carousel-item">
@@ -253,8 +253,8 @@
                         </div>
                         <div class="carousel-item">
                             <img src="/images/Trail_5.png" alt="">
-                        </div> -->
-                        <div class="carousel-item active">
+                        </div>
+                        <div class="carousel-item">
                             <img src="/images/Trail_6.png" alt="">
                         </div>
                         <div class="carousel-item">
@@ -451,7 +451,7 @@
                             console.log(`Correct answer for content-${index + 1}`);
 
                             if (index + 1 == 2){
-                                document.getElementById(clueDict[index + 1]).src = "/images/T_avatar1.png"
+                                document.getElementById(clueDict[index + 1]).src = data.text;
                             } else{
                                 document.getElementById(clueDict[index + 1]).textContent = data.text;
                             }

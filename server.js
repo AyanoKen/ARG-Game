@@ -671,6 +671,7 @@ const answers = {
 
 const hints = {
     1: "AI Conference",
+    2: "/images/Poster.png",
     3: "Purdue X Google Summit",
     4: "Hyatt Regency",
     5: "Indianapolis",
