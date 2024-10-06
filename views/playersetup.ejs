@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Onboarding</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/playersetup-styles.css">
 </head>
@@ -38,8 +38,12 @@
 
             <form>
                 <div class="form-group">
-                  <label for="name">Your Name</label>
+                  <label for="name">First and Last Name</label>
                   <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="purduemail">Purdue Email</label>
+                    <input type="email" class="form-control" id="purduemail">
                 </div>
                 <div class="form-group">
                   <label for="campus">Campus</label>
@@ -67,7 +71,11 @@
                       <option value="Graduate">The Graduate School</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-warning">Submit</button>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="optIn">
+                    <label class="form-check-label" style="font-size: 1rem;" for="optIn">Google Cloud opt-in: Sign me up to receive news, product updates, event information, and special offers about Google Cloud from Google. I understand my personal data will be processed in accordance with <a href="https://policies.google.com/privacy?hl=en-US">Google's Privacy Policy</a></label>
+                </div>
+                <button type="submit" style="width: 100%;" class="btn btn-warning">Submit</button>
               </form>
         </div>
     </section>
@@ -85,12 +93,16 @@
             const name = document.getElementById('name').value;
             const campus = document.getElementById('campus').value;
             const school = document.getElementById('school').value;
+            const purduemail = document.getElementById('purduemail').value;
+            const optIn = document.getElementById('optIn').checked;
 
             
             const data = {
                 name: name,
                 campus: campus,
-                school: school
+                school: school,
+                purduemail: purduemail,
+                optIn: optIn
             };
 
             

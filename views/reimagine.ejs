@@ -83,7 +83,10 @@
                                 <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
                             </div>
                         </div>
-                        <img class="pmu" src="/images/reimagine/pmu.jpeg" alt="">
+                        <div class="img-wrapper">
+                            <img src="/images/reimagine/pmu.jpeg" alt="">
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -130,7 +133,9 @@
                                 <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
                             </div>
                         </div>
-                        <img class="pmu" src="/images/reimagine/hicks.jpeg" alt="">
+                        <div class="img-wrapper">
+                            <img src="/images/reimagine/hicks.jpeg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,7 +181,9 @@
                                 <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
                             </div>
                         </div>
-                        <img class="pmu" src="/images/reimagine/loeb.jpeg" alt="">
+                        <div class="img-wrapper">
+                            <img src="/images/reimagine/loeb.jpeg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -223,7 +230,9 @@
                                 <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
                             </div>
                         </div>
-                        <img class="pmu" src="/images/reimagine/corec.jpeg" alt="">
+                        <div class="img-wrapper">
+                            <img src="/images/reimagine/corec.jpeg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,7 +278,9 @@
                                 <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
                             </div>
                         </div>
-                        <img class="pmu" src="/images/reimagine/vpa.jpeg" alt="">
+                        <div class="img-wrapper">
+                            <img src="/images/reimagine/vpa.jpeg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -360,7 +371,11 @@
 
                     currentIndex += 1;
 
-                    document.querySelector('#question'+ currentIndex +'-question').classList.remove('hidden');
+
+                    if (currentIndex <= 5){
+                        document.querySelector('#question'+ currentIndex +'-question').classList.remove('hidden');
+                    }
+                    
                     
                     autoScroll();
                 }

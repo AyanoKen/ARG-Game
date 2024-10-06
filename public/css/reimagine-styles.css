@@ -263,3 +263,7 @@ img{
 .submit-button{
     margin: 2%;
 }
+
+.img-wrapper img {
+    width: 70%;
+}

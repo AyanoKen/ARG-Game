@@ -181,3 +181,12 @@ body {
 .community-section .container-fluid{
     padding: 2% 4%;
 }
+
+#myTab .active {
+    background-color: #260951 !important;
+    color: #FFD977 !important;
+}
+
+#myTab .nav-link {
+    color: white;
+}

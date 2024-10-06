@@ -19,7 +19,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mx-auto nav-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">HomePage</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/community">Community</a>
@@ -124,6 +124,10 @@
             $('.chapter-title').on('click', function() {
                 var title = $(this).data('title');
                 var chapterId = $(this).data('id');
+
+                $('.icons').removeClass('chapter-selected');
+
+                $(this).parent('.icons').addClass('chapter-selected');
                 
 
                 $('#main-title').text('TRAINING MODULE: ' + title);

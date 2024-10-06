@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     },
     unlockedLevels: {
         type: [Number],
-        default: [0, 1]
+        default: [0, 1, 4, 5]
     },
     completedLevels: {
         type: [Number],
@@ -52,6 +52,22 @@ const userSchema = new mongoose.Schema({
     school: {
         type: String,
         default: ''
+    },
+    purdueMail: {
+        type: String,
+        default: ""
+    },
+    googleOptIn: {
+        type: Boolean,
+        default: false
+    },
+    jobTitle: {
+        type: String, 
+        default: "Student"
+    },
+    location: {
+        type: String,
+        default: "United States of America"
     }
 });
 

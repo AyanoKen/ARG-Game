@@ -65,17 +65,15 @@
                         <div class="row">
                             <div class="col-md-6 info-left-pre">
                                 <h1>AGENT NAME</h1>
-                                <h1>I.D</h1>
                                 <h1>TROOP</h1>
                                 <h1>LEVEL</h1>
                                 <h1>BADGES</h1>
                             </div>
                             <div class="col-md-6 info-right">
-                                <h1>: <%= user.displayName %></h1>
-                                <h1>: <%= user.googleId.slice(-9) %></h1>
+                                <h1>: <%= user.name %></h1>
                                 <h1>: To Be Assigned</h1>
                                 <h1>: <%= user.currentLevel %></h1>
-                                <h1>: -</h1>
+                                <h1>: To Be Assigned</h1>
                         </div>
                         <div class="info-bottom">
                             <div class="row">
@@ -100,17 +98,15 @@
                                     <div class="row">
                                         <div class="col-md-6 info-left">
                                             <h1>AGENT NAME</h1>
-                                            <h1>I.D</h1>
                                             <h1>TROOP</h1>
                                             <h1>LEVEL</h1>
                                             <h1>BADGES</h1>
                                         </div>
                                         <div class="col-md-6 info-right">
-                                            <h1>: <%= user.displayName %></h1>
-                                            <h1>: <%= user.googleId.slice(-9) %></h1>
+                                            <h1>: <%= user.name %></h1>
                                             <h1>: <%= troopInfo.name%></h1>
                                             <h1>: <%= user.currentLevel %></h1>
-                                            <h1>: -</h1>
+                                            <h1>: <%= user.playerBadge%></h1>
                                         </div>
                                     </div>
                                 </div>
@@ -169,6 +165,8 @@
     <script>
 
         document.addEventListener('DOMContentLoaded', () => {
+
+            window.alert(<%-user%>);
             const rightElement = document.getElementById("right");
             const rightHeight = window.getComputedStyle(rightElement).height;
             const newHeight = parseFloat(rightHeight) - 120;

@@ -29,6 +29,8 @@ app.use(express.static(__dirname + '/public'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(cors());
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true })); 
 
 
 const storage = multer.diskStorage({
@@ -42,7 +44,7 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage, limits: { fileSize: 10 * 1024 * 1024 }});
 
 // const oauth2Client = new google.auth.OAuth2(
 //     process.env.GOOGLE_CLIENT_ID,
@@ -120,41 +122,10 @@ app.use(passport.session());
 
 
 // Passport configuration
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.GOOGLE_CLIENT_ID,
-//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//     callbackURL: 'https://' + process.env.HOST + '/auth/google/callback'
-// }, async (accessToken, refreshToken, profile, done) => {
-//     const existingUser = await User.findOne({ googleId: profile.id });
-
-//     if (existingUser) {
-//         return done(null, existingUser);
-//     }
-
-//     const newUser = new User({
-//         googleId: profile.id,
-//         displayName: profile.displayName,
-//         email: profile.emails[0].value,
-//         currentLevel: 0 // default value for currentLevel
-//     });
-
-//     await newUser.save();
-
-//     // Create a new entry in PlayerChoice for the new user
-//     const newPlayerChoice = new PlayerChoice({
-//         userId: profile.id,
-//         choices: []
-//     });
-
-//     await newPlayerChoice.save();
-//     done(null, newUser);
-    
-// }));
-
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: '/auth/google/callback'
+    callbackURL: 'https://' + process.env.HOST + '/auth/google/callback'
 }, async (accessToken, refreshToken, profile, done) => {
     const existingUser = await User.findOne({ googleId: profile.id });
 
@@ -181,6 +152,37 @@ passport.use(new GoogleStrategy({
     done(null, newUser);
     
 }));
+
+// passport.use(new GoogleStrategy({
+//     clientID: process.env.GOOGLE_CLIENT_ID,
+//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//     callbackURL: '/auth/google/callback'
+// }, async (accessToken, refreshToken, profile, done) => {
+//     const existingUser = await User.findOne({ googleId: profile.id });
+
+//     if (existingUser) {
+//         return done(null, existingUser);
+//     }
+
+//     const newUser = new User({
+//         googleId: profile.id,
+//         displayName: profile.displayName,
+//         email: profile.emails[0].value,
+//         currentLevel: 0 // default value for currentLevel
+//     });
+
+//     await newUser.save();
+
+//     // Create a new entry in PlayerChoice for the new user
+//     const newPlayerChoice = new PlayerChoice({
+//         userId: profile.id,
+//         choices: []
+//     });
+
+//     await newPlayerChoice.save();
+//     done(null, newUser);
+    
+// }));
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -240,15 +242,17 @@ app.post('/playersetup/setup', async (req, res) => {
     if (req.isAuthenticated()){
         try {
             const userId = req.user.googleId; 
-            const { name, campus, school } = req.body;
+            const { name, campus, school, purduemail, optIn } = req.body;
     
             
             const updatedUser = await User.findOneAndUpdate(
                 { googleId: userId },
                 { 
-                    name: name, 
+                    name: name,
+                    purdueMail: purduemail, 
                     campus: campus, 
                     school: school, 
+                    googleOptIn: optIn,
                     newUser: false 
                 }, 
                 { new: true } 
@@ -329,7 +333,7 @@ app.post('/crossword/complete', async (req, res) => {
 
             const result = await User.findOneAndUpdate(
                 { googleId: userId },
-                {currentLevel: 4, $push: {completedLevels: 3, unlockedLevels: 4}, $set: updates },
+                {currentLevel: 6, $push: {completedLevels: 3, unlockedLevels: 6}, $set: updates },
                 { new: true }
             );
             
@@ -575,7 +579,7 @@ app.post('/innovate/step6', upload.single('playerImage'), async (req, res) => {
 
         const result2 = await User.findOneAndUpdate(
             { googleId: userId },
-            {currentLevel: 5, $push: {completedLevels: 4, unlockedLevels: 5}, $set: updates },
+            {$set: updates },
             { new: true }
         );
 
@@ -816,9 +820,9 @@ app.get('/community', async (req, res) => {
     });
 
     if (req.user){
-        res.render('community', {user: req.user, innovatePosts, reimaginePosts, troopCounts});
+        res.render('community', {user: req.user, innovatePosts, reimaginePosts, troopCounts, id: req.user.googleId});
     } else{
-        res.render('community', {user: false, innovatePosts, reimaginePosts, troopCounts});
+        res.render('community', {user: false, innovatePosts, reimaginePosts, troopCounts, id: false});
     }
 
     

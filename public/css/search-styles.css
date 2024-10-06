@@ -3,6 +3,7 @@ body {
     background-color: #111;
     margin: 0;
     padding: 0;
+    margin-top: 1%;
 }
 
 .logo {
@@ -13,12 +14,27 @@ body {
     background-color: #000 !important;
 }
 
+.navbar {
+    box-shadow: 0 0 0px 4px #DEC5FF;
+    z-index: 5;
+}
+
+.navbar-brand{
+    padding: 0;
+}
+
+.navbar-brand img {
+    height: 60px !important;
+    width: auto !important;
+}
+
 .navbar-nav a {
     font-size: 1.5rem;
 }
 
 .navbar img {
-    width: 80px;
+    border-radius: 8px;
+    width: 60px;
     height: auto;
 }
 .navbar-nav .nav-item .nav-link {
@@ -30,6 +46,7 @@ body {
 .navbar-nav .nav-item .active .nav-link {
     color: white;
 }
+
 .nav-center {
     position: absolute;
     left: 50%;
@@ -114,18 +131,6 @@ body {
     margin: 4% 0;
 }
 
-.slide1 {
-    background: url('/images/HomePage - Header 1.png') no-repeat center center/cover;
-}
-
-.slide2 {
-    background: url('/images/HomePage - Header 2.png') no-repeat center center/cover;
-}
-
-.slide3 {
-    background: url('/images/HomePage - Header 3.png') no-repeat center center/cover;
-}
-
 .exponent .col-md-8 {
     padding: 0%;
 } 
@@ -145,6 +150,10 @@ body {
     margin-bottom: 4%;
 }
 
+.exponent .content {
+    text-align: center;
+}
+
 .exponent h1 {
     color: #FFD977;
     text-align: center;
@@ -157,13 +166,14 @@ body {
 }
 
 .footer .container-fluid {
-    background-color: white;
+    background-color: #260951;
     margin-top: 4%;
     padding: 4%;
+    box-shadow: 0 0 30px 0.5px #FFD977;
 }
 
 .footer h1 {
-    color: black;
+    color: #FFD977;
     text-align: center;
 }
 

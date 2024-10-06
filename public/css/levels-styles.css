@@ -10,15 +10,15 @@ html, body {
 
 .navbar {
     background-color: transparent;
-    font-family: Lexend;
     box-shadow: 0 0 0px 2px #c79be9;
+    font-family: Lexend;
     margin-top: 1%;
-    margin-bottom: 2px;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
 }
 
-
+.navbar-nav a {
+    font-size: 1.5rem;
+}
 
 .navbar img {
     width: 80px;
@@ -37,11 +37,6 @@ html, body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-}
-
-.navbar-nav a {
-    font-size: 1.5rem;
-    margin: 8% 0;
 }
 
 .profile .container-fluid {
@@ -151,4 +146,9 @@ html, body {
     border-radius: 0;
     clip-path: polygon(100% 0, 100% 50%, 93% 100%, 0 100%, 0 0);
     font-family: Lexend;
+}
+
+.chapter-selected{
+    background-color: #ffd977;
+    color: #17092B;
 }

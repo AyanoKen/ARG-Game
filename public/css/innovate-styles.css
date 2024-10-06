@@ -173,7 +173,7 @@ p{
     background-color: #664995;
 }
 
-#content-1 .right-section {
+#content-2 .right-section {
     padding: 1.5%;
     padding-right: 2.5%;
     padding-left: 4%;
@@ -186,7 +186,7 @@ p{
     border-radius: 10px;
 }
 
-#content-1 input{
+#content-2 input{
     box-shadow: 0 0 0px 2px #8451ca;
     padding: 4%;
     background-color: transparent;
@@ -194,7 +194,7 @@ p{
     border-radius: 10px;
 }
 
-#content-1 input::placeholder{
+#content-2 input::placeholder{
     color: #FFD977;
 }
 
@@ -219,30 +219,9 @@ p{
     margin-top: 4%;
 }
 
-#content-2 .right-section {
+#content-1 .right-section {
     padding-top: 2.5%;
     padding-right: 2.5%;
-}
-
-#content-2 .playerinput {
-    margin-bottom: 2%;
-    margin-left: 6%;
-    padding: 2%;
-    box-shadow: 0 0 0px 2px #8451ca;
-    border-radius: 10px;
-}
-
-#content-2 textarea {
-    padding: 2%;
-    background-color: transparent;
-    color: #FFD977;
-    border: none;
-    width: 100%;
-    height: 400px;
-}
-
-#content-2 textarea::placeholder{
-    color: #FFD977;
 }
 
 #content-2 .submit-button{
@@ -260,6 +239,20 @@ p{
 }
 
 #content-3 .btn-primary{
+    background-color: transparent;
+    padding: 2% 4%;
+    color: #FFD977;
+    border-color: #8451ca;
+}
+
+#content-1 .btn-primary{
+    background-color: transparent;
+    padding: 2% 4%;
+    color: #FFD977;
+    border-color: #8451ca;
+}
+
+#content-4 .btn-primary{
     background-color: transparent;
     padding: 2% 4%;
     color: #FFD977;

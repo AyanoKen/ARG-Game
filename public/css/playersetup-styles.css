@@ -45,7 +45,7 @@ body {
 }
 
 .content form{
-    padding: 8% 16%;
+    padding: 8% 0;
 }
 
 .content h1{
@@ -81,4 +81,8 @@ body {
     background-color: transparent !important;
     color: #A788E7;
     font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
 }
