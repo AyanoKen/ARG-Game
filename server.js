@@ -947,6 +947,7 @@ app.get('/admin', async (req, res) => {
 
         let innovateImages = [];
         let reimagineImages = [];
+        let addProjectImages = [];
 
         playerChoices.forEach(playerChoice => {
             if (playerChoice.innovateStep6.length > 0){
@@ -960,9 +961,15 @@ app.get('/admin', async (req, res) => {
                 lastReimagineArray[lastReimagineArray.length - 1] = lastReimagineArray[lastReimagineArray.length - 1].replace(/\\/g, '/');
                 reimagineImages.push([playerChoice.userId, lastReimagineArray]);
             }
+
+            if (playerChoice.addProject.length > 0) {
+                const lastaddProjectArray = playerChoice.addProject[playerChoice.addProject.length -1];
+                lastaddProjectArray[lastaddProjectArray.length - 1] = lastaddProjectArray[lastaddProjectArray.length - 1].replace(/\\/g, '/');
+                addProjectImages.push([playerChoice.userId, lastaddProjectArray]);
+            }
         });
 
-        res.render('admin', {innovateImages, reimagineImages});
+        res.render('admin', {innovateImages, reimagineImages, addProjectImages});
     } else {
         res.redirect('/');
     }

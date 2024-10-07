@@ -16,6 +16,9 @@
             <li class="nav-item">
                 <a class="nav-link" id="reimagine-tab" data-toggle="tab" href="#reimagine" role="tab" aria-controls="reimagine" aria-selected="false">Reimagine Step 6</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="addProject-tab" data-toggle="tab" href="#addProject" role="tab" aria-controls="addProject" aria-selected="false">Player Projects</a>
+            </li>
         </ul>
         <div class="tab-content" id="adminTabContent">
             <!-- Innovate Step 6 Tab -->
@@ -50,6 +53,24 @@
                             </p>
                             <button class="btn btn-primary" onclick="approveReimagine('<%= item[0] %>', <%= JSON.stringify(item[1]) %>)">Approve</button>
                             <button class="btn btn-primary" onclick="rejectReimagine('<%= item[0] %>', <%= JSON.stringify(item[1]) %>)">Reject</button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="tab-pane fade" id="addProject" role="tabpanel" aria-labelledby="addProject-tab">
+                <% addProjectImages.forEach(item => { %>
+                    <div class="card mt-4">
+                        <img src="/<%= item[1][item[1].length - 1] %>" class="card-img-top" alt="Player Project Image">
+                        <div class="card-body">
+                            <h5 class="card-title">User ID: <%= item[0] %></h5>
+                            <p class="card-text">
+                                <% for (let i = 0; i < item[1].length - 1; i++) { %>
+                                    <%= item[1][i] %><br>
+                                <% } %>
+                            </p>
+                            <button class="btn btn-primary" onclick="approveProject('<%= item[0] %>', <%= JSON.stringify(item[1]) %>)">Approve</button>
+                            <button class="btn btn-primary" onclick="rejectProject('<%= item[0] %>', <%= JSON.stringify(item[1]) %>)">Reject</button>
                         </div>
                     </div>
                 <% }); %>
@@ -130,6 +151,7 @@
                 }
             });
         }
+        
     </script>
 </body>
 </html>
