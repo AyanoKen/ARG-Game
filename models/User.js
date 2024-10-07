@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
     },
     playerBadge:{
         type: String,
-        default: ''
+        default: 'To Be Assigned'
     },
     name: {
         type: String,

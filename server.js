@@ -122,41 +122,10 @@ app.use(passport.session());
 
 
 // Passport configuration
-passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: 'https://' + process.env.HOST + '/auth/google/callback'
-}, async (accessToken, refreshToken, profile, done) => {
-    const existingUser = await User.findOne({ googleId: profile.id });
-
-    if (existingUser) {
-        return done(null, existingUser);
-    }
-
-    const newUser = new User({
-        googleId: profile.id,
-        displayName: profile.displayName,
-        email: profile.emails[0].value,
-        currentLevel: 0 // default value for currentLevel
-    });
-
-    await newUser.save();
-
-    // Create a new entry in PlayerChoice for the new user
-    const newPlayerChoice = new PlayerChoice({
-        userId: profile.id,
-        choices: []
-    });
-
-    await newPlayerChoice.save();
-    done(null, newUser);
-    
-}));
-
 // passport.use(new GoogleStrategy({
 //     clientID: process.env.GOOGLE_CLIENT_ID,
 //     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//     callbackURL: '/auth/google/callback'
+//     callbackURL: 'https://' + process.env.HOST + '/auth/google/callback'
 // }, async (accessToken, refreshToken, profile, done) => {
 //     const existingUser = await User.findOne({ googleId: profile.id });
 
@@ -183,6 +152,37 @@ passport.use(new GoogleStrategy({
 //     done(null, newUser);
     
 // }));
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: '/auth/google/callback'
+}, async (accessToken, refreshToken, profile, done) => {
+    const existingUser = await User.findOne({ googleId: profile.id });
+
+    if (existingUser) {
+        return done(null, existingUser);
+    }
+
+    const newUser = new User({
+        googleId: profile.id,
+        displayName: profile.displayName,
+        email: profile.emails[0].value,
+        currentLevel: 0 // default value for currentLevel
+    });
+
+    await newUser.save();
+
+    // Create a new entry in PlayerChoice for the new user
+    const newPlayerChoice = new PlayerChoice({
+        userId: profile.id,
+        choices: []
+    });
+
+    await newPlayerChoice.save();
+    done(null, newUser);
+    
+}));
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -640,7 +640,7 @@ app.post('/reimagine/step6', upload.single('playerImage'), async (req, res) => {
 
         const result2 = await User.findOneAndUpdate(
             { googleId: userId },
-            {currentLevel: 6, $push: {completedLevels: 5, unlockedLevels: 6}, $set: updates },
+            { $set: updates },
             { new: true }
         );
 
@@ -945,13 +945,42 @@ app.post('/approveInnovate', async (req, res) => {
             arrayData.unshift(userName);
 
             await CommunityPosts.updateOne({}, { $push: { innovatePosts: arrayData } }, { upsert: true });
-            res.status(200).send('Approved');
+
+            await PlayerChoice.updateOne(
+                { userId: userId },
+                { $pull: { innovateStep6: { $in: arrayData } } }
+            );
+
+            res.status(200).send('Approved and removed');
         } else {
             res.status(404).send('User not found');
         }
     } catch (error) {
         console.error(error);
         res.status(500).send('Approval failed');
+    }
+});
+
+app.post('/rejectInnovate', async (req, res) => {
+    try {
+        const { userId, arrayData } = req.body;
+        const user = await User.findOne({ googleId: userId }).exec();
+        if (user) {
+            const userName = user.displayName;
+            arrayData.unshift(userName);
+
+            await PlayerChoice.updateOne(
+                { userId: userId },
+                { $pull: { innovateStep6: { $in: arrayData } } }
+            );
+
+            res.status(200).send('Rejected and removed');
+        } else {
+            res.status(404).send('User not found');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Reject failed');
     }
 });
 
@@ -966,6 +995,14 @@ app.post('/approveReimagine', async (req, res) => {
             arrayData.push(0) //Likes counter
 
             await CommunityPosts.updateOne({}, { $push: { reimaginePosts: arrayData } }, { upsert: true });
+
+            arrayData.pop();
+
+            await PlayerChoice.updateOne(
+                { userId: userId },
+                { $pull: { reimagineStep6: { $in: arrayData } } }
+            );
+
             res.status(200).send('Approved');
         } else {
             res.status(404).send('User not found');
@@ -976,14 +1013,42 @@ app.post('/approveReimagine', async (req, res) => {
     }
 });
 
+app.post('/rejectReimagine', async (req, res) => {
+    try {
+        const { userId, arrayData } = req.body;
+        const user = await User.findOne({ googleId: userId }).exec();
+        if (user) {
+            const userName = user.displayName;
+            arrayData.unshift(userName);
+
+            await PlayerChoice.updateOne(
+                { userId: userId },
+                { $pull: { reimagineStep6: { $in: arrayData } } }
+            );
+
+            res.status(200).send('Rejected');
+        } else {
+            res.status(404).send('User not found');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Rejection failed');
+    }
+});
+
 app.get('/test', (req, res) => {
     res.render('test');
 });
 
-app.get("/logout", function(req, res){
-    req.logout();
-    res.redirect("/");
-  });
+app.get('/logout', (req, res) => {
+    req.logout((err) => {
+        if (err) {
+            console.error('Logout error:', err);
+            return res.status(500).json({ success: false, message: 'Logout failed.' });
+        }
+        res.redirect('/'); // Redirect after successful logout
+    });
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

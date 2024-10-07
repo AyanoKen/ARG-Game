@@ -179,3 +179,17 @@ body img{
     text-align: left;
     margin-bottom: 4%;
 }
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4%;
+}
+
+#left .btn-primary{
+    background-color: transparent;
+    padding: 2% 4%;
+    color: #FFD977;
+    border-color: #FFD977;
+}

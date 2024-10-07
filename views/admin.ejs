@@ -31,6 +31,7 @@
                                 <% } %>
                             </p>
                             <button class="btn btn-primary" onclick="approveInnovate('<%= item[0] %>', <%= JSON.stringify(item[1]) %>)">Approve</button>
+                            <button class="btn btn-warning" onclick="rejectInnovate('<%= item[0] %>', <%= JSON.stringify(item[1]) %>)">Reject</button>
                         </div>
                     </div>
                 <% }); %>
@@ -48,6 +49,7 @@
                                 <% } %>
                             </p>
                             <button class="btn btn-primary" onclick="approveReimagine('<%= item[0] %>', <%= JSON.stringify(item[1]) %>)">Approve</button>
+                            <button class="btn btn-primary" onclick="rejectReimagine('<%= item[0] %>', <%= JSON.stringify(item[1]) %>)">Reject</button>
                         </div>
                     </div>
                 <% }); %>
@@ -76,8 +78,26 @@
                 }
             });
         }
+
+        function rejectInnovate(userId, arrayData) {
+            fetch('/rejectInnovate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userId, arrayData })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Innovate post rejected successfully!');
+                } else {
+                    alert('Rejection failed! Contact Ayano');
+                }
+            });
+        }
     
         function approveReimagine(userId, arrayData) {
+
+            
             fetch('/approveReimagine', {
                 method: 'POST',
                 headers: {
@@ -89,6 +109,24 @@
                     alert('Reimagine post approved!');
                 } else {
                     alert('Approval failed!');
+                }
+            });
+        }
+
+        function rejectReimagine(userId, arrayData) {
+
+            
+            fetch('/rejectReimagine', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userId, arrayData })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Reimagine post Rejected!');
+                } else {
+                    alert('Rejection Failed! Contact Ayano');
                 }
             });
         }
