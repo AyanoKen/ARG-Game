@@ -111,7 +111,8 @@ body {
 }
 
 .innovate-card,
-.reimagine-card {
+.reimagine-card,
+.playerProject-card {
     cursor: pointer;
     transition: transform 0.3s ease;
     height: 350px;
@@ -161,6 +162,11 @@ body {
 }
 
 .innovate-card{
+    background-size: cover;
+    background-position: center;
+}
+
+.playerProject-card{
     background-size: cover;
     background-position: center;
 }

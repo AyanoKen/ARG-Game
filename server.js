@@ -122,41 +122,10 @@ app.use(passport.session());
 
 
 // Passport configuration
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.GOOGLE_CLIENT_ID,
-//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//     callbackURL: 'https://' + process.env.HOST + '/auth/google/callback'
-// }, async (accessToken, refreshToken, profile, done) => {
-//     const existingUser = await User.findOne({ googleId: profile.id });
-
-//     if (existingUser) {
-//         return done(null, existingUser);
-//     }
-
-//     const newUser = new User({
-//         googleId: profile.id,
-//         displayName: profile.displayName,
-//         email: profile.emails[0].value,
-//         currentLevel: 0 // default value for currentLevel
-//     });
-
-//     await newUser.save();
-
-//     // Create a new entry in PlayerChoice for the new user
-//     const newPlayerChoice = new PlayerChoice({
-//         userId: profile.id,
-//         choices: []
-//     });
-
-//     await newPlayerChoice.save();
-//     done(null, newUser);
-    
-// }));
-
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: '/auth/google/callback'
+    callbackURL: 'https://' + process.env.HOST + '/auth/google/callback'
 }, async (accessToken, refreshToken, profile, done) => {
     const existingUser = await User.findOne({ googleId: profile.id });
 
@@ -183,6 +152,37 @@ passport.use(new GoogleStrategy({
     done(null, newUser);
     
 }));
+
+// passport.use(new GoogleStrategy({
+//     clientID: process.env.GOOGLE_CLIENT_ID,
+//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//     callbackURL: '/auth/google/callback'
+// }, async (accessToken, refreshToken, profile, done) => {
+//     const existingUser = await User.findOne({ googleId: profile.id });
+
+//     if (existingUser) {
+//         return done(null, existingUser);
+//     }
+
+//     const newUser = new User({
+//         googleId: profile.id,
+//         displayName: profile.displayName,
+//         email: profile.emails[0].value,
+//         currentLevel: 0 // default value for currentLevel
+//     });
+
+//     await newUser.save();
+
+//     // Create a new entry in PlayerChoice for the new user
+//     const newPlayerChoice = new PlayerChoice({
+//         userId: profile.id,
+//         choices: []
+//     });
+
+//     await newPlayerChoice.save();
+//     done(null, newUser);
+    
+// }));
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -835,6 +835,7 @@ app.get('/community', async (req, res) => {
 
     const innovatePosts = communityPosts ? communityPosts.innovatePosts : [];
     const reimaginePosts = communityPosts ? communityPosts.reimaginePosts : [];
+    const addProjectPosts = communityPosts ? communityPosts.addProjectPosts : [];
 
     const troopCounts = {
         Tempus: 0,
@@ -852,9 +853,9 @@ app.get('/community', async (req, res) => {
     });
 
     if (req.user){
-        res.render('community', {user: req.user, innovatePosts, reimaginePosts, troopCounts, id: req.user.googleId});
+        res.render('community', {user: req.user, innovatePosts, reimaginePosts, addProjectPosts, troopCounts, id: req.user.googleId});
     } else{
-        res.render('community', {user: false, innovatePosts, reimaginePosts, troopCounts, id: false});
+        res.render('community', {user: false, innovatePosts, reimaginePosts, addProjectPosts, troopCounts, id: false});
     }
 
     
@@ -884,6 +885,12 @@ app.get('/community/:imageName', async (req, res) => {
                     return res.render('communityPostReimagine', {user: false, post: reimaginePost });
                 }
                 
+            }
+
+            const addProjectPost = communityPost.addProjectPosts.find(p => p.includes(imageName));
+            if (addProjectPost) {
+                
+                return res.render('communityPostProject', {user: req.user, post: addProjectPost });
             }
     
             // If the image was not found in either array
@@ -980,7 +987,7 @@ app.post('/approveInnovate', async (req, res) => {
         const { userId, arrayData } = req.body;
         const user = await User.findOne({ googleId: userId }).exec();
         if (user) {
-            const userName = user.displayName;
+            const userName = user.name;
             arrayData.unshift(userName);
 
             await CommunityPosts.updateOne({}, { $push: { innovatePosts: arrayData } }, { upsert: true });
@@ -1005,7 +1012,7 @@ app.post('/rejectInnovate', async (req, res) => {
         const { userId, arrayData } = req.body;
         const user = await User.findOne({ googleId: userId }).exec();
         if (user) {
-            const userName = user.displayName;
+            const userName = user.name;
             arrayData.unshift(userName);
 
             await PlayerChoice.updateOne(
@@ -1028,7 +1035,7 @@ app.post('/approveReimagine', async (req, res) => {
         const { userId, arrayData } = req.body;
         const user = await User.findOne({ googleId: userId }).exec();
         if (user) {
-            const userName = user.displayName;
+            const userName = user.name;
             arrayData.unshift(userName);
 
             arrayData.push(0) //Likes counter
@@ -1057,7 +1064,7 @@ app.post('/rejectReimagine', async (req, res) => {
         const { userId, arrayData } = req.body;
         const user = await User.findOne({ googleId: userId }).exec();
         if (user) {
-            const userName = user.displayName;
+            const userName = user.name;
             arrayData.unshift(userName);
 
             await PlayerChoice.updateOne(

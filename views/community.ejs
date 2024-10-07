@@ -96,6 +96,9 @@
                 <li class="nav-item">
                     <a class="nav-link" id="reimagine-tab" data-toggle="tab" href="#reimagine" role="tab" aria-controls="reimagine" aria-selected="false">RE-IMAGINE PURDUE</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="playerProject-tab" data-toggle="tab" href="#playerProject" role="tab" aria-controls="playerProject" aria-selected="false">Student Projects</a>
+                </li>
             </ul>
 
             <div class="tab-content" id="myTabContent">
@@ -151,6 +154,31 @@
                         <% }); %>
                     </div>
                     <nav id="reimaginePagination" aria-label="Page navigation">
+                        <ul class="pagination">
+                            <!-- Pagination buttons will be added here by JavaScript -->
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="tab-pane fade" id="playerProject" role="tabpanel" aria-labelledby="playerProject-tab">
+                    <h3>Discover solutions to pressing educational challenges created using AI by our Purdue community. The top 10 submissions will receive exciting swags from Purdue Online</h3>
+                    
+                    <div id="addProjectPosts" class="row">
+                        <% addProjectPosts.forEach((post, index) => { %>
+                            <div class="col-md-4 mb-4">
+                                <div style='background-image: url("/uploads/<%= post[post.length - 1].split('/').pop() %>");' class="card playerProject-card" data-index="<%= index %>" data-image="<%= post[post.length - 1].split('/').pop() %>">
+                                    
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%= post[1] %></h5>
+                                        <p class="card-text">
+                                            <%= post[0] %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                    <nav id="playerProjectPagination" aria-label="Page navigation">
                         <ul class="pagination">
                             <!-- Pagination buttons will be added here by JavaScript -->
                         </ul>
@@ -216,7 +244,7 @@
                 updatePagination();
             }
 
-            document.querySelectorAll('.innovate-card, .reimagine-card').forEach(card => {
+            document.querySelectorAll('.innovate-card, .reimagine-card, .playerProject-card').forEach(card => {
                 card.addEventListener('click', function() {
                     const imageName = this.getAttribute('data-image');
                     window.location.href = `/community/${encodeURIComponent(imageName)}`;
@@ -259,6 +287,7 @@
             // Set up pagination for Innovate and Reimagine tabs
             setupPagination('#innovate', '.innovate-card', '#innovatePagination', <%- JSON.stringify(innovatePosts) %>);
             setupPagination('#reimagine', '.reimagine-card', '#reimaginePagination', <%- JSON.stringify(reimaginePosts) %>);
+            setupPagination('#playerProject', '.playerProject-card', '#playerProjectPagination', <%- JSON.stringify(reimaginePosts) %>);
         });
     </script>
 
