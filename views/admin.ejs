@@ -151,7 +151,42 @@
                 }
             });
         }
-        
+
+        function approveProject(userId, arrayData) {
+
+            
+            fetch('/approveProject', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userId, arrayData })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Player Project approved!');
+                } else {
+                    alert('Approval failed! Contact Ayano');
+                }
+            });
+        }
+
+        function rejectProject(userId, arrayData) {
+
+            
+            fetch('/rejectProject', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userId, arrayData })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Player Project Rejected!');
+                } else {
+                    alert('Rejection Failed! Contact Ayano');
+                }
+            });
+        }
     </script>
 </body>
 </html>

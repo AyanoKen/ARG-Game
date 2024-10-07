@@ -1075,6 +1075,54 @@ app.post('/rejectReimagine', async (req, res) => {
     }
 });
 
+app.post('/approveProject', async (req, res) => {
+    try {
+        const { userId, arrayData } = req.body;
+        const user = await User.findOne({ googleId: userId }).exec();
+        if (user) {
+            const userName = user.name;
+            arrayData.unshift(userName);
+
+            await CommunityPosts.updateOne({}, { $push: { addProjectPosts: arrayData } }, { upsert: true });
+
+            await PlayerChoice.updateOne(
+                { userId: userId },
+                { $pull: { addProject: { $in: arrayData } } }
+            );
+
+            res.status(200).send('Approved and removed');
+        } else {
+            res.status(404).send('User not found');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Approval failed');
+    }
+});
+
+app.post('/rejectProject', async (req, res) => {
+    try {
+        const { userId, arrayData } = req.body;
+        const user = await User.findOne({ googleId: userId }).exec();
+        if (user) {
+            const userName = user.name;
+            arrayData.unshift(userName);
+
+            await PlayerChoice.updateOne(
+                { userId: userId },
+                { $pull: { addProject: { $in: arrayData } } }
+            );
+
+            res.status(200).send('Rejected and removed');
+        } else {
+            res.status(404).send('User not found');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Reject failed');
+    }
+});
+
 
 app.get('/test', (req, res) => {
     res.render('test');
