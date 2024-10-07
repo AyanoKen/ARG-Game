@@ -24,6 +24,10 @@ const playerChoiceSchema = new mongoose.Schema({
     reimagineStep6: {
         type: [[String]],
         default: []
+    },
+    addProject: {
+        type: [[String]],
+        default: []
     }
 });
 

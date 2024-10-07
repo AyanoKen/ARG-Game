@@ -8,6 +8,10 @@ const communityPostsSchema = new mongoose.Schema({
     reimaginePosts: {
         type: [[String]],
         default: []
+    },
+    addProjectPosts: {
+        type: [[String]],
+        default: []
     }
 });
 

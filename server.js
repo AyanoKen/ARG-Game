@@ -794,6 +794,38 @@ app.get('/chapters', (req, res) => {
     }
 });
 
+app.get('/add', (req, res) => {
+    if(req.isAuthenticated()){
+        res.render('add', {user: req.user});
+    }else{
+        res.redirect('/login');
+    }
+});
+
+app.post('/add/submit', upload.single('playerImage'), async (req, res) => {
+    const { projectTitle, summary} = req.body;
+
+    try {
+        const imageFilePath = req.file.path;
+
+        const result = await PlayerChoice.findOneAndUpdate(
+            { userId: String(req.user.googleId) },
+            { $push: { addProject: [projectTitle, summary, imageFilePath] } },
+            { new: true, upsert: true }
+        );
+
+        if (!result) {
+            console.log('User not found or update failed.');
+        } else {
+            console.log('User is updated');
+        }
+
+        res.status(200).send({ message: 'Data and image uploaded'});
+    } catch (error) {
+        res.status(500).send({ message: 'Error updating data and uploading image' });
+    }
+});
+
 app.get('/community', async (req, res) => {
     const communityPosts = await CommunityPosts.findOne().exec();
 
@@ -1035,6 +1067,7 @@ app.post('/rejectReimagine', async (req, res) => {
         res.status(500).send('Rejection failed');
     }
 });
+
 
 app.get('/test', (req, res) => {
     res.render('test');
