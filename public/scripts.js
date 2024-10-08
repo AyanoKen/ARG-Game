@@ -35,6 +35,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
               "One of the words describes AI's potential for prejudiced output."
     ];
 
+    window.addEventListener('load', () => {
+        const video = document.getElementById('vid-1');
+        video.muted = false; // Unmute the video when the page loads
+        video.play(); // Ensure the video continues to play if needed
+    });
+
     crosswordLayout.forEach((row, rowIndex) => {
         row.forEach((cell, cellIndex) => {
             const input = document.createElement('input');

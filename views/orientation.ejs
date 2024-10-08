@@ -7,243 +7,237 @@
     <title>TROOP ASSIGNMENT</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/fonts.css">
+    
     <link rel="stylesheet" href="/css/orientation-styles.css">
+    <link rel="stylesheet" href="/css/cutscene-styles.css">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="/images/logo.png" alt="Logo" class="logo">
-                </a>
-                <div class="title">
-                    <h1>01</h1>
-                    <h1>TROOP ASSIGNMENT</h1>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/playerinfo">
-                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-
-    <section class="intro-section">
-        <div class="container">
-            <div id="intro-section">
-                <img src="/images/orientationlogo.gif" alt="">
-                <p style="font-family: Lexend-Deca;">Thank you for joining Mission Renaissance.</p>
-                <p style="font-family: Lexend-Deca;"> Before we start your training, we need to assign you to a troop that aligns with your strengths and will help you grow. To determine the most suitable match, you will need to answer a series of questions. Please select the option that best aligns with your characteristics and preferences. Prepare yourself, and let's begin.</p>
-                <button id="begin-button" class="btn btn-warning" style="font-family: Lexend;">BEGIN</button>
+    <section class="cutscene">
+        <div class="container-fluid">
+            <div class="logo-container">
+                <h2>TRAINING MODULE 01</h2>
+                <h1>AGENT PROFILE</h1>
             </div>
         </div>
-    </section>
     
-
-    <section class="questions-section hidden">
-        <div class="container">
-            <div class="question-wrapper">
-                <div id="question1" class="question hidden">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/images/orientationlogo.gif" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>1. Which of the following activities interest you the most?</h1>
-                        </div>
-                    </div>
-                    <p class="answer" data-troop="T">A. Solving puzzles and analytical problems</p>
-                    <p class="answer" data-troop="M">B. Learning new topics and expanding knowledge</p>
-                    <p class="answer" data-troop="N">C. Creating or inventing new things</p>
-                    <p class="answer" data-troop="E">D. Helping others and making a positive impact</p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    <video id="vid-1" width="320" height="240" autoplay muted controls="false">
+                        <source src="/images/01.webm" type="video/webm">
+                    </video>
+                </div>
+                <div id="clickheretobegin" class="col-md-10">
+                    <img src="/images/01 Onboarding.png" alt="">
                 </div>
             </div>
-            <div class="question-wrapper">
-                <div id="question2" class="question hidden">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/images/orientationlogo.gif" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>2. How do you approach learning new information or skills?</h1>
-                        </div>
-                    </div>
-                    <p class="answer" data-troop="N">A. By brainstorming creative and unique approaches</p>
-                    <p class="answer" data-troop="E">B. By collaborating with others and learning from their experiences.</p>
-                    <p class="answer" data-troop="M">C. Through detailed research and studying past examples.</p>
-                    <p class="answer" data-troop="T">D. By diving in and learning through doing.</p>
-                </div>
-            </div>
-            
-            <div class="question-wrapper">
-                <div id="question3" class="question hidden">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/images/orientationlogo.gif" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>3. Your team needs to solve a complex problem with multiple possible solutions. How do you proceed?</h1>
-                        </div>
-                    </div>
-                    <p class="answer" data-troop="N">A. Encourage team members to think out of the box and come up with innovative, previously unexplored ideas to solve the problem.</p>
-                    <p class="answer" data-troop="M">B. Look into how similar problems were solved in the past and use those solutions as a guide, even if it means a slower initial response.</p>
-                    <p class="answer" data-troop="E">C. Facilitate a brainstorming session to gather diverse perspectives and ideas before deciding on a solution.</p>
-                    <p class="answer" data-troop="T">D. Break the problem into smaller, manageable parts and address each one as it arises, focusing on immediate issues.</p>
-                </div>
-            </div>
-            
-            <div class="question-wrapper">
-                <div id="question4" class="question hidden">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/images/orientationlogo.gif" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>4. Please select the option that best describes your knowledge about AI; it’s concepts, applications, and implications in today's world.</h1>
-                        </div>
-                    </div>
-                    <p class="answer" data-troop="N">A. I've heard of AI and recognize its significance, but I haven't delved deeply into its specifics beyond its basic definition.</p>
-                    <p class="answer" data-troop="M">B. I have a basic understanding of AI, know its general principles, and am aware of some applications in technology and industry.</p>
-                    <p class="answer" data-troop="E">C. AI is relatively new to me, and I have limited knowledge or exposure to its concepts, applications, and societal impacts.</p>
-                    <p class="answer" data-troop="T">D. I actively keep up with AI advancements, understand its core concepts, and follow its applications across various fields.</p>
-                </div>
-            </div>
-            
-            <div class="question-wrapper">
-                <div id="question5" class="question hidden">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/images/orientationlogo.gif" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>5. Imagine AI seamlessly becoming part of your daily routines. Consider which of the following capabilities would you find most valuable</h1>
-                        </div>
-                    </div>
-                    <p class="answer" data-troop="E">A. Enhancing your ability to interact and communicate with technology and services more naturally.</p>
-                    <p class="answer" data-troop="N">B. Generating various types of entertainment such as live art, music, and immersive videos.</p>
-                    <p class="answer" data-troop="T">C. Helping you make informed decisions by analyzing patterns in your daily activities and preferences.</p>
-                    <p class="answer" data-troop="M">D. Offering tailored suggestions for optimizing your productivity, health, or leisure activities.</p>
-                </div>
-            </div>
-            
-            <div class="question-wrapper">
-                <div id="question6" class="question hidden">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/images/orientationlogo.gif" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>6. Reflecting on the ongoing development of AI, what concerns you the most about its impact on society and daily life?</h1>
-                        </div>
-                    </div>
-                    <p class="answer" data-troop="T">A. Job displacement due to automation and AI replacing human workers.</p>
-                    <p class="answer" data-troop="N">B. AI's potential to surpass human intelligence and its implications for society.</p>
-                    <p class="answer" data-troop="M">C. Privacy and security risks associated with AI collecting and analyzing personal data.</p>
-                    <p class="answer" data-troop="E">D. Ethical dilemmas, such as AI making biased decisions or lacking accountability.</p>
-                </div>
-            </div>
-            
-            <div class="question-wrapper">
-                <div id="question7" class="question hidden">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/images/orientationlogo.gif" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>7. If you needed assistance in writing a research paper, how would you prefer to receive help?</h1>
-                        </div>
-                    </div>
-                    <p class="answer" data-troop="T">A. Provide the latest information and research relevant to your topic.</p>
-                    <p class="answer" data-troop="M">B. Review your previous papers and writing style to ensure consistency and improvement.</p>
-                    <p class="answer" data-troop="E">C. Gather feedback and suggestions from colleagues and academic forums.</p>
-                    <p class="answer" data-troop="N">D. Explore newer methods of writing and research forms, and produce novel ideas.</p>
-                </div>
-            </div>
-            
         </div>
     </section>
 
-    <section class="troop-section hidden">
-        <div class="container">
-            <div class="question-wrapper">
-                <div class="row box-design">
-                    <div class="col-md-2">
-                        <img src="/images/orientationlogo.gif" alt="">
+    <section class="level hidden">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="/images/logo.png" alt="Logo" class="logo">
+                    </a>
+                    <div class="title">
+                        <h1>01</h1>
+                        <h1>TROOP ASSIGNMENT</h1>
                     </div>
-                    <div class="col-md-10">
-                        <h1>Great job! We've recorded all your answers and are now analyzing your unique traits. Hold tight as we assign you to the troop that best matches your skills and personality. This won't take long – your adventure is about to begin!</h1>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/playerinfo">
+                                    <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="container" id="loading-container" class="hidden">
-            <div class="question-wrapper">
-                <div class="box-design">
-                    <img id="loading-gif" src="/images/LoadingChat.gif" alt="Loading...">
-                </div>
-            </div>
-        </div>
-
-        <div class="container hidden" id="troop-info">
-            <div class="question-wrapper">
-                <div class="box-design">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="/images/orientationlogo.gif" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1 id="troop-title"></h1>
-                        </div>
-                    </div>
-                    <img id="troop-image" src="" alt="">
-                    <p id="troop-description"></p>
-                </div>
-            </div>
-            
-        </div>
-
-    </section>
+            </nav>
+        </header>
     
-    <section class="avatar-section hidden">
-        <div class="container">
-            <div class="question-wrapper">
-                <div class="box-design">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img class="profile-img" src="/images/orientationlogo.gif" alt="">
+    
+        <section class="intro-section">
+            <div class="container">
+                <div id="intro-section">
+                    <img src="/images/orientationlogo.gif" alt="">
+                    <p style="font-family: Lexend-Deca;">Thank you for joining Mission Renaissance.</p>
+                    <p style="font-family: Lexend-Deca;"> Before we start your training, we need to assign you to a troop that aligns with your strengths and will help you grow. To determine the most suitable match, you will need to answer a series of questions. Please select the option that best aligns with your characteristics and preferences. Prepare yourself, and let's begin.</p>
+                    <button id="begin-button" class="btn btn-warning" style="font-family: Lexend;">BEGIN</button>
+                </div>
+            </div>
+        </section>
+        
+    
+        <section class="questions-section hidden">
+            <div class="container">
+                <div class="question-wrapper">
+                    <div id="question1" class="question hidden">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1>1. Which of the following activities interest you the most?</h1>
+                            </div>
                         </div>
-                        <div class="col-md-10">
-                            <h1>Now that your troop has been chosen, it's time to pick your avatar. Select one from the below that best represents you</h1>
-                        </div>
-                    </div>
-                    
-                    <div class="row" id="avatar-container">
-                        <!-- Avatar images will be added here dynamically -->
-                    </div>
-                    <div class="btn-container">
-                        <button id="submit-avatar-button" class="btn btn-warning hidden" style="font-family: Lexend;">Choose</button>
+                        <p class="answer" data-troop="T">A. Solving puzzles and analytical problems</p>
+                        <p class="answer" data-troop="M">B. Learning new topics and expanding knowledge</p>
+                        <p class="answer" data-troop="N">C. Creating or inventing new things</p>
+                        <p class="answer" data-troop="E">D. Helping others and making a positive impact</p>
                     </div>
                 </div>
-            </div>  
-        </div>
-    </section>
-
-    <div class="level-end-container hidden">
-        <div class="container">
-            <div id="level-end-message"></div>
-        </div>
-    </div>
+                <div class="question-wrapper">
+                    <div id="question2" class="question hidden">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1>2. How do you approach learning new information or skills?</h1>
+                            </div>
+                        </div>
+                        <p class="answer" data-troop="N">A. By brainstorming creative and unique approaches</p>
+                        <p class="answer" data-troop="E">B. By collaborating with others and learning from their experiences.</p>
+                        <p class="answer" data-troop="M">C. Through detailed research and studying past examples.</p>
+                        <p class="answer" data-troop="T">D. By diving in and learning through doing.</p>
+                    </div>
+                </div>
+                
+                <div class="question-wrapper">
+                    <div id="question3" class="question hidden">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1>3. Your team needs to solve a complex problem with multiple possible solutions. How do you proceed?</h1>
+                            </div>
+                        </div>
+                        <p class="answer" data-troop="N">A. Encourage team members to think out of the box and come up with innovative, previously unexplored ideas to solve the problem.</p>
+                        <p class="answer" data-troop="M">B. Look into how similar problems were solved in the past and use those solutions as a guide, even if it means a slower initial response.</p>
+                        <p class="answer" data-troop="E">C. Facilitate a brainstorming session to gather diverse perspectives and ideas before deciding on a solution.</p>
+                        <p class="answer" data-troop="T">D. Break the problem into smaller, manageable parts and address each one as it arises, focusing on immediate issues.</p>
+                    </div>
+                </div>
+                
+                <div class="question-wrapper">
+                    <div id="question4" class="question hidden">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1>4. Please select the option that best describes your knowledge about AI; it’s concepts, applications, and implications in today's world.</h1>
+                            </div>
+                        </div>
+                        <p class="answer" data-troop="N">A. I've heard of AI and recognize its significance, but I haven't delved deeply into its specifics beyond its basic definition.</p>
+                        <p class="answer" data-troop="M">B. I have a basic understanding of AI, know its general principles, and am aware of some applications in technology and industry.</p>
+                        <p class="answer" data-troop="E">C. AI is relatively new to me, and I have limited knowledge or exposure to its concepts, applications, and societal impacts.</p>
+                        <p class="answer" data-troop="T">D. I actively keep up with AI advancements, understand its core concepts, and follow its applications across various fields.</p>
+                    </div>
+                </div>
+                
+                <div class="question-wrapper">
+                    <div id="question5" class="question hidden">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1>5. Imagine AI seamlessly becoming part of your daily routines. Consider which of the following capabilities would you find most valuable</h1>
+                            </div>
+                        </div>
+                        <p class="answer" data-troop="E">A. Enhancing your ability to interact and communicate with technology and services more naturally.</p>
+                        <p class="answer" data-troop="N">B. Generating various types of entertainment such as live art, music, and immersive videos.</p>
+                        <p class="answer" data-troop="T">C. Helping you make informed decisions by analyzing patterns in your daily activities and preferences.</p>
+                        <p class="answer" data-troop="M">D. Offering tailored suggestions for optimizing your productivity, health, or leisure activities.</p>
+                    </div>
+                </div>
+                
+                <div class="question-wrapper">
+                    <div id="question6" class="question hidden">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1>6. Reflecting on the ongoing development of AI, what concerns you the most about its impact on society and daily life?</h1>
+                            </div>
+                        </div>
+                        <p class="answer" data-troop="T">A. Job displacement due to automation and AI replacing human workers.</p>
+                        <p class="answer" data-troop="N">B. AI's potential to surpass human intelligence and its implications for society.</p>
+                        <p class="answer" data-troop="M">C. Privacy and security risks associated with AI collecting and analyzing personal data.</p>
+                        <p class="answer" data-troop="E">D. Ethical dilemmas, such as AI making biased decisions or lacking accountability.</p>
+                    </div>
+                </div>
+                
+                <div class="question-wrapper">
+                    <div id="question7" class="question hidden">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1>7. If you needed assistance in writing a research paper, how would you prefer to receive help?</h1>
+                            </div>
+                        </div>
+                        <p class="answer" data-troop="T">A. Provide the latest information and research relevant to your topic.</p>
+                        <p class="answer" data-troop="M">B. Review your previous papers and writing style to ensure consistency and improvement.</p>
+                        <p class="answer" data-troop="E">C. Gather feedback and suggestions from colleagues and academic forums.</p>
+                        <p class="answer" data-troop="N">D. Explore newer methods of writing and research forms, and produce novel ideas.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
     
-    <section class="footer-section hidden">
-        <div id="footer-section-text">
+        <section class="troop-section hidden">
+            <div class="container">
+                <div class="question-wrapper">
+                    <div class="row box-design">
+                        <div class="col-md-2">
+                            <img src="/images/orientationlogo.gif" alt="">
+                        </div>
+                        <div class="col-md-10">
+                            <h1>Great job! We've recorded all your answers and are now analyzing your unique traits. Hold tight as we assign you to the troop that best matches your skills and personality. This won't take long – your adventure is about to begin!</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="container" id="loading-container" class="hidden">
+                <div class="question-wrapper">
+                    <div class="box-design">
+                        <img id="loading-gif" src="/images/LoadingChat.gif" alt="Loading...">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="container hidden" id="troop-info">
+                <div class="question-wrapper">
+                    <div class="box-design">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="/images/orientationlogo.gif" alt="">
+                            </div>
+                            <div class="col-md-10">
+                                <h1 id="troop-title"></h1>
+                            </div>
+                        </div>
+                        <img id="troop-image" src="" alt="">
+                        <p id="troop-description"></p>
+                    </div>
+                </div>
+                
+            </div>
+    
+        </section>
+        
+        <section class="avatar-section hidden">
             <div class="container">
                 <div class="question-wrapper">
                     <div class="box-design">
@@ -252,21 +246,53 @@
                                 <img class="profile-img" src="/images/orientationlogo.gif" alt="">
                             </div>
                             <div class="col-md-10">
-                                <h1>Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                <h1>Now that your troop has been chosen, it's time to pick your avatar. Select one from the below that best represents you</h1>
+                            </div>
+                        </div>
+                        
+                        <div class="row" id="avatar-container">
+                            <!-- Avatar images will be added here dynamically -->
+                        </div>
+                        <div class="btn-container">
+                            <button id="submit-avatar-button" class="btn btn-warning hidden" style="font-family: Lexend;">Choose</button>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </section>
+    
+        <div class="level-end-container hidden">
+            <div class="container">
+                <div id="level-end-message"></div>
+            </div>
+        </div>
+        
+        <section class="footer-section hidden">
+            <div id="footer-section-text">
+                <div class="container">
+                    <div class="question-wrapper">
+                        <div class="box-design">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img class="profile-img" src="/images/orientationlogo.gif" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <h1>Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="container">
-            <div class="btn-container" style="margin-bottom: 4%;">
-                <a href="/playerinfo" class="btn btn-warning" style="font-family: Lexend;">Next</a>
+            
+            <div class="container">
+                <div class="btn-container" style="margin-bottom: 4%;">
+                    <a href="/playerinfo" class="btn btn-warning" style="font-family: Lexend;">Next</a>
+                </div>
+                
             </div>
             
-        </div>
-        
+        </section>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -286,12 +312,23 @@
 
         const userId = '<%= userId %>';
 
+        window.addEventListener('load', () => {
+            const video = document.getElementById('vid-1');
+            video.muted = false; // Unmute the video when the page loads
+            video.play(); // Ensure the video continues to play if needed
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
 
             const beginButton = document.getElementById('begin-button');
             const firstQuestion = document.getElementById('question1');
             const introSection = document.getElementById('intro-section');
             var troopInfo = [];
+
+            document.getElementById("clickheretobegin").addEventListener('click', function(event) {
+                document.querySelector(".cutscene").classList.add("hidden");
+                document.querySelector(".level").classList.remove("hidden");
+            }, { once: true });
 
             beginButton.addEventListener('click', () => {
                 // Remove the 'hidden' class from the first question

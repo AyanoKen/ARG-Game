@@ -6,305 +6,330 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReImagine Purdue</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/cutscene-styles.css">
     <link rel="stylesheet" href="/css/reimagine-styles.css">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="/images/logo.png" alt="Logo" class="logo">
-                </a>
-                <div class="title">
-                    <h1>05</h1>
-                    <h1>REIMAGINE PURDUE</h1>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/playerinfo">
-                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-
-    <section class="intro-section">
-        <div class="container">
-            <div id="intro-section">
-                <img src="/images/orientationlogo.gif" alt="">
-                <p>Attention agents! AI's ability to generate and transform images has sparked incredible creativity. We've reimagined five Purdue buildings in various artistic styles using AI. Below, you'll see these transformed buildings along with the prompts we used. Can you identify which buildings they are? Prepare to be amazed and test your knowledge!</p>
-                <button id="begin-button" class="btn btn-warning">BEGIN</button>
+    <section class="cutscene">
+        <div class="container-fluid">
+            <div class="logo-container">
+                <h2>TRAINING MODULE 05</h2>
+                <h1>REIMAGINING PURDUE</h1>
             </div>
         </div>
-    </section>
-
-    <section id="question1-question" class="questions-section hidden">
-        <div class="container">
-            <div class="question-wrapper">
-                <div id="question1" class="question">
-                    <div class="img-wrapper">
-                        <img src="/images/reimagine/pmu-reimagine.png" alt="">
-                    </div>
-                    
-                    <!-- <p class="prompt"><b>Prompt: </b>This is one of the most famous buildings at Purdue, with a food court in it as well. Can you guess which building is this?</p> -->
-                    <div class="row">
-                        <div style="text-align: center;" class="col-md-2">
-                            <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>1. This is one of the most famous buildings at Purdue, with a food court in it as well. Can you guess which building is this?</h1>
-                        </div>
-                    </div>
-                    <p class="answer">A. France A. Córdova Recreational Sports Center (CoRec)</p>
-                    <p class="answer">B. Knoy Hall of Technology (Knoy)</p>
-                    <p class="answer">C. Purdue Memorial Union (PMU)</p>
-                    <p class="answer">D. Stewart Center (STEW)</p>
+    
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    <video id="vid-1" width="320" height="240" autoplay muted controls="false">
+                        <source src="/images/05.webm" type="video/webm">
+                    </video>
+                </div>
+                <div id="clickheretobegin" class="col-md-10">
+                    <img src="/images/05 Onboarding.png" alt="">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="question1-answer" class="footer-section hidden">
-        <div id="footer-section-text">
+    <section class="level hidden">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="/images/logo.png" alt="Logo" class="logo">
+                    </a>
+                    <div class="title">
+                        <h1>05</h1>
+                        <h1>REIMAGINE PURDUE</h1>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/playerinfo">
+                                    <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    
+    
+        <section class="intro-section">
+            <div class="container">
+                <div id="intro-section">
+                    <img src="/images/orientationlogo.gif" alt="">
+                    <p>Attention agents! AI's ability to generate and transform images has sparked incredible creativity. We've reimagined five Purdue buildings in various artistic styles using AI. Below, you'll see these transformed buildings along with the prompts we used. Can you identify which buildings they are? Prepare to be amazed and test your knowledge!</p>
+                    <button id="begin-button" class="btn btn-warning">BEGIN</button>
+                </div>
+            </div>
+        </section>
+    
+        <section id="question1-question" class="questions-section hidden">
             <div class="container">
                 <div class="question-wrapper">
-                    <div class="box-design">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img class="profile-img" src="/images/JarvisImg.png" alt="">
-                            </div>
-                            <div class="col-md-10">
-                                <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
-                            </div>
-                        </div>
+                    <div id="question1" class="question">
                         <div class="img-wrapper">
-                            <img src="/images/reimagine/pmu.jpeg" alt="">
+                            <img src="/images/reimagine/pmu-reimagine.png" alt="">
                         </div>
                         
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-
-    <section id="question2-question" class="questions-section hidden">
-        <div class="container">
-            <div class="question-wrapper">
-                <div id="question2" class="question">
-                    <div class="img-wrapper">
-                        <img src="/images/reimagine/hicks-reimagine.png" alt="">
-                    </div>
-                    
-                    <!-- <p class="prompt"><b>Prompt: </b>This is one of the most famous buildings at Purdue, with a food court in it as well. Can you guess which building is this?</p> -->
-                    <div class="row">
-                        <div style="text-align: center;" class="col-md-2">
-                            <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>2. This is a common study place, famous particularly amongst the undergraduates.</h1>
-                        </div>
-                    </div>
-                    <p class="answer">A. Rawls Hall</p>
-                    <p class="answer">B. Stewart Center (STEW)</p>
-                    <p class="answer">C. Hicks Library</p>
-                    <p class="answer">D. PAO Hall of Visual and Performing Arts</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="question2-answer" class="footer-section hidden">
-        <div id="footer-section-text">
-            <div class="container">
-                <div class="question-wrapper">
-                    <div class="box-design">
+                        <!-- <p class="prompt"><b>Prompt: </b>This is one of the most famous buildings at Purdue, with a food court in it as well. Can you guess which building is this?</p> -->
                         <div class="row">
-                            <div class="col-md-2">
-                                <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                            <div style="text-align: center;" class="col-md-2">
+                                <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
                             </div>
                             <div class="col-md-10">
-                                <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                <h1>1. This is one of the most famous buildings at Purdue, with a food court in it as well. Can you guess which building is this?</h1>
                             </div>
                         </div>
+                        <p class="answer">A. France A. Córdova Recreational Sports Center (CoRec)</p>
+                        <p class="answer">B. Knoy Hall of Technology (Knoy)</p>
+                        <p class="answer">C. Purdue Memorial Union (PMU)</p>
+                        <p class="answer">D. Stewart Center (STEW)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="question1-answer" class="footer-section hidden">
+            <div id="footer-section-text">
+                <div class="container">
+                    <div class="question-wrapper">
+                        <div class="box-design">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                </div>
+                            </div>
+                            <div class="img-wrapper">
+                                <img src="/images/reimagine/pmu.jpeg" alt="">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    
+        <section id="question2-question" class="questions-section hidden">
+            <div class="container">
+                <div class="question-wrapper">
+                    <div id="question2" class="question">
                         <div class="img-wrapper">
-                            <img src="/images/reimagine/hicks.jpeg" alt="">
+                            <img src="/images/reimagine/hicks-reimagine.png" alt="">
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-
-    <section id="question3-question" class="questions-section hidden">
-        <div class="container">
-            <div class="question-wrapper">
-                <div id="question3" class="question">
-                    <div class="img-wrapper">
-                        <img src="/images/reimagine/loeb-reimagine.png" alt="">
-                    </div>
-                    
-                    <div class="row">
-                        <div style="text-align: center;" class="col-md-2">
-                            <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>3. People using sit nearby on the benches to relax in the sun.</h1>
-                        </div>
-                    </div>
-                    <p class="answer">A. Engineering Fountain</p>
-                    <p class="answer">B. Loeb Fountain</p>
-                    <p class="answer">C. Purdue Mall</p>
-                    <p class="answer">D. Loeb Playhouse</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="question3-answer" class="footer-section hidden">
-        <div id="footer-section-text">
-            <div class="container">
-                <div class="question-wrapper">
-                    <div class="box-design">
+                        
+                        <!-- <p class="prompt"><b>Prompt: </b>This is one of the most famous buildings at Purdue, with a food court in it as well. Can you guess which building is this?</p> -->
                         <div class="row">
-                            <div class="col-md-2">
-                                <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                            <div style="text-align: center;" class="col-md-2">
+                                <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
                             </div>
                             <div class="col-md-10">
-                                <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                <h1>2. This is a common study place, famous particularly amongst the undergraduates.</h1>
                             </div>
                         </div>
+                        <p class="answer">A. Rawls Hall</p>
+                        <p class="answer">B. Stewart Center (STEW)</p>
+                        <p class="answer">C. Hicks Library</p>
+                        <p class="answer">D. PAO Hall of Visual and Performing Arts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="question2-answer" class="footer-section hidden">
+            <div id="footer-section-text">
+                <div class="container">
+                    <div class="question-wrapper">
+                        <div class="box-design">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                </div>
+                            </div>
+                            <div class="img-wrapper">
+                                <img src="/images/reimagine/hicks.jpeg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    
+        <section id="question3-question" class="questions-section hidden">
+            <div class="container">
+                <div class="question-wrapper">
+                    <div id="question3" class="question">
                         <div class="img-wrapper">
-                            <img src="/images/reimagine/loeb.jpeg" alt="">
+                            <img src="/images/reimagine/loeb-reimagine.png" alt="">
                         </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        
-    </section>
-
-    <section id="question4-question" class="questions-section hidden">
-        <div class="container">
-            <div class="question-wrapper">
-                <div id="question4" class="question">
-                    <div class="img-wrapper">
-                        <img src="/images/reimagine/corec-reimagine.png" alt="">
-                    </div>
-                    
-                    <div class="row">
-                        <div style="text-align: center;" class="col-md-2">
-                            <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>4. This building is almost always busy with a variety of activities going on. People usually come here to stay active and fit.</h1>
-                        </div>
-                    </div>
-                    <p class="answer">A. Hull Field</p>
-                    <p class="answer">B. Ross Ade Stadium</p>
-                    <p class="answer">C. Wilmeth Active Learning Center (WALC)</p>
-                    <p class="answer">D. France A. Córdova Recreational Sports Center (CoRec)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="question4-answer" class="footer-section hidden">
-        <div id="footer-section-text">
-            <div class="container">
-                <div class="question-wrapper">
-                    <div class="box-design">
+                        
                         <div class="row">
-                            <div class="col-md-2">
-                                <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                            <div style="text-align: center;" class="col-md-2">
+                                <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
                             </div>
                             <div class="col-md-10">
-                                <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                <h1>3. People using sit nearby on the benches to relax in the sun.</h1>
                             </div>
                         </div>
+                        <p class="answer">A. Engineering Fountain</p>
+                        <p class="answer">B. Loeb Fountain</p>
+                        <p class="answer">C. Purdue Mall</p>
+                        <p class="answer">D. Loeb Playhouse</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="question3-answer" class="footer-section hidden">
+            <div id="footer-section-text">
+                <div class="container">
+                    <div class="question-wrapper">
+                        <div class="box-design">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                </div>
+                            </div>
+                            <div class="img-wrapper">
+                                <img src="/images/reimagine/loeb.jpeg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            
+        </section>
+    
+        <section id="question4-question" class="questions-section hidden">
+            <div class="container">
+                <div class="question-wrapper">
+                    <div id="question4" class="question">
                         <div class="img-wrapper">
-                            <img src="/images/reimagine/corec.jpeg" alt="">
+                            <img src="/images/reimagine/corec-reimagine.png" alt="">
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section id="question5-question" class="questions-section hidden">
-        <div class="container">
-            <div class="question-wrapper">
-                <div id="question5" class="question">
-                    <div class="img-wrapper">
-                        <img src="/images/reimagine/vpa-reimagine.png" alt="">
-                    </div>
-                    
-                    <div class="row">
-                        <div style="text-align: center;" class="col-md-2">
-                            <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
-                        </div>
-                        <div class="col-md-10">
-                            <h1>5. A home for creative artists, this building hosts design exhibits and dance performances.</h1>
-                        </div>
-                    </div>
-                    <p class="answer">A. Loeb Playhouse</p>
-                    <p class="answer">B. Elliot Hall of Music</p>
-                    <p class="answer">C. Discovery Learning Research Center</p>
-                    <p class="answer">D. PAO Hall of Visual and Performing Arts</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="question5-answer" class="footer-section hidden">
-        <div id="footer-section-text">
-            <div class="container">
-                <div class="question-wrapper">
-                    <div class="box-design">
+                        
                         <div class="row">
-                            <div class="col-md-2">
-                                <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                            <div style="text-align: center;" class="col-md-2">
+                                <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
                             </div>
                             <div class="col-md-10">
-                                <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                <h1>4. This building is almost always busy with a variety of activities going on. People usually come here to stay active and fit.</h1>
                             </div>
                         </div>
+                        <p class="answer">A. Hull Field</p>
+                        <p class="answer">B. Ross Ade Stadium</p>
+                        <p class="answer">C. Wilmeth Active Learning Center (WALC)</p>
+                        <p class="answer">D. France A. Córdova Recreational Sports Center (CoRec)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="question4-answer" class="footer-section hidden">
+            <div id="footer-section-text">
+                <div class="container">
+                    <div class="question-wrapper">
+                        <div class="box-design">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                </div>
+                            </div>
+                            <div class="img-wrapper">
+                                <img src="/images/reimagine/corec.jpeg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+    
+        <section id="question5-question" class="questions-section hidden">
+            <div class="container">
+                <div class="question-wrapper">
+                    <div id="question5" class="question">
                         <div class="img-wrapper">
-                            <img src="/images/reimagine/vpa.jpeg" alt="">
+                            <img src="/images/reimagine/vpa-reimagine.png" alt="">
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="question-wrapper">
-                    <div class="box-design">
+                        
                         <div class="row">
-                            <div class="col-md-2">
-                                <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                            <div style="text-align: center;" class="col-md-2">
+                                <img style="width: 50%; padding: 4% 0;" src="/images/JarvisImg.png" alt="">
                             </div>
                             <div class="col-md-10">
-                                <h1>Amazing! Now it is time for you to learn how to create such magic on your own using a base image and some AI prompts. We will be holding a contest where whoever will recreate the most exciting picture of Purdue will be be deemed the winner! So what are you waiting for, begin the training and reimagine Purdue in the most exciting of ways!</h1>
+                                <h1>5. A home for creative artists, this building hosts design exhibits and dance performances.</h1>
+                            </div>
+                        </div>
+                        <p class="answer">A. Loeb Playhouse</p>
+                        <p class="answer">B. Elliot Hall of Music</p>
+                        <p class="answer">C. Discovery Learning Research Center</p>
+                        <p class="answer">D. PAO Hall of Visual and Performing Arts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="question5-answer" class="footer-section hidden">
+            <div id="footer-section-text">
+                <div class="container">
+                    <div class="question-wrapper">
+                        <div class="box-design">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <h1 id="response-text">Great choice! Your Agent Profile has been successfully generated. Please check the ‘Profile’ tab to view the details of your assigned troop and your profile information. Welcome to Mission Renaissance, and best of luck on your journey!</h1>
+                                </div>
+                            </div>
+                            <div class="img-wrapper">
+                                <img src="/images/reimagine/vpa.jpeg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="container">
+                    <div class="question-wrapper">
+                        <div class="box-design">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img class="profile-img" src="/images/JarvisImg.png" alt="">
+                                </div>
+                                <div class="col-md-10">
+                                    <h1>Amazing! Now it is time for you to learn how to create such magic on your own using a base image and some AI prompts. We will be holding a contest where whoever will recreate the most exciting picture of Purdue will be be deemed the winner! So what are you waiting for, begin the training and reimagine Purdue in the most exciting of ways!</h1>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="submit-button btn-container">
-            <a href="/reimagine2" class="btn btn-warning" style="margin-right: 10%;">Next</a>
-        </div>
-        
+    
+            <div class="submit-button btn-container">
+                <a href="/reimagine2" class="btn btn-warning" style="margin-right: 10%;">Next</a>
+            </div>
+            
+        </section>
     </section>
 
     
@@ -318,6 +343,12 @@
 
         let currentIndex = 1;
 
+        window.addEventListener('load', () => {
+                const video = document.getElementById('vid-1');
+                video.muted = false; // Unmute the video when the page loads
+                video.play(); // Ensure the video continues to play if needed
+            });
+
         document.addEventListener('DOMContentLoaded', () => {
             const beginButton = document.getElementById('begin-button');
             const questions = document.querySelectorAll('.question');
@@ -326,6 +357,11 @@
                 document.querySelector('#question1-question').classList.remove('hidden');
                 autoScroll();
             });
+
+            document.getElementById("clickheretobegin").addEventListener('click', function(event) {
+                document.querySelector(".cutscene").classList.add("hidden");
+                document.querySelector(".level").classList.remove("hidden");
+            }, { once: true });
 
             function handleAnswerClick(event) {
                 const answerElement = event.target;

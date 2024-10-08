@@ -6,586 +6,619 @@
     <title>Data to Decisions</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/cutscene-styles.css">
     <link rel="stylesheet" href="/css/decisions-styles.css">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="/images/modulelogo.png" alt="Logo" class="logo">
-                </a>
-                <div class="title">
-                    <h1>02</h1>
-                    <h1>DATA TO DECISIONS</h1>
+
+    <section class="cutscene">
+        <div class="container-fluid">
+            <div class="logo-container">
+                <h2>TRAINING MODULE 02</h2>
+                <h1>DATA TO DECISIONS</h1>
+            </div>
+        </div>
+    
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2" style="padding-right: 0;">
+                    <video id="vid-1" width="320" height="240" autoplay muted controls="false">
+                        <source src="/images/02.webm" type="video/webm">
+                    </video>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/playerinfo">
-                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
-                            </a>
-                        </li>
-                    </ul>
+                <div id="clickheretobegin" class="col-md-10" style="padding-left: 0;">
+                    <img src="/images/02 Onboarding.png" alt="">
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </section>
 
-    <div class="content">
-        <div id="content-1">
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
+    <section class="level hidden">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="/images/modulelogo.png" alt="Logo" class="logo">
+                    </a>
+                    <div class="title">
+                        <h1>02</h1>
+                        <h1>DATA TO DECISIONS</h1>
                     </div>
-                    <div class="col-md-10 d-flex align-items-center justify-content-end">
-                        <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/playerinfo">
+                                    <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </nav>
+        </header>
     
-                <div class="images">
+        <div class="content">
+            <div id="content-1">
+    
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-2">
-                            <img class="ml-steps ml-active" src="/images/decisions/Data Collection.png" alt="Data Collection">
+                            <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
                         </div>
-                        <div class="col-md-2">
-                            <img class="ml-steps" src="/images/decisions/Data Preparation.png" alt="Data Preparation">
-                        </div>
-                        <div class="col-md-2">
-                            <img class="ml-steps" src="/images/decisions/Choose Model.png" alt="Choose Model">
-                        </div>
-                        <div class="col-md-2">
-                            <img class="ml-steps" src="/images/decisions/Data Collection (1).png" alt="Testing">
-                        </div>
-                        <div class="col-md-2">
-                            <img class="ml-steps" src="/images/decisions/Test Model.png" alt="Test Model">
-                        </div>
-                        <div class="col-md-2">
-                            <img class="ml-steps" src="/images/decisions/Improve.png" alt="Improve">
+                        <div class="col-md-10 d-flex align-items-center justify-content-end">
+                            <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
                         </div>
                     </div>
+        
+                    <div class="images">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img class="ml-steps ml-active" src="/images/decisions/Data Collection.png" alt="Data Collection">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="ml-steps" src="/images/decisions/Data Preparation.png" alt="Data Preparation">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="ml-steps" src="/images/decisions/Choose Model.png" alt="Choose Model">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="ml-steps" src="/images/decisions/Data Collection (1).png" alt="Testing">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="ml-steps" src="/images/decisions/Test Model.png" alt="Test Model">
+                            </div>
+                            <div class="col-md-2">
+                                <img class="ml-steps" src="/images/decisions/Improve.png" alt="Improve">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="message-section">
+                        <div class="heading">1. Data Collection</div>
+                        <div class="message">Data collection is the initial step where we gather essential information required for our analysis. In the context of predicting student grades, this involves collecting detailed data such as attendance records, test scores, and study habits. This comprehensive dataset forms the foundation for developing our AI model.</div>
+                    </div>
+    
+                    <div class="submit-button btn-container" ">
+                        <button id="step-1-submit" class="btn btn-warning" style="margin-right: 10%;">PROCEED</button>
+                    </div>
                 </div>
-
-                <div class="message-section">
-                    <div class="heading">1. Data Collection</div>
-                    <div class="message">Data collection is the initial step where we gather essential information required for our analysis. In the context of predicting student grades, this involves collecting detailed data such as attendance records, test scores, and study habits. This comprehensive dataset forms the foundation for developing our AI model.</div>
-                </div>
-
-                <div class="submit-button btn-container" ">
-                    <button id="step-1-submit" class="btn btn-warning" style="margin-right: 10%;">PROCEED</button>
-                </div>
+        
+        
             </div>
-    
-    
-        </div>
-    
-        <div id="content-2" class="hidden">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
-                    </div>
-                    <div class="col-md-10 d-flex align-items-center justify-content-end">
-                        <h1 class="text-left">Preparing data for an AI model involves selecting key input attributes that influence student grades. Below is a list of attributes with descriptions. Select those that you believe will have the most significant influence on determining a student's grade.</h1>
-                    </div>
-                </div>
-
-                <div class="toggle-section">
-
-                    <div class="row" style="margin-bottom: 2%;">
-                        <div class="col-md-6">
-                            <p><b>Categorical Data: </b> Data that comprises of groups</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="text-right"><b>Numerical Data: </b>Data that exists as discrete numbers.</p>
-                        </div>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Related Grades</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Past academic performance in related subjects or pre-requisites - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Test Scores</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Scores from midterms, quizzes, and other standardized tests - <b>Numerical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Assignment Scores</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Regularity and quality of completing assignments - <b>Numerical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Class Participation</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Engagement level in class discussions and activities - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Attendance Record</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Frequency and consistency of class attendance - <b>Numerical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Learning Style</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Preferred method of learning(visual, auditory, etc) - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Stress Levels</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>General stress level or specific stress related to academic pressures - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Health and wellbeing</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Physical and mental health status that could affect learning - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Time Management skills</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Ability to effectively manage and allocate time for studies and other activities - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Peer Interaction</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Quality and nature of interactions with classmates and peer groups - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Family and social support</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Degree of support from family and friends regarding education - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Campus Engagement</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Involvement in campus life and activities that might impact academic integration and identity - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Commute Time</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Time spent by a student commuting to the university - <b>Numerical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Zodiac Sign</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>The zodiac sign of the student based on their birthday month - <b>Categorical</b></p>
-                    </div>
-
-                    <div class="toggle">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <h1>Social Media usage</h1>
-                            </div>
-    
-                            <div class="col-md-1">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p>Amount of time spent by the student on social media - <b>Numerical</b></p>
-                    </div>
-
-
-                </div>
-
-                <div class="submit-button btn-container">
-                    <button id="step-2-submit" class="btn btn-warning" style="margin-right: 6%;">PROCEED</button>
-                </div>
-            </div>
-        </div>
-    
-        <div id="content-3" class="hidden">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
-                    </div>
-                    <div class="col-md-10 d-flex align-items-center justify-content-end">
-                        <h1 class="text-left" style="color: #FFD977;">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
-                    </div>
-                </div>
-
-                <div class="questions-section">
-                    <div class="question">
-                        <h1>Size of Data</h1>
-                        <p>The total number of student records used as input, revealing student progress in various courses and the grades they received.</p>
-                        <div class="answers">
-                            <input type="radio">
-                            <label>1000</label>
-
-                            <input type="radio">
-                            <label>5000</label>
-
-                            <input type="radio">
-                            <label>10000</label>
-
-                            <input type="radio">
-                            <label>15000</label>
-                        </div>
-
-                        <small>Note: Bigger data tends to be more generalizable than smaller datasets.</small>
-                    </div>
-
-                    <div class="question">
-                        <h1>Timeliness of Data</h1>
-                        <p>The currency and relevancy of data, and how recent it is. Options suggest collecting all data from the duration suggested till recent times.</p>
-                        <div class="answers">
-                            <input type="radio">
-                            <label>Past 1 month</label>
-
-                            <input type="radio">
-                            <label>Past 12 months</label>
-
-                            <input type="radio">
-                            <label>Past 3 years</label>
-
-                            <input type="radio">
-                            <label>Past 10 years</label>
-                        </div>
-
-                        <small>Note: Data should span a few recent years, but should not be too old that it becomes irrelevant. </small>
-                    </div>
-
-                    <div class="question">
-                        <h1>Vastness of Data</h1>
-                        <p>The inclusion of student records from a variety of schools and colleges at Purdue.</p>
-                        <div class="answers">
-                            <input type="radio">
-                            <label>Choosing from a single school</label>
-
-                            <input type="radio">
-                            <label>Choosing from science related schools</label>
-
-                            <input type="radio">
-                            <label>Choosing at random from various schools</label>
-                        </div>
-
-                        <small>Note: Data should be as diverse as possible so that it accurately captures traits of a wide audience.</small>
-                    </div>
-
-                    <div class="question">
-                        <h1>Diversity of Data</h1>
-                        <p>The inclusion of student records from a variety of students representations at Purdue.</p>
-                        <div class="answers">
-                            <input type="radio">
-                            <label>Domestic Students</label>
-
-                            <input type="radio">
-                            <label>International Students</label>
-
-                            <input type="radio">
-                            <label>Graduate Staff</label>
-
-                            <input type="radio">
-                            <label>Choosing students at random</label>
-                        </div>
-
-                        <small>Note: Data should be as diverse as possible so that it accurately captures traits of a wide audience.</small>
-                    </div>
-
-                    <div class="question">
-                        <h1>Quality of Data</h1>
-                        <p>The accuracy and reliability of the data collected, ensuring that it is free from errors.</p>
-                        <div class="answers">
-                            <input type="radio">
-                            <label>Unverified</label>
-
-                            <input type="radio">
-                            <label>Self-reported by students</label>
-
-                            <input type="radio">
-                            <label>Verified by academic staff</label>
-
-                            <input type="radio">
-                            <label>Randomly audited</label>
-                        </div>
-
-                        <small>Note: Data should be as accurate as possible to remove flaws and inconsistencies.</small>
-                    </div>
-
-                    <div class="question">
-                        <h1>Update Frequency</h1>
-                        <p>How often the data is updated to keep the AI model current with new trends and changes in student performance.</p>
-                        <div class="answers">
-                            <input type="radio">
-                            <label>Real-time updates</label>
-
-                            <input type="radio">
-                            <label>Updated each semester</label>
-
-                            <input type="radio">
-                            <label>Annually updated</label>
-
-                            <input type="radio">
-                            <label>Updated at random</label>
-                        </div>
-
-                        <small>Note: AI models should be updated with new data whenever large sets of it become completely available.</small>
-                    </div>
-                    
-                </div>
-
-                <div class="submit-button btn-container">
-                    <button id="step-3-submit" class="btn btn-warning" style="margin-right: 6%;">PROCEED</button>
-                </div>
-            </div>
-        </div>
-    
-        <div id="content-4" class="hidden">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
-                    </div>
-                    <div class="col-md-10 d-flex align-items-center justify-content-end">
-                        <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
-                    </div>
-                </div>
-
-                <div class="message-section">
+        
+            <div id="content-2" class="hidden">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-2 heading model active">
-                            1. Logistic Regression
+                        <div class="col-md-2">
+                            <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
                         </div>
-                        <div class="col-md-2 heading model">
-                            2. Decision Trees
-                        </div>
-                        <div class="col-md-2 heading model">
-                            3. Random Forest
-                        </div>
-                        <div class="col-md-2 heading model">
-                            4. Neural Networks
+                        <div class="col-md-10 d-flex align-items-center justify-content-end">
+                            <h1 class="text-left">Preparing data for an AI model involves selecting key input attributes that influence student grades. Below is a list of attributes with descriptions. Select those that you believe will have the most significant influence on determining a student's grade.</h1>
                         </div>
                     </div>
-                    
-                    <div class="message">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img id="model-img" src="/images/decisions/Logistic.png" alt="">
+    
+                    <div class="toggle-section">
+    
+                        <div class="row" style="margin-bottom: 2%;">
+                            <div class="col-md-6">
+                                <p><b>Categorical Data: </b> Data that comprises of groups</p>
                             </div>
-
-                            <div class="col-md-8">
-                                <p id="model-info">Logistic regression is a statistical method used in AI for classification tasks, which helps decide which category something belongs to. For example, it can predict whether a student will pass or fail based on their study habits and test scores. It works by analyzing existing data and using it to calculate the odds of something falling into a particular category. This makes it useful for making yes/no decisions, like determining if an email is spam or not spam.</p>
-
-                                <div class="row">
-                                    <div class="col-md-6" style="padding-left: 0;">
-                                        <h1>Strengths</h1>
-                                        <li id="model-str1">Ideal for predicting binary outcomes, like pass/fail</li>
-                                        <li id="model-str-2">Easy to implement and interpret</li>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h1>Weakness</h1>
-                                        <li id="model-wk1">Primarily designed for binary data</li>
-                                        <li id="model-wk2">May oversimplify real-world scenarios by not capturing more complex patterns</li>
+                            <div class="col-md-6">
+                                <p class="text-right"><b>Numerical Data: </b>Data that exists as discrete numbers.</p>
+                            </div>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Related Grades</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Past academic performance in related subjects or pre-requisites - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Test Scores</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Scores from midterms, quizzes, and other standardized tests - <b>Numerical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Assignment Scores</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Regularity and quality of completing assignments - <b>Numerical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Class Participation</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Engagement level in class discussions and activities - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Attendance Record</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Frequency and consistency of class attendance - <b>Numerical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Learning Style</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Preferred method of learning(visual, auditory, etc) - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Stress Levels</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>General stress level or specific stress related to academic pressures - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Health and wellbeing</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Physical and mental health status that could affect learning - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Time Management skills</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Ability to effectively manage and allocate time for studies and other activities - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Peer Interaction</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Quality and nature of interactions with classmates and peer groups - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Family and social support</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Degree of support from family and friends regarding education - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Campus Engagement</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Involvement in campus life and activities that might impact academic integration and identity - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Commute Time</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Time spent by a student commuting to the university - <b>Numerical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Zodiac Sign</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>The zodiac sign of the student based on their birthday month - <b>Categorical</b></p>
+                        </div>
+    
+                        <div class="toggle">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <h1>Social Media usage</h1>
+                                </div>
+        
+                                <div class="col-md-1">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+    
+                            <p>Amount of time spent by the student on social media - <b>Numerical</b></p>
+                        </div>
+    
+    
+                    </div>
+    
+                    <div class="submit-button btn-container">
+                        <button id="step-2-submit" class="btn btn-warning" style="margin-right: 6%;">PROCEED</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="content-3" class="hidden">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
+                        </div>
+                        <div class="col-md-10 d-flex align-items-center justify-content-end">
+                            <h1 class="text-left" style="color: #FFD977;">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
+                        </div>
+                    </div>
+    
+                    <div class="questions-section">
+                        <div class="question">
+                            <h1>Size of Data</h1>
+                            <p>The total number of student records used as input, revealing student progress in various courses and the grades they received.</p>
+                            <div class="answers">
+                                <input type="radio">
+                                <label>1000</label>
+    
+                                <input type="radio">
+                                <label>5000</label>
+    
+                                <input type="radio">
+                                <label>10000</label>
+    
+                                <input type="radio">
+                                <label>15000</label>
+                            </div>
+    
+                            <small>Note: Bigger data tends to be more generalizable than smaller datasets.</small>
+                        </div>
+    
+                        <div class="question">
+                            <h1>Timeliness of Data</h1>
+                            <p>The currency and relevancy of data, and how recent it is. Options suggest collecting all data from the duration suggested till recent times.</p>
+                            <div class="answers">
+                                <input type="radio">
+                                <label>Past 1 month</label>
+    
+                                <input type="radio">
+                                <label>Past 12 months</label>
+    
+                                <input type="radio">
+                                <label>Past 3 years</label>
+    
+                                <input type="radio">
+                                <label>Past 10 years</label>
+                            </div>
+    
+                            <small>Note: Data should span a few recent years, but should not be too old that it becomes irrelevant. </small>
+                        </div>
+    
+                        <div class="question">
+                            <h1>Vastness of Data</h1>
+                            <p>The inclusion of student records from a variety of schools and colleges at Purdue.</p>
+                            <div class="answers">
+                                <input type="radio">
+                                <label>Choosing from a single school</label>
+    
+                                <input type="radio">
+                                <label>Choosing from science related schools</label>
+    
+                                <input type="radio">
+                                <label>Choosing at random from various schools</label>
+                            </div>
+    
+                            <small>Note: Data should be as diverse as possible so that it accurately captures traits of a wide audience.</small>
+                        </div>
+    
+                        <div class="question">
+                            <h1>Diversity of Data</h1>
+                            <p>The inclusion of student records from a variety of students representations at Purdue.</p>
+                            <div class="answers">
+                                <input type="radio">
+                                <label>Domestic Students</label>
+    
+                                <input type="radio">
+                                <label>International Students</label>
+    
+                                <input type="radio">
+                                <label>Graduate Staff</label>
+    
+                                <input type="radio">
+                                <label>Choosing students at random</label>
+                            </div>
+    
+                            <small>Note: Data should be as diverse as possible so that it accurately captures traits of a wide audience.</small>
+                        </div>
+    
+                        <div class="question">
+                            <h1>Quality of Data</h1>
+                            <p>The accuracy and reliability of the data collected, ensuring that it is free from errors.</p>
+                            <div class="answers">
+                                <input type="radio">
+                                <label>Unverified</label>
+    
+                                <input type="radio">
+                                <label>Self-reported by students</label>
+    
+                                <input type="radio">
+                                <label>Verified by academic staff</label>
+    
+                                <input type="radio">
+                                <label>Randomly audited</label>
+                            </div>
+    
+                            <small>Note: Data should be as accurate as possible to remove flaws and inconsistencies.</small>
+                        </div>
+    
+                        <div class="question">
+                            <h1>Update Frequency</h1>
+                            <p>How often the data is updated to keep the AI model current with new trends and changes in student performance.</p>
+                            <div class="answers">
+                                <input type="radio">
+                                <label>Real-time updates</label>
+    
+                                <input type="radio">
+                                <label>Updated each semester</label>
+    
+                                <input type="radio">
+                                <label>Annually updated</label>
+    
+                                <input type="radio">
+                                <label>Updated at random</label>
+                            </div>
+    
+                            <small>Note: AI models should be updated with new data whenever large sets of it become completely available.</small>
+                        </div>
+                        
+                    </div>
+    
+                    <div class="submit-button btn-container">
+                        <button id="step-3-submit" class="btn btn-warning" style="margin-right: 6%;">PROCEED</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="content-4" class="hidden">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
+                        </div>
+                        <div class="col-md-10 d-flex align-items-center justify-content-end">
+                            <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
+                        </div>
+                    </div>
+    
+                    <div class="message-section">
+                        <div class="row">
+                            <div class="col-md-2 heading model active">
+                                1. Logistic Regression
+                            </div>
+                            <div class="col-md-2 heading model">
+                                2. Decision Trees
+                            </div>
+                            <div class="col-md-2 heading model">
+                                3. Random Forest
+                            </div>
+                            <div class="col-md-2 heading model">
+                                4. Neural Networks
+                            </div>
+                        </div>
+                        
+                        <div class="message">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img id="model-img" src="/images/decisions/Logistic.png" alt="">
+                                </div>
+    
+                                <div class="col-md-8">
+                                    <p id="model-info">Logistic regression is a statistical method used in AI for classification tasks, which helps decide which category something belongs to. For example, it can predict whether a student will pass or fail based on their study habits and test scores. It works by analyzing existing data and using it to calculate the odds of something falling into a particular category. This makes it useful for making yes/no decisions, like determining if an email is spam or not spam.</p>
+    
+                                    <div class="row">
+                                        <div class="col-md-6" style="padding-left: 0;">
+                                            <h1>Strengths</h1>
+                                            <li id="model-str1">Ideal for predicting binary outcomes, like pass/fail</li>
+                                            <li id="model-str-2">Easy to implement and interpret</li>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h1>Weakness</h1>
+                                            <li id="model-wk1">Primarily designed for binary data</li>
+                                            <li id="model-wk2">May oversimplify real-world scenarios by not capturing more complex patterns</li>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <h1 id="chosen" class="text-center" style="color: red;">Chosen: Logistic Regression</h1>
-
-                <div class="submit-button btn-container">
-                    <button id="step-4-submit" class="btn btn-warning" style="margin-right: 10%;">PROCEED</button>
+    
+                    <h1 id="chosen" class="text-center" style="color: red;">Chosen: Logistic Regression</h1>
+    
+                    <div class="submit-button btn-container">
+                        <button id="step-4-submit" class="btn btn-warning" style="margin-right: 10%;">PROCEED</button>
+                    </div>
                 </div>
             </div>
+        
+            <div id="content-5" class="hidden">
+                <video id="vid-1" width="320" height="240" autoplay="autoplay" controls="false">
+                    <source src="/images/Transparent.webm" type="video/webm">
+                  </video>
+            </div>
+        
+            <div id="content-6" class="hidden">
+        
+            </div>
+        
+            <div id="content-7" class="hidden">
+        
+            </div>
         </div>
-    
-        <div id="content-5" class="hidden">
-            <video id="vid-1" width="320" height="240" autoplay="autoplay" controls="false">
-                <source src="/images/Transparent.webm" type="video/webm">
-              </video>
-        </div>
-    
-        <div id="content-6" class="hidden">
-    
-        </div>
-    
-        <div id="content-7" class="hidden">
-    
-        </div>
-    </div>
+    </section>
 
     
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script>
+
+        window.addEventListener('load', () => {
+                    const video = document.getElementById('vid-1');
+                    video.muted = false; // Unmute the video when the page loads
+                    video.play(); // Ensure the video continues to play if needed
+                });
+
         document.addEventListener("DOMContentLoaded", function() {
         const messages = {
             "Data Collection": {
@@ -617,6 +650,11 @@
         const images = document.querySelectorAll('.images img');
         const headingElement = document.querySelector('.message-section .heading');
         const messageElement = document.querySelector('.message-section .message');
+
+        document.getElementById("clickheretobegin").addEventListener('click', function(event) {
+                document.querySelector(".cutscene").classList.add("hidden");
+                document.querySelector(".level").classList.remove("hidden");
+            }, { once: true });
 
         images.forEach(image => {
             image.addEventListener('click', function() {

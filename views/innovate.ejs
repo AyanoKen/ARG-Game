@@ -6,538 +6,564 @@
     <title>Innovate with AI</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/cutscene-styles.css">
     <link rel="stylesheet" href="/css/innovate-styles.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="/images/modulelogo.png" alt="Logo" class="logo">
-                </a>
-                <div class="title">
-                    <h1>04</h1>
-                    <h1>INNOVATE WITH AI</h1>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/playerinfo">
-                                <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <section class="tabs">
+    <section class="cutscene">
+        <div class="container-fluid">
+            <div class="logo-container">
+                <h2>TRAINING MODULE 04</h2>
+                <h1>INNOVATE WITH AI</h1>
+            </div>
+        </div>
+    
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2">
-                    <button class="button button-active" data-id="1">Step 1: The Workshop</button>
+                    <video id="vid-1" width="320" height="240" autoplay muted controls="false">
+                        <source src="/images/04.webm" type="video/webm">
+                    </video>
                 </div>
-
-                <div class="col-md-2">
-                    <button class="button" data-id="2">Step 2: Problem Solving</button>
-                </div>
-
-                <div class="col-md-2">
-                    <button class="button" data-id="3">Step 3: Explore Leonardo</button>
-                </div>
-
-                <div class="col-md-2">
-                    <button class="button" data-id="4">Step 4: Prompt Engineering</button>
-                </div>
-
-                <div class="col-md-2">
-                    <button class="button" data-id="5">Step 5: RealTime Canvas</button>
-                </div>
-
-                <div class="col-md-2">
-                    <button class="button" data-id="6">Step 6: Submit your Idea</button>
+                <div id="clickheretobegin" class="col-md-10">
+                    <img src="/images/04 Onboarding.png" alt="">
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="content">
-
-        <div id="content-1" class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 left-section">
-                    <div class="box-wrapper">
-                        <div class="box-design">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="/images/orientationlogo.gif" alt="">
-                                </div>
-                                <div class="col-md-10">
-                                    <p>Discover the power of Generative AI in design! On <b>October 24th, 2024</b>, TRAIL in collaboration with Purdue Online is hosting a hands-on workshop,
-                                        <b>From Sketch to Design with AI.</b> <br><br> We'll hold an interactive discussion around student perspectives and experiences with AI, highlighting its vast use cases within education, and shedding light onto ethical concerns that may arise. We'll also introduce
-                                        <b>Leonardo.ai</b>, an artistic Generative AI tool that lets you transform ideas into final designs in minutes. <br><br>
-
-                                        Looking for more? Enjoy free food, game merchandise, and exciting giveaways throughout the event.<br><br>
-                                        
-                                        Register for the workshop through the following link! </p>
-
-                                        <div class="btn-container">
-                                            <a href="https://forms.gle/GhCM4i8osmeMx5ut6" target="_blank" class="btn btn-primary">Register Now</a>
-                                        </div>
-                                </div>
-                            </div>   
-                        </div>
+    
+    <section class="level hidden">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="/images/modulelogo.png" alt="Logo" class="logo">
+                    </a>
+                    <div class="title">
+                        <h1>04</h1>
+                        <h1>INNOVATE WITH AI</h1>
                     </div>
-
-                </div>
-                
-                <div class="col-md-6 right-section">
-                    <img src="/images/Exponent_1.png" alt="">
-
-                    <div class="submit-button">
-                        <button id="step-1-submit" class="btn btn-warning">PROCEED</button>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/playerinfo">
+                                    <img src="<%= user.playerAvatar %>" alt="Icon" class="icon">
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                
-            </div>
-        </div>
-
-        <div id="content-2" class="container-fluid hidden">
-            <div class="row">
-                <div class="col-md-6 left-section">
-                    <div class="box-wrapper">
-                        <div class="box-design">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="/images/orientationlogo.gif" alt="">
-                                </div>
-                                <div class="col-md-10">
-                                    <p>Imagine a perfect educational system - one that truly understands and engages students, and delivers information effectively. On the right, you'll find classroom-related themes. Choose a theme and identify a problem area to explore, or create one of your own.a <br> <br>
-
-                                        Once you've identified the problem, brainstorm solutions by observing, researching, or using tools like ChatGPT. Then, shortlist your best idea and either create a hand-drawn sketch, find a reference image online, or simply use the realtime canvas on Leonardo.ai in Step 4.<br><br>
-                                        </p>
-                                </div>
-                            </div>   
-                        </div>
+            </nav>
+        </header>
+    
+        <section class="tabs">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="button button-active" data-id="1">Step 1: The Workshop</button>
                     </div>
-
-                    <div class="playerinput">
-                        <input type="text" id="step-2-input" class="form-control" placeholder="Briefly describe your problem and solution">
+    
+                    <div class="col-md-2">
+                        <button class="button" data-id="2">Step 2: Problem Solving</button>
                     </div>
-                </div>
-                
-                <div class="col-md-6 right-section">
-                    <div class="accordion" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <span>▶</span> Personalized Learning
-                                    </button>
-                                </h2>
-                            </div>
-        
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <p>• How can educational content be tailored to fit the unique needs and preferences of each student?</p>
-                                    <p>• What kind of personalized recommendations or guidance could enhance a student's learning journey?</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="heading2">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        <span>▶</span> Classroom Management
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can teachers streamline administrative tasks and focus more on teaching</p>
-                                  <p>• 
-                         How can we enhance classroom organization and improve student-teacher interactions</p>
-                                  <p>• 
-                         How can we provide real-time responses to student queries within classrooms</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading3">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                        <span>▶</span> Accessibility and Inclusivity
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can educational resources be made more accessible to students with disabilities</p>
-                                  <p>• 
-                         What can we bridge language barriers in multicultural classrooms</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading4">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                        <span>▶</span> Engagement and Motivation
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can we gamify the learning process to increase student engagement and motivation</p>
-                                  <p>• 
-                         How can we provide real-time feedback and encouragement to keep students motivated</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading5">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                        <span>▶</span> Assessment and Feedback
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can we provide more personalized and constructive feedback on student work</p>
-                                  <p>• 
-                         How can we offer alternative forms of assessment beyond traditional exams</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading6">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
-                                        <span>▶</span> Exam Preparation
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can students prepare for quizzes and exams better</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading7">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
-                                        <span>▶</span> Professional Development
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can we areas where teachers need further training and provide personalized professional development plans</p>
-                                  <p>• 
-                         How can we support continuous learning and skill development for educators</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading8">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
-                                        <span>▶</span> Collaboration and Communication
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can we facilitate better collaboration among students, teachers, and parents</p>
-                                  <p>• 
-                         How can we enhance communication and ensure all stakeholders are informed and engaged</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading9">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
-                                        <span>▶</span> Mental Health and Well-being
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can AI monitor and support the mental health and well-being of students</p>
-                                  <p>• 
-                         How can we provide stress relief and mindfulness resources to students</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading10">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
-                                        <span>▶</span> Curriculum Development
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can we assist in creating dynamic curricula that adapt to the evolving needs of students and the job market</p>
-                                  <p>• 
-                         How can we help educators design interdisciplinary courses that integrate multiple subjects</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading11">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
-                                        <span>▶</span> Learning Analytics
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can we analyze learning patterns to identify at-risk students and provide early interventions</p>
-                                  <p>• 
-                         How can we provide data insights that can help educators understand and improve student performance</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading12">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
-                                        <span>▶</span> Ethical Considerations
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse12" class="collapse" aria-labelledby="heading12" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can we ensure fairness and avoid bias in educational assessments and recommendations</p>
-                                  <p>• 
-                         What ethical guidelines should be considered when implementing AI in education</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading13">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
-                                        <span>▶</span> Virtual Learning Environments
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse13" class="collapse" aria-labelledby="heading13" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can we create immersive virtual learning environments that simulate real-world experiences</p>
-                                  <p>• 
-                         How can we enhance remote learning and make it more effective</p>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card">
-                            <div class="card-header" id="heading14">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
-                                        <span>▶</span> Data Privacy and Security
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapse14" class="collapse" aria-labelledby="heading14" data-parent="#accordionExample">
-                                <div class="card-body">
-                                  <p>• 
-                         How can we protect student data and ensure privacy in educational applications</p>
-                                  <p>• 
-                         What measures can be taken to secure educational platforms from cyber threats</p>
-                                </div>
-                            </div>
-                         </div>
+    
+                    <div class="col-md-2">
+                        <button class="button" data-id="3">Step 3: Explore Leonardo</button>
                     </div>
-
-                    <div class="submit-button">
-                        <button id="step-2-submit" class="btn btn-warning">PROCEED</button>
+    
+                    <div class="col-md-2">
+                        <button class="button" data-id="4">Step 4: Prompt Engineering</button>
+                    </div>
+    
+                    <div class="col-md-2">
+                        <button class="button" data-id="5">Step 5: RealTime Canvas</button>
+                    </div>
+    
+                    <div class="col-md-2">
+                        <button class="button" data-id="6">Step 6: Submit your Idea</button>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div id="content-3" class="container-fluid hidden">
-            <div class="row">
-                <div class="col-md-6 left-section">
-                    <div class="box-wrapper">
-                        <div class="box-design">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="/images/JarvisImg.png" alt="">
+        </section>
+    
+        <section class="content">
+    
+            <div id="content-1" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 left-section">
+                        <div class="box-wrapper">
+                            <div class="box-design">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="/images/orientationlogo.gif" alt="">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p>Discover the power of Generative AI in design! On <b>October 24th, 2024</b>, TRAIL in collaboration with Purdue Online is hosting a hands-on workshop,
+                                            <b>From Sketch to Design with AI.</b> <br><br> We'll hold an interactive discussion around student perspectives and experiences with AI, highlighting its vast use cases within education, and shedding light onto ethical concerns that may arise. We'll also introduce
+                                            <b>Leonardo.ai</b>, an artistic Generative AI tool that lets you transform ideas into final designs in minutes. <br><br>
+    
+                                            Looking for more? Enjoy free food, game merchandise, and exciting giveaways throughout the event.<br><br>
+                                            
+                                            Register for the workshop through the following link! </p>
+    
+                                            <div class="btn-container">
+                                                <a href="https://forms.gle/GhCM4i8osmeMx5ut6" target="_blank" class="btn btn-primary">Register Now</a>
+                                            </div>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+    
+                    </div>
+                    
+                    <div class="col-md-6 right-section">
+                        <img src="/images/Exponent_1.png" alt="">
+    
+                        <div class="submit-button">
+                            <button id="step-1-submit" class="btn btn-warning">PROCEED</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+    
+            <div id="content-2" class="container-fluid hidden">
+                <div class="row">
+                    <div class="col-md-6 left-section">
+                        <div class="box-wrapper">
+                            <div class="box-design">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="/images/orientationlogo.gif" alt="">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p>Imagine a perfect educational system - one that truly understands and engages students, and delivers information effectively. On the right, you'll find classroom-related themes. Choose a theme and identify a problem area to explore, or create one of your own.a <br> <br>
+    
+                                            Once you've identified the problem, brainstorm solutions by observing, researching, or using tools like ChatGPT. Then, shortlist your best idea and either create a hand-drawn sketch, find a reference image online, or simply use the realtime canvas on Leonardo.ai in Step 4.<br><br>
+                                            </p>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+    
+                        <div class="playerinput">
+                            <input type="text" id="step-2-input" class="form-control" placeholder="Briefly describe your problem and solution">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 right-section">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <span>▶</span> Personalized Learning
+                                        </button>
+                                    </h2>
                                 </div>
-                                <div class="col-md-10">
-                                    <p>Leonardo.ai is a Generative AI platform designed for creators, artists, and designers. It allows users to quickly generate high-quality visuals including concept art, illustrations, and designs, from text-based prompts.  <br><br>
-
-                                        Leonardo.ai simplifies the creative design process, making it easier to transform ideas into detailed and polished visual outputs.  <br><br> 
-                                        
-                                        Sign up to Leonardo.ai for free and start creating your own AI-based images. </p>
-
-                                    <div class="btn-container">
-                                        <a href="https://leonardo.ai/" target="_blank" class="btn btn-primary">Go to Website</a>
+            
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p>• How can educational content be tailored to fit the unique needs and preferences of each student?</p>
+                                        <p>• What kind of personalized recommendations or guidance could enhance a student's learning journey?</p>
                                     </div>
                                 </div>
-                            </div>     
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="heading2">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                            <span>▶</span> Classroom Management
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can teachers streamline administrative tasks and focus more on teaching</p>
+                                      <p>• 
+                             How can we enhance classroom organization and improve student-teacher interactions</p>
+                                      <p>• 
+                             How can we provide real-time responses to student queries within classrooms</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading3">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                            <span>▶</span> Accessibility and Inclusivity
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can educational resources be made more accessible to students with disabilities</p>
+                                      <p>• 
+                             What can we bridge language barriers in multicultural classrooms</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading4">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                            <span>▶</span> Engagement and Motivation
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can we gamify the learning process to increase student engagement and motivation</p>
+                                      <p>• 
+                             How can we provide real-time feedback and encouragement to keep students motivated</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading5">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                            <span>▶</span> Assessment and Feedback
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can we provide more personalized and constructive feedback on student work</p>
+                                      <p>• 
+                             How can we offer alternative forms of assessment beyond traditional exams</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading6">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                            <span>▶</span> Exam Preparation
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can students prepare for quizzes and exams better</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading7">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                            <span>▶</span> Professional Development
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can we areas where teachers need further training and provide personalized professional development plans</p>
+                                      <p>• 
+                             How can we support continuous learning and skill development for educators</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading8">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                            <span>▶</span> Collaboration and Communication
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can we facilitate better collaboration among students, teachers, and parents</p>
+                                      <p>• 
+                             How can we enhance communication and ensure all stakeholders are informed and engaged</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading9">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                            <span>▶</span> Mental Health and Well-being
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can AI monitor and support the mental health and well-being of students</p>
+                                      <p>• 
+                             How can we provide stress relief and mindfulness resources to students</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading10">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                            <span>▶</span> Curriculum Development
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can we assist in creating dynamic curricula that adapt to the evolving needs of students and the job market</p>
+                                      <p>• 
+                             How can we help educators design interdisciplinary courses that integrate multiple subjects</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading11">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                                            <span>▶</span> Learning Analytics
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can we analyze learning patterns to identify at-risk students and provide early interventions</p>
+                                      <p>• 
+                             How can we provide data insights that can help educators understand and improve student performance</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading12">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                                            <span>▶</span> Ethical Considerations
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse12" class="collapse" aria-labelledby="heading12" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can we ensure fairness and avoid bias in educational assessments and recommendations</p>
+                                      <p>• 
+                             What ethical guidelines should be considered when implementing AI in education</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading13">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                                            <span>▶</span> Virtual Learning Environments
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse13" class="collapse" aria-labelledby="heading13" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can we create immersive virtual learning environments that simulate real-world experiences</p>
+                                      <p>• 
+                             How can we enhance remote learning and make it more effective</p>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="card">
+                                <div class="card-header" id="heading14">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
+                                            <span>▶</span> Data Privacy and Security
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse14" class="collapse" aria-labelledby="heading14" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                      <p>• 
+                             How can we protect student data and ensure privacy in educational applications</p>
+                                      <p>• 
+                             What measures can be taken to secure educational platforms from cyber threats</p>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+    
+                        <div class="submit-button">
+                            <button id="step-2-submit" class="btn btn-warning">PROCEED</button>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-md-6 right-section">
-                    <iframe style="padding: 1% 0;" width="100%" height="500px" src="https://www.youtube.com/embed/K2ikNSRqh8E" title="Leonardo.AI Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                    <div class="submit-button">
-                        <button id="step-3-submit" class="btn btn-warning">PROCEED</button>
-                    </div>
-                </div>
-                
             </div>
-        </div>
-
-        <div id="content-4" class="container-fluid hidden">
-            <div class="row">
-                <div class="col-md-6 left-section">
-                    <div class="box-wrapper">
-                        <div class="box-design">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="/images/JarvisImg.png" alt="">
-                                </div>
-                                <div class="col-md-10">
-                                    <p>Prompt engineering involves crafting precise text and keywords to guide an AI model in understanding what to generate. It's often a trial-and-error process to get the desired result.<br><br>
-
-                                        For effective image generation, structure your prompt like this:<br>
-
-                                        “A [style] [medium] of a [subject] in a [composition/setting] with [colors/lighting]”<br><br>
-                                        
-                                        Explore a list of curated prompts and their AI generations  where we used various artistic styles. Notice how different keywords will alter the style of the output drastically.</p>
-
+    
+            <div id="content-3" class="container-fluid hidden">
+                <div class="row">
+                    <div class="col-md-6 left-section">
+                        <div class="box-wrapper">
+                            <div class="box-design">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="/images/JarvisImg.png" alt="">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p>Leonardo.ai is a Generative AI platform designed for creators, artists, and designers. It allows users to quickly generate high-quality visuals including concept art, illustrations, and designs, from text-based prompts.  <br><br>
+    
+                                            Leonardo.ai simplifies the creative design process, making it easier to transform ideas into detailed and polished visual outputs.  <br><br> 
+                                            
+                                            Sign up to Leonardo.ai for free and start creating your own AI-based images. </p>
+    
                                         <div class="btn-container">
-                                            <a href="https://juniper-shadow-796.notion.site/Leonardo-ai-Prompt-Examples-86c3f32265b2432194d165e6c1d73346" target="_blank" id="step-3-explore" class="btn btn-primary">View Examples</a>
+                                            <a href="https://leonardo.ai/" target="_blank" class="btn btn-primary">Go to Website</a>
                                         </div>
-                                </div>
-                                
-                            </div>    
+                                    </div>
+                                </div>     
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 right-section">
+                        <iframe style="padding: 1% 0;" width="100%" height="500px" src="https://www.youtube.com/embed/K2ikNSRqh8E" title="Leonardo.AI Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+                        <div class="submit-button">
+                            <button id="step-3-submit" class="btn btn-warning">PROCEED</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+    
+            <div id="content-4" class="container-fluid hidden">
+                <div class="row">
+                    <div class="col-md-6 left-section">
+                        <div class="box-wrapper">
+                            <div class="box-design">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="/images/JarvisImg.png" alt="">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p>Prompt engineering involves crafting precise text and keywords to guide an AI model in understanding what to generate. It's often a trial-and-error process to get the desired result.<br><br>
+    
+                                            For effective image generation, structure your prompt like this:<br>
+    
+                                            “A [style] [medium] of a [subject] in a [composition/setting] with [colors/lighting]”<br><br>
+                                            
+                                            Explore a list of curated prompts and their AI generations  where we used various artistic styles. Notice how different keywords will alter the style of the output drastically.</p>
+    
+                                            <div class="btn-container">
+                                                <a href="https://juniper-shadow-796.notion.site/Leonardo-ai-Prompt-Examples-86c3f32265b2432194d165e6c1d73346" target="_blank" id="step-3-explore" class="btn btn-primary">View Examples</a>
+                                            </div>
+                                    </div>
+                                    
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 right-section">
+                        <iframe style="padding: 1% 0;" width="100%" height="560px" src="https://www.youtube.com/embed/KKQDtBLla08" title="Leonardo AI Tips &amp; Tricks | Prompt Structure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        
+    
+                        <div class="submit-button btn-container">
+                            <button id="step-4-submit" class="btn btn-warning">PROCEED</button>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-md-6 right-section">
-                    <iframe style="padding: 1% 0;" width="100%" height="560px" src="https://www.youtube.com/embed/KKQDtBLla08" title="Leonardo AI Tips &amp; Tricks | Prompt Structure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    
-
-                    <div class="submit-button btn-container">
-                        <button id="step-4-submit" class="btn btn-warning">PROCEED</button>
-                    </div>
-                </div>
             </div>
-        </div>
-        </div>
-
-        <div id="content-5" class="container-fluid hidden">
-            <div class="row">
-                <div class="col-md-6 left-section">
-                    <div class="box-wrapper">
-                        <div class="box-design">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="/images/JarvisImg.png" alt="">
-                                </div>
-                                <div class="col-md-10">
-                                    The Realtime Canvas feature on Leonardo.ai is one of our absolute favorites! It allows users to interactively create and edit their designs in real time. Combining the power of AI with manual control, users can adjust, modify, or enhance their creations as they think, bringing their creativity to life! <br><br>
-                                    Either start sketching on the canvas from scratch using a brush, or upload your initial sketch or reference image. Use tools within the canvas and text prompts to continuously transform your idea into a final design within minutes.
-                                </div>
-                            </div>     
+            </div>
+    
+            <div id="content-5" class="container-fluid hidden">
+                <div class="row">
+                    <div class="col-md-6 left-section">
+                        <div class="box-wrapper">
+                            <div class="box-design">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="/images/JarvisImg.png" alt="">
+                                    </div>
+                                    <div class="col-md-10">
+                                        The Realtime Canvas feature on Leonardo.ai is one of our absolute favorites! It allows users to interactively create and edit their designs in real time. Combining the power of AI with manual control, users can adjust, modify, or enhance their creations as they think, bringing their creativity to life! <br><br>
+                                        Either start sketching on the canvas from scratch using a brush, or upload your initial sketch or reference image. Use tools within the canvas and text prompts to continuously transform your idea into a final design within minutes.
+                                    </div>
+                                </div>     
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="col-md-6 right-section">
-                    <iframe style="padding: 1% 0;" width="100%" height="450px" src="https://www.youtube.com/embed/Ad7in0tXs9U" title="Realtime Canvas Tutorial | Leonardo.Ai" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                    <div class="submit-button">
-                        <button id="step-5-submit" class="btn btn-warning">PROCEED</button>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
-        <div id="content-6" class="container-fluid hidden">
-            <div class="row">
-                <div class="col-8">
-                    <h2 class="text-left" style="padding-left: 4.5%; color: #FFD977;"><b>Submit your Idea</b></h2>
-                </div>
-                <div class="col-4 text-right" style="padding-right: 2.5%;">
-                    <button id="viewSampleButton" class="btn btn-outline-warning">VIEW SAMPLE</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 left-section">
-                    <div class="form-group">
-                        <label for="context">Submission Title
-                        </label>
-                        <textarea class="form-control" id="context" rows="3"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="problemDefinition">Problem Definition</label>
-                        <textarea class="form-control" id="problemDefinition" rows="3"></textarea>
+                    
+                    <div class="col-md-6 right-section">
+                        <iframe style="padding: 1% 0;" width="100%" height="450px" src="https://www.youtube.com/embed/Ad7in0tXs9U" title="Realtime Canvas Tutorial | Leonardo.Ai" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+                        <div class="submit-button">
+                            <button id="step-5-submit" class="btn btn-warning">PROCEED</button>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="proposedSolution">Proposed Solution</label>
-                        <textarea class="form-control" id="proposedSolution" rows="3"></textarea>
+                </div>
+            </div>
+    
+            <div id="content-6" class="container-fluid hidden">
+                <div class="row">
+                    <div class="col-8">
+                        <h2 class="text-left" style="padding-left: 4.5%; color: #FFD977;"><b>Submit your Idea</b></h2>
+                    </div>
+                    <div class="col-4 text-right" style="padding-right: 2.5%;">
+                        <button id="viewSampleButton" class="btn btn-outline-warning">VIEW SAMPLE</button>
                     </div>
                 </div>
-        
-                <div class="col-md-6 right-section">
-                    <div class="form-group">
-                        <label for="alpacaPrompt">Final Prompt</label>
-                        <textarea class="form-control" id="alpacaPrompt" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="sideBySideImage" style="margin-top: 1.5%;">AI Generated Image </label>
-                        <div class="container img-container">
-                            <img class="sampleImg hidden" src="/images/alpacaImg.png" alt="">
-                            <input type="file" id="playerImage" name="playerImage" accept="image/*">
+    
+                <div class="row">
+                    <div class="col-md-6 left-section">
+                        <div class="form-group">
+                            <label for="context">Submission Title
+                            </label>
+                            <textarea class="form-control" id="context" rows="3"></textarea>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="problemDefinition">Problem Definition</label>
+                            <textarea class="form-control" id="problemDefinition" rows="3"></textarea>
                         </div>
                         
+                        <div class="form-group">
+                            <label for="proposedSolution">Proposed Solution</label>
+                            <textarea class="form-control" id="proposedSolution" rows="3"></textarea>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6 right-section">
+                        <div class="form-group">
+                            <label for="alpacaPrompt">Final Prompt</label>
+                            <textarea class="form-control" id="alpacaPrompt" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="sideBySideImage" style="margin-top: 1.5%;">AI Generated Image </label>
+                            <div class="container img-container">
+                                <img class="sampleImg hidden" src="/images/alpacaImg.png" alt="">
+                                <input type="file" id="playerImage" name="playerImage" accept="image/*">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-4" style="padding-left: 4%;">
+                        <button id="backButton" class="btn btn-outline-warning float-left">BACK</button>
+                    </div>
+                    <div class="col-md-4" style="text-align: center; padding-top: 1%;">
+                        <small class="footer">Top 10 ideas chosen by a panel of judges will receive swags from Purdue Online!</small>
+                    </div>
+                    <div class="col-md-4" style="padding-right: 2.5%;">
+                        <button id="step-6-submit" class="btn btn-warning float-right">SUBMIT</button>
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-4" style="padding-left: 4%;">
-                    <button id="backButton" class="btn btn-outline-warning float-left">BACK</button>
-                </div>
-                <div class="col-md-4" style="text-align: center; padding-top: 1%;">
-                    <small class="footer">Top 10 ideas chosen by a panel of judges will receive swags from Purdue Online!</small>
-                </div>
-                <div class="col-md-4" style="padding-right: 2.5%;">
-                    <button id="step-6-submit" class="btn btn-warning float-right">SUBMIT</button>
-                </div>
-            </div>
-        </div>
-
+    
+        </section>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -547,6 +573,17 @@
     <script>
         let activeButtonId = 1;
         let sampleActive = false;
+
+        window.addEventListener('load', () => {
+            const video = document.getElementById('vid-1');
+            video.muted = false; // Unmute the video when the page loads
+            video.play(); // Ensure the video continues to play if needed
+        });
+
+        document.getElementById("clickheretobegin").addEventListener('click', function(event) {
+                document.querySelector(".cutscene").classList.add("hidden");
+                document.querySelector(".level").classList.remove("hidden");
+            }, { once: true });
 
         function setActive(button) {
             var buttons = document.querySelectorAll('.button');
