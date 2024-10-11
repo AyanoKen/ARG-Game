@@ -35,11 +35,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
               "One of the words describes AI's potential for prejudiced output."
     ];
 
-    window.addEventListener('load', () => {
-        const video = document.getElementById('vid-1');
-        video.muted = false; // Unmute the video when the page loads
-        video.play(); // Ensure the video continues to play if needed
-    });
+    const video = document.getElementById('vid-1');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused || video.ended) {
+                video.play();
+                playPauseBtn.style.display = 'none';
+
+                playPauseBtn.classList.add("hidden");
+                video.classList.remove("hidden");
+            }
+        });
 
     crosswordLayout.forEach((row, rowIndex) => {
         row.forEach((cell, cellIndex) => {

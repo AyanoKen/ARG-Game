@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
@@ -57,7 +58,7 @@
                     <div class="content-wrapper">
                         <div class="content">
                             <h1>The Purdue community has been rattled by the sudden disappearance of Professor Xander, director of the PEARL Lab.</h1>
-                            <a href="/login" class="btn btn-warning">JOIN THE HUNT</a>
+                            <a href="/login" class="btn btn-warning"><b>JOIN THE HUNT</b></a>
                         </div>
                     </div>
                 </section>
@@ -67,7 +68,7 @@
                     <div class="content-wrapper">
                         <div class="content">
                             <h1>Follow the clues and piece together the mystery of Professor Xander's disappearance and the future of AI at Purdue.</h1>
-                            <a href="/lab" class="btn btn-warning">EXPLORE LAB</a>
+                            <a href="/lab" class="btn btn-warning"><b>EXPLORE LAB</b></a>
                         </div>
                     </div>
                 </section> 
@@ -77,7 +78,7 @@
                     <div class="content-wrapper">
                         <div class="content">
                             <h1>Envision the future of Purdue with AI integrated across campus transforming education and Purdue itself.</h1>
-                            <a href="/community" class="btn btn-warning">VIEW COMMUNITY</a>
+                            <a href="/community" class="btn btn-warning"><b>VIEW COMMUNITY</b></a>
                         </div>
                     </div>
                 </section>
@@ -147,12 +148,32 @@
         </div>
     </section>
 
+    <section class="footer">
+        <div class="container-fluid" style="padding-bottom: 2%;">
+            <h1>Join <b>Mission Renaissance</b> to solve Professor Xander's mystery!</h1>
+        </div>
+
+        <div style="text-align: center; background-color: black;">
+            <a style="padding: 0 1%;" href="https://github.com/AyanoKen"><i class="fab fa-instagram" style="color: #FFD977; font-size: 3rem;"></i></a>
+            <a style="padding: 0 1%;" href="https://github.com/AyanoKen"><i class="fab fa-discord" style="color: #FFD977; font-size: 3rem;"></i></a>
+            
+            <div style="padding: 2% 0;">
+
+            </div>
+        </div>
+    </section>
+
     <% if (!user) { %>
         <div class="sticky-bar">
             <span>Join the hunt and help solve the mystery of Professor Emily Xander disappearance!</span>
             <a href="/auth/google" class="btn btn-primary">Sign Up</a>
         </div>
     <% } %>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

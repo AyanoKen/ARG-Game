@@ -27,3 +27,13 @@
     font-family: Michroma;
     src: url("../fonts/Michroma/Michroma-Regular.ttf");
 }
+
+@font-face {
+    font-family: Questrial;
+    src: url("../fonts/Questrial/Questrial-Regular.ttf");
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url("../fonts/Poppins/Poppins-Medium.ttf");
+}

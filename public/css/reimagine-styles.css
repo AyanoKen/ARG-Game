@@ -3,6 +3,8 @@ body {
     background: linear-gradient(0deg, rgba(11,1,33,1) 0%, rgba(41,14,79,1) 100%);
     color: white;
     font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-color: #0B0121;
 }
 
 img{

@@ -107,3 +107,21 @@
 .hidden {
     display: none !important;
 }
+
+.cutscene .col-md-2 {
+    text-align: end;
+    align-content: space-around;
+}
+
+#playPauseBtn {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: right;
+}
+
+#playPauseBtn img {
+    width: 75%;
+}

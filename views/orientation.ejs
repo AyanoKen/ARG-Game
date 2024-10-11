@@ -24,9 +24,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2">
-                    <video id="vid-1" width="320" height="240" autoplay muted controls="false">
+                    <video id="vid-1" width="320" height="240" class="hidden">
                         <source src="/images/01.webm" type="video/webm">
                     </video>
+
+                    <button id="playPauseBtn">
+                        <img src="/images/Play Button_Jarvis.png" alt="">
+                    </button>
                 </div>
                 <div id="clickheretobegin" class="col-md-10">
                     <img src="/images/01 Onboarding.png" alt="">
@@ -312,10 +316,18 @@
 
         const userId = '<%= userId %>';
 
-        window.addEventListener('load', () => {
-            const video = document.getElementById('vid-1');
-            video.muted = false; // Unmute the video when the page loads
-            video.play(); // Ensure the video continues to play if needed
+        const video = document.getElementById('vid-1');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused || video.ended) {
+                video.play();
+                playPauseBtn.style.display = 'none';
+
+                playPauseBtn.classList.add("hidden");
+                video.classList.remove("hidden");
+            }
         });
 
         document.addEventListener('DOMContentLoaded', () => {

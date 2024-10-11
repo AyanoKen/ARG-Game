@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Outfit;
     background-color: #000000;
     color: #FFD977;
     margin: 0;
@@ -18,6 +18,7 @@ body {
 .navbar {
     box-shadow: 0 0 0px 4px #DEC5FF;
     z-index: 5;
+    font-family: Lexend;
 }
 
 .navbar-brand{
@@ -100,14 +101,17 @@ body {
 .stat-card h1{
     font-size: 2rem;
     font-weight: bold;
+    font-family: Lexend-Deca;
 }
 
 .stat-card h2 {
     font-size: 4rem;
+    font-family: Library;
 }
 
 .stat-card h3{
     font-size: 1.6rem;
+    font-family: Lexend-Deca;
 }
 
 .innovate-card,
@@ -173,6 +177,7 @@ body {
 
 #myTab {
     margin-bottom: 2%;
+    font-family: Lexend;
 }
 
 .tab-content h3{
@@ -195,4 +200,18 @@ body {
 
 #myTab .nav-link {
     color: white;
+}
+
+.footer .container-fluid {
+    background-color: black;
+    margin-top: 4%;
+    padding: 4%;
+    box-shadow: 0 0 30px 0.5px #FFD977;
+}
+
+.footer h1 {
+    color: #FFD977;
+    text-align: center;
+    font-size: 2rem;
+    font-family: Poppins;
 }
