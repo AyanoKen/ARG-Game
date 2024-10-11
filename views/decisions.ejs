@@ -595,18 +595,24 @@
                 </div>
             </div>
         
-            <div id="content-5" class="hidden">
-                <video id="vid-1" width="320" height="240" autoplay="autoplay" controls="false">
-                    <source src="/images/Transparent.webm" type="video/webm">
-                  </video>
-            </div>
-        
-            <div id="content-6" class="hidden">
-        
-            </div>
-        
-            <div id="content-7" class="hidden">
-        
+            <div id="content-5" class="hidden" style="text-align: center;">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <img style="width: 40%; margin-left: 50%; margin-top: 6%;" src="/images/JarvisImg.png" alt="">
+                    </div>
+                    <div class="col-md-10 d-flex align-items-center justify-content-end">
+                        <h1 class="text-left">Creating an AI model involves teaching a computer to make decisions from data. To demonstrate its application within education, we will create a model that uses student data to predict their academic performances, progressing through several key stages as detailed below.</h1>
+                    </div>
+                </div>
+
+                <video id="vid-1" width="60%" autoplay="autoplay" controls="false" style="margin-top: 2%;">
+                    <source src="/images/Curated_Model.mp4" type="video/mp4">
+                </video>
+
+                <div class="submit-button btn-container">
+                    <button id="step-5-submit" class="btn btn-warning" style="margin-right: 10%;">END LEVEL</button>
+                </div>
             </div>
         </div>
     </section>
@@ -759,6 +765,10 @@
 
             document.getElementById('vid-1').play();
             document.getElementById('vid-1').style.pointerEvents ='none';
+        });
+
+        document.getElementById('step-5-submit').addEventListener('click', function() {
+            window.location.href = '/levels';
         });
 
         document.getElementById('vid-1').addEventListener('ended',myHandler,false);

@@ -62,7 +62,17 @@
         </header>
     
         <div class="content">
-            <div id="content-1">
+            <section class="video" style="text-align: center;">
+                <video id="vid-1" width="60%" autoplay="autoplay" controls="false" style="margin-top: 2%;">
+                    <source src="/images/EthicalEchoes.mp4" type="video/mp4">
+                </video>
+
+                <div class="text-center" style="margin-top: 4%;">
+                    <button id="begin-button-0" class="btn btn-warning">BEGIN LEVEL</button>
+                </div>
+            </section>
+
+            <div id="content-1" class="hidden">
                 <section class="intro-section">
                     <div class="container-fluid">
     
@@ -412,6 +422,12 @@
                 document.querySelector(".cutscene").classList.add("hidden");
                 document.querySelector(".level").classList.remove("hidden");
             }, { once: true });
+
+            document.getElementById('begin-button-0').addEventListener('click', () => {
+                
+                document.querySelector('#content-1').classList.remove('hidden');
+                document.querySelector('.video').classList.add("hidden");
+            });
 
             document.getElementById('begin-button-1').addEventListener('click', () => {
                 
