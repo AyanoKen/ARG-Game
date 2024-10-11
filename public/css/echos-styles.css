@@ -294,3 +294,9 @@ button {
     font-family: Montserrat;
     margin-bottom: 2%;
 }
+
+#badgeName {
+    font-family: Library;
+    color: #FFD977;
+    font-size: 3rem;
+}

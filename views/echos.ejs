@@ -370,9 +370,15 @@
             </div>
     
             <div class="end-screen hidden">
+
+                <img src="/images/BadgeUnlock.png" alt="" style="width: 15%;">
+
                 <div class="end-img">
+                    
                     <img id="badgeImg" src="/images/dudley.jpeg" alt="">
                 </div>
+
+                <h1 id="badgeName" ></h1>
     
                 <div class="row end-text">
                     <div class="col-md-1">
@@ -384,7 +390,7 @@
                 </div>
     
                 <div class="submit-button btn-container">
-                    <a href="/levels" class="btn btn-warning" style="margin-right: 10%;">PROCEED</a>
+                    <a href="/levels" class="btn btn-warning" style="margin-right: 10%;">END LEVEL</a>
                 </div>
             </div>
         </div>
@@ -524,6 +530,7 @@
                 .then(data => {
                     document.querySelector("#badgeImg").src = '/images/' + data.badgeName + '_avatar.png';
                     document.querySelector("#badgeDetail").textContent = data.badgeDetail;
+                    document.querySelector("#badgeName").textContent = data.badgeName + "PROFILE";
                 })
 
                 document.getElementById('content-5').classList.add('hidden');

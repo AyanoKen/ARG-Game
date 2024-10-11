@@ -1,3 +1,5 @@
 .env
 /node_modules
 /node_modules
+public/images/Intro Video.mp4
+*.mp4

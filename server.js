@@ -788,7 +788,7 @@ app.post('/echos/submit', async (req, res) => {
 
 app.get('/chapters', (req, res) => {
     if(req.isAuthenticated()){
-        res.render('chapters', {user: req.user});
+        res.render('chapters', {user: req.user, currentLevel: req.user.currentLevel});
     }else{
         res.redirect('/login');
     }

@@ -26,8 +26,8 @@ const userSchema = new mongoose.Schema({
     },
     levelCompletionDates: {
         type: Map,
-        of: String,  // This will store the completion date as a string
-        default: {1:"2024-07-21", 2: "2024-07-21"}
+        of: String,
+        default: {0: "2024-07-21"}
     },
     playerTroop:{
         type: String,

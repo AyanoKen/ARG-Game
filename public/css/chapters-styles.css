@@ -75,7 +75,7 @@ body img{
 }
 
 .info-section{
-    padding: 4%;
+    padding: 4% 0;
     text-align: center;
 }
 
@@ -112,4 +112,8 @@ body img{
 
 .carousel img{
     width: 75%;
+}
+
+.hidden {
+    display: none;
 }

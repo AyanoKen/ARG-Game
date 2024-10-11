@@ -66,16 +66,63 @@
                             <div id="scenario-1" class="carousel slide carousel-fade text-center" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="/images/echos/S1-1.png" alt="">
+                                        <video width="80%" controls="false">
+                                            <source src="/images/Intro Video.mp4" type="video/mp4">
+                                        </video>
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="/images/echos/S1-2.png" alt="">
+                                        <% if (currentLevel >= 1) { %>
+                                            <video width="80%" controls="false">
+                                                <source src="/images/Chapter 1.mp4" type="video/mp4">
+                                            </video>
+                                        <% } else { %>
+                                            <img src="/images/Chapter 01 Locked.png" alt="">
+                                        <% } %>
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="/images/echos/S1-3.png" alt="">
+                                        <% if (currentLevel >= 2) { %>
+                                            <video width="80%" controls="false">
+                                                <source src="/images/Chapter 2.mp4" type="video/mp4">
+                                            </video>
+                                        <% } else { %>
+                                            <img src="/images/Chapter 02 Locked.png" alt="">
+                                        <% } %>
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="/images/echos/S1-4.png" alt="">
+                                        <% if (currentLevel >= 3) { %>
+                                            <video width="80%" controls="false">
+                                                <source src="/images/Chapter 3.mp4" type="video/mp4">
+                                            </video>
+                                        <% } else { %>
+                                            <img src="/images/Chapter 03 Locked.png" alt="">
+                                        <% } %>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <% if (currentLevel >= 6) { %>
+                                            <video width="80%" controls="false">
+                                                <source src="/images/Chapter 4.mp4" type="video/mp4">
+                                            </video>
+                                        <% } else { %>
+                                            <img src="/images/Chapter 04 Locked.png" alt="">
+                                        <% } %>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <% if (currentLevel >= 7) { %>
+                                            <video width="80%" controls="false">
+                                                <source src="/images/Chapter 5.mp4" type="video/mp4">
+                                            </video>
+                                        <% } else { %>
+                                            <img src="/images/Chapter 05 Locked.png" alt="">
+                                        <% } %>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <% if (currentLevel >= 7) { %>
+                                            <video width="80%" controls="false">
+                                                <source src="/images/Final Video.mp4" type="video/mp4">
+                                            </video>
+                                        <% } else { %>
+                                            <img src="/images/Chapter 06 Locked.png" alt="">
+                                        <% } %>
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-target="#scenario-1" data-slide="prev">
@@ -88,7 +135,7 @@
                                 </button>
                             </div>
                             
-                            <h1>SCENARIO 1</h1>
+                            
                             
                         </div>
                     </div>
