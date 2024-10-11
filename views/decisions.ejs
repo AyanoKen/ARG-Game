@@ -606,7 +606,7 @@
                     </div>
                 </div>
 
-                <video id="vid-1" width="60%" autoplay="autoplay" controls="false" style="margin-top: 2%;">
+                <video id="vid-1" width="60%" controls="false" style="margin-top: 2%;">
                     <source src="/images/Curated_Model.mp4" type="video/mp4">
                 </video>
 
@@ -768,7 +768,18 @@
         });
 
         document.getElementById('step-5-submit').addEventListener('click', function() {
-            window.location.href = '/levels';
+            fetch('/decisions/complete', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message === 'Troop and avatar updated') {
+                            console.log("Updated user");
+                            window.location.href = '/levels';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
         });
 
         document.getElementById('vid-1').addEventListener('ended',myHandler,false);

@@ -733,6 +733,39 @@ app.get('/decisions', (req, res) => {
     }
 });
 
+app.post('/decisions/complete', async (req, res) => {
+    const userId = req.user.googleId;
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const formattedToday = dd + '-' + mm + '-' + yyyy;
+    try {
+        const updates = {
+            'levelCompletionDates.2': formattedToday
+        }
+
+        const result = await User.findOneAndUpdate(
+            { googleId: String(userId) },
+            { currentLevel: 8, $push: {completedLevels: 2, unlockedLevels: 3}, $set: updates },
+            { new: true }
+        );
+        
+        if (!result) {
+            console.log('User not found or update failed.');
+        } else{
+            console.log('User is updated');
+        }
+        res.status(200).send({ message: 'Troop and avatar updated' });
+    } catch (error) {
+        res.status(500).send({ message: 'Error updating troop and avatar' });
+    }
+});
+
 app.get('/echos', (req, res) => {
     if(req.isAuthenticated()){
         res.render('echos', {user: req.user});
