@@ -4,7 +4,7 @@ html, body {
     background-repeat: no-repeat;
     background-color: #0B0121;
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: Outfit;
     margin: 0;
     padding: 0.5%;
     height: 100%;
@@ -47,9 +47,8 @@ p{
 
 .title h1{
     font-size: 1.8rem;
-    color: transparent; /* Text color transparent for the hollow effect */
-    -webkit-text-stroke: 1px #ffcc00; /* Gold-like color for the number */
-    font-weight: bold;
+    font-family: Library;
+    color: #FFD977;
 }
 
 .navbar-nav a {
@@ -308,6 +307,7 @@ p{
     color: #FFF;
     padding-left: 4%;
     padding-right: 4%;
+    font-family: Michroma;
 }
 
 #content-5 .left-section {
@@ -394,4 +394,12 @@ p{
 
   #content-5 .left-section {
     padding-left: 1%;
+  }
+
+  button {
+    font-family: Montserrat;
+  }
+
+  .tabs .col-md-2 {
+    padding: 0;
   }
