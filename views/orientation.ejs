@@ -291,7 +291,7 @@
             
             <div class="container">
                 <div class="btn-container" style="margin-bottom: 4%;">
-                    <a href="/playerinfo" class="btn btn-warning" style="font-family: Lexend;">Next</a>
+                    <a href="/chapters" class="btn btn-warning" style="font-family: Lexend;">Next</a>
                 </div>
                 
             </div>
@@ -340,6 +340,7 @@
             document.getElementById("clickheretobegin").addEventListener('click', function(event) {
                 document.querySelector(".cutscene").classList.add("hidden");
                 document.querySelector(".level").classList.remove("hidden");
+                video.muted = true;
             }, { once: true });
 
             beginButton.addEventListener('click', () => {

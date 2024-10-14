@@ -373,6 +373,7 @@
             document.getElementById("clickheretobegin").addEventListener('click', function(event) {
                 document.querySelector(".cutscene").classList.add("hidden");
                 document.querySelector(".level").classList.remove("hidden");
+                video.muted = true;
             }, { once: true });
 
             function handleAnswerClick(event) {

@@ -135,6 +135,7 @@
             document.getElementById("clickheretobegin").addEventListener('click', function(event) {
                 document.querySelector(".cutscene").classList.add("hidden");
                 document.querySelector(".level").classList.remove("hidden");
+                document.getElementById('vid-1').muted = true;
             }, { once: true });
         });
     </script>

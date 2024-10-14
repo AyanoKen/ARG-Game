@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
               "One of the words describes AI's potential for prejudiced output."
     ];
 
-    const video = document.getElementById('vid-1');
+        const video = document.getElementById('vid-1');
         const playPauseBtn = document.getElementById('playPauseBtn');
 
         // Play/Pause functionality

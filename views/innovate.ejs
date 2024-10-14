@@ -596,6 +596,7 @@
         document.getElementById("clickheretobegin").addEventListener('click', function(event) {
                 document.querySelector(".cutscene").classList.add("hidden");
                 document.querySelector(".level").classList.remove("hidden");
+                video.muted = true;
             }, { once: true });
 
         function setActive(button) {
@@ -684,7 +685,7 @@
             .then(data => {
                 console.log('Success:', data);
                 window.alert("Your submission has been recorded! We will review it before publishing it live to the Community Section. Thank you.");
-                window.location.href = '/levels';
+                window.location.href = '/chapters';
             })
             .catch((error) => {
                 console.error('Error:', error);

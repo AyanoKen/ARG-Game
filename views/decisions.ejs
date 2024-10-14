@@ -672,6 +672,7 @@
         document.getElementById("clickheretobegin").addEventListener('click', function(event) {
                 document.querySelector(".cutscene").classList.add("hidden");
                 document.querySelector(".level").classList.remove("hidden");
+                video.muted = true;
             }, { once: true });
 
         images.forEach(image => {
@@ -776,7 +777,7 @@
                     .then(data => {
                         if (data.message === 'Troop and avatar updated') {
                             console.log("Updated user");
-                            window.location.href = '/levels';
+                            window.location.href = '/chapters';
                         }
                     })
                     .catch(error => console.error('Error:', error));

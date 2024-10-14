@@ -307,8 +307,13 @@ app.get('/levels', async (req, res) => {
 //Crossword Puzzle
 app.get('/crossword', (req, res) =>{
     if(req.isAuthenticated()){
-        req.session.crosswordCount = 0;
-        res.render("crossword", {user: req.user});
+        if(req.user.currentLevel ==3){
+            req.session.crosswordCount = 0;
+            res.render("crossword", {user: req.user});
+        } else {
+            res.redirect("/levels");
+        }
+        
     } else{
         res.redirect("/login");
     }
@@ -386,7 +391,12 @@ app.post('/check', (req, res) => {
 
 app.get('/orientation', (req, res) => {
     if(req.isAuthenticated()){
-        res.render('orientation', {user: req.user, userId: req.user.googleId});
+        if (req.user.currentLevel == 0){
+            res.render('orientation', {user: req.user, userId: req.user.googleId});
+        } else {
+            res.redirect('/levels');
+        }
+        
     }else{
         res.redirect('/login');
     }
@@ -658,7 +668,11 @@ app.post('/reimagine/step6', upload.single('playerImage'), async (req, res) => {
 
 app.get('/recognition', (req, res) => {
     if(req.isAuthenticated()){
-        res.render('recognition', {user: req.user});
+        if (req.user.currentLevel ==7){
+            res.render('recognition', {user: req.user});
+        }else {
+            res.redirect('/levels');
+        }
     }else{
         res.redirect('/login');
     }
@@ -727,7 +741,12 @@ app.post('/recognition/complete', async (req, res) => {
 
 app.get('/decisions', (req, res) => {
     if(req.isAuthenticated()){
-        res.render('decisions', {user: req.user});
+        if (req.user.currentLevel ==2){
+            res.render('decisions', {user: req.user});
+        } else{
+            res.redirect('/levels');
+        }
+        
     }else{
         res.redirect('/login');
     }
@@ -751,7 +770,7 @@ app.post('/decisions/complete', async (req, res) => {
 
         const result = await User.findOneAndUpdate(
             { googleId: String(userId) },
-            { currentLevel: 8, $push: {completedLevels: 2, unlockedLevels: 3}, $set: updates },
+            { currentLevel: 3, $push: {completedLevels: 2, unlockedLevels: 3}, $set: updates },
             { new: true }
         );
         
@@ -768,7 +787,11 @@ app.post('/decisions/complete', async (req, res) => {
 
 app.get('/echos', (req, res) => {
     if(req.isAuthenticated()){
-        res.render('echos', {user: req.user});
+        if (req.user.currentLevel ==6) {
+            res.render('echos', {user: req.user});
+        } else {
+            res.redirect('/levels');
+        }
     }else{
         res.redirect('/login');
     }
@@ -866,9 +889,9 @@ app.get('/community', async (req, res) => {
         res.redirect('/');
     }
 
-    const innovatePosts = communityPosts ? communityPosts.innovatePosts : [];
-    const reimaginePosts = communityPosts ? communityPosts.reimaginePosts : [];
-    const addProjectPosts = communityPosts ? communityPosts.addProjectPosts : [];
+    const innovatePosts = communityPosts ? communityPosts.innovatePosts.reverse() : [];
+    const reimaginePosts = communityPosts ? communityPosts.reimaginePosts.reverse() : [];
+    const addProjectPosts = communityPosts ? communityPosts.addProjectPosts.reverse() : [];
 
     const troopCounts = {
         Tempus: 0,

@@ -390,7 +390,7 @@
                 </div>
     
                 <div class="submit-button btn-container">
-                    <a href="/levels" class="btn btn-warning" style="margin-right: 10%;">END LEVEL</a>
+                    <a href="/chapters" class="btn btn-warning" style="margin-right: 10%;">END LEVEL</a>
                 </div>
             </div>
         </div>
@@ -427,6 +427,7 @@
             document.getElementById("clickheretobegin").addEventListener('click', function(event) {
                 document.querySelector(".cutscene").classList.add("hidden");
                 document.querySelector(".level").classList.remove("hidden");
+                video.muted = true;
             }, { once: true });
 
             document.getElementById('begin-button-0').addEventListener('click', () => {
