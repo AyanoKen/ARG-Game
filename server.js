@@ -381,7 +381,9 @@ app.post('/check', (req, res) => {
     const correctAnswer = answersLayout[row][cell].toUpperCase();
     
 
-    const result = correctAnswer === answer.toUpperCase();
+    const cleanedAnswer = answer.trim(); // Trim whitespace
+
+    const result = correctAnswer === cleanedAnswer.toUpperCase();
 
     if(result){
         req.session.crosswordCount++;
